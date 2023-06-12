@@ -1,0 +1,13 @@
+#+title: Mindmap
+#+date: <2023-06-11 Sun>
+#+author: Preston Pan
+#+description: My online journal
+#+language: en
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: broken-links:t
+
+* Mindmap!!
+It's really hard to explain the mindmap until you
+experience it. you should totally go to https://ret2pop.nullring.xyz/mindmap/index.html
+instead of being here. That way, you get to experience it in all its beauty!
+And you get to learn the rules.

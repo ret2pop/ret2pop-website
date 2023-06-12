@@ -1,0 +1,13 @@
+#+title: Configurations
+#+author: Preston Pan
+#+date: <2023-06-11 Sun>
+#+language: en
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: broken-links:t
+
+* My Literate Configs
+If you're reading this, you're most likely on github.
+If you are: what are you doing on github when you can go
+on the best website, https://ret2pop.nullring.xyz, instead?
+Anyway, I use programs that have configurations that allow
+for flexibility, and that is therefore what you will see here.

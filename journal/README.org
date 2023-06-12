@@ -1,0 +1,15 @@
+#+title: Journal
+#+author: Preston Pan
+#+date: <2023-06-11 Sun>
+#+description: My online journal
+#+language: en
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: broken-links:t
+
+* My Journal
+If you're reading this, you're most likely
+on github. Sad! You should just be on
+https://ret2pop.nullring.xyz instead, forever!
+
+Anyway, these journals are not personal journal
+entries; they are limited to technical matters.
