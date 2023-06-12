@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       1b1a8cff-1d20-4689-8466-ea88411007d7
+:END:
+#+title: duality
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+date: <2023-06-10 Sat>
+* One or Two?
+This is placeholder text.

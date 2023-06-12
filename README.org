@@ -1,0 +1,25 @@
+#+title: ret2pop
+#+author: Preston Pan
+#+date: <2023-06-11 Sun>
+#+description: My website for all things.
+#+options: num:nil broken-links:t tex:dvipng
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+
+* What is this?
+It's ret2pop! My website for all things math. Wait, no. Computer science.
+Music. Okay, let me try that again.
+
+It's ret2pop! My website for all things.
+
+** Sounds awesome! But why is it written in org instead of html?
+Because I have converted to the church of emacs. Remember:
+anything and everything that can be rewritten in org, can and should
+be rewritten in org.
+*** so how did you actually do that?
+By using the ~org-publish~ function, ~org-roam~, and ~org-journal~,
+as well as writing a lot of things with a literate config.
+** So, where is this website of yours located?
+https://ret2pop.nullring.xyz, it is the road to enlightenment.
+
+* License
+See the [[file:LICENSE.org][license]]. The style.css has its own license.

@@ -1,0 +1,55 @@
+#+title: Fish RC File
+#+author: Preston Pan
+#+date: <2023-06-09 Fri>
+#+description: My fish shell configuration.
+
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+
+* Configuration
+** Environment Variables
+We define our path and also some environment variables. Since
+I use guix as one of my package managers, I set GUIX_LOCPATH.
+Also, I have a ~/.local/bin directory where I keep my scripts.
+#+begin_src fish :tangle config.fish
+fish_add_path -m ~/.local/bin
+fish_add_path -m ~/gems/bin
+fish_add_path -m ~/.local/share/gem/ruby/3.0.0/bin
+set -x GUIX_LOCPATH $HOME/.guix-profile/lib/locale
+set -x GEM_HOME "~/gems"
+#+end_src
+** Aliases
+Now we define some aliases:
+*** Git
+We want to define aliases only if we call fish as an interactive shell.
+We also define some common aliases for git commands:
+#+begin_src fish :tangle config.fish
+if status is-interactive
+    alias gcl="git clone"
+    alias gp="git push"
+    alias gpu="git pull"
+    alias gcm="git commit"
+#+end_src
+*** Pacman
+Now we define aliases for commonly used pacman commands in the form
+of the paru aur helper:
+#+begin_src fish :tangle config.fish
+    alias p="paru -S"
+    alias pq="paru -sS"
+    alias pd="paru -Rncs"
+    alias syncweb="rsync -uvrP --delete-after website_html/ root@nullring.xyz:/var/www/ret2pop/"
+#+end_src
+*** Misc.
+These are generally useful commands. Since I use mbsync, I wrote an alias
+for it.
+#+begin_src fish :tangle config.fish
+    alias c="clear"
+    alias l="ls -a"
+    alias mkdir="mkdir -pv"
+    alias syncmail="mbsync -c ~/.config/doom/mbsyncrc prestonpan"
+#+end_src
+** Vi Mode
+Now we want to use vi mode because it is better.
+#+begin_src fish :tangle config.fish
+    fish_vi_key_bindings
+end
+#+end_src

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       aed6b5dc-c2ec-4e8c-b793-538cd5d6e355
+:END:
+#+title: factorial
+#+author: Preston Pan
+#+options: num:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+options: tex:dvipng

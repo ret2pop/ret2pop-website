@@ -1,0 +1,21 @@
+#+title: Mindmap
+#+author: Preston Pan
+#+date: <2023-06-10 Sat>
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+
+* Introducing: the Mindmap
+Do you want to know everything like me and be a smart person instead of dumb?
+Well, you've come to the right place! 👍
+
+** What is this?
+It's a place that hopes to explain *EVERYTHING!!*
+** Isn't that unrealistic?
+I answer that in my [[file:everything.org][mindmap]]! It has all the answers!
+** Doesn't it have to explain itself?
+Yeah, we answered that one too. Just read the [[file:everything.org][mindmap]].
+** Batteries included?
+No, it's a mindmap you fucking idiot.
+* Rules
+- Don't use the back button on your browser
+- Everything here is going to be a link to another mindmap page.
+- Therefore, if there is a page you want to go back to, you must navigate until you find a loop back to the original page.

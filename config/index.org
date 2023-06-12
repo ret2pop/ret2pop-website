@@ -1,0 +1,27 @@
+#+title: Configurations
+#+author: Preston Pan
+#+date: <2023-06-10 Sat>
+#+language: en
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: broken-links:t
+* What is this magic?
+They're configurations for extremely obscure programs I use. Yeah, I know, I'm somewhat of a hipster myself.
+** Configurations
+Here is a list of my configurations for various programs:
+#+begin_src shell :results output raw :exports both
+for f in *;
+do
+    if [[ "$f" == "index.org" ]]; then
+        continue
+    fi
+    printf -- "- [[file:$f][$f]]\n"
+done
+#+end_src
+
+#+RESULTS:
+- [[file:doom.org][doom.org]]
+- [[file:elfeed.org][elfeed.org]]
+- [[file:fish.org][fish.org]]
+- [[file:kmonad.org][kmonad.org]]
+- [[file:qtile.org][qtile.org]]
+- [[file:qutebrowser.org][qutebrowser.org]]

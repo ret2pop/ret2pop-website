@@ -1,0 +1,174 @@
+#+title: Doom Literate Config
+#+author: Preston Pan
+#+date: <2023-06-09 Fri>
+#+description: My doom emacs configuration
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+
+* Configuration
+** Basic Information
+My name, and the org mode directory on my computer, as well as basic editor configuration options.
+Below is the old documentation.
+#+begin_src emacs-lisp :tangle yes
+(setq user-full-name "Preston Pan"
+      user-mail-address "prseton@nullring.xyz")
+
+(setq display-line-numbers-type t)
+
+(setq org-directory "~/org/")
+#+end_src
+- `load!' for loading external *.el files relative to this one
+- `add-load-path!' for adding directories to the `load-path', relative to
+  this file. Emacs searches the `load-path' when you load packages with
+  `require' or `use-package'.
+** Font
+Now we configure fonts:
+#+begin_src emacs-lisp :tangle yes
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 14)
+      doom-unicode-font (font-spec :family "Symbola" :size 14)
+      doom-serif-font (font-spec :family "Fira Sans" :size 14)
+      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 28))
+#+end_src
+** Color Scheme
+I'm using the catppuccin theme, which is available on github.
+#+begin_src emacs-lisp :tangle yes
+(setq doom-theme 'catppuccin)
+(setq catppuccin-flavor 'mocha)
+#+end_src
+** Doom Module and Programs Configuration
+*** IRC
+Set up circe to connect to my bouncer:
+#+begin_src emacs-lisp :tangle yes
+(after! circe
+  (set-irc-server! "nullring.xyz"
+    `(:tls t
+      :port 4095
+      :nick "LiCoO2/AndreiNet"
+      :user "LiCoO2/AndreiNet"
+      :pass ,(+pass-get-secret "ZNC"))))
+#+end_src
+*** Email
+In order to use this configuration, you must install and configure mu and mbsync.
+#+begin_src emacs-lisp :tangle yes
+(setq mu4e-get-mail-command "mbsync --config ~/.config/doom/mbsyncrc prestonpan")
+
+(setq send-mail-function 'smtpmail-send-it)
+(setq smtpmail-smtp-server "mail.nullring.xyz")
+(setq smtpmail-smtp-service 465)
+(setq smtpmail-stream-type 'ssl)
+
+(setq mu4e-drafts-folder "/Drafts")
+(setq mu4e-sent-folder   "/Sent")
+(setq mu4e-trash-folder  "/Trash")
+
+(setq mu4e-html2text-command "w3m -T text/html"
+      mu4e-update-interval 300
+      mu4e-headers-auto-update t
+      mu4e-view-show-images t
+      mu4e-compose-signature-auto-include nil
+      mu4e-use-fancy-chars t)
+(setq mu4e-compose-reply-ignore-address '("no-?reply" "preston@nullring.xyz"))
+#+end_src
+*** RSS
+We need to set up elfeed with a list of rss feeds.
+#+begin_src emacs-lisp :tangle yes
+(after! elfeed
+  (setq elfeed-search-filter "@1-month-ago +unread"))
+(add-hook! 'elfeed-search-mode-hook #'elfeed-update)
+(setq rmh-elfeed-org-files '("~/org/elfeed.org"))
+#+end_src
+*** Music
+In order to use this configuration, you must have mpd configured to use the same directory.
+We automatically connect to mpd.
+#+begin_src emacs-lisp :tangle yes
+(setq emms-player-mpd-music-directory "~/music/")
+(setq emms-player-list '(emms-player-mpd))
+(emms-player-mpd-connect)
+#+end_src
+*** Journal
+First we set the journal to be in the website directory:
+#+begin_src emacs-lisp :tangle yes
+
+(setq org-journal-dir "~/org/website/journal/")
+(setq org-journal-date-format "%A, %d %B %Y")
+#+end_src
+And then we add the headers needed to export the journal automatically:
+#+begin_src emacs-lisp :tangle yes
+(defun org-journal-file-header-func (time)
+  "Custom function to create journal header."
+  (concat
+    (pcase org-journal-file-type
+      (`daily "#+TITLE: Daily Journal\n#+STARTUP: showeverything\n#+DESCRIPTION: My daily journal entry\n#+AUTHOR: Preston Pan\n#+HTML_HEAD: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>")
+      (`weekly "#+TITLE: Weekly Journal\n#+STARTUP: folded")
+      (`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
+      (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
+
+(setq org-journal-file-header 'org-journal-file-header-func)
+(setq org-journal-file-format "%Y%m%d.org")
+#+end_src
+*** Brain
+#+begin_src emacs-lisp :tangle yes
+(setq org-brain-path "~/org/website/brain/")
+#+end_src
+*** Roam
+#+begin_src emacs-lisp :tangle yes
+(setq org-roam-directory (file-truename "~/org/website/mindmap"))
+(setq org-roam-capture-templates '(("d" "default" plain "%?"
+                                    :target (file+head "${title}.org"
+                                                       "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>")
+                                    :unnarrowed t)))
+#+end_src
+*** Publishing
+#+begin_src emacs-lisp :tangle yes
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(("website-org"
+         :base-directory "~/org/website"
+         :base-extension "org"
+         :publishing-directory "~/website_html"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4
+         :auto-preamble t)
+        ("website-static"
+         :base-directory "~/org/website"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/website_html/"
+         :recursive t
+         :publishing-function org-publish-attachment)
+        ("website" :components ("website-org" "website-static"))))
+
+
+#+end_src
+** Keybindings
+Now we set up our keybindings for our applications:
+#+begin_src emacs-lisp :tangle yes
+(map! :leader
+      :desc "Open irc"
+      "i c" #'circe)
+(map! :leader
+      :desc "Open audio manager"
+      "m m" #'emms)
+(map! :leader
+      :desc "Open RSS feed reader"
+      "r s" #'elfeed)
+(map! :leader
+      :desc "Open password manager"
+      "p w" #'ivy-pass)
+#+end_src
+** External Packages
+we want to include some packages that don't come with doom emacs.
+*** KBD-Mode
+kbd-mode allows us to edit kmonad kbd files with syntax highlighting:
+#+begin_src emacs-lisp :tangle yes
+(use-package! kbd-mode)
+#+end_src
+*** Pinentry
+We now set up pinentry for the pass program. We need to set the mode to loopback
+in order to enable emacs to start itself as a pinentry program, and we need to allow
+loopbacks in gpg-agent.conf.
+#+begin_src emacs-lisp :tangle yes
+(use-package! pinentry
+        :init (setq epa-pinentry-mode `loopback)
+               (pinentry-start))
+#+end_src

@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       b005fb71-2a16-40f9-9bb6-29138f4719a2
+:END:
+#+title: emergence
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+
+* Emergence systems are…
+Many things.

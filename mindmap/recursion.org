@@ -1,0 +1,71 @@
+:PROPERTIES:
+:ID:       8f265f93-e5fd-4150-a845-a60ab7063164
+:END:
+#+title: recursion
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+startup: latexpreview
+#+OPTIONS: broken-links:t
+* Recursion is Recursion
+Exactly as I say in the title.
+** but what is recursion?
+Recursion.
+** No, seriously, what is it?
+Self reference.
+** haha, very clever, it's not like that joke has been made 10 million times
+Yeah, but I think it's a good introduction to the subject. You can think of recursion
+as [[id:42dbae12-827c-43c4-8dfc-a2cb1e835efa][self-assembly]] and it has deep connections to topics such as [[id:b005fb71-2a16-40f9-9bb6-29138f4719a2][emergence]]. I will first
+describe it in a mathematics context, and then a programming context.
+For demonstration purposes, I will use [[id:5d2e2f3b-96ac-4196-9baf-4c3d6d349c98][python]].
+* Mathematics Describes Recursion
+For this example, I will be using the factorial. One might define it like so:
+\begin{align*}
+f: \mathbb{N}\rightarrow\mathbb{N}\ s.t. \\
+f(0) = 1 \\
+f(n) = nf(n - 1) \\
+\end{align*}
+
+* Programming Describes Recursion
+#+begin_src python :exports both
+def factorial(x):
+    if x <= 0:
+        return 1
+    return x * factorial(x - 1)
+return factorial(5)
+#+end_src
+
+#+RESULTS:
+: 120
+** The stack frame
+We are now going to modify the code to be more transparent in the sense that it is going to print
+each factorial call out:
+#+begin_src python :results output :exports both
+def factorial(x):
+    if x <= 0:
+        print(1)
+        return 1
+    n = x * factorial(x - 1)
+    print(n)
+    return n
+factorial(5)
+#+end_src
+
+#+RESULTS:
+: 1
+: 1
+: 2
+: 6
+: 24
+: 120
+
+what is happening here? Why is it printing in the reverse order? Well, it is because we are calling
+the factorial function from within itself /before/ we print out the return value, which then
+keeps on happening for each iteration until it reaches the "base case" (the case in which x <= 0).
+
+You can model this behavior with a [[id:52d255d2-114c-42f4-b362-f0b4a2f7b83d][stack]], which is why it is called a stack frame. Think about each
+iteration as getting put on the top of the stack waiting to be printed, until the base case is evaluated
+and printed all in one step.
+* Recursion is not Recursion
+* Recursion is [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]]?

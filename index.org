@@ -1,0 +1,37 @@
+#+title: ret2pop
+#+author: Preston Pan
+#+description: My personal website
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+#+date: <2023-06-09 Fri>
+#+language: en
+#+OPTIONS: broken-links:t
+
+* Introducing ret2pop
+Hello! I'm a person on the internet that does things, such as:
+- Music
+- Programming
+- Mathematics
+- Physics
+- Thinking
+And if you're here to do one of these things, I guarantee you're in the right place!
+** [[file:journal/index.org][Journal]]
+If you're interested, you can read my [[file:journal/index.org][journal]]. Note that this journal is not my
+entire personal life but instead will be a focus on interesting things that I
+think of or things that are of a technical nature.
+** [[file:mindmap/index.org][Mindmap]]
+I also have a mindmap, for those of you who are interested in knowing everything.
+*** What is a mindmap?
+Click the hyperlink to find out! In case you didn't see:
+- [[file:mindmap/index.org][Mindmap]]
+- [[file:mindmap/index.org][Mindmap]]
+- [[file:mindmap/index.org][Mindmap]]
+** [[file:config/index.org][Configurations]]
+Most of my configurations/dotfiles for various programs are literate configurations, and I
+can therefore publish them. So I did! Configurations include:
+- doom emacs
+- QTile
+- QuteBrowser
+- Elfeed
+…and many more!
+* About this Website
+I wrote this website in org mode. For more information, see the [[file:README.org][README]].

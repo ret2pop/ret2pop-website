@@ -1,0 +1,28 @@
+#+title: Journal
+#+author: Preston Pan
+#+description: My journal entries
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+date: <2023-06-09 Fri>
+#+language: en
+#+OPTIONS: broken-links:t
+* Journal!
+This is my journal. It's basically my everyday life from
+a technology perspective (not many personal details although
+there will be some).
+
+** Entries
+Here is a list of all my journal entries:
+#+begin_src shell :results output raw :exports both
+for f in $(ls | sort -r);
+do
+    if [[ "$f" == "index.org" ]]; then
+        continue
+    fi
+    printf -- "- [[file:$f][$f]]\n"
+done
+#+end_src
+
+#+RESULTS:
+- [[file:20230611.org][20230611.org]]
+- [[file:20230610.org][20230610.org]]
+- [[file:20230609.org][20230609.org]]

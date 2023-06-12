@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       42dbae12-827c-43c4-8dfc-a2cb1e835efa
+:END:
+#+title: self-assembly
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+
+* Introduction
+bla bla bla.

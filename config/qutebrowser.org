@@ -1,0 +1,99 @@
+#+title: Qutebrowser Configuration
+#+author: Preston Pan
+#+date: <2023-06-09 Fri>
+#+description: a catppuccin configuration for qutebrowser.
+
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+
+* Configuration
+** Imports
+We start with imports:
+#+begin_src python :tangle config.py
+from pathlib import Path
+from urllib.parse import urlparse
+import catppuccin
+#+end_src
+We import pathlib to get our home directory.
+** Variables
+We need the location of the home directory.
+#+begin_src python :tangle config.py
+home = str(Path.home())
+#+end_src
+** Fonts
+We are using Fira Code for the font in all the non-webpage ui elements.
+#+begin_src python :tangle config.py
+c.fonts.hints = '14pt FiraCode Nerd Font'
+c.fonts.keyhint = '14pt FiraCode Nerd Font'
+c.fonts.prompts = '14pt FiraCode Nerd Font'
+c.fonts.downloads = '14pt FiraCode Nerd Font'
+c.fonts.statusbar = '14pt FiraCode Nerd Font'
+c.fonts.contextmenu = '14pt FiraCode Nerd Font'
+c.fonts.messages.info = '14pt FiraCode Nerd Font'
+c.fonts.debug_console = '14pt FiraCode Nerd Font'
+c.fonts.completion.entry = '14pt FiraCode Nerd Font'
+c.fonts.completion.category = '14pt FiraCode Nerd Font'
+c.fonts.tabs.selected = '14pt FiraCode Nerd Font'
+c.fonts.tabs.unselected = '14pt FiraCode Nerd Font'
+#+end_src
+** Search Engine
+We should set our default search engine to google because duckduckgo is useless, and
+we should give other search engine bang options.
+#+begin_src python :tangle config.py
+c.url.searchengines = {
+    'DEFAULT':  'https://google.com/search?hl=en&q={}',
+    '!a':       'https://www.amazon.com/s?k={}',
+    '!d':       'https://duckduckgo.com/?ia=web&q={}',
+    '!dd':      'https://thefreedictionary.com/{}',
+    '!e':       'https://www.ebay.com/sch/i.html?_nkw={}',
+    '!fb':      'https://www.facebook.com/s.php?q={}',
+    '!gh':      'https://github.com/search?o=desc&q={}&s=stars',
+    '!gist':    'https://gist.github.com/search?q={}',
+    '!gi':      'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
+    '!gn':      'https://news.google.com/search?q={}',
+    '!ig':      'https://www.instagram.com/explore/tags/{}',
+    '!m':       'https://www.google.com/maps/search/{}',
+    '!p':       'https://pry.sh/{}',
+    '!r':       'https://www.reddit.com/search?q={}',
+    '!sd':      'https://slickdeals.net/newsearch.php?q={}&searcharea=deals&searchin=first',
+    '!t':       'https://www.thesaurus.com/browse/{}',
+    '!tw':      'https://twitter.com/search?q={}',
+    '!w':       'https://en.wikipedia.org/wiki/{}',
+    '!yelp':    'https://www.yelp.com/search?find_desc={}',
+    '!yt':      'https://www.youtube.com/results?search_query={}'
+}
+#+end_src
+** Start Page
+Set the default start page to my own website.
+#+begin_src python :tangle config.py
+c.url.start_pages = ["https://preston.nullring.xyz"]
+c.url.default_page = "https://preston.nullring.xyz"
+#+end_src
+** Keybindings
+Now we define our keybindings for useful programs while browsing:
+#+begin_src python :tangle config.py
+config.bind('xm', 'hint links spawn mpv {hint-url}')
+config.bind('xy', 'hint links spawn yt-dlp {hint-url} -o "~/videos/youtube/%(title)s.%(ext)s"')
+config.bind('xr', 'hint links spawn bash -c "echo \'*** {hint-url}\' >> ~/org/elfeed.org"')
+config.bind('xj', 'spawn bash -c "echo {url} >> ~/.config/qutebrowser/js_blacklist.txt"')
+#+end_src
+** Paywall Bypassing
+Sometimes websites like the New York Times try to make money. I won't let that happen.
+#+begin_src python :tangle config.py
+with open(f"{home}/.config/qutebrowser/js_blacklist.txt") as f:
+    js_blacklist = f.read().splitlines()
+
+for item in js_blacklist:
+    domain = urlparse(item).netloc
+    config.set('content.javascript.enabled', False, f"*://{domain}/*")
+    config.set('content.javascript.enabled', False, f"*://www.{domain}/*")
+#+end_src
+** Misc.
+Doing mundane things like setting the downloads directory to not use an upper case letter.
+#+begin_src python :tangle config.py
+c.downloads.location.directory = "~/downloads"
+#+end_src
+** End of Config
+#+begin_src python :tangle config.py
+config.load_autoconfig()
+catppuccin.setup(c, 'mocha', False)
+#+end_src

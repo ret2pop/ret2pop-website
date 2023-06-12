@@ -1,0 +1,16 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+* Sunday, 11 June 2023
+** 09:05
+Today, I am going to work more on the website. First of all,
+I have to work more on the mindmap. Second, I have to work on
+the css, and third, I have to generate the links in a way
+that is non-hacky. Probably with a shell script.
+
+I also need to write some LaTeX for the mindmap.
+
+I will also make a github repository for this website, probably,
+which means I'm going to make a README.org.

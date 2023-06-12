@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       5d2e2f3b-96ac-4196-9baf-4c3d6d349c98
+:END:
+#+title: python
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />

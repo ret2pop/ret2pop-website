@@ -1,0 +1,36 @@
+:PROPERTIES:
+:ID:       2b8515d8-9f3c-44a3-a40d-147f6a2bbb25
+:END:
+#+title: everything
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+date: <2023-06-10 Sat>
+
+* Everything?
+This article is about everything. No, really, it is.
+Every possible thought you could have is encapsulated
+inside a digital copy of my brain.
+
+You can model everything in terms of [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]] and [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursion]].
+There are other ways to model everything as well; for example,
+circular structures and self destructing structures. However, these
+other frameworks I posit can be explained well with these other
+general ones, and for the purpose of saving time in explaining
+everything, I'll start with these two things.
+** What is the point in explaining everything?
+So you can be a god! All knowing! Who wouldn't want that?
+** But you have to explain this article in order to explain everything
+No I don't. See? I explained this article!
+** This is not very coherent
+I'd like to see you try.
+** Okay, but seriously…
+Yeah. I get your complaint. It's a hard task to actually explain everything
+and you have to omit details. However, I think this is a pretty reasonable
+attempt at doing so and you will soon notice that the frameworks that I
+am presenting can in fact be used to explain the article itself, albeit
+in a somewhat contradictory way.
+* Something
+I linked them above, but if you want to read about something that is not
+everything, go here:
+- [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursion]]
+- [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]]

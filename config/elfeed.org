@@ -1,0 +1,20 @@
+#+title: Elfeed Feed
+#+author: Preston Pan
+#+date: <2023-06-09 Fri>
+#+description: My list of blogs, news sites, and channels.
+
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+* Feed
+** Blogs :blog:
+Here are some interesting blogs, many of which are from substack.
+*** https://astralcodexten.substack.com/feed
+*** https://graymirror.substack.com/feed
+*** https://lukesmith.xyz/index.xml :lukesmith:
+** News :news:
+*** https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml
+*** https://rss.nytimes.com/services/xml/rss/nyt/World.xml
+*** https://rss.nytimes.com/services/xml/rss/nyt/Science.xml
+*** https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml
+** Podcasts :podcast:
+*** https://notrelated.xyz/rss :lukesmith:
+** Misc.

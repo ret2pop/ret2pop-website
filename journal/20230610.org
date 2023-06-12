@@ -1,0 +1,18 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+* Saturday, 10 June 2023
+** 15:04
+Today, I am with my friends, one of which wants to view my emacs configuration.
+Also, I got publishing working with emacs, and everything exports to an
+html file. Addtionally, I set things up such that org journal uses the .org
+extension which allows publishing to recognize these files.
+
+Everything is integrated with emacs. All is emacs.
+** 23:20
+I'm almost done writing this website. Basically, all I need to do is write a couple
+of shell scripts that insert the entire contents of a particular directory to an
+html file. Also, I need to find suitable css in order to math this website, and I
+need to add a back button using pretty much the same technique.
