@@ -1,0 +1,18 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Tuesday, 13 June 2023
+** 19:34
+I am leaving for china today. I tried using guix with my arch linux
+system but it was too unstable and I almost broke my system, so I
+of course stopped. I may try nix in the future, but for now, I will
+try to just keep my current setup where it is.
+** 20:35
+Just realized that I need to publish things for the website; also, I
+may want to have a blog where I write non-mindmap related articles.
+I need to get git working with signing with my gpg key as well.

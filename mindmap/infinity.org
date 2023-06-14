@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       654280d8-82e8-4a0e-a914-bd32181c101b
+:END:
+#+title: infinity
+#+author: Preston Pan
+#+options: num:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+options: tex:dvipng
+* placeholder text

@@ -177,7 +177,7 @@ html {
 }
 pre,
 code {
-  font-family: 'Inconsolata', sans-serif;
+  font-family: 'Inconsolata', monospace;
 }
 h1,
 h2,
@@ -320,4 +320,11 @@ h6 {
 #postamble {
   padding-top: 12px;
   font-size: 12px;
+}
+
+.example {
+  color: #fdf6e3;
+}
+.src {
+  color: #fdf6e3;
 }

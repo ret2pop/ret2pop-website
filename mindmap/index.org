@@ -19,3 +19,11 @@ No, it's a mindmap you fucking idiot.
 - Don't use the back button on your browser
 - Everything here is going to be a link to another mindmap page.
 - Therefore, if there is a page you want to go back to, you must navigate until you find a loop back to the original page.
+** What Happens if I don't Follow the Rules?
+You're ruining your own fun I guess. These are just the recommended settings
+and if you want to change them then you're free to.
+
+That won't stop me from following you in real life, though. Teehee!
+* How did you make it?
+This section of the website was made with ~org-roam~, an emacs package that allows
+you to make a web of notes, something close to a wiki.

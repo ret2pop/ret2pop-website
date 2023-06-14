@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       16b06b82-99cc-4343-b171-fb2166c46a30
+:END:
+#+title: induction
+#+author: Preston Pan
+#+options: num:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+options: tex:dvipng
+
+* Placeholder

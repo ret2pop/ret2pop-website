@@ -5,5 +5,17 @@
 #+author: Preston Pan
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+date: <2023-06-10 Sat>
-* One or Two?
-This is placeholder text.
+* is it One or is it Two?
+Is it me, or is it you? Is it false, or is it true? Many things
+can be explained by a bimodal or binary system. Everything, from
+boolean logic to art, any system whose goal is to make a prediction.
+
+** The Great Filter
+No, not the one about aliens dying or something. I'm talking about the
+everyday systems that you use in order to make predictions about the
+world. For example, this one, that wants to explain everything.
+
+*** The problem of explaining everything
+Because this is indeed a system that explains everything, I must also
+demonstrate why it might be impossible to explain everything. I'll
+give the argument in a short set of syllogisms.

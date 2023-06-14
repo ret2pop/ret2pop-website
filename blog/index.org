@@ -1,0 +1,28 @@
+#+TITLE: My Blog
+#+AUTHOR: Preston Pan
+#+DATE: <2023-06-14 Wed>
+#+DESCRIPTION: List of all my blogs in alphabetical order
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+language: en
+#+OPTIONS: broken-links:t
+
+* Why?
+I want a place where I can write long form essays about subjects
+without being constrained by any particular form, like in the mindmap.
+** Why not the Journal, then?
+This blog is not going to be for my personal life in any capacity,
+technical or otherwise. Think about the blog like a mix between
+the wiki format of the mindmap and the journal format.
+
+* Blog Articles
+#+begin_src shell :results output raw :exports both
+for f in *;
+do
+    if [[ "$f" == "index.org" ]]; then
+        continue
+    fi
+    printf -- "- [[file:$f][$f]]\n"
+done
+#+end_src
+
+#+RESULTS:

@@ -119,6 +119,7 @@ keys.extend([
     Key([mod], "f", lazy.spawn("firefox"), desc="Run Firefox"),
     Key([mod], "b", lazy.spawn("blender"), desc="Run Blender"),
     Key([mod], "p", lazy.spawn("krita"), desc="Run Krita"),
+    Key([mod], "g", lazy.spawn("gimp"), desc="Run GIMP"),
     Key([mod], "t", lazy.spawn("torbrowser-launcher"), desc="Run Tor Browser"),
     Key([mod], "i", lazy.spawn("emacsclient --eval \"(emacs-everywhere)\""), desc="Emacs Everywhere!"),
 ])
@@ -135,6 +136,7 @@ keys.extend([
     Key([], 'XF86AudioNext', lazy.spawn("mpc next")),
     Key([], 'XF86AudioPrev', lazy.spawn("mpc prev")),
     Key([], "XF86AudioPlay", lazy.spawn("mpc toggle"), desc="Play/Pause player"),
+    Key([], "Print", lazy.spawn("scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/img/scrot")),
 ])
 #+end_src
 ** Groups
@@ -180,6 +182,8 @@ layouts = [
 ]
 #+end_src
 ** Bar
+Now we define our bar. I only have the need to see the time, current workspace, battery percentage,
+and MPD. Also, you may need to manually change your font size depending on your screen.
 #+begin_src python :tangle config.py
 widget_defaults = dict(
     font="FiraCode Nerd Font",

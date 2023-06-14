@@ -1,0 +1,89 @@
+:PROPERTIES:
+:ID:       2d6fb5ac-a273-4b33-949c-37380d03c076
+:END:
+#+title: natural number
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+* What is a Natural Number?
+We can formulate the natural numbers from set construction, or by Peano arithmetic.
+I will start with the Peano arithmetic formulation. First, we define an immediate
+successor function $S:\mathbb{N}\rightarrow\mathbb{N}$ which effectively "adds one" (although we haven't defined addition yet),
+and a number we call $0 \in \mathbb{N}$. We then define an axiom:
+\begin{align*}
+\forall n \in \mathbb{N} \; \nexists S(n) \; s.t. S(n) = 0; \\
+\forall n \in \mathbb{N} \; S(n) \in \mathbb{N}.
+\end{align*}
+which is equivalent to saying: adding one to any natural number makes it not equal to zero, and
+any natural number's successor is a natural number. Because zero is a natural number, we can define
+$1 = S(0)$, and by definition $1 \in \mathbb{N}$. Note that it doesn't matter what we call $S(0)$; we just choose
+to name it one because we like working in the base 10 number system.
+
+In a few lines, we should also try to define equality:
+\begin{align*}
+\forall a \in \mathbb{N}, \; a = a; \\
+\forall a, b, c \in \mathbb{N}, \; (a = b) \land (b = c) \rightarrow a = c; \\
+\forall a, b \in \mathbb{N}, \; a = b \rightarrow b = a.
+\end{align*}
+which I already explained just sets up equality in the way we're used to.
+These axioms are probably slightly important for our purposes, and as you can imagine, they generalize past
+natural numbers. Then we define one more axiom:
+\begin{align*}
+\forall a, b \in \mathbb{N}, \; S(a) = S(b) \Leftrightarrow a = b.
+\end{align*}
+simply saying that if we add one to both sides of an equation the equality remains. And we're almost done!
+There is one problem: given our current axioms, we can definitely prove propositions like these:
+\begin{align*}
+S(S(0)) \neq S(0)
+\end{align*}
+however, they don't allow for the ability for us to extrapolate properties of natural numbers /in general/.
+** [[id:16b06b82-99cc-4343-b171-fb2166c46a30][Induction]]
+Let's introduce our last axiom:
+\begin{align*}
+\forall n \in \mathbb{N} \: \forall P(n) \; P(0) \land (P(n) \rightarrow P(S(n))) \rightarrow P(n) \; \forall n \in \mathbb{N}
+\end{align*}
+now, this is the principle of [[id:16b06b82-99cc-4343-b171-fb2166c46a30][induction]] specific to natural numbers. What it is saying is that a property
+$P(n)$ is true for all $n$ if there is a "base case" $P(0)$ which is true, and you can show that $P(1)$ is
+true from $P(0)$, $P(2)$ is true from $P(1)$ and so on to infinity, or more generally $P(S(n))$ is true for every $P(n)$.
+This "base case" essentially bootstraps you into proving it for infinite cases. There is also a general version
+of induction, but the only natural numbers case works for us now.
+*** And so on to [[id:654280d8-82e8-4a0e-a914-bd32181c101b][Infinity]]?
+Wait a second, so how are we defining "to infinity" here? How do we /know/ that $P(x)$ is going to work with every
+$n$ even though we haven't tried it for every single $n$? Well, the answer is we extrapolate. We do the first few loops
+and we assume the logic carries out to any arbitrarily large loop. It's less of defining things in terms of infinity
+and more like playing a game where one person dares the other to go $n$ times, where $n$ is any natural number. They
+can say, "calculate that $P(x)$ is true for $P(6)$!", and the claim is that you can /always/ do that, even if they say
+one million instead of six, or one billion instead of one million. No matter how high the number, you can repeat the process
+$n$ times and get the result that $P(n)$ is true.
+*** [[id:16b06b82-99cc-4343-b171-fb2166c46a30][Induction]] = [[id:8f265f93-e5fd-4150-a845-a60ab7063164][Recursion]]?
+Wait: isn't the idea of a "base case" kind of analogous to the idea of recursion? And comparing $P(S(n)) = P(n + 1)$
+to $P(n)$ kind of looks suspiciously like a recursive function, only, instead of using the base case in order
+to stop the program from running infinitely, we use the base case as a /starting point/ to "run the program to infinity".
+Some connections are beginning to be made…
+*** [[id:8f265f93-e5fd-4150-a845-a60ab7063164][Recursion]] ~ [[id:654280d8-82e8-4a0e-a914-bd32181c101b][Infinity]]?
+It seems one can describe many recursive structures as inherently relating to infinity. I posit that recursive structures
+have a starting point and an ending point -- in the case of the factorial, the starting point is a natural number that is
+an input to the function, and the ending point is when it reaches zero (because the factorial function "iterates down",
+meaning a number is continually subtracted until it reaches a lower bound, meaning what we call the base case has to be always
+lower than the input). It is also conceivable that you can have a recursively defined function that has a base case higher
+than any possible inputs and iterates upwards. In this case, calling zero the "base case" of induction is actually misleading.
+If you model induction as a function, induction /has no base case/, and the input is usually evaluated at zero. Meaning,
+*induction is a special case of recursion where no base case is defined*. Although, I'm not sure actual career mathematicians
+would like my wording of this issue.
+** Set Construction
+Given I've described Peano axioms already, I may as well use them. Although, Peano axioms may also be derived from ZFC set theory
+axioms.
+
+Set $S(x) = \{ x \}$ and $0 = \{\}$. Then set construction describes the process of constructing the natural numbers from the empty set
+by nesting sets together. For example, $1 = \{0\} = \{\{\}\}$, and $2 = \{1\} = \{\{0\}\} = \{\{\{\}\}\}$. Then all natural numbers can be constructed
+recursively expanding the variables.
+*** [[id:8f265f93-e5fd-4150-a845-a60ab7063164][Recursion!]]
+And now there is a clear demonstrated link between Peano axioms and recursive structures.
+** Addition
+Okay, that's all good, but natural numbers don't have a use case if even simple things like addition are not defined.
+Let's do that!
+** Congrats!
+We've just defined a natural number! Every single object that can be described in terms of these axioms is
+also an instance of a natural number.

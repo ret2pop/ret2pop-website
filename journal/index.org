@@ -15,7 +15,7 @@ Here is a list of all my journal entries:
 #+begin_src shell :results output raw :exports both
 for f in $(ls | sort -r);
 do
-    if [[ "$f" == "index.org" ]]; then
+    if [[ "$f" == "index.org" || "$f" == "README.org" ]]; then
         continue
     fi
     printf -- "- [[file:$f][$f]]\n"
@@ -23,6 +23,8 @@ done
 #+end_src
 
 #+RESULTS:
+- [[file:20230614.org][20230614.org]]
+- [[file:20230613.org][20230613.org]]
 - [[file:20230611.org][20230611.org]]
 - [[file:20230610.org][20230610.org]]
 - [[file:20230609.org][20230609.org]]

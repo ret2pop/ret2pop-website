@@ -18,6 +18,9 @@ And if you're here to do one of these things, I guarantee you're in the right pl
 If you're interested, you can read my [[file:journal/index.org][journal]]. Note that this journal is not my
 entire personal life but instead will be a focus on interesting things that I
 think of or things that are of a technical nature.
+** [[file:blog/index.org][Blog]]
+My blog contains many longer writings that do not fit into the mindmap format.
+Work in progress; the journal, mindmap, and configs are my biggest focus right now.
 ** [[file:mindmap/index.org][Mindmap]]
 I also have a mindmap, for those of you who are interested in knowing everything.
 *** What is a mindmap?

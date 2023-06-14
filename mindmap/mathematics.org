@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       a6bc601a-7910-44bb-afd5-dffa5bc869b1
+:END:
+#+title: mathematics
+#+author: Preston Pan
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+
+* Mathematics is Logic
+With a couple of set theory axioms. One might
+describe it as an extrapolation framework
+without grounding (i.e. a set of implications;
+if p then q, but never specifying if p is a property
+of a real system or not).

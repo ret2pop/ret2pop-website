@@ -4,7 +4,8 @@
 #+description: My doom emacs configuration
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 
-* Configuration
+* config.el Configuration
+This is a doom emacs configuration. If you are not using doom emacs, do not use this document.
 ** Basic Information
 My name, and the org mode directory on my computer, as well as basic editor configuration options.
 Below is the old documentation.
@@ -98,7 +99,7 @@ And then we add the headers needed to export the journal automatically:
   "Custom function to create journal header."
   (concat
     (pcase org-journal-file-type
-      (`daily "#+TITLE: Daily Journal\n#+STARTUP: showeverything\n#+DESCRIPTION: My daily journal entry\n#+AUTHOR: Preston Pan\n#+HTML_HEAD: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>")
+      (`daily "#+TITLE: Daily Journal\n#+STARTUP: showeverything\n#+DESCRIPTION: My daily journal entry\n#+AUTHOR: Preston Pan\n#+HTML_HEAD: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
       (`weekly "#+TITLE: Weekly Journal\n#+STARTUP: folded")
       (`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
       (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
@@ -115,7 +116,7 @@ And then we add the headers needed to export the journal automatically:
 (setq org-roam-directory (file-truename "~/org/website/mindmap"))
 (setq org-roam-capture-templates '(("d" "default" plain "%?"
                                     :target (file+head "${title}.org"
-                                                       "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>")
+                                                       "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
                                     :unnarrowed t)))
 #+end_src
 *** Publishing
@@ -171,4 +172,196 @@ loopbacks in gpg-agent.conf.
 (use-package! pinentry
         :init (setq epa-pinentry-mode `loopback)
                (pinentry-start))
+#+end_src
+* packages.el Configuration
+These are some external packages that I use that are not provided by doom modules.
+#+begin_src emacs-lisp :tangle packages.el
+(package! pinentry)
+(package! kbd-mode
+  :recipe (:host github
+           :repo "kmonad/kbd-mode"))
+(package! nasm-mode)
+#+end_src
+
+* init.el Configuration
+This installs all the doom modules that we are going to be configuring:
+#+begin_src emacs-lisp :tangle init.el
+(doom! :input
+       ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
+       chinese
+       japanese
+       ;;layout            ; auie,ctsrnm is the superior home row
+
+       :completion
+       company
+       ;;helm              ; the *other* search engine for love and life
+       ;;ido               ; the other *other* search engine...
+       (ivy +icons +fuzzy)
+       vertico
+
+       :ui
+       ;;deft              ; notational velocity for Emacs
+       doom
+       doom-dashboard
+       doom-quit
+       (emoji +unicode)
+       hl-todo
+       hydra
+       indent-guides
+       (ligatures +extra +fira)
+       minimap
+       modeline
+       ;;nav-flash         ; blink cursor line after big motions
+       ;;neotree           ; a project drawer, like NERDTree for vim
+       ophints
+       (popup +defaults)
+       tabs
+       treemacs
+       unicode
+       (vc-gutter +pretty)
+       vi-tilde-fringe
+       window-select
+       workspaces
+       zen
+
+       :editor
+       (evil +everywhere)
+       file-templates
+       fold
+       (format +onsave)
+       ;;god               ; run Emacs commands without modifier keys
+       lispy
+       ;;multiple-cursors  ; editing in many places at once
+       ;;objed             ; text object editing for the innocent
+       parinfer
+       ;;rotate-text       ; cycle region at point between text candidates
+       snippets
+       word-wrap
+
+       :emacs
+       dired
+       electric
+       (ibuffer +icons)
+       undo
+       vc
+
+       :term
+       ;;eshell            ; the elisp shell that works everywhere
+       ;;shell             ; simple shell REPL for Emacs
+       ;; term           ; basic terminal emulator for Emacs
+       vterm
+
+       :checkers
+       syntax
+       (spell +flyspell)
+       grammar
+
+       :tools
+       ;;ansible
+       ;;biblio            ; Writes a PhD for you (citation needed)
+       (debugger +lsp)
+       ;;direnv
+       ;;docker
+       editorconfig
+       ein
+       (eval +overlay)
+       gist
+       lookup
+       lsp
+       magit
+       make
+       pass
+       pdf
+       ;;prodigy           ; FIXME managing external services & code builders
+       rgb
+       ;;taskrunner        ; taskrunner for all your projects
+       ;;terraform         ; infrastructure as code
+       tmux
+       tree-sitter
+       ;;upload            ; map local to remote projects via ssh/ftp
+
+       :os
+       (:if IS-MAC macos)
+       tty
+
+       :lang
+       ;;agda              ; types of types of types of types...
+       ;;beancount         ; mind the GAAP
+       (cc +lsp)
+       ;;clojure           ; java with a lisp
+       common-lisp
+       ;;coq               ; proofs-as-programs
+       ;;crystal           ; ruby at the speed of c
+       ;;csharp            ; unity, .NET, and mono shenanigans
+       data
+       ;;(dart +flutter)   ; paint ui and not much else
+       ;;dhall
+       ;;elixir            ; erlang done right
+       ;;elm               ; care for a cup of TEA?
+       emacs-lisp
+       ;;erlang            ; an elegant language for a more civilized age
+       ess
+       ;;factor
+       ;;faust             ; dsp, but you get to keep your soul
+       ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER)
+       ;;fsharp            ; ML stands for Microsoft's Language
+       ;;fstar             ; (dependent) types and (monadic) effects and Z3
+       ;;gdscript          ; the language you waited for
+       (go +lsp)
+       ;;(graphql +lsp)    ; Give queries a REST
+       ;;(haskell +lsp)    ; a language that's lazier than I am
+       ;;hy                ; readability of scheme w/ speed of python
+       ;;idris             ; a language you can depend on
+       (json +lsp)
+       ;;(java +lsp)       ; the poster child for carpal tunnel syndrome
+       (javascript +lsp)
+       ;;julia             ; a better, faster MATLAB
+       ;;kotlin            ; a better, slicker Java(Script)
+       (latex +lsp +fold +cdlatex)
+       ;;lean              ; for folks with too much to prove
+       ;;ledger            ; be audit you can be
+       ;;lua               ; one-based indices? one-based indices
+       (markdown +grip)
+       ;;nim               ; python + lisp at the speed of c
+       nix
+       ;;ocaml             ; an objective camel
+       (org +journal +jupyter +gnuplot +brain +pretty +roam2)
+       ;;php               ; perl's insecure younger brother
+       ;;plantuml          ; diagrams for confusing people more
+       ;;purescript        ; javascript, but functional
+       (python +lsp +tree-sitter)
+       ;;qt                ; the 'cutest' gui framework ever
+       ;;racket            ; a DSL for DSLs
+       ;;raku              ; the artist formerly known as perl6
+       ;;rest              ; Emacs as a REST client
+       ;;rst               ; ReST in peace
+       ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (rust +lsp)
+       ;;scala             ; java, but good
+       (scheme +guile)
+       (sh +fish +lsp)
+       ;;sml
+       ;;solidity          ; do you need a blockchain? No.
+       ;;swift             ; who asked for emoji variables?
+       ;;terra             ; Earth and Moon in alignment for performance.
+       (web +lsp)
+       (yaml +lsp)
+       ;;zig               ; C, but simpler
+
+       :email
+       (mu4e +org)
+       ;;notmuch
+       ;;(wanderlust +gmail)
+
+       :app
+       calendar
+       emms
+       everywhere                       ; *leave* Emacs!? You must be joking
+       irc                              ; how neckbeards socialize
+       (rss +org)                       ; emacs as an RSS reader
+       ;;twitter           ; twitter client https://twitter.com/vnought
+
+       :config
+       literate
+       (default +bindings +smartparens))
 #+end_src

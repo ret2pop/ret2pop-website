@@ -1,0 +1,30 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Wednesday, 14 June 2023
+** 09:40
+Currently, I am on an airplane to Taipei, and I will be at Beijing
+shortly. I'm excited to purchase a mechancal keyboard and maybe
+some other peripherals there. It will probably be cheaper than
+buying them in Canada.
+
+I've slept a little bit, but my sleep quality was poor. However,
+I still don't feel that bad.
+
+Working in my little space in emacs is pretty nice, even on an airplane.
+Like I said, I bought ivpn for a month so i should be able to view the
+internet from outside the firewall. I haven't set up nix yet, but I think
+I will do it in China.
+
+Another thing is that I have been looking at my analytical mechanics book,
+and it is easy compared to when I tried learning it before. Probably because I
+have more experience with multidimensional integrals, fields, and whatnot.
+I plan to do more of it in China.
+
+What's funny is that my literacy 12 exam has to be done in China because they
+don't allow you to do it early. What a pain.

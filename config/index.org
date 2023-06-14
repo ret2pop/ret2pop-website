@@ -11,7 +11,7 @@ Here is a list of my configurations for various programs:
 #+begin_src shell :results output raw :exports both
 for f in *;
 do
-    if [[ "$f" == "index.org" ]]; then
+    if [[ "$f" == "index.org" || "$f" == "README.org" ]]; then
         continue
     fi
     printf -- "- [[file:$f][$f]]\n"

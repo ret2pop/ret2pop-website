@@ -14,3 +14,8 @@ I also need to write some LaTeX for the mindmap.
 
 I will also make a github repository for this website, probably,
 which means I'm going to make a README.org.
+** 21:20
+I made the repository and everything. Now, all I need to do is finish
+a couple of mindmap articles so that it becomes a cohesive experience.
+The website also still needs a favicon and I might want to add some
+of my music to it.

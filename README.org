@@ -2,7 +2,6 @@
 #+author: Preston Pan
 #+date: <2023-06-11 Sun>
 #+description: My website for all things.
-#+options: num:nil broken-links:t tex:dvipng
 #+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
 
 * What is this?
