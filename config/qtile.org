@@ -119,6 +119,7 @@ keys.extend([
     Key([mod], "f", lazy.spawn("firefox"), desc="Run Firefox"),
     Key([mod], "b", lazy.spawn("blender"), desc="Run Blender"),
     Key([mod], "p", lazy.spawn("krita"), desc="Run Krita"),
+    Key([mod], "v", lazy.spawn("inkscape"), desc="Run Inkscape"),
     Key([mod], "g", lazy.spawn("gimp"), desc="Run GIMP"),
     Key([mod], "t", lazy.spawn("torbrowser-launcher"), desc="Run Tor Browser"),
     Key([mod], "i", lazy.spawn("emacsclient --eval \"(emacs-everywhere)\""), desc="Emacs Everywhere!"),

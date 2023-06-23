@@ -21,6 +21,97 @@ Below is the old documentation.
 - `add-load-path!' for adding directories to the `load-path', relative to
   this file. Emacs searches the `load-path' when you load packages with
   `require' or `use-package'.
+** Modeline
+In order to display the time in the modeline:
+#+begin_src emacs-lisp :tangle yes
+(display-time-mode 1)
+#+end_src
+To display the battery percentage:
+#+begin_src emacs-lisp :tangle yes
+(display-battery-mode 1)
+#+end_src
+** EXWM
+First we load our packages:
+#+begin_src emacs-lisp :tangle yes
+(use-package! exwm)
+(use-package! exwm-config)
+(exwm-config-example)
+#+end_src
+Now, we set our keybindings:
+#+begin_src emacs-lisp :tangle yes
+
+(setq exwm-input-global-keys
+      `(
+        ([?\s-r] . exwm-reset)
+        ([?\s-w] . exwm-workspace-switch)
+        ,@(mapcar (lambda (i)
+                    `(,(kbd (format "s-%d" i)) .
+                      (lambda ()
+                        (interactive)
+                        (exwm-workspace-switch-create ,i))))
+                  (number-sequence 0 9))
+        ([?\s-&] . (lambda (command)
+                     (interactive (list (read-shell-command "$ ")))
+                     (start-process-shell-command command nil command)))
+
+        ([?\s-d] . (lambda ()
+                     (interactive)
+                     (dired default-directory)))
+
+        ([?\s-f] . (lambda ()
+                     (interactive)
+                     (exwm-layout-toggle-mode-line)
+                     (exwm-workspace-toggle-minibuffer)))
+
+        ([?\s-b] . exwm-workspace-switch-to-buffer)
+
+
+        ([?\s-w] . (lambda ()
+                     (interactive)
+                     (start-process "" nil "qutebrowser")))
+        ([?\s-k] . (lambda ()
+                     (interactive)
+                     (start-process "" nil "krita")))
+        ([?\s-g] . (lambda ()
+                     (interactive)
+                     (start-process "" nil "gimp")))
+        ([?\s-b] . (lambda ()
+                     (interactive)
+                     (start-process "" nil "blender")))
+        ([?\s-c] . (lambda ()
+                     (interactive)
+                     (start-process "" nil "chromium")))
+        ([s-f2] . (lambda ()
+                      (interactive)
+                      (start-process "" nil "/usr/bin/slock")))))
+
+
+#+end_src
+And we also need to set up our media keys:
+#+begin_src emacs-lisp :tangle yes
+(exwm-input-set-key (kbd "<XF86AudioNext>") 'emms-next)
+(exwm-input-set-key (kbd "<XF86AudioPrev>") 'emms-previous)
+(exwm-input-set-key (kbd "<XF86AudioPlay>") 'emms-pause)
+(exwm-input-set-key
+   (kbd "<XF86AudioRaiseVolume>")
+   (lambda ()
+     (interactive) (start-process-shell-command
+       "pactl" nil "pactl set-sink-volume 0 +5% && pactl set-sink-volume 1 +5%")))
+(exwm-input-set-key
+   (kbd "<XF86AudioLowerVolume>")
+   (lambda ()
+     (interactive) (start-process-shell-command
+       "pactl" nil "pactl set-sink-volume 0 -5% && pactl set-sink-volume 1 -5%")))
+(exwm-input-set-key
+   (kbd "<XF86AudioMute>")
+   (lambda ()
+     (interactive) (start-process-shell-command
+       "pactl" nil "pactl set-sink-mute 0 toggle && pactl set-sink-mute 1 toggle")))
+;; Things to implement in exwm:
+;;Key([], 'XF86MonBrightnessUp', lazy.spawn("light -A 10")),
+;;Key([], 'XF86MonBrightnessDown', lazy.spawn("light -U 10")),
+;;Key([], "Print", lazy.spawn("scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/img/scrot")),
+#+end_src
 ** Font
 Now we configure fonts:
 #+begin_src emacs-lisp :tangle yes
@@ -37,6 +128,14 @@ I'm using the catppuccin theme, which is available on github.
 (setq catppuccin-flavor 'mocha)
 #+end_src
 ** Doom Module and Programs Configuration
+*** Agenda
+Now we add these two files to our agenda search path:
+#+begin_src emacs-lisp :tangle yes
+(setq org-agenda-files (list "~/org/agenda.org"
+                             "~/org/contacts.org"
+                             "~/org/notes.org"))
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+#+end_src
 *** IRC
 Set up circe to connect to my bouncer:
 #+begin_src emacs-lisp :tangle yes
@@ -84,12 +183,12 @@ We automatically connect to mpd.
 #+begin_src emacs-lisp :tangle yes
 (setq emms-player-mpd-music-directory "~/music/")
 (setq emms-player-list '(emms-player-mpd))
+(emms-all)
 (emms-player-mpd-connect)
 #+end_src
 *** Journal
 First we set the journal to be in the website directory:
 #+begin_src emacs-lisp :tangle yes
-
 (setq org-journal-dir "~/org/website/journal/")
 (setq org-journal-date-format "%A, %d %B %Y")
 #+end_src
@@ -107,11 +206,17 @@ And then we add the headers needed to export the journal automatically:
 (setq org-journal-file-header 'org-journal-file-header-func)
 (setq org-journal-file-format "%Y%m%d.org")
 #+end_src
+To add everything to the agenda search path, we toggle:
+#+begin_src emacs-lisp :tangle yes
+(setq org-journal-enable-agenda-integration t)
+#+end_src
 *** Brain
+I don't use this anymore, but it's good to have.
 #+begin_src emacs-lisp :tangle yes
 (setq org-brain-path "~/org/website/brain/")
 #+end_src
 *** Roam
+This is the configuration for my mindmap.
 #+begin_src emacs-lisp :tangle yes
 (setq org-roam-directory (file-truename "~/org/website/mindmap"))
 (setq org-roam-capture-templates '(("d" "default" plain "%?"
@@ -120,6 +225,7 @@ And then we add the headers needed to export the journal automatically:
                                     :unnarrowed t)))
 #+end_src
 *** Publishing
+In order to publish my website, we need to configure emacs to publish it somewhere and with diferrent parameters:
 #+begin_src emacs-lisp :tangle yes
 (require 'ox-publish)
 (setq org-publish-project-alist
@@ -141,6 +247,25 @@ And then we add the headers needed to export the journal automatically:
 
 
 #+end_src
+*** Contacts
+Now we configure org-contacts, which allows me to store contacts in an org mode file:
+#+begin_src emacs-lisp :tangle yes
+(setq org-contacts-files '("~/org/contacts.org"))
+#+end_src
+And then we need to add some templates with org-capture in order to add entries to the contacts easier:
+#+begin_src emacs-lisp :tangle yes
+(defvar my/org-contacts-template "* %^{name}
+:PROPERTIES:
+:ADDRESS: %^{289 Cleveland St. Brooklyn, 11206 NY, USA}
+:BIRTHDAY: %^{yyyy-mm-dd}
+:EMAIL: %^{Email}
+:NOTE: %^{NOTE}
+:END:" "Template for org-contacts.")
+
+(setq org-capture-templates
+   `(("c" "Contact" entry (file+headline "~/org/contacts.org" "Friends"), my/org-contacts-template
+      :empty-lines 1)))
+#+end_src
 ** Keybindings
 Now we set up our keybindings for our applications:
 #+begin_src emacs-lisp :tangle yes
@@ -156,6 +281,9 @@ Now we set up our keybindings for our applications:
 (map! :leader
       :desc "Open password manager"
       "p w" #'ivy-pass)
+(map! :leader
+      :desc "Open password manager"
+      "d i" #'dictionary)
 #+end_src
 ** External Packages
 we want to include some packages that don't come with doom emacs.
@@ -173,6 +301,15 @@ loopbacks in gpg-agent.conf.
         :init (setq epa-pinentry-mode `loopback)
                (pinentry-start))
 #+end_src
+*** Rainbow Mode
+#+begin_src emacs-lisp :tangle yes
+(define-globalized-minor-mode global-rainbow-mode rainbow-mode
+  (lambda ()
+    (when (not (memq major-mode
+                (list 'org-agenda-mode)))
+     (rainbow-mode 1))))
+(global-rainbow-mode 1)
+#+end_src
 * packages.el Configuration
 These are some external packages that I use that are not provided by doom modules.
 #+begin_src emacs-lisp :tangle packages.el
@@ -181,6 +318,9 @@ These are some external packages that I use that are not provided by doom module
   :recipe (:host github
            :repo "kmonad/kbd-mode"))
 (package! nasm-mode)
+(package! org-contrib)
+(package! exwm)
+(package! rainbow-mode)
 #+end_src
 
 * init.el Configuration
@@ -266,7 +406,7 @@ This installs all the doom modules that we are going to be configuring:
        ein
        (eval +overlay)
        gist
-       lookup
+       (lookup +dictionary +offline)
        lsp
        magit
        make
@@ -356,9 +496,9 @@ This installs all the doom modules that we are going to be configuring:
        :app
        calendar
        emms
-       everywhere                       ; *leave* Emacs!? You must be joking
-       irc                              ; how neckbeards socialize
-       (rss +org)                       ; emacs as an RSS reader
+       everywhere
+       irc
+       (rss +org)
        ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config

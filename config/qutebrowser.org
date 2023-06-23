@@ -92,6 +92,10 @@ Doing mundane things like setting the downloads directory to not use an upper ca
 #+begin_src python :tangle config.py
 c.downloads.location.directory = "~/downloads"
 #+end_src
+We also want to do this for the purpose of EXWM:
+#+begin_src python :tangle config.py
+c.tabs.tabs_are_windows = True
+#+end_src
 ** End of Config
 #+begin_src python :tangle config.py
 config.load_autoconfig()

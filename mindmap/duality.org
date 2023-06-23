@@ -10,6 +10,9 @@ Is it me, or is it you? Is it false, or is it true? Many things
 can be explained by a bimodal or binary system. Everything, from
 boolean logic to art, any system whose goal is to make a prediction.
 
+My hypothesis is that whenever someone believes something, the opposite
+belief is equally valid. In order to demonstrate, let me introduce:
+
 ** The Great Filter
 No, not the one about aliens dying or something. I'm talking about the
 everyday systems that you use in order to make predictions about the
@@ -19,3 +22,79 @@ world. For example, this one, that wants to explain everything.
 Because this is indeed a system that explains everything, I must also
 demonstrate why it might be impossible to explain everything. I'll
 give the argument in a short set of syllogisms.
+
+1. If something must explain everything, it must also explain itself.
+2. If it explains itself, it means it is circular by definition, and therefore not objective.
+3. If it does not explain itself, then it does not explain everything, and it is therefore incomplete.
+
+So either the system we're describing is circular, in which case it is arbitrary and subjective,
+or it is incomplete. So there's no way to construct any system with both qualities. Right?
+
+*** The problem with the problem with explaining everything
+Notice that our above set of syllogisms is extrapolative. This means that it makes predictions
+about what is possible about a system. Due to this, the system results in some duality:
+either a valid system is incomplete or subjective. And there's another problem too: the system applies to itself.
+
+If either systems are subjective or incomplete, then the system we are using to describe subjective and incomplete
+systems is also subjective. Which presents a problem: we have no reason to believe that this framework is worth
+believing in at all!
+*** The problem with the problem with the problem with explaining everything
+But the fact that the system applied to itself breaks it is just a confirmation that our predictions are accurate!
+We predicted that things that explain themselves must be circular, and we were correct!
+*** etc...
+The claim is that we can do this forever, although even this statement can go on forever. What's interesting
+is that it seems like there's an inherent link between duality and [[id:654280d8-82e8-4a0e-a914-bd32181c101b][infinite]] [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursion]]; infinite self reference. But the real question is: is this
+statement about frameworks true, or is it false? Well, according to the principle of duality, both of them can
+be true.
+
+** The Filter is based on what you choose to believe
+So what you think is true or false is just what you choose to be true or false. Of course, even this statement is an infinite contradiction
+and confirmation, but what I am trying to communicate is that what you believe filters what's true and what's false, and as a result,
+leads to different prescriptions, or different actions for the same situation. In this way, frameworks act like filters. They shield us
+from the infinite opposite side of what we currently believe. Does this "filter" I am describing exist or not?
+
+** Of course it Doesn't!
+The mindmap explains everything, without a filter.
+
+* The problem and solution with duality
+The theory of duality is self deconstructing and self constructing in the same way via self reference. If the opposite stance is valid,
+that means that not believing in duality is valid, but that also is a data point that confirms our hypothesis.
+
+We're also describing duality using a dual framework here, which is another pretty interesting thought.
+
+* Logic Explains Duality
+Logic is a self affirming structure, and that might give you the clue that it is also self destructing. Nevertheless, one of the axioms
+of logic is:
+\begin{align*}
+p \neq \neg p.
+\end{align*}
+This statement filters for binary, or as I would call it, dual mode frameworks, and gets around the principle of explosion. We have an intuitive
+understanding of truth and falsehood, and we can use those general terms whenever there is a mutually exclusive divide. In short, you can view
+the logical framework as an abstraction of all other dual frameworks. I propose that you can do analysis on all dual frameworks in much the same
+way group theory does analysis on groups.
+
+* Programming Explains Duality
+Of course, there is logic in programming, but that is kind of boring. What I am going to explain here is a recursive, binary structure known
+as the binary tree. It seems like you can model a lot of things in this way as well; John Conway's surreal numbers are a manifestation of this
+phenomenon.
+#+begin_src python :exports both :results output
+class BinaryTreeNode:
+    def __init__(self, value):
+        self.left = None
+        self.right = None
+        self.value = value
+    def insert(self, value):
+        if value < self.value:
+            if self.left is None:
+                self.left = BinaryTreeNode(value)
+            else:
+                self.left.insert(value)
+        else:
+            if self.right is None:
+                self.right = BinaryTreeNode(value)
+            else:
+                self.right.insert(value)
+#+end_src
+Currently, all that this binary tree has is an insert method, but that is all that is needed in order to see the [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursion]] in the structure.
+Each node "height" is self similar, and it works of a dual-mode sorting algorithm. That is, smaller values go on the left side, and bigger
+values go on the right side.

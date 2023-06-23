@@ -23,7 +23,7 @@ No, it's a mindmap you fucking idiot.
 You're ruining your own fun I guess. These are just the recommended settings
 and if you want to change them then you're free to.
 
-That won't stop me from following you in real life, though. Teehee!
+That won't stop me from stalking you and physically threatening you, though. Teehee!
 * How did you make it?
 This section of the website was made with ~org-roam~, an emacs package that allows
 you to make a web of notes, something close to a wiki.
