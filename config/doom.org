@@ -69,6 +69,9 @@ Now, we set our keybindings:
         ([?\s-w] . (lambda ()
                      (interactive)
                      (start-process "" nil "qutebrowser")))
+        ([?\s-n] . (lambda ()
+                     (interactive)
+                     (start-process "" nil "nyxt")))
         ([?\s-k] . (lambda ()
                      (interactive)
                      (start-process "" nil "krita")))
@@ -124,8 +127,8 @@ Now we configure fonts:
 ** Color Scheme
 I'm using the catppuccin theme, which is available on github.
 #+begin_src emacs-lisp :tangle yes
-(setq doom-theme 'catppuccin)
-(setq catppuccin-flavor 'mocha)
+(setq doom-theme 'doom-rouge)
+;; (setq catppuccin-flavor 'mocha)
 #+end_src
 ** Doom Module and Programs Configuration
 *** Agenda
@@ -310,6 +313,11 @@ loopbacks in gpg-agent.conf.
      (rainbow-mode 1))))
 (global-rainbow-mode 1)
 #+end_src
+*** Automatically tangle
+#+begin_src emacs-lisp :tangle yes
+(use-package! org-auto-tangle
+  :hook (org-mode . org-auto-tangle-mode))
+#+end_src
 * packages.el Configuration
 These are some external packages that I use that are not provided by doom modules.
 #+begin_src emacs-lisp :tangle packages.el
@@ -320,7 +328,9 @@ These are some external packages that I use that are not provided by doom module
 (package! nasm-mode)
 (package! org-contrib)
 (package! exwm)
+(package! org-auto-tangle)
 (package! rainbow-mode)
+(package! ednc)
 #+end_src
 
 * init.el Configuration
@@ -355,7 +365,7 @@ This installs all the doom modules that we are going to be configuring:
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints
        (popup +defaults)
-       tabs
+       ;; tabs
        treemacs
        unicode
        (vc-gutter +pretty)

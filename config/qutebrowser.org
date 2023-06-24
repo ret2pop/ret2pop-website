@@ -2,7 +2,7 @@
 #+author: Preston Pan
 #+date: <2023-06-09 Fri>
 #+description: a catppuccin configuration for qutebrowser.
-
+#+auto_tangle: t
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 
 * Configuration
@@ -65,8 +65,8 @@ c.url.searchengines = {
 ** Start Page
 Set the default start page to my own website.
 #+begin_src python :tangle config.py
-c.url.start_pages = ["https://preston.nullring.xyz"]
-c.url.default_page = "https://preston.nullring.xyz"
+c.url.start_pages = ["file:///home/preston/website_html/index.html"]
+c.url.default_page = "file:///home/preston/website_html/index.html"
 #+end_src
 ** Keybindings
 Now we define our keybindings for useful programs while browsing:
@@ -91,10 +91,6 @@ for item in js_blacklist:
 Doing mundane things like setting the downloads directory to not use an upper case letter.
 #+begin_src python :tangle config.py
 c.downloads.location.directory = "~/downloads"
-#+end_src
-We also want to do this for the purpose of EXWM:
-#+begin_src python :tangle config.py
-c.tabs.tabs_are_windows = True
 #+end_src
 ** End of Config
 #+begin_src python :tangle config.py

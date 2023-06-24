@@ -94,7 +94,45 @@ class BinaryTreeNode:
                 self.right = BinaryTreeNode(value)
             else:
                 self.right.insert(value)
+    def print_node(self, level=1):
+        print(f"level {level}: {self.value}")
+        if self.left is not None:
+            self.left.print_node(level + 1)
+        if self.right is not None:
+            self.right.print_node(level + 1)
+root = BinaryTreeNode(5)
+root.insert(3)
+root.insert(10)
+
+root.print_node()
 #+end_src
+
+#+RESULTS:
+: level 1: 5
+: level 2: 3
+: level 2: 10
+
 Currently, all that this binary tree has is an insert method, but that is all that is needed in order to see the [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursion]] in the structure.
 Each node "height" is self similar, and it works of a dual-mode sorting algorithm. That is, smaller values go on the left side, and bigger
-values go on the right side.
+values go on the right side. It is the binary tree model in my view that unites the concept of duality with the concept of recursion. Duality
+is self similar at every abstraction level, and the duality is crucial for subdividing processing power in order to break a big task
+into small tasks, which is needed for recursion to be finite.
+* Why duality, and not Any other Modality?
+This is a good question, and one that I've still yet to answer completely. However, I would still like to try my hand at this, because there
+are things that make the number two specially suited for the task of subdividing.
+** Two is a Natural Number
+From a biological perspective, we're probably more used to dealing with whole numbers. We did not even come up with the concept of any others
+until much later, and negative numbers, and even zero, were a construct invented much later as well. Yes, there are an infinite number of natural
+numbers, but at least it's a filter we can use.
+** Two is Prime
+Of course, there are an infinite number of other numbers that are prime, but this is yet another filter that can be used. Any number that is not
+prime can be represented by a smaller factor of that number. For example, 4-ality can be represented by a longer chain of dualities.
+
+What's interesting is that one is a factor of everything. This represents the "null filter", or "anti filter", which doesn't filter any data and
+simply represents it all as one thing. Very interesting.
+*** P-ality, where P is Prime
+I've yet to experiment with other P-alities, but I'm sure they work too. For now, I will say that they probably work, but won't be as elegant as
+a duality, for other reasons:
+** Two is small, and Close to e
+The last thing that makes two unique is simply that it is the smallest prime number, which means thinking about the concept is relatively easy. It is
+also an approximation of the constant e, or euler's constant, which has implications in computer science and storing data as well.
