@@ -1,0 +1,15 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Tuesday, 20 June 2023
+** 02:52
+Despite it being logged as a different day, today for me is still
+when i wrote my last blog article because i haven't changed my
+system time yet due to procrastination. Today, I figured out how
+to send org mode emails. I will manage my contacts with org mode
+too.

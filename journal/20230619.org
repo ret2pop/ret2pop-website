@@ -1,0 +1,23 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Monday, 19 June 2023
+** 16:48
+Basically, I got my mechanical keyboard, a laptop stand, and
+my wacom drawing thing. It's pretty cozy here.
+
+Yesterday, I did a little bit of drawing in perspective. I am not
+currently good at drawing, but i am starting by just doing the basics
+of perspective and I will attempt landscapes in the future.
+
+This keyboard has blue switches. I could not even find that much information
+on the keyboard online, but it is an hp k23. I do not even know if it is good,
+but it can be made good because the switches are hot-swappable.
+
+Anyway, I do like the keyboard a lot, and in the future, I plan to do more
+drawing.

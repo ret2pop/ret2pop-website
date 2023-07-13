@@ -36,5 +36,8 @@ can therefore publish them. So I did! Configurations include:
 - QuteBrowser
 - Elfeed
 …and many more!
+** [[file:about.org][About]]
+To see my contact information and whatnot.
+
 * About this Website
 I wrote this website in org mode. For more information, see the [[file:README.org][README]].

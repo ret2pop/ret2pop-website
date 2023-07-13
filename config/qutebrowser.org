@@ -11,9 +11,15 @@ We start with imports:
 #+begin_src python :tangle config.py
 from pathlib import Path
 from urllib.parse import urlparse
-import catppuccin
+# import catppuccin
 #+end_src
 We import pathlib to get our home directory.
+** Theming
+I am experimenting with many themes right now, and one of them is the [[https://github.com/gicrisf/qute-city-lights][city-lights]] theme.
+Another one I have used is the [[https://github.com/catppuccin/catppuccin][catppuccin]] theme.
+#+begin_src  python :tangle config.py
+config.source('themes/qute-city-lights/city-lights-theme.py')
+#+end_src
 ** Variables
 We need the location of the home directory.
 #+begin_src python :tangle config.py
@@ -95,5 +101,5 @@ c.downloads.location.directory = "~/downloads"
 ** End of Config
 #+begin_src python :tangle config.py
 config.load_autoconfig()
-catppuccin.setup(c, 'mocha', False)
+# catppuccin.setup(c, 'mocha', False)
 #+end_src

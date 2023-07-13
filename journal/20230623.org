@@ -1,0 +1,39 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Friday, 23 June 2023
+** 06:16
+*** DONE Check if these todos work
+SCHEDULED: <2023-06-22 Thu>
+I am finally trying out using org agenda as a dayplanner,
+and as a result, I want to check if these todos work.
+Additionally, I will be linking my old site to my new one
+(this one).
+** 10:15
+So basically these timestamps work for real now, and this
+todo also works. I have set up exwm in emacs so my qtile
+configuration is no longer being worked on as it is being
+replaced by exwm.
+
+EXWM is nice because the keybindings are consistent. You can
+treat x window buffers in the same way you do text buffers,
+and the modeline can act as a status bar. The modeline has
+battery percentage and time built into it which makes it
+a bar replacement as those two things are the only thing
+I need really.
+
+What's nice is that if there is something going on inside emacs
+and you are in another application, you can see it via the modeline,
+whereas you would need notifications if you were to do this
+in a conventional window manager. For example, i can get irc notifications
+from my emacs irc client by simply glancing at the modeline while I am
+in, say, qutebrowser.
+
+I'm currently looking into xwidgets in order to replace my web browser
+in favor of emacs. If I can do that, then 95% of my computing
+can be done with emacs integration.

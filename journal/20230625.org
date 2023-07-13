@@ -1,0 +1,19 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Sunday, 25 June 2023
+** 13:24
+I've realized that switching themes with my configuration is
+really easy because everything is either emacs or my web browser
+(or some other third party application that doesn't need a theme
+anyway). I'm currently trying out the city lights theme, but I will
+probably experiment with more as well.
+
+Today I feel really tired for some reason. Even so, I've been looking
+into category theory and group theory. I don't have any physical books
+on the two subjects, but I do have online copies.

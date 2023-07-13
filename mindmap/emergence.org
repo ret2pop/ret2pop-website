@@ -6,4 +6,27 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
 
 * Emergence systems are…
-Many things.
+Existent in many forms and at many levels. They are the fundamental building
+block of everything that exists, I argue, and nothing in this theory of
+everything will contradict this statement!
+
+** What is Emergence?
+Emergence can be broadly defined as a system whose components organize themselves
+into a larger structure via simpler rules that each component follows.
+
+Entire systems such as [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][mathematics]] can be explained in terms of a couple axioms,
+where all the theorems arising from those axioms are emergent from those axioms.
+At least, that is a relatively simple explanation, and does not capture the full
+beauty of emergent systems. Therefore, I call apoun an example from daily life:
+
+*** Societies
+At every scale, societies exhibit properties of emergence. For example, families
+and small communities comprise small areas of town, which comprise cities,
+which then make up provinces, and finally countries. In this particular example,
+we self organize into self-similar [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursive]] hierarchies. This is for a good reason;
+in order for societies to scale, there need to be abstractions. Each level in the
+hierarchy conveys more but less exact information, until we get to the national
+level which deals the most with aggregates.
+
+*** Markets Emergent
+To use a particular hierarchy example, markets are emergent from barter in goods.

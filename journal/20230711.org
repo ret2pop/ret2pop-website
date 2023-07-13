@@ -1,0 +1,20 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Tuesday, 11 July 2023
+** 16:00
+I haven't written a blog post in a while, pain. Basically, recently I have
+been doing not a whole lot because of mood problems revolving around sleep.
+There are a few things that I want to try working towards, and a lot of them
+are internally motivating, but my physical and mental condition is kind of catching up
+to me.
+
+I have gotten evil-mode in mu4e to work because before it did not in doom emacs.
+I am always very tired for some reason and I have no idea why I am tired.
+I guess i could try coffee as a motivator, and that usually works. I think I need
+to exercise more.

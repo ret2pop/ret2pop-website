@@ -1,0 +1,20 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Wednesday, 21 June 2023
+** 21:34
+I've fixed the timezones, so they will now appear correctly. Additionally, I
+have figured out more advanced org-agenda task building, and I will therefore
+use it to build more advanced personal efficiency mechanisms, a set of heuristic
+tools that build more abstract heuristic tools (thus having an exponential effect),
+and also build infrastructure that helps with doing more "useful" tasks.
+
+I've been thinking about this conceptual infrastructure recently, and how primitive
+the average person's infrastructures regarding personal efficiency mechanisms are.
+Emacs and org mode are both examples of personal efficiency mechanisms, and so are
+things like planners, lists, capital, skills, heuristics, journals, notes, and others.

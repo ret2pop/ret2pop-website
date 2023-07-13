@@ -1,0 +1,19 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Friday, 16 June 2023
+** 13:43
+By the way, my system timezone is not accurate and I just noticed that this is affecting
+my journal times, so I am going to fix that.
+
+Today, I plan to do some more mechanics, specifically stuff relating to angular momentum
+and lagrangian mechanics. I hope to learn more about quantum mechanics theory, so I think
+this is a good starting point.
+
+Also, I would like to learn some general relativity. Although I know the general idea, the
+differential geometry part of it is still hard, so I need to study some of that.

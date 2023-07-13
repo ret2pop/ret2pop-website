@@ -1,0 +1,97 @@
+:PROPERTIES:
+:ID:       32f0b8b1-17bc-4c91-a824-2f2a3bbbdbd1
+:END:
+#+title: electrostatics
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* What is Electricity?
+Because this is an introduction and not a lesson in quantum mechanics, I will say that electricity is broadly
+defined by the charge that an object has that corresponds the force that it both feels and also gives
+to other objects. Charge is measured in coulombs and can be negative or positive, which leads us to the man himself:
+
+* Coulomb's Law
+In order to define the phenomena of electric force in the real world, we use
+this experimentally verified law known as Coulomb's Law. Let \( \vec{r_{1}} \) be the displacement
+of a charge \( Q \), and let \( \vec{r_{2}} \) be the displacement of a charge \( q \), where these two charges are named \( P_{1}\) and \( P_{2} \) respectively.
+Then let \( \vec{r} = \vec{r_{1}} - \vec{r_{2}} \) be the distance between the charges. For simplicity, we assume
+these charges have no mass or volume; we call these /point charges/. The equation for the force
+on \( P_{1} \) is as follows:
+
+\begin{align*}
+\vec{F(\vec{r})} = \frac{1}{4\pi\epsilon_{0}}\frac{qQ}{r^{2}} \hat{r}.
+\end{align*}
+
+Where \( \hat{r} \) is the unit vector pointing in the direction of \( P_{2} \). Note that there are a
+couple of interesting things about this force. First, it is an inverse square law, and the formula looks a lot like the one for gravitation,
+only charge can be negative and mass cannot. Second, it is symmetrical,
+in the sense that the force felt by \( P_{2} \) is going to be the same, only \( \hat{r} \)
+is pointing in the other direction. Also, note that due to linearity, this force calculation follows the /superposition principle/.
+That is, if we have different electrostatic forces acting on one particle:
+
+\begin{align*}
+\vec{F_{tot}} = \vec{F_{1}} + \vec{F_{2}} + … = \sum_{i=1}^{n} \vec{F_{i}}.
+\end{align*}
+
+Wait, where does the \( \frac{1}{4\pi\epsilon_{0}} \) term come from? Well, the surface area of a sphere
+is \( 4\pi r^{2}\) , which explains both the inverse square law and this \( 4\pi \) term in the denominator,
+but what about \( \epsilon_{0} \), what does it even mean?
+
+Well, it is simply a conversion of units from /speed of light/ terms to /SI unit terms/. If you
+think of it like that, you will never need to know what the units actually are, although I'm
+sure you can find that online. Just know that it is called the permeability of free space, and
+it is defined in terms of the speed of light and a constant relating to magnetism:
+
+\begin{align*}
+\epsilon_{0}\mu_{0} = \frac{1}{c^{2}}
+\end{align*}
+
+but since this is electrostatics and not electrodynamics, you will not have to worry about
+magnetic constants. Again, it is just a shift from speed of light units to our mortal units.
+
+** Electric Field
+Okay, now we can continue to defining the /electric field/ of a particle. Let's call \( P_{1} \) our
+/test charge/, and \( P_{2} \) our /source charge/. If we now want to measure the force on \( P_{1} \),
+our equation is going to be the same. However, we can define a field \( \vec{E(\vec{r})} \) such that:
+
+\begin{align*}
+\vec{F} = Q\vec{E}
+\end{align*}
+
+Where:
+
+\begin{align*}
+\vec{E} = \frac{\vec{F}}{Q}
+\end{align*}
+
+Therefore, the value of \( \vec{E} \) for a point charge must be:
+
+\begin{align*}
+\vec{E} := \frac{1}{4\pi\epsilon_{0}}\frac{q}{r^{2}}\hat{r}.
+\end{align*}
+
+The result is we find a way to express force in a /test charge independent way/. This is useful
+because we often want to find the force if an arbitrary object with an arbitrary charge is next
+to the particle in question, instead of focusing specifically on two charges.
+
+Note that it is trivial to prove that \( \vec{E} \) also follows the superposition principle.
+
+
+** Continuous Charge Distributions
+Now that we have a working definition of \( \vec{E} \), we can now find the electric field of an object
+that has a continuous charge distribution. Note that there aren't actually infinite charges in real
+world objects which is what we are assuming by taking an integral over some space of charge, but
+it's close enough because there are so many individual charges in real world objects. Assuming we are in
+three dimensions:
+
+\begin{align*}
+\vec{E(\vec{r})} = \frac{1}{4\pi\epsilon_{0}} \int_{space} \frac{\sigma(\vec{r_{2}})}{r^{2}}\hat{r}d\tau
+\end{align*}
+
+Where \( \tau \) is the patch of volume we are integrating over, and \( \sigma \) is the charge density function,
+which takes a position vector and returns the charge at that vector. Of course, surface and line integrals
+have their own analogues -- simply replace \( d\tau \) with \( da \) or \( dl \), and make sure your charge
+distribution is in the correct amount of dimensions.

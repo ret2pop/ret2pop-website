@@ -4,17 +4,33 @@
 #+description: My list of blogs, news sites, and channels.
 
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
-* Feed
+
+* Feed :elfeed:
+In general, this feed has rss feeds whose associated links are viewable in
+eww, by design. It has a focus on technology related subjects, with some of my personal
+feeds. Feeds labeled private are feeds that are connected to an account I have, so
+you might not want them.
 ** Blogs :blog:
 Here are some interesting blogs, many of which are from substack.
-*** https://astralcodexten.substack.com/feed
 *** https://graymirror.substack.com/feed
 *** https://lukesmith.xyz/index.xml :lukesmith:
+
 ** News :news:
-*** https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml
-*** https://rss.nytimes.com/services/xml/rss/nyt/World.xml
-*** https://rss.nytimes.com/services/xml/rss/nyt/Science.xml
-*** https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml
+These are the news articles that I subscribe to. Some of these are politics related
+but I mostly just want to inform myself about technology subjects.
+*** https://feeds.washingtonpost.com/rss/politics?itid=lk_inline_manual_2
+*** https://news.ycombinator.com/rss
+
 ** Podcasts :podcast:
 *** https://notrelated.xyz/rss :lukesmith:
+
+** Forums :forum:
+*** https://reddthat.com/feeds/front/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjkwMiwiaXNzIjoicmVkZHRoYXQuY29tIiwiaWF0IjoxNjg3NzgyNjk1fQ.XVCUjs0u5-kjNwFKvE6xlGCu7ij1QmzGEy0Pettdc_s.xml?sort=Active :personal:
+
+** Science Journals :journal:
+I like to get new information about recent studies related to technology.
+*** http://www.nature.com/nmat/current_issue/rss/
+
 ** Misc.
+This is a section dedicated to everything that does not fit the above categories
+or is newly added from Qutebrowser with the xr keybinding.

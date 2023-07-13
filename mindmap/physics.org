@@ -1,0 +1,36 @@
+:PROPERTIES:
+:ID:       ece8bf94-4e3c-4939-a77a-9949c1ec0dc6
+:END:
+#+title: physics
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Laws of Nature
+By engaging in physics modeling, we are postulating that there are rules that
+"nature" follows, and that these rules are logically consistent. At least,
+mathematical models postulate this, and non-mathematical models of the universe
+have been relegated to the study of metaphysics.
+
+* Fields in Physics
+** Classical Mechanics
+Classical mechanics deals with fields of physics that do not deal with time dilation or quantum
+weirdness. It is called classical mechanics because most of these theories were invented before
+their quantum or relativistic counterparts, and usually serve as a baseline understanding
+for the later topics.
+*** Newtonian Mechanics
+It all started when Newton created three (but really two) fundamental laws of the universe that
+governed all things.
+*** Lagrangian Mechanics
+This is a different strain of classical mechanics. Instead of looking at direction and vectors,
+it looks at a single fundamental principle, even more fundamental than inertia and conservation of momentum:
+optimization. We believe that nature always optimizes for some parameters in all physical phenomena.
+*** Classical Electrodynamics
+Classical electrodynamics attempts to explain the electromagnetic force from a classical perspective. What is
+light? How does electricity actually work? All these questions you will find (half) answered in the study
+of electrodynamics.
+**** [[id:32f0b8b1-17bc-4c91-a824-2f2a3bbbdbd1][Electrostatics]]
+This is a study of the force of particles with charge on another in a motionless context. It is the baseline
+for studying more complicated electromagnetic theory.

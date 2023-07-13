@@ -130,9 +130,6 @@ prime can be represented by a smaller factor of that number. For example, 4-alit
 
 What's interesting is that one is a factor of everything. This represents the "null filter", or "anti filter", which doesn't filter any data and
 simply represents it all as one thing. Very interesting.
-*** P-ality, where P is Prime
-I've yet to experiment with other P-alities, but I'm sure they work too. For now, I will say that they probably work, but won't be as elegant as
-a duality, for other reasons:
-** Two is small, and Close to e
-The last thing that makes two unique is simply that it is the smallest prime number, which means thinking about the concept is relatively easy. It is
-also an approximation of the constant e, or euler's constant, which has implications in computer science and storing data as well.
+** Two is small and not One
+The number two is also the smallest natural number that is not one. This means it is the simplest way to subdivide any particular object. This makes
+it more elegant compared to some other modalities.

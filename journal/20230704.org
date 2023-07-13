@@ -1,0 +1,22 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Tuesday, 04 July 2023
+** 12:49
+I haven't done a journal entry for a while, but there are a couple
+of things that are pretty cool and new. I've fixed all my emacs
+config internal bugs, and so the only thing left to do in order
+to make my emacs config perfect is try to do everything in emacs.
+EXWM already sort of achieves this goal, but I want to open the least
+amount of x window buffers as possible as well. Therefore, I've started
+using eww more, and it is actually good. Additionally, I've started
+using GNU Info more and the documentation is actually really good.
+
+I've also been experimenting with eshell. It feels highly integrated
+because of how you can use shell functions as well as lisp functions
+all in one REPL.

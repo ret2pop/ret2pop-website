@@ -1,0 +1,25 @@
+#+title: About
+#+author: Preston Pan
+#+description: About me and my contacts
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+#+language: en
+#+OPTIONS: broken-links:t
+#+date: <2023-06-26 Mon>
+
+* About Me
+Some might know me as ret2pop, some as Preston Pan, and
+others as [[https://preston.nullring.xyz][LiCoO2]].
+
+** Contact
+Here are all the methods you should use to contact me:
+*** IRC
+- ret2pop on libera.chat
+  - Note: I will not always be online and I don't use a bouncer on this server. Email me to coordinate a time if you really need to reach me this way.
+- LiCoO2 on [[https://andrei.rm-r.org/irc][the best irc server]].
+*** Email
+- preston@nullring.xyz
+- ret2pop@gmail.com
+
+* Professional
+For now, you should consult [[https://preston.nullring.xyz/about/index.html][my other website]], but I will make
+this my main website in the future.

@@ -11,10 +11,12 @@ My name, and the org mode directory on my computer, as well as basic editor conf
 Below is the old documentation.
 #+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Preston Pan"
-      user-mail-address "prseton@nullring.xyz")
+      user-mail-address "preston@nullring.xyz")
 
 (setq display-line-numbers-type t)
-
+(setq x-select-enable-clipboard t)
+(setq save-interprogram-paste-before-kill t)
+(setq yank-pop-change-selection t)
 (setq org-directory "~/org/")
 #+end_src
 - `load!' for loading external *.el files relative to this one
@@ -39,7 +41,6 @@ First we load our packages:
 #+end_src
 Now, we set our keybindings:
 #+begin_src emacs-lisp :tangle yes
-
 (setq exwm-input-global-keys
       `(
         ([?\s-r] . exwm-reset)
@@ -88,7 +89,6 @@ Now, we set our keybindings:
                       (interactive)
                       (start-process "" nil "/usr/bin/slock")))))
 
-
 #+end_src
 And we also need to set up our media keys:
 #+begin_src emacs-lisp :tangle yes
@@ -125,9 +125,11 @@ Now we configure fonts:
       doom-big-font (font-spec :family "FiraCode Nerd Font" :size 28))
 #+end_src
 ** Color Scheme
-I'm using the catppuccin theme, which is available on github.
+I'm experimenting with many themes right now. One of these themes is the city-lights theme, another one of them
+is the catppuccin theme.
 #+begin_src emacs-lisp :tangle yes
-(setq doom-theme 'doom-rouge)
+(setq doom-theme 'doom-city-lights)
+;; (setq doom-theme 'doom-rouge)
 ;; (setq catppuccin-flavor 'mocha)
 #+end_src
 ** Doom Module and Programs Configuration
@@ -138,6 +140,10 @@ Now we add these two files to our agenda search path:
                              "~/org/contacts.org"
                              "~/org/notes.org"))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
+#+end_src
+And we also want to set up org-habit to start graphing our habits as soon as possible:
+#+begin_src emacs-lisp :tangle yes
+(setq org-habit-preceding-days 1)
 #+end_src
 *** IRC
 Set up circe to connect to my bouncer:
@@ -150,27 +156,39 @@ Set up circe to connect to my bouncer:
       :user "LiCoO2/AndreiNet"
       :pass ,(+pass-get-secret "ZNC"))))
 #+end_src
+And another to connect to libera:
+#+begin_src emacs-lisp :tangle yes
+(set-irc-server! "irc.libera.chat"
+  `(:tls t
+    :port 6697
+    :nick "ret2pop"
+    :sasl-username "ret2pop"
+    :sasl-password (lambda (&rest _) (+pass-get-secret "libera.chat"))
+    :channels ("#emacs" "#rwx")))
+#+end_src
 *** Email
 In order to use this configuration, you must install and configure mu and mbsync.
 #+begin_src emacs-lisp :tangle yes
-(setq mu4e-get-mail-command "mbsync --config ~/.config/doom/mbsyncrc prestonpan")
 
 (setq send-mail-function 'smtpmail-send-it)
+(setq smtpmail-default-smtp-server "mail.nullring.xyz")
 (setq smtpmail-smtp-server "mail.nullring.xyz")
 (setq smtpmail-smtp-service 465)
 (setq smtpmail-stream-type 'ssl)
 
-(setq mu4e-drafts-folder "/Drafts")
-(setq mu4e-sent-folder   "/Sent")
-(setq mu4e-trash-folder  "/Trash")
+(after! mu4e
+ (setq mu4e-get-mail-command "mbsync prestonpan")
+ (setq mu4e-drafts-folder "/Drafts")
+ (setq mu4e-sent-folder   "/Sent")
+ (setq mu4e-trash-folder  "/Trash")
 
-(setq mu4e-html2text-command "w3m -T text/html"
-      mu4e-update-interval 300
-      mu4e-headers-auto-update t
-      mu4e-view-show-images t
-      mu4e-compose-signature-auto-include nil
-      mu4e-use-fancy-chars t)
-(setq mu4e-compose-reply-ignore-address '("no-?reply" "preston@nullring.xyz"))
+ (setq mu4e-html2text-command "w3m -T text/html"
+       mu4e-update-interval 300
+       mu4e-headers-auto-update t
+       mu4e-view-show-images t
+       mu4e-compose-signature-auto-include nil
+       mu4e-use-fancy-chars t)
+ (setq mu4e-compose-reply-ignore-address '("no-?reply" "preston@nullring.xyz")))
 #+end_src
 *** RSS
 We need to set up elfeed with a list of rss feeds.
@@ -179,6 +197,22 @@ We need to set up elfeed with a list of rss feeds.
   (setq elfeed-search-filter "@1-month-ago +unread"))
 (add-hook! 'elfeed-search-mode-hook #'elfeed-update)
 (setq rmh-elfeed-org-files '("~/org/elfeed.org"))
+#+end_src
+*** EWW
+We want the default search engine of eww to be google because duckduckgo is bad:
+#+begin_src emacs-lisp :tangle yes
+(setq search-engines
+      '(
+        (("google" "g") "https://google.com/search?q=%s")
+        (("duckduckgo" "d" "ddg") "https://duckduckgo.com/?q=%s")
+        (("rfc" "r") "https://www.rfc-editor.org/rfc/rfc%s.txt")
+        (("rfc-kw" "rk") "https://www.rfc-editor.org/search/rfc_search_detail.php?title=%s")))
+
+(setq search-engine-default "google")
+(setq eww-search-prefix "https://google.com/search?q=")
+(setq browse-url-browser-function 'eww-browse-url)
+(add-hook 'eww-mode-hook
+          (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
 #+end_src
 *** Music
 In order to use this configuration, you must have mpd configured to use the same directory.
@@ -269,6 +303,11 @@ And then we need to add some templates with org-capture in order to add entries 
    `(("c" "Contact" entry (file+headline "~/org/contacts.org" "Friends"), my/org-contacts-template
       :empty-lines 1)))
 #+end_src
+*** Org Timer
+Sometimes I want a timer to help me keep track of the time.
+#+begin_src emacs-lisp :tangle yes
+(setq org-clock-sound "~/audio/ding.wav")
+#+end_src
 ** Keybindings
 Now we set up our keybindings for our applications:
 #+begin_src emacs-lisp :tangle yes
@@ -285,8 +324,14 @@ Now we set up our keybindings for our applications:
       :desc "Open password manager"
       "p w" #'ivy-pass)
 (map! :leader
-      :desc "Open password manager"
+      :desc "Open dictionary program"
       "d i" #'dictionary)
+(map! :leader
+      :desc "Open rtorrent frontend"
+      "r t" #'mentor)
+(map! :leader
+      :desc "Open eww web browser"
+      "e w" #'eww)
 #+end_src
 ** External Packages
 we want to include some packages that don't come with doom emacs.
@@ -305,22 +350,59 @@ loopbacks in gpg-agent.conf.
                (pinentry-start))
 #+end_src
 *** Rainbow Mode
+This is not used currently but might in the future.
 #+begin_src emacs-lisp :tangle yes
 (define-globalized-minor-mode global-rainbow-mode rainbow-mode
   (lambda ()
     (when (not (memq major-mode
                 (list 'org-agenda-mode)))
      (rainbow-mode 1))))
-(global-rainbow-mode 1)
 #+end_src
 *** Automatically tangle
+Tangling manually every single time is kind of painful. Instead, we allow ourselves to set a flag
+in org that allows org to know we should tangle on save:
 #+begin_src emacs-lisp :tangle yes
 (use-package! org-auto-tangle
   :hook (org-mode . org-auto-tangle-mode))
 #+end_src
+*** Notifications
+We use ednc to manage notifications.
+#+begin_src emacs-lisp :tangle yes
+(ednc-mode 1)
+
+(defun show-notification-in-buffer (old new)
+  (let ((name (format "Notification %d" (ednc-notification-id (or old new)))))
+    (with-current-buffer (get-buffer-create name)
+      (if new (let ((inhibit-read-only t))
+                (if old (erase-buffer) (ednc-view-mode))
+                (insert (ednc-format-notification new t))
+                (pop-to-buffer (current-buffer)))
+        (kill-buffer)))))
+
+(add-hook 'ednc-notification-presentation-functions
+          #'show-notification-in-buffer)
+
+(evil-define-key 'normal ednc-view-mode-map
+  (kbd "d")   'ednc-dismiss-notification
+  (kbd "RET") 'ednc-invoke-action
+  (kbd "e")   'ednc-toggle-expanded-view)
+#+end_src
+*** Playing Video
+#+begin_src emacs-lisp :tangle yes
+(setq empv-invidious-instance "https://yewtu.be/api/v1")
+#+end_src
+*** Mastodon
+#+begin_src emacs-lisp :tangle yes
+(setq mastodon-instance-url "https://types.pl"
+          mastodon-active-user "ret2pop")
+#+end_src
 * packages.el Configuration
 These are some external packages that I use that are not provided by doom modules.
 #+begin_src emacs-lisp :tangle packages.el
+(unpin! evil-collection)
+(package! evil-collection
+  :recipe (:repo "kepi/evil-collection" :branch "mu4e-development"))
+
 (package! pinentry)
 (package! kbd-mode
   :recipe (:host github
@@ -331,6 +413,17 @@ These are some external packages that I use that are not provided by doom module
 (package! org-auto-tangle)
 (package! rainbow-mode)
 (package! ednc)
+(package! mentor)
+(package! request) ;; dependency for lemmy client
+(package! plz) ;; dependency for lemmy client; either request or plz is idk what to use
+(package! curl-to-elisp)
+(package! empv)
+(package! elpher)
+(package! ement)
+(package! mastodon)
+(package! go-translate)
+(package! ts)
+(package! chess)
 #+end_src
 
 * init.el Configuration
@@ -396,7 +489,7 @@ This installs all the doom modules that we are going to be configuring:
        vc
 
        :term
-       ;;eshell            ; the elisp shell that works everywhere
+       eshell            ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
        ;; term           ; basic terminal emulator for Emacs
        vterm
