@@ -1,0 +1,103 @@
+:PROPERTIES:
+:ID:       4bfd6585-1305-4cf2-afc0-c0ba7de71896
+:END:
+#+title: del operator
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+The operator /del/ in \( n \) dimensional euclidean space is defined as follows:
+\begin{align*}
+\vec{\nabla} := \sum_{i = 1}^{n} \hat{e_{i}}\frac{\partial}{\partial e_{i}}
+\end{align*}
+Where \( \frac{\partial}{\partial e_{k}}\) is the [[id:3993a45d-699b-4512-93f9-ba61f498f77f][partial derivative]] with respect to the \(k^{th}\) orthogonal axis, and \( \hat{e}_{k} \) is the
+orthogonal basis vector pointing in that direction. In three dimensional euclidean
+space using Cartesian coordinates, the del operator would look like:
+
+\begin{align*}
+\vec{\nabla} = \begin{bmatrix}
+\frac{\partial}{\partial x} \\
+\frac{\partial}{\partial y} \\
+\frac{\partial}{\partial z}
+\end{bmatrix}
+= \hat{i}\frac{\partial}{\partial x} + \hat{j}\frac{\partial}{\partial y} + \hat{k}\frac{\partial}{\partial z}
+\end{align*}
+
+The del operator is what is called a /linear operator/ because it is consistent with operations
+pertaining to linear algebra.
+* Usage
+The del operator is useful for representing the gradient, divergence, and curl of a given
+scalar or vector field.
+
+** Gradient
+:PROPERTIES:
+:ID:       3587c3b4-c3d8-4ff1-b0ba-8eecb1ef0e4c
+:END:
+Multiplying the del operator by a scalar field yields a vector that is called the *gradient*
+of a function:
+\begin{align*}
+\vec{\nabla}f = \begin{bmatrix}
+\frac{\partial f}{\partial x} \\
+\frac{\partial f}{\partial y} \\
+\frac{\partial f}{\partial z}
+\end{bmatrix}
+= \frac{\partial f}{\partial x}\hat{i} + \frac{\partial f}{\partial y}\hat{j} + \frac{\partial f}{\partial z}\hat{k}
+\end{align*}
+Where this vector points in the direction of the greatest rate of change, and has a magnitude corresponding
+with the slope. The reason why is somewhat intuitive, if you think about it a little.
+
+** Divergence
+:PROPERTIES:
+:ID:       12a2d5b3-f98c-45e5-9107-5560288b5aa8
+:END:
+Taking the dot product of the del operator with a vector field yields a scalar function, which is called the divergence:
+\begin{align*}
+\vec{\nabla} \cdot \vec{f} = \frac{\partial f_{x}}{\partial x} + \frac{\partial f_{y}}{\partial y} + \frac{\partial f_{z}}{\partial z}
+\end{align*}
+Where \( f_{n} \) is the \( n \) component of \( \vec{f} \).
+
+You can think of it as measuring the rate of change of the outwards or inwards direction of a vector field.
+In order to think about this more clearly, we can think about the two dimensional case with just x and y.
+Given a two-dimensional vector field, a two-dimensional divergence would look like this:
+\begin{align*}
+\vec{\nabla} \cdot \vec{f} = \frac{\partial f_{x}}{\partial x} + \frac{\partial f_{y}}{\partial y}
+\end{align*}
+and to explain this further, let's take a vector \( \vec{v} \), as well as two other vectors to compare it with,
+\( \vec{v_{up}}\), and \( \vec{v_{right}} \). Then, we take \( \vec{r} = \vec{f}(\vec{v}) \) and compare it to
+\( \vec{r_{up}} \) and \( \vec{r_{right}}\). We then compare the x component of the right vector with the original one,
+and we compare the y component of the up vector with the original one, by taking the difference. We then sum these
+differences, and what we are left with is a measurement of how spread apart the directions and magnitudes of these vectors
+are in this local area. If these \( \vec{r} \) vectors are infinitely close to each other, we can consider this comparison to be analogous to the divergence at that point.
+This argument naturally extends to three dimensions.
+
+** Curl
+:PROPERTIES:
+:ID:       b25e0e44-c764-4f0a-a5ad-7f9d79c7660d
+:END:
+The curl of a vector field is defined as follows:
+\begin{align*}
+\vec{\nabla} \times \vec{f} = \hat{i}(\frac{\partial f_{z}}{\partial y} - \frac{\partial f_{y}}{\partial z}) - \hat{j}(\frac{\partial f_{z}}{\partial x} - \frac{\partial f_{x}}{\partial z}) + \hat{k}(\frac{\partial f_{y}}{\partial x} - \frac{\partial f_{x}}{\partial y}).
+\end{align*}
+Where the equation above is derived from the definition of the cross product. It represents the rate of change of a
+vector field "perpendicular" to the divergence of the field. In fact, if you have any field \( \vec{f} \),
+you can represent this field as an addition of a curl-less field and a divergence-less field.
+Another way to think of it is that you are measuring the strength of rotational component of the vector field about a certain axis.
+
+** Laplacian
+:PROPERTIES:
+:ID:       65004429-a6b7-41f2-8489-07605841da3d
+:END:
+The Laplacian is defined as follows:
+\begin{align*}
+\nabla^{2}\vec{f} = \nabla \cdot \nabla\vec{f}
+\end{align*}
+It returns a scalar field and is the multivariable analogue to the second derivative. Because both the divergence
+and gradient have been described, I feel it is trivial to understand the Laplacian.
+
+** Product Rules
+The product rules pertaining to the del operator are consistent with that of linear algebra.
+For example, \( \vec{\nabla} \times \vec{\nabla}f = 0\). You can show this yourself quite easily, so I find no need to go over it here.
+When in doubt, just assume the del works the same way as any old vector, and you will usually be correct.

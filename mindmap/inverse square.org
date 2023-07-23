@@ -1,0 +1,190 @@
+:PROPERTIES:
+:ID:       2a543b79-33a0-4bc8-bd1c-e4d693666aba
+:END:
+#+title: inverse square
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Derivation
+Say you're doing some physics modeling, and you want to describe a force that has the following properties (and one more that I will introduce later,
+and many of which inherit from the definition of a [[id:c1e836e3-a80c-459d-8b68-396fa1687177][central force]]):
+1. The force happens at a distance between two particles.
+2. The force gives both the particles an equal amount of force but in opposite directions (Newton's Third Law).
+3. The force magnitude only depends on the distance between the two particles in question, and maybe some other property intrinsic to both the particles.
+4. If you draw a straight line between the two points, the force vector has to be parallel to that line.
+5. The force works in the same way no matter where in the universe you are.
+
+We will call our mysterious force field \(\vec{f(\vec{r})}\). We also want to consider two particles, and for simplicity we can say these
+particles have no volume, so they are just points. These point particles we will call \(P_{1)}\) and \(P_{2}\). For simplicity, we will also
+consider two dimensions instead of three, realizing that generalizing to arbitrary dimensions in euclidean space is trivial in this case.
+Now, the direction of force must be solely dependent on the orientation of the other particle, which follows from property 4.
+We call this direction \(\hat{r}\) and the distance between them \(r\); the vector that represents the direction and the distance together
+we are going to define to be \(\vec{r}\).
+
+If we imagine drawing \(P_{1}\) and \(P_{2}\) randomly on a piece of paper, we can imagine using a compass to draw a circle by centering at \(P_{1}\)
+and putting the end of the compass at \(P_{2}\). If we imagine putting \(P_{2}\) at any other point on the perimeter of this circle, the force magnitude remains the
+same by property 3. This is what is called radial symmetry. Note that this is true in three dimensions as well, only in three dimensions
+we will have to use a sphere. Now, let's say there's another particle further away than \(P_{2}\) called \(P_{3}\). That particle will also have a circle, but this
+circle will have a total circumference larger than that of \(P_{2}\). Here we introduce the last property: let's say that these two circles stop becoming hypothetical
+and start becoming an infinite amount of particles. If we ignore property 2 for a second, the total force felt by the ring at \(P_{2}\) should be the same as the
+total force felt by the ring at \(P_{3}\). In other words, the field gives each ring around it an equal amount of force, or in more technical terms, the flux though
+all the possible concentric rings is the same, or the flux through a given concentric ring is independent of \(\vec{r}\).
+
+Think about the implications of this last rule. The circumference of a circle is \(2\pi r\), which means if both rings are getting the same amount of force, in the
+case of the \(P_{3}\) ring, we are distributing the same amount of force to a greater amount of particles (it is farther away and the amount of particles is going
+to be proportional to the circumference). In other words, we are dividing some amount of force \(k\) by the circumference of a circle \(2\pi r\), or in other words,
+the /field intensity/ drops off proportionally to \(\frac{1}{r}\).
+Therefore, our force has to look something like:
+\begin{align*}
+\frac{k}{2\pi r}\hat{r}
+\end{align*}
+but in three dimensions, that isn't quite right.
+
+Spheres have a surface area of \(4\pi r^{2}\). In three dimensions, instead of dividing among the circumference of a circle, we are dividing among the surface area
+of a sphere. Therefore, in three dimensions we get:
+\begin{align*}
+\frac{k}{4\pi r^{2}}\hat{r}
+\end{align*}
+
+by property 3, there might be some property intrinsic to each particle in question that makes the force vector have a higher magnitude (like mass for gravity), so we have to scale
+this force by our measurement of that property. By property 2, the force must be the same magnitude but opposite direction on the two particles. In order to
+preserve that property, this force must scale by both particles' properties:
+\begin{align*}
+\vec{f}(\vec{r}) = \frac{kP_{1}P_{2}}{4\pi r^{2}}\hat{r}
+\end{align*}
+in this article I am going to consider this \(4\pi\) constant as a part of \(k\), so the final form will be:
+\begin{align*}
+\frac{kP_{1}P_{2}}{r^{2}}\hat{r}
+\end{align*}
+And from 6 properties that seem like reasonable constraints, we derive the inverse square law.
+
+To formalize the sixth property by taking the flux through a sphere and showing it doesn't depend on \(\vec{r}\):
+\begin{align*}
+kP_{1}P_{2}\oint\frac{\hat{r}}{r^{2}} \cdot d\vec{a} = kP_{1}P_{2}\oint\frac{1}{r^{2}}da = k\frac{P_{1}P_{2} 4\pi r^{2}}{r^{2}} = constant
+\end{align*}
+Which is a result we will use later.
+
+Also, from here on out, we will be dealing with a field that is not dependent on \(P_{2}\); we will be dealing with systems with many particles and therefore
+simply not considering \(P_{2}\) and multiplying it in at the end will be more convenient. Additionally, usually we simply don't know the value of \(P_{2}\);
+we usually in the real world are given a system that can interact with arbitrary values of \(P_{2}\), or in other words, in the real world systems often
+interact with a lot of different objects, so we want to consider the field of the system independent of the unknown other object that might interact with it,
+which leads us to:
+
+* Definition
+Inverse square fields for point particles are fields which have the form:
+\begin{align*}
+\frac{k\sigma}{r^{2}}\hat{r}.
+\end{align*}
+where \(\vec{r}\) is the distance between the source particle (the particle that gives the force) and test particle (the particle that receives the force),
+and sigma defines the strength of the source point. This would be mass in gravity or charge in electrodynamics.
+
+Inverse square laws follow the superposition principle, and therefore:
+\begin{align*}
+\vec{f}_{total} = \sum_{i = 0}^{n}\vec{f}_{i}
+\end{align*}
+Which means statements made about fields of single point particles is most likely true of systems of more than one particle.
+Inverse square fields also have a continuous distribution form:
+\begin{align*}
+\vec{f}(\vec{r''}) = \int_{space}\frac{k\sigma(\vec{r'})}{r^{2}}\hat{r}d\tau
+\end{align*}
+Where sigma becomes a smooth distribution. The integral is for a continuous distribution of points that follow the inverse square law, where
+the field generated by each individual point contributes in a weighted sum.
+
+\(\vec{r'}\) is displacement vector of the field source, whereas \(\vec{r''}\) is the displacement of the test particle.  \(\vec{r} := \vec{r''} - \vec{r'}\).
+* Divergence of Inverse Square Fields
+Using the [[id:4bfd6585-1305-4cf2-afc0-c0ba7de71896][del operator]]:
+\begin{align*}
+\vec{\nabla} \cdot \vec{f(\vec{r''})} = \int_{space}k\sigma(\vec{r'}) * \vec{\nabla} \cdot \frac{\hat{r}}{r^{2}}d\tau
+\end{align*}
+In this example, I will only be using the Cartesian del operator because although the calculation is harder
+the math needed in order to understand Cartesian coordinates is lesser.
+If we are using the Cartesian del operator, we must also use Cartesian coordinates. Therefore, we do unit
+conversions to replace \(\vec{r}\):
+\begin{align*}
+\vec{\nabla} \cdot \vec{f} = k * \int_{space} \sigma(\vec{r'}) * \vec{\nabla} \cdot \frac{1}{x^{2} + y^{2} + z^{2}}\frac{x\hat{i} + y\hat{j} + z\hat{k}}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}}d\tau
+\end{align*}
+If we can solve for one of these partial derivative terms, we can solve for the other two by symmetry:
+\begin{align*}
+= k\int_{space} \sigma(\vec{r'}) * \vec{\nabla} \cdot (\frac{x\hat{i}}{(x^{2} + y^{2} + z^{2})^{\frac{3}{2}}} + \frac{y\hat{j}}{(x^{2} + y^{2} + z^{2})^{\frac{3}{2}}} + \frac{z\hat{k}}{(x^{2} + y^{2} + z^{2})^{\frac{3}{2}}})d\tau \\
+= k\int_{space}\sigma(\vec{r'})(\frac{\partial}{\partial x}\frac{x}{(x^{2} + y^{2} + z^{2})^{\frac{3}{2}}} + \frac{\partial}{\partial y}\frac{y}{(x^{2} + y^{2} + z^{2})^{\frac{3}{2}}} + \frac{\partial}{\partial z}\frac{z}{(x^{2} + y^{2} + z^{2})^{\frac{3}{2}}})d\tau
+\end{align*}
+We use the chain rule to solve for this:
+\begin{align*}
+\frac{\partial}{\partial x}x(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} = (x^{2} + y^{2} + z^{2})^{-3/2} - x * 2x * \frac{3}{2} (x^{2} + y^{2} + z^{2})^{-\frac{5}{2}} \\
+= (x^{2} + y^{2} + z^{2})^{-3/2} - 3x^{2}(x^{2} + y^{2} + z^{2})^{-\frac{5}{2}}
+\end{align*}
+Then it will look like this inside the integral:
+\begin{align*}
+k\int_{space}\sigma(\vec{r'})((x^{2} + y^{2} + z^{2})^{-3/2} - 3x^{2}(x^{2} + y^{2} + z^{2})^{-\frac{5}{2}} + (x^{2} + y^{2} + z^{2})^{-3/2} - 3y^{2}(x^{2} + y^{2} + z^{2})^{-\frac{5}{2}} + (x^{2} + y^{2} + z^{2})^{-3/2} - 3z^{2}(x^{2} + y^{2} + z^{2})^{-\frac{5}{2}})d\tau
+\end{align*}
+If we factor out the \((x^{2} + y^{2} + z^{2})^{-\frac{5}{2}}\) term and collecting the like terms:
+\begin{align*}
+k\int_{space}\sigma(\vec{r'})(3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} - 3(x^{2} + y^{2} + z^{2})(x^{2} + y^{2} + z^{2})^{-\frac{5}{2}})d\tau = k\int_{space}(3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} - 3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}})d\tau = 0.
+\end{align*}
+So is the divergence of this field zero? Well, not exactly. In order to understand why, we must ask: What happens to the divergence at \(\vec{0}\)?
+On first glance, it seems clearly undefined. After all, we're dividing by zero. However, after some amount of inspection, the assumption that our field's divergence
+is zero everywhere is incoherent. As we know from section one, he surface integral over a sphere of a point charge (flux) is a constant,
+but if the divergence theorem is true, then the surface integral should also be zero, not constant. Because this flux is not \(\vec{r}\) dependent and therefore
+is the same no matter how small the concentric ring is, the flux must come from the origin.
+
+We can model this behavior with the [[id:90574fea-88f4-4b80-9cda-32cff0bcb76d][dirac delta]] distribution. Our actual divergence is:
+\begin{align*}
+k\sigma(\vec{r'})4\pi\delta^{3}(\vec{r})
+\end{align*}
+So now we can take the volume integral of this quantity:
+\begin{align*}
+\vec{\nabla} \cdot \vec{f}(\vec{r''}) = 4\pi k\int_{space}\delta^{3}(\vec{r''} - \vec{r'})\sigma(\vec{r'})d\tau \\
+= 4\pi k\sigma(\vec{r''})
+\end{align*}
+As an analogy, if we have a point mass (an object with finite mass in a single point), the density of any volume containing the point will be zero, but
+the gravitational field generated by that point mass will not be zero. Obviously just taking the density blindly will not accurately account for the
+actual distribution of mass within space. You need to use something like the [[id:90574fea-88f4-4b80-9cda-32cff0bcb76d][dirac delta]] distribution to model this behavior. Also, since the \(k\) constant
+includes the term \(\frac{1}{4\pi}\), we can just say:
+\begin{align*}
+\vec{\nabla} \cdot \vec{f}(\vec{r''}) = k\sigma(\vec{r''})
+\end{align*}
+
+Where \(k\) in this case is a constant without the \(4\pi\) term. By the divergence theorem:
+\begin{align*}
+\int_{V}\vec{\nabla} \cdot \vec{f}d\tau = \int_{S}\vec{f} \cdot d\vec{a} = k\int_{V}\sigma(\vec{r''})d\tau = k\sigma_{enc.}
+\end{align*}
+
+* Curl of Inverse Square Fields
+Because an inverse square field is a special case of a [[id:c1e836e3-a80c-459d-8b68-396fa1687177][central force]], this result is also the same as for all general central fields. That is:
+\begin{align*}
+\vec{\nabla} \times \vec{f} = \vec{0}
+\end{align*}
+Which implies the field in question is a [[id:6f2aba40-5c9f-406b-a1fa-13018de55648][conservative force]]:
+\begin{align*}
+\oint \vec{f} \cdot d\vec{l} = 0
+\end{align*}
+It also implies:
+\begin{align*}
+\vec{f} = -\vec{\nabla}V
+\end{align*}
+Where \(V\) is known as the potential of this field.
+
+* Potential of Inverse Square fields
+Now we want to find the specific potential scalar field for inverse square fields. In an inverse square field,
+given the identity:
+\begin{align*}
+\int_{\vec{a}}^{\vec{b}}\vec{f} \cdot d\vec{l} = V(\vec{a}) - V(\vec{b})
+\end{align*}
+We can set a reference point as \(\vec{a}\) -- something analogous to setting sea level or setting your coordinate system. Here, we set it infinitely far away and integrate
+in a straight line such that the path is parallel to \(\vec{r}\), with respect to a point particle at the origin:
+\begin{align*}
+k\sigma\int_{\vec{\infty}}^{\vec{b}}\frac{1}{r^{2}}\hat{r} \cdot d\vec{l} = V(\vec{\infty}) - V(\vec{b}) \\
+k\sigma\int_{\infty}^{b}\frac{1}{r^{2}}dr = V(\vec{\infty}) - V(\vec{b}) \\
+-\frac{\sigma}{4\pi \epsilon_{0}r}\Big|^{b}_{\infty} = - \frac{k\sigma}{\infty} + \frac{k\sigma}{b} = \frac{k\sigma}{b} \\
+V(\vec{r}) := \frac{k\sigma}{r}
+\end{align*}
+It is easy to prove that \(V\) follows the superposition principle. Thus, we can define a continuous distribution for the potential field as well:
+\begin{align*}
+V(\vec{r}) := k\int_{space}\frac{\sigma(r')}{r}d\tau
+\end{align*}
+Note that because this field does not require keeping track of vector orientation, it is significantly easier to solve for \(V\) then convert to \(\vec{f}\). Additionally,
+setting a reference point to something that is not infinity would be valid as well -- we just choose infinity because it cancels off the constant term. However,
+the /difference/ in potentials is absolute and does not require any constant adjustment.

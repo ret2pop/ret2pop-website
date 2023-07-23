@@ -1,0 +1,60 @@
+:PROPERTIES:
+:ID:       90574fea-88f4-4b80-9cda-32cff0bcb76d
+:END:
+#+title: dirac delta
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+The dirac delta distribution can be defined by a series of curves. For example, take a rectangle with
+length \(\frac{1}{x}\) and height \(x\), and center this rectangle symmetrically at the y axis, with the bottom of it
+touching the x axis. Now if we take the area of this rectangle, it is always going to be \( \frac{x}{x} = 1\).
+If we define this curve to be:
+\begin{align*}
+f_{n}(x) := \left\{
+\begin{array}{lr}
+n, & \text{if } -\frac{1}{2n} \le x \le \frac{1}{2n} \\
+0, & \text{if }x < -\frac{1}{2n}, x > \frac{1}{2n}
+\end{array}
+\right\}
+\end{align*}
+then the dirac delta distribution is defined as \( \delta(x) = \lim_{n\to\infty}f_{n}(x)\). The resulting distribution exhibits the following properties:
+\begin{align*}
+\delta(x) = \left\{
+\begin{array}{lr}
+\infty, & \text{if } x = 0 \\
+0, & \text{if } x \ne 0
+\end{array}
+\right\}
+\end{align*}
+It is easy to extend this definition to two or more dimensions simply by altering the dimensions of this class of curves.
+In physics, the most common distribution used is the three dimensional one, or \( \delta^{3}(x)\), but you can define a dirac delta distribution
+for arbitrary dimensions:
+\begin{align*}
+\delta^{n}(\vec{r_{n}}) = \left\{
+\begin{array}{lr}
+\infty, & \text{if } \vec{r_{n}} = \vec{0} \\
+0, & \text{if } \vec{r_{n}} \ne \vec{0}
+\end{array}
+\right\}
+\end{align*}
+
+* Properties
+Note that because the area under all the curves we used to define the delta function with is exactly one, here we expect no different:
+\begin{align*}
+\int_{a}^{b}\delta(x)dx = \left\{\begin{array}{lr}
+1, & \text{if } a \le 0, b \ge 0 \\
+0 & \text{otherwise.}
+\end{array}
+\right\}
+\end{align*}
+
+We will assume from now on that \(\delta(x)\) is within the integral range, because we know that it is zero when it isn't. When multiplied with another function, it has this property:
+\begin{align*}
+\int_{a}^{b}\delta(x)f(x)dx = f(0) \\
+\int_{a}^{b}\delta(x - a)f(x)dx = f(a)
+\end{align*}
+in which the dirac delta function "sifts" for a particular value of \(f(x)\).

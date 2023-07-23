@@ -1,0 +1,37 @@
+:PROPERTIES:
+:ID:       6f2aba40-5c9f-406b-a1fa-13018de55648
+:END:
+#+title: conservative force
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+A conservative force has this property:
+\begin{align*}
+\oint\vec{f} \cdot d\vec{l} = 0
+\end{align*}
+In other words, work done by \(\vec{f}\) is path independent, because in any closed loop integral,
+you go from point \(\vec{a}\) to point \(\vec{b}\) and then back. If these forwards and backwards
+paths end up canceling no matter what path you take, then it is clear that \(\vec{f}\) will do the
+same amount of force no matter what path you take. Using Stokes' theorem:
+\begin{align*}
+\int_{S}(\vec{\nabla} \times \vec{f}) \cdot d\vec{a} = \oint\vec{f} \cdot d\vec{l}
+\end{align*}
+And therefore, if and only if \(\vec{\nabla} \times \vec{f} = \vec{0}\), this line integral is also \(\vec{0}\). Additionally, if you
+integrate over \(\vec{f}\), we define \(V(\vec{r})\) such that:
+\begin{align*}
+\int_{\vec{a}}^{\vec{b}}\vec{f} \cdot d\vec{l} = V(\vec{a}) - V(\vec{b})
+\end{align*}
+because it is path independent, we do not need to consider the infinite paths between \(\vec{a}\) and \(\vec{b}\), which
+allows us to define this function \(V(\vec{r})\). Then by the fundamental theorem of calculus:
+\begin{align*}
+\vec{f} = -\vec{\nabla}V
+\end{align*}
+Therefore, conservative forces can be represented by a scalar field. Now taking the curl of both sides we get:
+\begin{align*}
+\vec{\nabla} \times \vec{f} = 0
+\end{align*}
+Which is consistent with the result from above.

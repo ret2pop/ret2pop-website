@@ -26,7 +26,7 @@ on \( P_{1} \) is as follows:
 \end{align*}
 
 Where \( \hat{r} \) is the unit vector pointing in the direction of \( P_{2} \). Note that there are a
-couple of interesting things about this force. First, it is an inverse square law, and the formula looks a lot like the one for gravitation,
+couple of interesting things about this force. First, it is an [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] law, and the formula looks a lot like the one for gravitation,
 only charge can be negative and mass cannot. Second, it is symmetrical,
 in the sense that the force felt by \( P_{2} \) is going to be the same, only \( \hat{r} \)
 is pointing in the other direction. Also, note that due to linearity, this force calculation follows the /superposition principle/.
@@ -37,7 +37,7 @@ That is, if we have different electrostatic forces acting on one particle:
 \end{align*}
 
 Wait, where does the \( \frac{1}{4\pi\epsilon_{0}} \) term come from? Well, the surface area of a sphere
-is \( 4\pi r^{2}\) , which explains both the inverse square law and this \( 4\pi \) term in the denominator,
+is \( 4\pi r^{2}\) , which explains both the [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] law and this \( 4\pi \) term in the denominator,
 but what about \( \epsilon_{0} \), what does it even mean?
 
 Well, it is simply a conversion of units from /speed of light/ terms to /SI unit terms/. If you
@@ -95,3 +95,22 @@ Where \( \tau \) is the patch of volume we are integrating over, and \( \sigma \
 which takes a position vector and returns the charge at that vector. Of course, surface and line integrals
 have their own analogues -- simply replace \( d\tau \) with \( da \) or \( dl \), and make sure your charge
 distribution is in the correct amount of dimensions.
+
+** [[id:12a2d5b3-f98c-45e5-9107-5560288b5aa8][Divergence]] and [[id:b25e0e44-c764-4f0a-a5ad-7f9d79c7660d][Curl]] of Electric Field
+The divergence and curl of the electric field are essential to solving electrostatic configurations with more
+ease, as well as proving some qualities about the electric field. Because the electric field is an [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]]
+field:
+\begin{align*}
+\vec{\nabla} \cdot \vec{E} = \frac{\sigma(\vec{r_{1}})}{\epsilon_{0}} \\
+\oint\vec{E} \cdot d\vec{a} = \frac{q_{enc.}}{\epsilon_{0}} \\
+\vec{\nabla} \times \vec{E} = \vec{0} \\
+\oint\vec{E} \cdot d\vec{l} = \vec{0}
+\end{align*}
+
+* Electrostatic Potentials
+Because \(\vec{E}\) is a [[id:6f2aba40-5c9f-406b-a1fa-13018de55648][conservative field]]:
+\begin{align*}
+\vec{E} = -\vec{\nabla}V \\
+\nabla^{2}V = -\frac{\sigma(\vec{r_{1}})}{\epsilon_{0}} \\
+V(\vec{r}) = \frac{1}{4\pi \epsilon_{0}}\int\frac{\sigma(\vec{r_{2}})}{r}dr
+\end{align*}

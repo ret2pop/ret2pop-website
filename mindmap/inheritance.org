@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       4ed61028-811e-4425-b956-feca6ee92ba1
+:END:
+#+title: inheritance
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+In programming, inheritance is the adoption of attributes of a child class by that of a parent class.
+For instance, in this example:
+#+begin_src python :results output both
+class Animal:
+    def __init__(self, birthday):
+        self.weight = weight
+        self.birthday = birthday
+
+class Dog(Animal):
+    pass
+#+end_src
+The class ~~Dog~~ will have the same fields as that of animal. In general, you can think of inheritance as
+taking on attributes from a node higher in the abstraction hierarchy.

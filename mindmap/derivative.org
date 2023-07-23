@@ -1,0 +1,152 @@
+:PROPERTIES:
+:ID:       31d3944a-cddc-496c-89a3-67a56e821de3
+:END:
+#+title: derivative
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+#+OPTIONS: tex:dvipng
+
+* Derivation
+Let's say we want to know the rate of change of the [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] \(f(x) = x^{2}\). Because this [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] is not
+linear (the [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] is a parabola and is therefore curved), we can only take the rate of change by finding
+the tangent line to a point on the curve. In other words, for any point \((x_{0}, y_{0})\), we want to find
+the straight line that touches this point, and no other points on the parabola.
+
+The gameplan will look like this: first, we find the slope between two points \((x_{0}, y_{0})\) and \((x_{0} + dx, y_{0} + dy)\),
+where \(dx\) and \(dy\) are the difference in x and y respectively, or in other words, just a small change in x and change in y.
+Then, we make these points infinitely close to each other and see what the slope is. This resulting line will be infinitely close
+to the tangent line.
+
+Now we want to find the equation for the slope between these two points:
+\begin{align*}
+m = \frac{y_{1} - y_{0}}{x_{1} - x_{0}} \\
+m = \frac{y_{0} + dy - y_{0}}{x_{0} + dx - x_{0}} \\
+m = \frac{dy}{dx}
+\end{align*}
+
+Because both of these points need to satisfy the [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] \(f(x) = x^{2}\):
+\begin{align*}
+y_{0} = x_{0}^{2} \\
+y_{0} + dy = (x_{0} + dx)^{2} \\
+dy = (x_{0} + dx)^{2} - y_{0} \\
+dy = (x_{0} + dx)^{2} - x_{0}^{2} \\
+m = \frac{(x_{0} + dx)^{2} - x_{0}^{2}}{dx}
+\end{align*}
+
+Then we use a binomial expansion:
+\begin{align*}
+m = \frac{x_{0}^{2} + 2x_{0}dx + dx^{2} - x_{0}^{2}}{dx} \\
+= \frac{2x_{0}dx + dx^{2}}{dx} \\
+= 2x_{0} + dx
+\end{align*}
+Now we see that since \(dx\) is infinitely close to zero (but not zero because otherwise that would be dividing by zero), we can say that
+the tangent line of \(x^{2}\) at this point is:
+\begin{align*}
+2x_{0}
+\end{align*}
+And since this works for all points over \(f(x)\), we can simply say:
+\begin{align*}
+\frac{dy}{dx} = 2x \\
+f'(x) = 2x
+\end{align*}
+These two notations are both valid. The first is called Leibniz notation, and the second is called Lagrange notation.
+
+* Definition
+Note that you can easily show that the process we did for \(x^{2}\) works for most functions, and is defined as follows:
+\begin{align*}
+\frac{d}{dx}f(x) = \lim_{h\to0}\frac{f(x + h) - f(x)}{h}
+\end{align*}
+This \(lim_{h\to0}\) notation is a limit. It broadly dictates that \(h\) is going infinitely close to zero but is not exactly zero. You
+will also see \(\frac{d}{dx}\) used as an operator on a [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] much of the time, which also means you're taking a derivative with
+whatever \(\frac{d}{dx}\) is multiplied with.
+
+** Higher Derivatives
+The notation \( \frac{d^{n}}{dx^{n}}f(x) \) denotes taking \(n\) derivatives of \(f(x)\), one after the other. \(f''(x)\) works for second derivatives, and so on.
+However, this gets annoying, so you can use \( f^{(n)}(x) \) as the \(n^{th}\) derivative of \( f(x) \) as well.
+
+* Derivative Rules
+Usually, instead of using the definition in order to calculate derivatives, we use some simpler rules to do so.
+We derive many of them here.
+** Addition Rule
+\begin{align*}
+\frac{d}{dx}(f(x) + g(x)) = \lim_{h\to0}\frac{f(x + h) + g(x + h) - f(x) - g(x)}{h} = \lim_{h\to0}\frac{f(x + h) - f(x) + g(x + h) - g(x)}{h} = \lim_{h\to0}\frac{f(x + h) - f(x)}{h} + \frac{g(x + h) - g(x)}{h} \\
+= \frac{d}{dx}f(x) + \frac{d}{dx}g(x)
+\end{align*}
+of course, subtraction works in the same way.
+** Multiplication Rule
+\begin{align*}
+\frac{d}{dx}(f(x)g(x)) = \lim_{h\to0}\frac{f(x + h)g(x + h) - f(x)g(x)}{h} = \lim_{h\to0}\frac{f(x + h)g(x + h) - f(x)g(x + h) + f(x)g(x + h) - f(x)g(x)}{h} \\
+= \lim_{h\to0}\frac{g(x + h)(f(x + h) - f(x)) + f(x)(g(x + h) - g(x))}{h} \\
+= g(x)\lim_{h\to0}\frac{f(x + h) - f(x)}{h} + f(x)\frac{g(x + h) - g(x)}{h} = g(x)f'(x) + g'(x)f(x)
+\end{align*}
+And using the this rule as well as the chain rule and power rule which we will show later, the division rule is easily acquired.
+** Chain Rule
+:PROPERTIES:
+:ID:       ffd1bc3d-ab64-4916-9c09-0c89d2731b6d
+:END:
+The chain rule is a rule about nested functions in the form \( (f \circ g)(x) \).
+Using Leibniz notation, it is easy to given an intuition on something called the chain rule:
+\begin{align*}
+\frac{dy}{dz}\frac{dz}{dx} = \frac{dy}{dx}
+\end{align*}
+Which, in other words, reads: if you have a [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] \(y\) which has a [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] \(z\) inside of it that is
+dependent on \(x\), then \(y'(x) = y'(z(x))z'(x)\). We have manipulated things in the form \(dy\), \(dz\), \(dx\)
+before all as regular variables, so although people say this is not rigorous, I would say that it in fact is.
+You can treat these "differentials" as regular variables.
+** Derivative Rules for Particular Functions
+*** Power Rule
+*** Sinusoidal Functions
+*** Exponential Functions
+By the definition of a derivative:
+\begin{align*}
+\lim_{h\to0}\frac{a^{x + h} - a^{x}}{h} = a^{x}\lim_{h\to0}\frac{a^{h} - 1}{h}
+\end{align*}
+The constant \(e\) is defined such that:
+\begin{align*}
+\lim_{h\to0}\frac{e^{h} - 1}{h} = 1; \\
+\frac{d}{dx}e^{x} = e^{x}
+\end{align*}
+Then by the chain rule:
+\begin{align*}
+\frac{d}{dx}a^{x} = \frac{d}{dx}(e^{\ln(a)})^{x} = \frac{d}{dx}e^{\ln(a)x}= \ln(a)e^{\ln(a)x}
+\end{align*}
+And therefore:
+\begin{align*}
+\lim_{h\to0}\frac{a^{h} - 1}{h} = \ln(a)
+\end{align*}
+* Implicit Differentiation
+The equation of a circle centered at the origin is:
+\begin{align*}
+x^{2} + y^{2} = r^{2}
+\end{align*}
+This [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] is clearly dependent on \(y\), and no, we don't need to do algebra to isolate the y (yet, we can do that later). instead,
+we can simply take the derivative of both sides:
+\begin{align*}
+\frac{d(x^{2} + y^{2})}{dx} = \frac{d(r^{2})}{dx}
+\end{align*}
+the right hand side is obviously going to reduce to zero because it is a constant inside a derivative.
+Because we consider \(y = y(x)\), taking the derivative of \(y\) in terms of \(x\) means we have to apply
+the chain rule.
+\begin{align*}
+2x + 2y(x) * y'(x) = 0
+\end{align*}
+Remember, the [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] we are taking the derivative of here is \((y(x))^{2}\), which is why the \(y'(x)\) term
+appears; you're doing the chain rule on an inner [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] that you don't know the value of but that you can represent
+nonetheless.
+
+Now, we move everything to the other side in order to find \(y'(x)\):
+\begin{align*}
+y'(x) = -\frac{x}{y(x)}
+\end{align*}
+
+and then we finally find \(y(x)\) and substitute it in:
+\begin{align*}
+y(x) = (r^{2} - x^{2})^{\frac{1}{2}} \\
+y'(x) = -\frac{x}{(r^{2} - x^{2})^{\frac{1}{2}}}
+\end{align*}
+The benefit of this strategy is that you can find the derivative of a circle (or as we will see later, many other curves) in terms of \(y\),
+which is useful for converting coordinate systems. Implicit differentiation is also useful for some other things, like:
+** Derivative of [[id:4f088813-cf40-4194-9251-b2392a50dc1c][Inverse]] Function

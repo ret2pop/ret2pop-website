@@ -1,0 +1,92 @@
+:PROPERTIES:
+:ID:       6e2a9d7b-7010-41da-bd41-f5b2dba576d3
+:END:
+#+title: Newtonian mechanics
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+Newtonian mechanics is a mathematical model of the real world that is good
+at approximating non-relatavistic macro phenomenon. In other words, it will
+work for most engineers, and it has a few simple axioms:
+
+* Definition
+First, we assume euclidean 3-dimensional space, and time as the parameterizing
+variable, or in other words the variable that is constant for everyone and everything.
+We assume objects can have a definite position, and have some sort of velocity
+and mass. For these examples we will assume a system with only one particle in a vacuum
+and then we will try to generalize. First we notice that this particle has a position
+given by some vector \(\vec{r}\). Then, we say that if this position changes over time:
+\begin{align*}
+\vec{v} = \frac{d\vec{r}}{dt}
+\end{align*}
+where \(\vec{v}\) is velocity, the time-[[id:31d3944a-cddc-496c-89a3-67a56e821de3][derivative]] of position. We also define a mass \(m\) for this particle in question. Then, this particle will have a momentum:
+\begin{align*}
+\vec{p} = m\vec{v}
+\end{align*}
+And here we define /inertia/:
+\begin{align*}
+\vec{p}(t_{1}) = \vec{p}(t_{2})
+\end{align*}
+Or the momentum of this particle will always stay the same throughout time, at least without other objects. Then we can define force:
+\begin{align*}
+\vec{F} := \frac{d\vec{p}}{dt} \\
+= m\frac{d\vec{v}}{dt} \\
+\vec{a} := \frac{d\vec{v}}{dt} \\
+\vec{F} = m\vec{a}
+\end{align*}
+Now imagine we add another particle. This other particle will have its own position and momentum. These two particles together create
+a new system. Because we want the laws of physics to work for all systems:
+\begin{align*}
+\vec{p}(t_{1}) = \vec{p}(t_{2})
+\end{align*}
+Where \(\vec{p}\) becomes the momentum of the whole system. If \(\vec{p}_{1}\) is the momentum of the first particle and \(\vec{p}_{2}\) is the
+momentum of the second particle, the momentum of the whole system is:
+\begin{align*}
+\vec{p} = \vec{p}_{1} + \vec{p}_{2}
+\end{align*}
+In general, the total momentum is defined to be:
+\begin{align*}
+\vec{p} = \sum_{i=0}^{n}\vec{p}_{i}
+\end{align*}
+And in real life, we observe that things can transfer momentum. That is:
+\begin{align*}
+\vec{p}_{1} = -\vec{p}_{2}
+\end{align*}
+When these two objects have the same position vector \( \vec{r}_{1} = \vec{r}_{2} \) (if they are point masses; don't have volume but have mass which is idealistic but works as an approximation).
+Because this operation of momentum transfer is symmetrical:
+\begin{align*}
+\vec{p}_{2} = -\vec{p}_{1}
+\end{align*}
+Note that the fact that this operation is symmetrical must be the case to preserve the property:
+\begin{align*}
+\vec{p}(t_{1}) = \vec{p}(t_{2})
+\end{align*}
+Of the entire system (otherwise you would be adding or subtracting momentum from the system).
+In other words, the entire system must have inertia, and this statement itself is the conservation of momentum. Conservation of momentum along with transfer of momentum yields
+a fully functional model of physics.
+
+* Textbook Formulation
+The first law which we discussed is called /inertia/; the second law is the \( \vec{F} = m\vec{a} \) law as discussed;
+we can get what is called Newton's Third Law as follows:
+\begin{align*}
+\frac{d\vec{p}_{2}}{dt} = -\frac{d\vec{p}_{1}}{dt} \\
+\vec{F}_{2} = -\vec{F}_{1} \\
+\vec{F}_{1} = -\vec{F}_{2}
+\end{align*}
+However, the third law follows from conservation of momentum (inertia) and transfer of momentum (not really the second or third law). I do not know why it exists,
+and I think the formulation of Newtonian physics based off of less (and more descriptive) axioms is far more elegant, so I don't really know how this happened.
+In any case, if you are using a classic textbook, you will be using this formulation of Newtonian mechanics.
+* Newtonian Gravity
+:PROPERTIES:
+:ID:       158f53ba-5846-472b-ab39-336ed7f11251
+:END:
+Gravity in Newtonian mechanics is defined via [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] law. With the stipulation that mass can only be positive,
+the gravitational force field has the same properties as all [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] fields by [[id:4ed61028-811e-4425-b956-feca6ee92ba1][inheritance]]; therefore:
+\begin{align*}
+\vec{F}(\vec{r}) = \frac{Gm_{1}m_{2}}{r^{2}}\hat{r}
+\end{align*}
+Most of the inverse square results consequently carry over.

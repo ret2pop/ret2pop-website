@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       3993a45d-699b-4512-93f9-ba61f498f77f
+:END:
+#+title: partial derivative
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+The operator \(\frac{\partial}{\partial x_{n}}\) takes the [[id:31d3944a-cddc-496c-89a3-67a56e821de3][derivative]] of a function \(f(\vec{x})\) with respect to \(x_{n}\) in
+the direction of the \(x_{n}\) axis. In other words, we take the derivative \(f(\vec{x})\) as if all variables
+except \(x_{n}\) is constant.

@@ -1,0 +1,36 @@
+:PROPERTIES:
+:ID:       b1f9aa55-5f1e-4865-8118-43e5e5dc7752
+:END:
+#+title: function
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+
+
+* Definition
+A function \( f(x) \) is a set \( S \) of ordered pairs that map the first value of the ordered pair to the second value
+in the ordered pair, where the first value may not have duplicates in the set \(S\). The map from the first value to the
+second value has the notation \(f(x) = y \) for some x and y, where \(f\) is the mapping. Note that we can also define rules
+for \(f\) and do not therefore have to explicitly define all the mappings:
+\begin{align*}
+S = \{(x, y): x^{2} = y, x, y \in \mathbb{R} \}
+\end{align*}
+Which is an example of a parabolic function. \(x\) and \(y\) can both conceptually be any object, but usually they are
+mathematical objects. Some examples of such objects include tensors and scalars.
+* ordered pair
+:PROPERTIES:
+:ID:       1b1b522e-d4de-4832-9ca4-c6d1cfee27e6
+:END:
+However, we must find a way to define what an ordered pair is. Sets have no order by default, so we need to
+add order by doing the following:
+\begin{align*}
+(x_{0}, y_{0}) := \{x_{0}, \{x_{0}, y_{0}\}\}
+\end{align*}
+Where the element that is not explicitly a set gives us the definition of the first element.
+* Function Group
+Let \((S, \circ)\) define a [[id:ba7b95b0-0ce6-4b33-9a79-5e5fddaea710][group]] where \(S\) is the set of all functions, and \(\circ\) is the composition
+binary operator. Then \(f(x) = x\) is the identity element, and an inverse of a function is defined
+as \( (f \circ f^{-1})(x) = (f^{-1} \circ f)(x) = x \).

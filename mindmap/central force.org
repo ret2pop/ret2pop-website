@@ -1,0 +1,56 @@
+:PROPERTIES:
+:ID:       c1e836e3-a80c-459d-8b68-396fa1687177
+:END:
+#+title: central force
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Derivation
+Central fields have the following properties:
+1. The force happens at a distance between two particles.
+2. The force gives both the particles an equal amount of force but in opposite directions (Newton's Third Law).
+3. The force magnitude only depends on the distance between the two particles in question, and maybe some other property intrinsic to both the particles.
+4. If you draw a straight line between the two points, the force vector has to be parallel to that line.
+5. The force works in the same no matter where in the universe you are.
+
+Where these five properties are all common attributes of everyday forces. What these properties are basically saying is that we want
+a function only dependent on the vector between two particles \(P_{1}\) and \(P_{2}\) that are experiencing the force, and it is
+also parallel to this vector, as well as some symmetry constraints. Therefore, we can define a central force:
+
+* Definition
+A central field is defined as follows:
+\begin{align*}
+\vec{f}(\vec{r}) = f(\vec{r})\hat{r}.
+\end{align*}
+
+* Curl of Central Forces
+Using the [[id:4bfd6585-1305-4cf2-afc0-c0ba7de71896][del operator]], we can find the curl of the central force. We will use the Cartesian del operator first
+because it requires less math to understand, despite the calculation being longer. Therefore, we must switch coordinates:
+\begin{align*}
+f(\vec{r})\hat{r} = f(x, y, z)\frac{x\hat{i} + y\hat{j} + z\hat{k}}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}} \\
+\vec{\nabla} \times \vec{f} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+f(x, y, z)\frac{x}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}} &  f(x, y, z)\frac{y}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}} & f(x, y, z)\frac{z}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}}
+\end{vmatrix}
+\end{align*}
+If we can figure out one of these derivatives, then by symmetry we can figure out all these other derivatives.
+\begin{align*}
+\frac{\partial}{\partial y}f(x, y, z)\frac{z}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}} = f'(x, y, z)\frac{z}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}} + f(x, y, z)(\frac{z}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}})' \\
+\frac{\partial}{\partial y}z(x^{2} + y^{2} + z^{2})^{-\frac{1}{2}} = -yz(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} \\
+\frac{\partial}{\partial y}f(x, y, z)\frac{z}{(x^{2} + y^{2} + z^{2})^{-\frac{1}{2}}} =  f'(x, y, z)\frac{z}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}} -yz f(x, y, z)(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} \\
+\frac{\partial}{\partial z}f(x, y, z)\frac{y}{(x^{2} + y^{2} + z^{2})^{-\frac{1}{2}}} =  f'(x, y, z)\frac{y}{(x^{2} + y^{2} + z^{2})^{\frac{1}{2}}} -zy f(x, y, z)(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} \\
+(\frac{\partial}{\partial y}f(x, y, z)\frac{z}{(x^{2} + y^{2} + z^{2})^{-\frac{1}{2}}} - \frac{\partial}{\partial z}f(x, y, z)\frac{y}{(x^{2} + y^{2} + z^{2})^{-\frac{1}{2}}})\hat{i} = \vec{0}
+\end{align*}
+And finally, by symmetry,
+\begin{align*}
+\vec{\nabla} \times \vec{f} = \vec{0}
+\end{align*}
+Because the computation for \(\hat{j}\) and \(\hat{k}\) are the same.
+Also, this implies that all central forces are conservative forces, so by [[id:4ed61028-811e-4425-b956-feca6ee92ba1][inheritance]]:
+\begin{align*}
+\vec{f} = \vec{\nabla}V
+\end{align*}

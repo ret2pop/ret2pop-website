@@ -1,0 +1,30 @@
+:PROPERTIES:
+:ID:       ba7b95b0-0ce6-4b33-9a79-5e5fddaea710
+:END:
+#+title: group
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+A group is an [[id:1b1b522e-d4de-4832-9ca4-c6d1cfee27e6][ordered pair]] \((G, *)\) where \(G\) is a set and \(*\) is a binary operation (operation defined between two members of set G) defined such that:
+\begin{align*}
+a * b \in G \\
+\exists e : a * e = a
+\end{align*}
+where the operation \(*\) is said to be closed under \(G\), and \(e\) is called the /identity/ of group \((G, *)\).
+** Associativity
+This is the property such that:
+\begin{align*}
+(a * b) * c = a * (b * c)
+\end{align*}
+** inverse
+:PROPERTIES:
+:ID:       4f088813-cf40-4194-9251-b2392a50dc1c
+:END:
+An inverse is defined as follows:
+\begin{align*}
+\forall a \exists a^{-1} : a * a^{-1} = e
+\end{align*}

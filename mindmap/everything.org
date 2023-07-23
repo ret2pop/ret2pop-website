@@ -6,6 +6,7 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+date: <2023-06-10 Sat>
 
+#+OPTIONS: tex:dvipng
 * Everything?
 This article is about everything. No, really, it is.
 Every possible thought you could have is encapsulated

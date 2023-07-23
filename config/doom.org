@@ -128,7 +128,7 @@ Now we configure fonts:
 I'm experimenting with many themes right now. One of these themes is the city-lights theme, another one of them
 is the catppuccin theme.
 #+begin_src emacs-lisp :tangle yes
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-ayu-light)
 ;; (setq doom-theme 'doom-rouge)
 ;; (setq catppuccin-flavor 'mocha)
 #+end_src
