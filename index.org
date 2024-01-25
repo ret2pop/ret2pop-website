@@ -1,17 +1,28 @@
-#+title: ret2pop
+#+title: Introducing ret2pop
 #+author: Preston Pan
 #+description: My personal website
 #+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
 #+date: <2023-06-09 Fri>
 #+language: en
 #+OPTIONS: broken-links:t
 
-* Introducing ret2pop
+* Introduction
+#+caption: All Hope Abandon, Ye Who Enter Here
+[[./img/drawing-old.png]]
+
 Hello! I'm a person on the internet that does things, such as:
 - Music
 - Programming
 - Mathematics
 - Physics
+- Linguistics
 - Thinking
 And if you're here to do one of these things, I guarantee you're in the right place!
 ** [[file:journal/index.org][Journal]]
@@ -37,7 +48,7 @@ can therefore publish them. So I did! Configurations include:
 - Elfeed
 …and many more!
 ** [[file:about.org][About]]
-To see my contact information and whatnot.
+Who is the man behind ret2pop? How do you contact him? So many mysteries await…
 
 * About this Website
 I wrote this website in org mode. For more information, see the [[file:README.org][README]].

@@ -7,4 +7,5 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+options: tex:dvipng
 
-* Placeholder
+* Introduction
+Induction is a concept.

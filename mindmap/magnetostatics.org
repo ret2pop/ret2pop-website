@@ -1,0 +1,91 @@
+:PROPERTIES:
+:ID:       5c36d0f1-06ad-436a-a56f-5ecc198b9b3e
+:END:
+#+title: magnetostatics
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+Magnetostatics is a little bit of an oxymoron; the magnetic field is created by a moving current of charges and a magnetic
+field for a point charge is therefore hard to model or often wrong; because magnetostatics assumes a steady current, a point
+charge moving cannot be replaced with another charge. However, for some continuous current distribution, the magnetic field is:
+\begin{align*}
+\vec{B} = \frac{\mu_{0}}{4\pi}\int_{V}\frac{\vec{J} \times \hat{r}}{r^{2}}dV
+\end{align*}
+Which is the Bio-Savart law. Later, we will derive this from the axioms of [[id:32f0b8b1-17bc-4c91-a824-2f2a3bbbdbd1][electrostatics]] and [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]].
+
+* Divergence of B
+The divergence of B is given by:
+\begin{align*}
+\vec{\nabla} \cdot \vec{B} = \frac{\mu_{0}}{4\pi}\int_{V}\frac{\vec{\nabla} \cdot (\vec{J} \times \hat{r})}{r^{2}}dV
+= \frac{\mu_{0}}{4\pi}\int_{V}\vec{\nabla} \cdot (\vec{J} \times \frac{\hat{r}}{r^{2}})dV \\
+\end{align*}
+Now we want to evaluate $\vec{\nabla} \cdot \vec{J} \times \frac{\hat{r}}{r^{2}}$ using the [[id:4bfd6585-1305-4cf2-afc0-c0ba7de71896][del operator]] rules:
+\begin{align*}
+\vec{\nabla} \cdot \vec{J} \times \frac{\hat{r}}{r^{2}} = (\vec{\nabla} \times \vec{J}) \cdot \frac{\hat{r}}{r^{2}} - \vec{J} \cdot (\vec{\nabla} \times \frac{\hat{r}}{r^{2}})
+\end{align*}
+And while $B$, and by extension $\vec{\nabla}$ is dependent on $\vec{r}$, the radial distance between two charges,
+$\vec{J}$ is a function of $r'$, the position vector to a given charge. This, of course, means that $J$ does not
+depend on any of the variables that we are taking the derivative over. Thus:
+\begin{align*}
+\vec{\nabla} \times \vec{J} = 0
+\end{align*}
+Also, due to the [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] law, the curl of $\frac{\hat{r}}{r^{2}}$ is zero, and therefore:
+\begin{align*}
+\vec{\nabla} \cdot \vec{J} \times \frac{\hat{r}}{r^{2}} = 0
+\end{align*}
+And therefore:
+\begin{align*}
+\vec{\nabla} \cdot \vec{B} = 0
+\end{align*}
+This is one of [[id:fde2f257-fa2e-469a-bc20-4d11714a515e][Maxwell's Equations]].
+* Curl of B
+The curl of $\vec{B}$ is given by:
+\begin{align*}
+\vec{\nabla} \times \vec{B} = \frac{\mu_{0}}{4\pi}\int_{V}\frac{\vec{\nabla} \times (\vec{J} \times \hat{r})}{r^{2}}dV \\
+= \frac{\mu_{0}}{4\pi}\int_{V}\vec{\nabla} \times (\vec{J} \times \frac{\hat{r}}{r^{2}})dV
+\end{align*}
+where $\vec{\nabla} \times \vec{J} \times \hat{r}$ is given by the [[id:4bfd6585-1305-4cf2-afc0-c0ba7de71896][del operator]] identity:
+\begin{align*}
+\vec{\nabla} \times (\vec{J} \times \frac{\hat{r}}{r^{2}}) = \vec{J}(\vec{\nabla} \cdot \frac{\hat{r}}{r^{2}}) - \frac{\hat{r}}{r^{2}}(\vec{\nabla} \cdot \vec{J}) + (\frac{\hat{r}}{r^{2}} \cdot \vec{\nabla})\vec{J} - (\vec{J} \cdot \vec{\nabla})\frac{\hat{r}}{r^{2}}
+\end{align*}
+Due to the [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] law, we know that $\vec{\nabla} \cdot \frac{\hat{r}}{r^{2}} = 4\pi\delta(\vec{r})$; From the section above we know that $\vec{\nabla} \cdot \vec{J} = 0$; hence:
+\begin{align*}
+\vec{\nabla} \times (\vec{J} \times \frac{\hat{r}}{r^{2}}) = 4\pi\vec{J}(\vec{r'})\delta(\vec{r}) + (\frac{\hat{r}}{r^{2}} \cdot \vec{\nabla})\vec{J} - (\vec{J} \cdot \vec{\nabla})\frac{\hat{r}}{r^{2}}
+\end{align*}
+The first directional derivative is zero because $\vec{J}$ does not depend on the same coordinates as $\vec{\nabla}}$
+with the same reasoning as for the divergence, so we have:
+\begin{align*}
+\vec{\nabla} \times (\vec{J} \times \frac{\hat{r}}{r^{2}}) = 4\pi\vec{J}(\vec{r'})\delta(\vec{r}) - (\vec{J} \cdot \vec{\nabla})\frac{\hat{r}}{r^{2}}
+\end{align*}
+The second term reduces to zero for some reason (reason coming later; I currently do not know why). Now plugging this back into the original equation:
+\begin{align*}
+\vec{\nabla} \times \vec{B} = \frac{\mu_{0}}{4\pi}\int_{V}4\pi\vec{J}(r')\delta(\vec{r})dV \\
+= \mu_{0}\int_{V}\vec{J}(r')\delta(\vec{r'} - \vec{r''})dV
+\end{align*}
+Where $r''$ is the location of the test particle. Now the [[id:90574fea-88f4-4b80-9cda-32cff0bcb76d][dirac delta]] distribution propreties under an integral:
+\begin{align*}
+\vec{\nabla} \times \vec{B} = \mu_{0}\vec{J}(\vec{r''})
+\end{align*}
+or simply:
+\begin{align*}
+\vec{\nabla} \times \vec{B} = \mu_{0}\vec{J}
+\end{align*}
+This is for magnetostatics only; [[id:fde2f257-fa2e-469a-bc20-4d11714a515e][Maxwell's Equations]] offer a correction to this equation.
+* The Vector Potential
+We can define a /vector potential/ $\vec{A}(\vec{r})$ such that:
+\begin{align*}
+\vec{B} = \vec{\nabla} \times \vec{A}
+\end{align*}
+which is consistent with the fact that:
+\begin{align*}
+\vec{\nabla} \cdot \vec{B} = 0
+\end{align*}
+By taking the divergence of both sides in the first equation in this section. When $\vec{J}$ is zero at infinity:
+\begin{align*}
+\vec{A} = \frac{\mu_{0}}{4\pi}\int_{V}\frac{\vec{J}}{r}d\tau
+\end{align*}
+The reasoning for this is not obvious, even to me. One could analogize this to the scalar potential for [[id:32f0b8b1-17bc-4c91-a824-2f2a3bbbdbd1][electrostatics]].

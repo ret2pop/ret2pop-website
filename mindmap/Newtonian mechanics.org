@@ -54,12 +54,13 @@ In general, the total momentum is defined to be:
 \end{align*}
 And in real life, we observe that things can transfer momentum. That is:
 \begin{align*}
-\vec{p}_{1} = -\vec{p}_{2}
+\vec{p}_{1} = -\vec{p}_{2} + \vec{p}_{i}
 \end{align*}
-When these two objects have the same position vector \( \vec{r}_{1} = \vec{r}_{2} \) (if they are point masses; don't have volume but have mass which is idealistic but works as an approximation).
-Because this operation of momentum transfer is symmetrical:
+Where $\vec{p}_{i}$ is the initial momentum of the objects.
+this happens when these two objects have the same position vector \( \vec{r}_{1} = \vec{r}_{2} \) (if they are point masses; don't have volume but have mass which is idealistic but works as an approximation).
+This operation of momentum transfer is symmetrical:
 \begin{align*}
-\vec{p}_{2} = -\vec{p}_{1}
+\vec{p}_{2} = -\vec{p}_{1} + \vec{p}_{i}
 \end{align*}
 Note that the fact that this operation is symmetrical must be the case to preserve the property:
 \begin{align*}

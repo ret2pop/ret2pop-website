@@ -1,0 +1,17 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Sunday, 10 December 2023
+** 15:21
+After not using my computer for a day due to not finding my charger, I have finally found it. I am now working on some quantum mechanics.
+Specifically, I am trying to wrap my head around the Schrodinger equation and how that relates to position and velocity. I understand
+currently that the time-evolution of the system is governed by it, and I understand how to solve the equation for certain assumptions. However,
+I am unclear as to how Fourier Transforms have a connection to quantum systems.
+** 21:10
+I have worked a lot on the website; I am currently attempting to figure out how to make it look good instead of bad, and I want to add a navbar.
+I also probably want to reformat how I'm doing some things in org mode. I have a favicon now but it isn't good.

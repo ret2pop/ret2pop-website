@@ -5,10 +5,18 @@
 #+date: <2023-06-09 Fri>
 #+language: en
 #+OPTIONS: broken-links:t
-* Journal!
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+* Introduction
 This is my journal. It's basically my everyday life from
 a technology perspective (not many personal details although
-there will be some).
+there will be some). I will also be posting some TODOs that I have
+throughout time.
 
 ** Entries
 Here is a list of all my journal entries:
@@ -23,6 +31,17 @@ done
 #+end_src
 
 #+RESULTS:
+- [[file:20240124.org][20240124.org]]
+- [[file:20240123.org][20240123.org]]
+- [[file:20240110.org][20240110.org]]
+- [[file:20231220.org][20231220.org]]
+- [[file:20231217.org][20231217.org]]
+- [[file:20231215.org][20231215.org]]
+- [[file:20231214.org][20231214.org]]
+- [[file:20231213.org][20231213.org]]
+- [[file:20231210.org][20231210.org]]
+- [[file:20231209.org][20231209.org]]
+- [[file:20231208.org][20231208.org]]
 - [[file:20230711.org][20230711.org]]
 - [[file:20230704.org][20230704.org]]
 - [[file:20230625.org][20230625.org]]

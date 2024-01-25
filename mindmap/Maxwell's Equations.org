@@ -1,0 +1,78 @@
+:PROPERTIES:
+:ID:       fde2f257-fa2e-469a-bc20-4d11714a515e
+:END:
+#+title: Maxwell's Equations
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+Maxwell's Equations are a set of four differential equations in multiple dimensions that produce a complete classical
+theory of electromagnetic phenomena.
+
+* Derivations
+These are the derivations of all four laws in their differential forms based on the [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] law for [[id:32f0b8b1-17bc-4c91-a824-2f2a3bbbdbd1][electrostatics]] ([[id:5388f4e8-7bb8-452e-b997-fe9892aefcf3][Coulomb's Law]]), the [[id:658f3916-6b7f-4897-85c6-9acc82b13214][Lorentz Force]],
+as well as the [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] and electromagnetic induction (which are just special cases of [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]]) as initial assumptions:
+** Gauss' Law
+This is given by the divergence of an [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] field, specifically for an electric field which is the same as in [[id:32f0b8b1-17bc-4c91-a824-2f2a3bbbdbd1][electrostatics]]:
+\begin{align*}
+\vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilon_{0}}
+\end{align*}
+** Divergence of Magnetic Field
+The divergence of the magnetic field is the same as in [[id:5c36d0f1-06ad-436a-a56f-5ecc198b9b3e][magnetostatics]]:
+\begin{align*}
+\vec{\nabla} \cdot \vec{B} = 0
+\end{align*}
+** Ampere's Law with Modifications
+The [[id:5c36d0f1-06ad-436a-a56f-5ecc198b9b3e][magnetostatic]] magnetic field is given by the Bio-Savart Law, which can be derived from [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]] and [[id:5388f4e8-7bb8-452e-b997-fe9892aefcf3][Coulomb's Law]]:
+\begin{align*}
+\vec{B} = \frac{\mu_{0}}{4\pi}\int_{V}\frac{\vec{J} \times \hat{r}}{r^{2}}d\tau
+\end{align*}
+Now the curl of this field is given by [[id:5c36d0f1-06ad-436a-a56f-5ecc198b9b3e][magnetostatics]]:
+\begin{align*}
+\vec{\nabla} \times \vec{B} = \mu_{0}\vec{J}
+\end{align*}
+However, if you take the divergence of this equation, the left hand side reduces to zero by the definition of the [[id:4bfd6585-1305-4cf2-afc0-c0ba7de71896][del operator]], but the
+right hand side does not always:
+\begin{align*}
+\vec{\nabla} \cdot \mu_{0}\vec{J} = \mu_{0} (\vec{\nabla} \cdot \vec{J}) \neq 0
+\end{align*}
+
+Given this problem, a correction is given via the [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]]:
+\begin{align*}
+\vec{\nabla} \cdot \vec{J} = -\frac{\partial \rho}{\partial t} \\
+\epsilon_{0}(\vec{\nabla} \cdot \vec{E}) = \rho \\
+\vec{\nabla} \cdot \vec{J} = -\epsilon_{0}\vec{\nabla} \cdot \frac{\partial\vec{E}}{\partial t}
+\end{align*}
+So therefore when we account for the fact that $\vec{\nabla} \cdot \vec{\nabla} \times \vec{B} = 0$
+\begin{align*}
+\vec{\nabla} \times \vec{B} = \mu_{0}\vec{J} + \mu_{0}\epsilon_{0}\frac{\partial\vec{E}}{\partial t}
+\end{align*}
+** Faraday's Law of Induction
+By definition of electromagnetic induction (and to make Ampere's law consistent with relativity):
+\begin{align*}
+\vec{\nabla} \times \vec{E} = - \frac{\partial\vec{B}}{\partial t}
+\end{align*}
+Instead of assuming induction as an axiom, it is possible to fix Ampere's equation with the [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] first, and then
+assume Lorentz symmetry. This explanation is a work in progress.
+* Implications
+Maxwell's Equations can be used to calculate all electromagnetic phenomena on the macro scale all the way down to the atom.
+In practice, solving Maxwell's Equations can be analytically impossible, so several simplifying assumptions are often made.
+To recap, these are the four equations:
+\begin{align*}
+\vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilon_{0}} \\
+\vec{\nabla} \times \vec{E} = -\frac{\partial\vec{B}}{\partial t} \\
+\vec{\nabla} \cdot \vec{B} = 0 \\
+\vec{\nabla} \times \vec{B} = \mu_{0}\vec{J} + \mu_{0}\epsilon_{0}\frac{\partial\vec{E}}{\partial t}
+\end{align*}
+* Speed of Light
+Maxwell's Equations can be shown to reproduce the speed of light in a vacuum, where:
+\begin{align*}
+\mu_{0}\epsilon_{0} = \frac{1}{c^{2}}
+\end{align*}
+* Relativity
+It is known that Maxwell's Equations are consistent with [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]] and can be expressed
+in terms of curved spacetime. In fact, if relativity is taken as an axiom, it can be proven that the electric
+and magnetic fields are descriptions of the same phenomena; this can be taken as a specific example of a [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]].

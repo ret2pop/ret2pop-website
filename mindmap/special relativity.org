@@ -1,0 +1,68 @@
+:PROPERTIES:
+:ID:       e38d94f2-8332-4811-b7bd-060f80fcfa9b
+:END:
+#+title: special relativity
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Motivation
+[[id:6e2a9d7b-7010-41da-bd41-f5b2dba576d3][Newtonian mechanics]] is proven to be experimentally effective for macroscopic phenomena. However, it fails in the attempt
+to unify it with [[id:fde2f257-fa2e-469a-bc20-4d11714a515e][Maxwell's Equations]]; the speed of light and electromagnetic radiation in general confirmed by Maxwell's equations
+are invariant to relative speed; this is in contradiction to the Galilean velocity addition that Newtonian mechanics postulates:
+\begin{align*}
+\vec{v} = \vec{v}_{1} + \vec{v}_{2}
+\end{align*}
+Where $\vec{v}_{1}$ and $\vec{v}_{2}$ are the speeds of the two objects, and $\vec{v}$ is the relative velocity between the two. The contradiction lies in the
+attempt to do this type of velocity addition with the speed of light. The speed of light must remain invariant including the relative
+speed (all experiments thus far confirm this and Maxwell's equations have an absolute velocity of the speed of light in a vacuum),
+but when another object is moving relative to light, it results in something lesser or greater than the speed of light, even though
+it must remain the same. To solve this, we must add another two postulates to Newtonian mechanics:
+1. The speed of light must remain constant under all reference frames.
+2. The laws of physics remain consistent within all inertial reference frames.
+The result of these two additions is known as the /special theory of relativity/.
+
+* Derivation of Gamma Factor
+Suppose Bob is on a train, where the train is moving at a constant speed to the right $\vec{v}$. Alice is outside of the train observing
+Bob. Now Alice and Bob decide to use a clock to keep track of time; they do this by calculating the amount of times light
+bounces from the floor to the roof of the train on mirrors. Note that the method by which they keep track of time doesn't matter, and
+who keeps track of time doesn't matter, as we will see. All that matters is that nothing can move faster than the speed of light, so
+no information can either; light in this case can be replaced with something else that can keep track of time in the same way. In any case,
+once the light reaches the roof from the floor, where this distance is $d$ meters, $\frac{d}{c}$ seconds will have passed for Bob.
+
+#+caption: A very scientifically accurate drawing of the situation
+#+attr_html: :width 300px
+[[../img/relativity1.jpg]]
+
+Now this image is from Bob's perspective; when we switch to Alice's perspective, we gain a new insight; that /light has to travel the same speed for her/, but
+it has a larger distance to travel because of the train's velocity.
+
+#+caption: Light ray from Alice's perspective
+#+attr_html: :width 300px
+[[../img/relativity2.jpg]]
+
+from this diagram, we can gather that the amount of time it takes for light to reach the roof will be longer.
+Also, we can see that if Alice believes in Bob's clock, her time would be:
+\begin{align*}
+t' = \frac{d}{\sqrt{c^{2} - v^{2}}}
+\end{align*}
+which is considerably different from the $\frac{d}{c}$ we got for Bob. This means that using the same clock can cause /different time measurements/ between the two
+people. The gamma factor is defined as:
+\begin{align*}
+\gamma = \frac{t'}{t} \\
+\gamma = \frac{d}{\sqrt{c^{2} - v^{2}}}\frac{c}{d} \\
+= \frac{c}{\sqrt{c^{2} - v^{2}}} \\
+= \frac{c}{\frac{c}{c}\sqrt{c^{2} - v^{2}}} \\
+\gamma = \frac{1}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}
+\end{align*}
+Note that the gamma factor is independent of distance traveled, which lets us calculate our relativistic time:
+\begin{align*}
+\gamma t = t'
+\end{align*}
+There is a profound implication from this realization, and that is that it is not sufficient to view time in an objective way; time measurements
+are inertial reference frame dependent. This process where time slows down for the moving reference frame is called /time contraction/.
+* Space Contraction
+Now we introduce the idea of /space contraction/; just like how time can slow down for moving inertial reference frames with respect to other
+reference frames, space can also contract in the same way. Imagine a light ray that goes from one side of the train to the other.

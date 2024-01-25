@@ -3,7 +3,19 @@
 :END:
 #+title: infinity
 #+author: Preston Pan
-#+options: num:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
-#+options: tex:dvipng
-* placeholder text
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+Infinity has been a concept that has caused many troubles in the realm of mathematics. Algebra with infinities
+have not been easy to define in history, and there are limited cases of success in this endevour. Generally speaking,
+we can add infinities to existing sets, and define ordering. For example, for real numbers, the set:
+\begin{align*}
+\mathbb{R}\cup \{-\infty, \infty \}
+\end{align*}
+extends the real numbers to include infinites. However, only order is well defined; algebra is generally not allowed.
+\begin{align*}
+\forall a \in \mathbb{R}, -\infty < a < \infty
+\end{align*}

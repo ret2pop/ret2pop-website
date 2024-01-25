@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       658f3916-6b7f-4897-85c6-9acc82b13214
+:END:
+#+title: Lorentz Force
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+The Lorentz Force is an experimental law given by the equation:
+\begin{align*}
+\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
+\end{align*}
+Where $q$ is the electric charge, $\vec{E}$ is the [[id:63656810-537f-42fc-a38a-1468d763b39a][Electric Field]], and $\vec{B}$ is the Magnetic Field.
+For a continuous charge distribution:
+\begin{align*}
+\vec{F} = \rho\vec{E} + \vec{J} \times \vec{B}
+\end{align*}
+Where $\vec{J}$ is the electric current.

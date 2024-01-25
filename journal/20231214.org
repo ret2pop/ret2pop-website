@@ -1,0 +1,14 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Thursday, 14 December 2023
+** 13:46
+Yesterday I had good conversations with many of my friends; I talked a decent bit about the Null
+Philosophy with my dorm friends and I talked about the mindmap with Matthew Hinton. In any case,
+I did not really work much on the mindmap yesterday so I believe I will do so today. I also need
+to get my advanced license.

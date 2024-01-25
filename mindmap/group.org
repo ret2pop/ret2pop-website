@@ -28,3 +28,6 @@ An inverse is defined as follows:
 \begin{align*}
 \forall a \exists a^{-1} : a * a^{-1} = e
 \end{align*}
+
+* Motivation
+In [[id:ece8bf94-4e3c-4939-a77a-9949c1ec0dc6][physics]], natural phenomena including conservation laws follow from group symmetries.

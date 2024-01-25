@@ -1,0 +1,12 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Sunday, 17 December 2023
+** 23:21
+Today I talked with my friend Jude and I also did some electrodynamics problems. We tried solving for the magnetic
+field equations with special relativity and the Coulomb law as a postulate.

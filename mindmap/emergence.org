@@ -4,6 +4,9 @@
 #+title: emergence
 #+author: Preston Pan
 #+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
 
 * Emergence systems are…
 Existent in many forms and at many levels. They are the fundamental building
@@ -17,16 +20,42 @@ into a larger structure via simpler rules that each component follows.
 Entire systems such as [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][mathematics]] can be explained in terms of a couple axioms,
 where all the theorems arising from those axioms are emergent from those axioms.
 At least, that is a relatively simple explanation, and does not capture the full
-beauty of emergent systems. Therefore, I call apoun an example from daily life:
+beauty of emergent systems. Therefore, I call upon an example from daily life:
 
 *** Societies
 At every scale, societies exhibit properties of emergence. For example, families
 and small communities comprise small areas of town, which comprise cities,
 which then make up provinces, and finally countries. In this particular example,
 we self organize into self-similar [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursive]] hierarchies. This is for a good reason;
-in order for societies to scale, there need to be abstractions. Each level in the
+in order for societies to scale, there needs to be abstractions. Each level in the
 hierarchy conveys more but less exact information, until we get to the national
 level which deals the most with aggregates.
 
 *** Markets Emergent
-To use a particular hierarchy example, markets are emergent from barter in goods.
+In order to define the emergence of markets, we must first define the emergence of
+property rights. Property rights emerge when a society scales and is able to extract
+value from more and more natural resources. Property rights come from two different
+things: a need for certain people to use certain resources more or less often
+(specialization, division of labor causes this, as well as belongings), and a need
+for some incentive for people to maintain resources. When property is traded, a market
+emerges, as well as a currency; a currency is simply the most fungible and liquid
+asset that has a market. When goods are traded, both parties gain value from the trade.
+In this way, the distribution of resources becomes more optimal the more consensual trade happens.
+Capital, or resources used to produce other resources, are sold to people that believe
+they have the skills to utilize the capital, from people that believe that the capital is suboptimally
+allocated to them. Companies are simply contractually enforced percentage ownerships of capital.
+
+Prices are adjusted in markets according to supply and demand; they are a signal of the relative scarcity
+of the good in question. High prices communicate to consumers that they should look for alternatives
+due to the scarcity of the good, and low prices communicate to consumers that the resource is currently
+widely available.
+
+This whole study of markets has lead to the study of human behavior known as economics. Although this
+naive view of markets gives a good intuition about human behavior, it is an incomplete story. Economists
+have made more particular statements about the state of economic affairs with the tools of [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][mathematics]],
+under neokeynesian theory.
+
+*** Languages Emergent
+
+* Key Takeaway
+Emergence is the bootstrapping problem that attempts to solve the problem of induction.

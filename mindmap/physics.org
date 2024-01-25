@@ -15,22 +15,31 @@ mathematical models postulate this, and non-mathematical models of the universe
 have been relegated to the study of metaphysics.
 
 * Fields in Physics
+The current challenge in physics is uniting the big and the small; general relativity, and quantum mechanics.
+There is no currently known theory that can describe [[id:2b8515d8-9f3c-44a3-a40d-147f6a2bbb25][everything]], and the very nature of this problem is one containing
+many correspondences and [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][dualities]].
 ** Classical Mechanics
 Classical mechanics deals with fields of physics that do not deal with time dilation or quantum
-weirdness. It is called classical mechanics because most of these theories were invented before
+weirdness. It is called classical mechanics because most of these theories wer invented before
 their quantum or relativistic counterparts, and usually serve as a baseline understanding
 for the later topics.
-*** Newtonian Mechanics
+*** [[id:6e2a9d7b-7010-41da-bd41-f5b2dba576d3][Newtonian mechanics]]
 It all started when Newton created three (but really two) fundamental laws of the universe that
 governed all things.
-*** Lagrangian Mechanics
+*** [[id:83da205c-7966-417e-9b77-a0a354099f30][Lagrangian mechanics]]
 This is a different strain of classical mechanics. Instead of looking at direction and vectors,
 it looks at a single fundamental principle, even more fundamental than inertia and conservation of momentum:
-optimization. We believe that nature always optimizes for some parameters in all physical phenomena.
+optimization. We believe that nature always optimizes for some parameters in all physical phenomena. Almost
+all physical theories including electromagnetism, general relativity, Newtonian mechanics, and even quantum mechanics can be explained
+within the Lagrangian framework.
 *** Classical Electrodynamics
 Classical electrodynamics attempts to explain the electromagnetic force from a classical perspective. What is
 light? How does electricity actually work? All these questions you will find (half) answered in the study
-of electrodynamics.
-**** [[id:32f0b8b1-17bc-4c91-a824-2f2a3bbbdbd1][Electrostatics]]
-This is a study of the force of particles with charge on another in a motionless context. It is the baseline
-for studying more complicated electromagnetic theory.
+of electrodynamics, giving rise to the complete theory encoded in [[id:fde2f257-fa2e-469a-bc20-4d11714a515e][Maxwell's Equations]].
+*** General Relativity
+General Relativity aims unify gravity with [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]], in a unified theory of macroscopic forces
+including classical electromagnetism.
+
+** Quantum Mechanics
+Quantum mechanics renounces all hope of having a deterministic view of physics, and instead replaces direct causation
+with statistical causation, at least according to some interpretations.

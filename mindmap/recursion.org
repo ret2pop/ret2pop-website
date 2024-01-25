@@ -20,34 +20,35 @@ as [[id:42dbae12-827c-43c4-8dfc-a2cb1e835efa][self-assembly]] and it has deep co
 describe it in a mathematics context, and then a programming context.
 For demonstration purposes, I will use [[id:5d2e2f3b-96ac-4196-9baf-4c3d6d349c98][python]].
 * [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][Mathematics]] Describes Recursion
-For this example, I will be using the factorial. One might define it like so:
+For this example, I will be using the  [[id:aed6b5dc-c2ec-4e8c-b793-538cd5d6e355][factorial]]. One might define it like so:
 \begin{align*}
 f: \mathbb{N}\rightarrow\mathbb{N}\ s.t. \\
 f(0) = 1 \\
 f(n) = nf(n - 1)
 \end{align*}
-in other words, we want a function defined over [[id:2d6fb5ac-a273-4b33-949c-37380d03c076][natural numbers]] that is one when the input is zero,
+in other words, we want a [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] defined over [[id:2d6fb5ac-a273-4b33-949c-37380d03c076][natural numbers]] that is one when the input is zero,
 and otherwise multiplies the input with a copy of itself, only the input is one less. Let's try evaluating
-this function at $x = 3$.
+this [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] at $x = 3$.
 \begin{align*}
-f(3) = 3 * f(3 - 1) = 3 * f(2) \\
-f(2) = 2 * f(1) \\
-f(1) = 1 * f(0) \\
+f(3) = 3f(3 - 1) = 3f(2) \\
+f(2) = 2f(1) \\
+f(1) = 1f(0) \\
 f(0) = 1
 \end{align*}
 once we substitute $f(0) = 1$ in, you will see it all collapses.
 \begin{align*}
 f(0) = 1 \\
-f(1) = 1 * f(0) = 1 * 1 = 1 \\
-f(2) = 2 * f(1) = 2 * 1 = 2 \\
-f(3) = 3 * f(2) = 3 * 2 = 6
+f(1) = 1f(0) = 1 \times 1 = 1 \\
+f(2) = 2f(1) = 2 \times 1 = 2 \\
+f(3) = 3f(2) = 3 \times 2 = 6
 \end{align*}
 and so the result is multiplying $3 * 2 * 1 * 1 = 6$. If you observe what we did, you'll see that we started
 by trying to replace unknown variables by trying to evaluate $f(x)$ one number down, and eventually we reach
 a "base case" -- zero. As soon as the "base case" occurs, we then "go back up" by replacing all the unknown
 values with known ones -- and that's how we evaluate recursive functions.
+
 * Programming Describes Recursion
-Even if you don't understand programming, it should be clear that this represents the factorial function:
+Even if you don't understand programming, it should be clear that this represents the [[id:aed6b5dc-c2ec-4e8c-b793-538cd5d6e355][factorial]] [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]]:
 #+begin_src python :exports both
 def factorial(x):
     if x < 0:
@@ -130,5 +131,4 @@ Assembly language section coming soon! We will be using NASM due to its readabil
 * TODO Recursion Describes…?
 
 * TODO Recursion is not Recursive
-There are some things
 * TODO Recursion = [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]]?

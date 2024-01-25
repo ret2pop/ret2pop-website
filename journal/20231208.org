@@ -1,0 +1,22 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Friday, 08 December 2023
+** 17:31
+Recently I have decided to start using emacs again, and this website is therefore
+going to be updated much more. I have learned a little bit of Lagrangian and Hamiltonian
+mechanics, and I am trying to learn some quantum mechanics as a result. I have my amateur
+radio license now so I want to get my advanced amateur radio license.
+
+Also, I am kind of failing out of University because I don't really like any of the classes and
+I obviously know a lot of the math and physics already, as well as a decent amount of programming.
+I don't really know what University has to offer for me other than the paper, but it makes the
+whole thing feel really pointless. Maybe I'll start a company, or starve on the streets, who knows!
+** 21:57
+I'm just with my friend Jude right now because I am demonstrating the power of emacs and how it
+can do journaling automatically and add it to my website which is integrated with all my other org files.

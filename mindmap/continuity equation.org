@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       a871e62c-b4a0-4674-9dea-d377de2f780b
+:END:
+#+title: continuity equation
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Derivation and Motivation
+In continuum mechanics, the continuity equation is a statement about the inability for particles to teleport between
+two different points in space. In other words, each particle must take a path between two points. In particular, if
+$Q_{enc} = \int_{V} \rho(r')d\tau$ or $Q_{enc}$ is the total amount of particles inside some surface where $\rho$ is the density:
+\begin{align*}
+\oint_{S} \vec{J} \cdot d\vec{a} = -\frac{\partial Q_{enc}}{\partial t},
+\end{align*}
+or in other words, the amount that the current goes through some closed surface must be proportional to the loss of particles
+inside of the enclosure. This is of course because of conservation of mass (which is in and of itself conservation of energy).
+Using the [[id:44e65b69-e5d5-464a-b1f3-8a914e1b7e9e][divergence theorem]]:
+\begin{align*}
+\int_{V}\vec{\nabla} \cdot \vec{J}d\tau = - \int_{V}\frac{\partial\rho}{\partial t}d\tau \\
+\vec{\nabla} \cdot \vec{J} = -\frac{\partial\rho}{\partial t}
+\end{align*}

@@ -71,7 +71,9 @@ p \neq \neg p.
 This statement filters for binary, or as I would call it, dual mode frameworks, and gets around the principle of explosion. We have an intuitive
 understanding of truth and falsehood, and we can use those general terms whenever there is a mutually exclusive divide. In short, you can view
 the logical framework as an abstraction of all other dual frameworks. I propose that you can do analysis on all dual frameworks in much the same
-way group theory does analysis on groups.
+way [[id:ba7b95b0-0ce6-4b33-9a79-5e5fddaea710][group]] theory does analysis on groups. [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][Mathematics]] in general has the same recursive binary structure to it, because it is based on a couple
+of axioms and utilizes logic as an extrapolation mechanism. By [[id:4ed61028-811e-4425-b956-feca6ee92ba1][inheritance]], everything that utilizes [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][mathematics]] is also an inherently dualistic
+structure.
 
 * Programming Explains Duality
 Of course, there is logic in programming, but that is kind of boring. What I am going to explain here is a recursive, binary structure known
@@ -120,7 +122,7 @@ into small tasks, which is needed for recursion to be finite.
 * Why duality, and not Any other Modality?
 This is a good question, and one that I've still yet to answer completely. However, I would still like to try my hand at this, because there
 are things that make the number two specially suited for the task of subdividing.
-** Two is a Natural Number
+** Two is a [[id:2d6fb5ac-a273-4b33-949c-37380d03c076][Natural Number]]
 From a biological perspective, we're probably more used to dealing with whole numbers. We did not even come up with the concept of any others
 until much later, and negative numbers, and even zero, were a construct invented much later as well. Yes, there are an infinite number of natural
 numbers, but at least it's a filter we can use.
@@ -131,5 +133,5 @@ prime can be represented by a smaller factor of that number. For example, 4-alit
 What's interesting is that one is a factor of everything. This represents the "null filter", or "anti filter", which doesn't filter any data and
 simply represents it all as one thing. Very interesting.
 ** Two is small and not One
-The number two is also the smallest natural number that is not one. This means it is the simplest way to subdivide any particular object. This makes
+The number two is also the smallest [[id:2d6fb5ac-a273-4b33-949c-37380d03c076][natural number]] that is not one. This means it is the simplest way to subdivide any particular object. This makes
 it more elegant compared to some other modalities.

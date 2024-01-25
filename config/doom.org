@@ -32,84 +32,92 @@ To display the battery percentage:
 #+begin_src emacs-lisp :tangle yes
 (display-battery-mode 1)
 #+end_src
+** Transparency
+Let's make emacs transparent.
+#+begin_src emacs-lisp :tangle yes
+(set-frame-parameter nil 'alpha-background 90)
+
+(add-to-list 'default-frame-alist '(alpha-background . 90))
+#+end_src
 ** EXWM
 First we load our packages:
 #+begin_src emacs-lisp :tangle yes
-(use-package! exwm)
-(use-package! exwm-config)
-(exwm-config-example)
+;; (use-package! exwm)
+;; (use-package! exwm-config)
+;; (exwm-config-example)
 #+end_src
 Now, we set our keybindings:
 #+begin_src emacs-lisp :tangle yes
-(setq exwm-input-global-keys
-      `(
-        ([?\s-r] . exwm-reset)
-        ([?\s-w] . exwm-workspace-switch)
-        ,@(mapcar (lambda (i)
-                    `(,(kbd (format "s-%d" i)) .
-                      (lambda ()
-                        (interactive)
-                        (exwm-workspace-switch-create ,i))))
-                  (number-sequence 0 9))
-        ([?\s-&] . (lambda (command)
-                     (interactive (list (read-shell-command "$ ")))
-                     (start-process-shell-command command nil command)))
+;; (setq exwm-input-global-keys
+;;       `(
+;;         ([?\s-r] . exwm-reset)
+;;         ([?\s-w] . exwm-workspace-switch)
+;;         ,@(mapcar (lambda (i)
+;;                     `(,(kbd (format "s-%d" i)) .
+;;                       (lambda ()
+;;                         (interactive)
+;;                         (exwm-workspace-switch-create ,i))))
+;;                   (number-sequence 0 9))
+;;         ([?\s-&] . (lambda (command)
+;;                      (interactive (list (read-shell-command "$ ")))
+;;                      (start-process-shell-command command nil command)))
 
-        ([?\s-d] . (lambda ()
-                     (interactive)
-                     (dired default-directory)))
+;;         ([?\s-d] . (lambda ()
+;;                      (interactive)
+;;                      (dired default-directory)))
 
-        ([?\s-f] . (lambda ()
-                     (interactive)
-                     (exwm-layout-toggle-mode-line)
-                     (exwm-workspace-toggle-minibuffer)))
+;;         ([?\s-f] . (lambda ()
+;;                      (interactive)
+;;                      (exwm-layout-toggle-mode-line)
+;;                      (exwm-workspace-toggle-minibuffer)))
 
-        ([?\s-b] . exwm-workspace-switch-to-buffer)
+;;         ([?\s-b] . exwm-workspace-switch-to-buffer)
 
 
-        ([?\s-w] . (lambda ()
-                     (interactive)
-                     (start-process "" nil "qutebrowser")))
-        ([?\s-n] . (lambda ()
-                     (interactive)
-                     (start-process "" nil "nyxt")))
-        ([?\s-k] . (lambda ()
-                     (interactive)
-                     (start-process "" nil "krita")))
-        ([?\s-g] . (lambda ()
-                     (interactive)
-                     (start-process "" nil "gimp")))
-        ([?\s-b] . (lambda ()
-                     (interactive)
-                     (start-process "" nil "blender")))
-        ([?\s-c] . (lambda ()
-                     (interactive)
-                     (start-process "" nil "chromium")))
-        ([s-f2] . (lambda ()
-                      (interactive)
-                      (start-process "" nil "/usr/bin/slock")))))
+;;         ([?\s-w] . (lambda ()
+;;                      (interactive)
+;;                      (start-process "" nil "qutebrowser")))
+;;         ([?\s-n] . (lambda ()
+;;                      (interactive)
+;;                      (start-process "" nil "nyxt")))
+;;         ([?\s-k] . (lambda ()
+;;                      (interactive)
+;;                      (start-process "" nil "krita")))
+;;         ([?\s-g] . (lambda ()
+;;                      (interactive)
+;;                      (start-process "" nil "gimp")))
+;;         ([?\s-b] . (lambda ()
+;;                      (interactive)
+;;                      (start-process "" nil "blender")))
+;;         ([?\s-c] . (lambda ()
+;;                      (interactive)
+;;                      (start-process "" nil "chromium")))
+;;         ([s-f2] . (lambda ()
+;;                       (interactive)
+;;                       (start-process "" nil "/usr/bin/slock")))))
 
 #+end_src
 And we also need to set up our media keys:
 #+begin_src emacs-lisp :tangle yes
-(exwm-input-set-key (kbd "<XF86AudioNext>") 'emms-next)
-(exwm-input-set-key (kbd "<XF86AudioPrev>") 'emms-previous)
-(exwm-input-set-key (kbd "<XF86AudioPlay>") 'emms-pause)
-(exwm-input-set-key
-   (kbd "<XF86AudioRaiseVolume>")
-   (lambda ()
-     (interactive) (start-process-shell-command
-       "pactl" nil "pactl set-sink-volume 0 +5% && pactl set-sink-volume 1 +5%")))
-(exwm-input-set-key
-   (kbd "<XF86AudioLowerVolume>")
-   (lambda ()
-     (interactive) (start-process-shell-command
-       "pactl" nil "pactl set-sink-volume 0 -5% && pactl set-sink-volume 1 -5%")))
-(exwm-input-set-key
-   (kbd "<XF86AudioMute>")
-   (lambda ()
-     (interactive) (start-process-shell-command
-       "pactl" nil "pactl set-sink-mute 0 toggle && pactl set-sink-mute 1 toggle")))
+;; (exwm-input-set-key (kbd "<XF86AudioNext>") 'emms-next)
+;; (exwm-input-set-key (kbd "<XF86AudioPrev>") 'emms-previous)
+;; (exwm-input-set-key (kbd "<XF86AudioPlay>") 'emms-pause)
+;; (exwm-input-set-key
+;;    (kbd "<XF86AudioRaiseVolume>")
+;;    (lambda ()
+;;      (interactive) (start-process-shell-command
+;;                     "pactl" nil "pactl set-sink-volume 0 +5% && pactl set-sink-volume 1 +5%")))
+;; (exwm-input-set-key
+;;    (kbd "<XF86AudioLowerVolume>")
+;;    (lambda ()
+;;      (interactive) (start-process-shell-command
+;;                     "pactl" nil "pactl set-sink-volume 0 -5% && pactl set-sink-volume 1 -5%")))
+;; (exwm-input-set-key
+;;    (kbd "<XF86AudioMute>")
+;;    (lambda ()
+;;      (interactive) (start-process-shell-command
+;;                     "pactl" nil "pactl set-sink-mute 0 tog
+;; gle && pactl set-sink-mute 1 toggle")))
 ;; Things to implement in exwm:
 ;;Key([], 'XF86MonBrightnessUp', lazy.spawn("light -A 10")),
 ;;Key([], 'XF86MonBrightnessDown', lazy.spawn("light -U 10")),
@@ -118,24 +126,26 @@ And we also need to set up our media keys:
 ** Font
 Now we configure fonts:
 #+begin_src emacs-lisp :tangle yes
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 14)
-      doom-unicode-font (font-spec :family "Symbola" :size 14)
-      doom-serif-font (font-spec :family "Fira Sans" :size 14)
-      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 28))
+(setq doom-font (font-spec :family "Hack" :size 16 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16)
+      doom-unicode-font (font-spec :family "Symbola" :size 16)
+      doom-serif-font (font-spec :family "Fira Sans" :size 16)
+      doom-big-font (font-spec :family "Hack" :size 28))
 #+end_src
 ** Color Scheme
 I'm experimenting with many themes right now. One of these themes is the city-lights theme, another one of them
 is the catppuccin theme.
 #+begin_src emacs-lisp :tangle yes
-(setq doom-theme 'doom-ayu-light)
-;; (setq doom-theme 'doom-rouge)
+;; (setq doom-theme 'doom-ayu-light)
+(setq doom-theme 'doom-miramare)
 ;; (setq catppuccin-flavor 'mocha)
+;; (load-theme 'catppuccin)
 #+end_src
 ** Doom Module and Programs Configuration
 *** Agenda
 Now we add these two files to our agenda search path:
 #+begin_src emacs-lisp :tangle yes
+(require 'org-habit)
 (setq org-agenda-files (list "~/org/agenda.org"
                              "~/org/contacts.org"
                              "~/org/notes.org"))
@@ -148,23 +158,29 @@ And we also want to set up org-habit to start graphing our habits as soon as pos
 *** IRC
 Set up circe to connect to my bouncer:
 #+begin_src emacs-lisp :tangle yes
-(after! circe
-  (set-irc-server! "nullring.xyz"
-    `(:tls t
-      :port 4095
-      :nick "LiCoO2/AndreiNet"
-      :user "LiCoO2/AndreiNet"
-      :pass ,(+pass-get-secret "ZNC"))))
+;; (after! circe
+;;   (set-irc-server! "nullring.xyz"
+;;     `(:tls t
+;;       :port 4095
+;;       :nick "LiCoO2/AndreiNet"
+;;       :user "LiCoO2/AndreiNet"
+;;       :pass ,(+pass-get-secret "ZNC"))))
 #+end_src
 And another to connect to libera:
 #+begin_src emacs-lisp :tangle yes
-(set-irc-server! "irc.libera.chat"
+(after! circe (set-irc-server! "irc.libera.chat"
   `(:tls t
     :port 6697
     :nick "ret2pop"
     :sasl-username "ret2pop"
     :sasl-password (lambda (&rest _) (+pass-get-secret "libera.chat"))
-    :channels ("#emacs" "#rwx")))
+    :channels ("#emacs" "#rwx"))))
+#+end_src
+#+begin_src emacs-lisp :tangle yes
+(after! circe (set-irc-server! "nullring.xyz"
+  `(:tls t
+    :port 6697
+    :nick "LiCoO2")))
 #+end_src
 *** Email
 In order to use this configuration, you must install and configure mu and mbsync.
@@ -210,6 +226,7 @@ We want the default search engine of eww to be google because duckduckgo is bad:
 
 (setq search-engine-default "google")
 (setq eww-search-prefix "https://google.com/search?q=")
+(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "qutebrowser")
 (setq browse-url-browser-function 'eww-browse-url)
 (add-hook 'eww-mode-hook
           (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
@@ -218,10 +235,40 @@ We want the default search engine of eww to be google because duckduckgo is bad:
 In order to use this configuration, you must have mpd configured to use the same directory.
 We automatically connect to mpd.
 #+begin_src emacs-lisp :tangle yes
-(setq emms-player-mpd-music-directory "~/music/")
-(setq emms-player-list '(emms-player-mpd))
 (emms-all)
+(setq emms-source-file-default-directory (expand-file-name "~/music/"))
+(setq emms-player-mpd-music-directory "~/music/")
+(setq emms-player-mpd-server-name "localhost")
+(setq emms-player-mpd-server-port "6600")
+(setq emms-player-list '(emms-player-mpd))
+(add-to-list 'emms-info-functions 'emms-info-mpd)
+(add-to-list 'emms-player-list 'emms-player-mpd)
 (emms-player-mpd-connect)
+#+end_src
+** Keybindings
+Now we set up our keybindings for our applications:
+#+begin_src emacs-lisp :tangle yes
+(map! :leader
+      :desc "Open irc"
+      "i c" #'circe)
+(map! :leader
+      :desc "Open audio manager"
+      "m m" #'emms)
+(map! :leader
+      :desc "Open RSS feed reader"
+      "r s" #'elfeed)
+(map! :leader
+      :desc "Open password manager"
+      "p w" #'ivy-pass)
+(map! :leader
+      :desc "Open dictionary program"
+      "d i" #'dictionary)
+(map! :leader
+      :desc "Open rtorrent frontend"
+      "r t" #'mentor)
+(map! :leader
+      :desc "Open eww web browser"
+      "e w" #'eww)
 #+end_src
 *** Journal
 First we set the journal to be in the website directory:
@@ -241,6 +288,7 @@ And then we add the headers needed to export the journal automatically:
       (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
 
 (setq org-journal-file-header 'org-journal-file-header-func)
+(setq org-export-with-section-numbers nil)
 (setq org-journal-file-format "%Y%m%d.org")
 #+end_src
 To add everything to the agenda search path, we toggle:
@@ -276,13 +324,12 @@ In order to publish my website, we need to configure emacs to publish it somewhe
          :auto-preamble t)
         ("website-static"
          :base-directory "~/org/website"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|ico"
          :publishing-directory "~/website_html/"
          :recursive t
          :publishing-function org-publish-attachment)
-        ("website" :components ("website-org" "website-static"))))
-
-
+        ("website" :auto-sitemap t :components ("website-org" "website-static"))))
+(setq org-html-postamble "Copyright (c) 2024 Preston Pan")
 #+end_src
 *** Contacts
 Now we configure org-contacts, which allows me to store contacts in an org mode file:
@@ -307,31 +354,6 @@ And then we need to add some templates with org-capture in order to add entries 
 Sometimes I want a timer to help me keep track of the time.
 #+begin_src emacs-lisp :tangle yes
 (setq org-clock-sound "~/audio/ding.wav")
-#+end_src
-** Keybindings
-Now we set up our keybindings for our applications:
-#+begin_src emacs-lisp :tangle yes
-(map! :leader
-      :desc "Open irc"
-      "i c" #'circe)
-(map! :leader
-      :desc "Open audio manager"
-      "m m" #'emms)
-(map! :leader
-      :desc "Open RSS feed reader"
-      "r s" #'elfeed)
-(map! :leader
-      :desc "Open password manager"
-      "p w" #'ivy-pass)
-(map! :leader
-      :desc "Open dictionary program"
-      "d i" #'dictionary)
-(map! :leader
-      :desc "Open rtorrent frontend"
-      "r t" #'mentor)
-(map! :leader
-      :desc "Open eww web browser"
-      "e w" #'eww)
 #+end_src
 ** External Packages
 we want to include some packages that don't come with doom emacs.
@@ -393,9 +415,26 @@ We use ednc to manage notifications.
 #+end_src
 *** Mastodon
 #+begin_src emacs-lisp :tangle yes
-(setq mastodon-instance-url "https://types.pl"
-          mastodon-active-user "ret2pop")
+(setq mastodon-instance-url "https://types.pl")
+(setq mastodon-active-user "ret2pop")
 #+end_src
+*** Ement
+#+begin_src emacs-lisp :tangle yes
+;; (ement-connect :uri-prefix "http://localhost:8009")
+#+end_src
+*** Stem
+I wrote a [[https://github.com/ret2pop/stem-mode][major mode]] for my programming language [[https://github.com/ret2pop/stem][stem]].
+#+begin_src emacs-lisp :tangle yes
+(use-package stem-mode)
+(add-to-list 'auto-mode-alist '("\\.stem\\'" . stem-mode))
+#+end_src
+*** Tufte
+Our website uses the tufte css styling and we must therefore tell emacs to generate html that is compliant with this html:
+#+begin_src emacs-lisp
+(use-package! ox-tufte)
+(use-package! plan9-theme)
+#+end_src
+
 * packages.el Configuration
 These are some external packages that I use that are not provided by doom modules.
 #+begin_src emacs-lisp :tangle packages.el
@@ -424,6 +463,8 @@ These are some external packages that I use that are not provided by doom module
 (package! go-translate)
 (package! ts)
 (package! chess)
+(package! ox-tufte)
+(package! plan9-theme)
 #+end_src
 
 * init.el Configuration
@@ -552,7 +593,7 @@ This installs all the doom modules that we are going to be configuring:
        ;;gdscript          ; the language you waited for
        (go +lsp)
        ;;(graphql +lsp)    ; Give queries a REST
-       ;;(haskell +lsp)    ; a language that's lazier than I am
+       (haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        (json +lsp)
@@ -584,7 +625,7 @@ This installs all the doom modules that we are going to be configuring:
        (scheme +guile)
        (sh +fish +lsp)
        ;;sml
-       ;;solidity          ; do you need a blockchain? No.
+       solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        (web +lsp)

@@ -8,8 +8,6 @@
 #+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 #+options: broken-links:t
 
-
-
 * Definition
 A function \( f(x) \) is a set \( S \) of ordered pairs that map the first value of the ordered pair to the second value
 in the ordered pair, where the first value may not have duplicates in the set \(S\). The map from the first value to the

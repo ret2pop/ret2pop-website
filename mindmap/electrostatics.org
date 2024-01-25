@@ -14,6 +14,9 @@ defined by the charge that an object has that corresponds the force that it both
 to other objects. Charge is measured in coulombs and can be negative or positive, which leads us to the man himself:
 
 * Coulomb's Law
+:PROPERTIES:
+:ID:       5388f4e8-7bb8-452e-b997-fe9892aefcf3
+:END:
 In order to define the phenomena of electric force in the real world, we use
 this experimentally verified law known as Coulomb's Law. Let \( \vec{r_{1}} \) be the displacement
 of a charge \( Q \), and let \( \vec{r_{2}} \) be the displacement of a charge \( q \), where these two charges are named \( P_{1}\) and \( P_{2} \) respectively.
@@ -53,6 +56,9 @@ but since this is electrostatics and not electrodynamics, you will not have to w
 magnetic constants. Again, it is just a shift from speed of light units to our mortal units.
 
 ** Electric Field
+:PROPERTIES:
+:ID:       63656810-537f-42fc-a38a-1468d763b39a
+:END:
 Okay, now we can continue to defining the /electric field/ of a particle. Let's call \( P_{1} \) our
 /test charge/, and \( P_{2} \) our /source charge/. If we now want to measure the force on \( P_{1} \),
 our equation is going to be the same. However, we can define a field \( \vec{E(\vec{r})} \) such that:

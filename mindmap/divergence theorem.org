@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       44e65b69-e5d5-464a-b1f3-8a914e1b7e9e
+:END:
+#+title: divergence theorem
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+The [[id:12a2d5b3-f98c-45e5-9107-5560288b5aa8][divergence]] theorem is a generalization of the one-dimensional fundamental theorem of calculus:
+\begin{align*}
+\int_{V}\vec{\nabla} \cdot \vec{f}(\vec{r})d\tau = \oint_{S}\vec{f}(\vec{r}) \cdot d\vec{a}
+\end{align*}
+it is a statement about conservation in physical systems: the outflow of force from the inside of a closed boundary has
+to be equal to the amount of force at the boundaries.

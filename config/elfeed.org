@@ -18,6 +18,8 @@ Here are some interesting blogs, many of which are from substack.
 ** News :news:
 These are the news articles that I subscribe to. Some of these are politics related
 but I mostly just want to inform myself about technology subjects.
+*** https://www.wired.com/feed/tag/ai/latest/rss
+*** https://www.wired.com/feed/category/science/latest/rss
 *** https://feeds.washingtonpost.com/rss/politics?itid=lk_inline_manual_2
 *** https://news.ycombinator.com/rss
 

@@ -7,7 +7,6 @@
 #+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 #+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 #+options: broken-links:t
-#+OPTIONS: tex:dvipng
 
 * Derivation
 Let's say we want to know the rate of change of the [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] \(f(x) = x^{2}\). Because this [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] is not
@@ -76,14 +75,17 @@ We derive many of them here.
 = \frac{d}{dx}f(x) + \frac{d}{dx}g(x)
 \end{align*}
 of course, subtraction works in the same way.
-** Multiplication Rule
+** product rule
+:PROPERTIES:
+:ID:       d1e245f4-0b04-450e-8465-a9c85fe57f7e
+:END:
 \begin{align*}
 \frac{d}{dx}(f(x)g(x)) = \lim_{h\to0}\frac{f(x + h)g(x + h) - f(x)g(x)}{h} = \lim_{h\to0}\frac{f(x + h)g(x + h) - f(x)g(x + h) + f(x)g(x + h) - f(x)g(x)}{h} \\
 = \lim_{h\to0}\frac{g(x + h)(f(x + h) - f(x)) + f(x)(g(x + h) - g(x))}{h} \\
 = g(x)\lim_{h\to0}\frac{f(x + h) - f(x)}{h} + f(x)\frac{g(x + h) - g(x)}{h} = g(x)f'(x) + g'(x)f(x)
 \end{align*}
 And using the this rule as well as the chain rule and power rule which we will show later, the division rule is easily acquired.
-** Chain Rule
+** chain rule
 :PROPERTIES:
 :ID:       ffd1bc3d-ab64-4916-9c09-0c89d2731b6d
 :END:

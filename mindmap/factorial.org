@@ -5,4 +5,11 @@
 #+author: Preston Pan
 #+options: num:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
-#+options: tex:dvipng
+
+* Introduction
+The factorial [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] $n!: \mathbb{N} \rightarrow \mathbb{N}$ describes the amount of ways one can arrange $n$ differentiable objects. In practice:
+\begin{align*}
+0! = 1 \\
+n! = (n - 1)! \times n
+\end{align*}
+is a [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursive]] definition of the factorial.

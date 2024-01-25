@@ -24,4 +24,7 @@ model using category theory.
 
 ** Mathematical Models
 *** [[id:ece8bf94-4e3c-4939-a77a-9949c1ec0dc6][Physics]]
-This is a stub.
+Physics is the study of the natural world and its laws, usually resorting to a mathematical framework.
+
+*** Economics
+the study of human behavior; generally speaking, economists use mathematical models for models of the macroeconomy.

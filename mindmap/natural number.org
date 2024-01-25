@@ -13,8 +13,8 @@ I will start with the Peano arithmetic formulation. First, we define an immediat
 successor function $S:\mathbb{N}\rightarrow\mathbb{N}$ which effectively "adds one" (although we haven't defined addition yet),
 and a number we call $0 \in \mathbb{N}$. We then define an axiom:
 \begin{align*}
-\forall n \in \mathbb{N} \; \nexists S(n) \; s.t. S(n) = 0; \\
-\forall n \in \mathbb{N} \; S(n) \in \mathbb{N}.
+\forall n \in \mathbb{N}, \nexists S(n), s.t. S(n) = 0; \\
+\forall n \in \mathbb{N}, S(n) \in \mathbb{N}.
 \end{align*}
 which is equivalent to saying: adding one to any natural number makes it not equal to zero, and
 any natural number's successor is a natural number. Because zero is a natural number, we can define
@@ -42,7 +42,7 @@ however, they don't allow for the ability for us to extrapolate properties of na
 ** [[id:16b06b82-99cc-4343-b171-fb2166c46a30][Induction]]
 Let's introduce our last axiom:
 \begin{align*}
-\forall n \in \mathbb{N} \: \forall P(n) \; P(0) \land (P(n) \rightarrow P(S(n))) \rightarrow P(n) \; \forall n \in \mathbb{N}
+\forall n \in \mathbb{N}, \forall P(x), P(0) \land (P(x) \rightarrow P(S(x))) \rightarrow P(n)
 \end{align*}
 now, this is the principle of [[id:16b06b82-99cc-4343-b171-fb2166c46a30][induction]] specific to natural numbers. What it is saying is that a property
 $P(n)$ is true for all $n$ if there is a "base case" $P(0)$ which is true, and you can show that $P(1)$ is

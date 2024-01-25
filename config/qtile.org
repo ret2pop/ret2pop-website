@@ -30,7 +30,7 @@ import subprocess
 
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "kitty"
 wl_import_rules = None
 auto_minimize = True
 wmname = "LG3D"
@@ -38,8 +38,9 @@ wmname = "LG3D"
 ** Hex Colors
 We then load the catppuccin colors for the bar and window borders.
 #+begin_src python :tangle config.py
-def get_colors():
-    return [
+def get_colors(theme):
+    if theme == "city-lights":
+        return [
         # Normal colors
         '#45475a',
         '#f38ba8',
@@ -65,8 +66,33 @@ def get_colors():
         # foreground
         '#cdd6f4',
     ]
+    elif theme == "gruvbox":
+        return [
+        # normal colors
+        '#282828',
+        '#cc241d',
+        '#98971a',
+        '#d79921',
+        '#458588',
+        '#b16286',
+        '#689d6a',
+        '#a89984',
+        #bright colors
+        '#928374',
+        '#fb4934',
+        '#b8bb26',
+        '#fabd2f',
+        '#83a598',
+        '#d3869b',
+        '#8ec07c',
+        '#ebdbb2',
+        # background
+        '#282828',
+        # foreground
+        '#ebdbb2',
+    ]
 
-colors = get_colors()
+colors = get_colors("gruvbox")
 #+end_src
 ** Keybindings
 The _keys_ variable is going to be our final list of keybindings. We start by initializing it
@@ -123,6 +149,7 @@ keys.extend([
     Key([mod], "g", lazy.spawn("gimp"), desc="Run GIMP"),
     Key([mod], "t", lazy.spawn("torbrowser-launcher"), desc="Run Tor Browser"),
     Key([mod], "i", lazy.spawn("emacsclient --eval \"(emacs-everywhere)\""), desc="Emacs Everywhere!"),
+    Key([mod], "d", lazy.spawn("dmenu_run"), desc="dmenu"),
 ])
 #+end_src
 *** XF86
@@ -173,7 +200,7 @@ layouts = [
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
+    layout.MonadTall(border_focus=colors[2], border_normal=colors[0], border_width=4, margin=7),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -195,40 +222,120 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# screens = [
+#     Screen(
+#         top=bar.Bar(
+#             [
+#                 # widget.CurrentLayout(),
+#                 widget.GroupBox(active=colors[6], inactive=colors[15], this_current_screen_border=colors[4], highlight_colorsr=colors[3]),
+#                 widget.Prompt(),
+#                 widget.WindowName(),
+#                 widget.Chord(
+#                     chords_colors={
+#                         "launch": ("#ff0000", "#ffffff"),
+#                     },
+#                     name_transform=lambda name: name.upper(),
+#                 ),
+#                 # widget.StatusNotifier(),
+
+#                 widget.Systray(),
+#                 widget.Battery(charge_char="🔋", discharge_char="🔋", full_char="🔋", format="{char} {percent:2.0%}"),
+#                 # widget.TextBox("|", foreground=colors[1]),
+#                 widget.Sep(padding=16, size_percent=80, foreground=colors[1]),
+#                 widget.Clock(format="🕒 %a %I:%M %p"),
+#                 widget.Sep(padding=16, size_percent=80, foreground=colors[1]),
+#                 widget.Mpd2(),
+#                 widget.TextBox("  "),
+
+#             ],
+#             24,
+
+#             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+#             # border_colorsr=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+#         ),
+#         bottom=bar.Gap(4),
+#         left=bar.Gap(3),
+#         right=bar.Gap(3),
+#     ),
+# ]
+
+def pline(rl, fg, bg):
+    if rl == 0:
+        uc = ""
+    else:
+        uc = ""
+    return widget.TextBox(text = uc,
+                          padding = 0,
+                          fontsize = 22,
+                          foreground=fg,
+                          background=bg)
+
 screens = [
     Screen(
+        wallpaper="~/.config/qtile/wallpaper",
+        wallpaper_mode="fill",
         top=bar.Bar(
             [
-                # widget.CurrentLayout(),
-                widget.GroupBox(active=colors[6], inactive=colors[15], this_current_screen_border=colors[4], highlight_color=colors[3]),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.CurrentLayoutIcon(
+                    scale=0.75,
+                    background=colors[3]
                 ),
-                # widget.StatusNotifier(),
+                pline(0, colors[3], colors[6]),
+                widget.GroupBox(
+                    highlight_method="block",
+                    background=colors[6],
+                    this_current_screen_border="#7daea3"
+                ),
+                pline(0, colors[6], colors[7]),
+                widget.TaskList(
+                    highlight_method="block",
+                    max_title_width=300,
+                    border="#d3869b",
+                    padding=2,
+                    background=colors[7]
+                ),
+                pline(0, colors[7], colors[0]),
+                widget.Spacer(),
 
-                widget.Systray(),
-                widget.Battery(charge_char="🔋", discharge_char="🔋", full_char="🔋", format="{char} {percent:2.0%}"),
-                # widget.TextBox("|", foreground=colors[1]),
-                widget.Sep(padding=16, size_percent=80, foreground=colors[1]),
-                widget.Clock(format="🕒 %a %I:%M %p"),
-                widget.Sep(padding=16, size_percent=80, foreground=colors[1]),
-                widget.Mpd2(),
-                widget.TextBox("  "),
-
+                pline(1, colors[2], colors[0]),
+                widget.Net( # requires python-psutil
+                    interface="wlp0s20f3",
+                    format="📡 {total}",
+                    update_interval=30,
+                    background=colors[2]
+                ),
+                pline(1, colors[5], colors[2]),
+                widget.Backlight(
+                    format="💡 {percent:2.0%}",
+                    backlight_name="intel_backlight",
+                    background=colors[5]
+                ),
+                pline(1, colors[3], colors[5]),
+                widget.Volume(
+                    emoji=True,
+                    background=colors[3]
+                ),
+                widget.Volume(
+                    background=colors[3]
+                ),
+                pline(1, colors[4], colors[3]),
+                widget.BatteryIcon(
+                    background=colors[4]
+                ),
+                widget.Battery(
+                    charge_char="now ",
+                    discharge_char="left",
+                    format="{percent:2.0%} {char}",
+                    background=colors[4]
+                    ),
+                pline(1, colors[1], colors[4]),
+                widget.Clock(
+                    format="%Y-%m-%d %a %I:%M %p",
+                    background=colors[1]
+                ),
             ],
-            24,
-
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            26,
         ),
-        bottom=bar.Gap(4),
-        left=bar.Gap(3),
-        right=bar.Gap(3),
     ),
 ]
 #+end_src

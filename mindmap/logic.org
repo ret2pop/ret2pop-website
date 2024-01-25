@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       29ebc4f9-0fd8-4203-8bfe-84f8558e09cf
+:END:
+#+title: logic
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+Logic is the foundation of everything mathematical, and can even study itself; this is known as metalogic. In order to
+demonstrate logic, we must first demonstrate some axioms of logic, starting with propositional logic.
+** Propositional Logic

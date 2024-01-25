@@ -5,20 +5,33 @@
 #+language: en
 #+OPTIONS: broken-links:t
 #+date: <2023-06-26 Mon>
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
 
 * About Me
-Some might know me as ret2pop, some as Preston Pan, and
-others as [[https://preston.nullring.xyz][LiCoO2]].
+** whoami?
+[[https://preston.nullring.xyz][Preston Pan]]. Although, that is not really important for the enjoyment of ret2pop, and
+it is certainly not the focus at all. Ret2pop is a separate entity, controlled only
+by the will of Francois. Ret2pop is a relentlessly curious force willing to entertain
+ideas that are unconventional and unorthodox; Preston Pan is the individual that tries
+to live this out and fails in a somewhat cringy manner.
 
+Some might know me as ret2pop, some as Preston Pan, and others as LiCoO2.
 ** Contact
 Here are all the methods you should use to contact me:
 *** IRC
 - ret2pop on libera.chat
   - Note: I will not always be online and I don't use a bouncer on this server. Email me to coordinate a time if you really need to reach me this way.
-- LiCoO2 on [[https://andrei.rm-r.org/irc][the best irc server]].
 *** Email
 - preston@nullring.xyz
 - ret2pop@gmail.com
+*** Amateur Radio (In case the world ends)
+My callsign is ~VE7PPN~.
 
 * Professional
 For now, you should consult [[https://preston.nullring.xyz/about/index.html][my other website]], but I will make

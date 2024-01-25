@@ -1,0 +1,13 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Wednesday, 10 January 2024
+** 16:39
+I have remembered that journaling capabilities existed in emacs again. I've been working on a programming language
+called stem for the past 6 days, and it's finally looking like a finished project. It is a stack based language
+and it has a foreign language interface and metaprogramming.

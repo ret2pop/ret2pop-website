@@ -1,0 +1,24 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Tuesday, 23 January 2024
+** 02:13
+I have decided to write in my journal yet again. I've been working on a programming language ~stem~ for the past
+few weeks, and it has been exhilarating. I plan to add much more functionality to the programming language, as I
+am already attempting to implement object oriented programming for it. Additionally, I have had ideas about how I would
+implement a compiler for this programming language, and I have thought about writing a new lisp dialect based on
+this language.
+
+In other news, I have become a University drop-out. I am still visiting my old university UVic from time to time, but I
+am no longer enrolled in any classes at UVic nor am I staying there long term. I don't really know what I'm going to do.
+
+I found that university was utterly stiffling and didn't allow me to pursue my own interests. Additionally, I found that
+many of the professors were unwilling to help me. Therefore, I dropped out.
+** 11:34
+I just woke up. I will do my agenda tasks and then try to go to a BCIT convention to try to do some job-hunting. I'm pretty
+excited for this.

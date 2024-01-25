@@ -27,3 +27,57 @@ That won't stop me from stalking you and physically threatening you, though. Tee
 * How did you make it?
 This section of the website was made with ~org-roam~, an emacs package that allows
 you to make a web of notes, something close to a wiki.
+
+* I want to Break the Rules
+No you don't. That being said, if you really want the list of all articles, here you go:
+#+begin_src shell :results output raw :exports both
+set -f
+IFS='
+'
+for f in $(ls | sort -r);
+do
+    if [[ "$f" == "index.org" || "$f" == "README.org" ]]; then
+        continue
+    fi
+    printf -- "- [[file:$f][$f]]\n"
+done
+unset IFS
+set +f
+#+end_src
+
+#+RESULTS:
+- [[file:stack.org][stack.org]]
+- [[file:special relativity.org][special relativity.org]]
+- [[file:self-assembly.org][self-assembly.org]]
+- [[file:recursion.org][recursion.org]]
+- [[file:python.org][python.org]]
+- [[file:physics.org][physics.org]]
+- [[file:partial derivative.org][partial derivative.org]]
+- [[file:natural number.org][natural number.org]]
+- [[file:mathematics.org][mathematics.org]]
+- [[file:magnetostatics.org][magnetostatics.org]]
+- [[file:logic.org][logic.org]]
+- [[file:inverse square.org][inverse square.org]]
+- [[file:inheritance.org][inheritance.org]]
+- [[file:infinity.org][infinity.org]]
+- [[file:induction.org][induction.org]]
+- [[file:group.org][group.org]]
+- [[file:function.org][function.org]]
+- [[file:factorial.org][factorial.org]]
+- [[file:everything.org][everything.org]]
+- [[file:emergence.org][emergence.org]]
+- [[file:electrostatics.org][electrostatics.org]]
+- [[file:duality.org][duality.org]]
+- [[file:divergence theorem.org][divergence theorem.org]]
+- [[file:dirac delta.org][dirac delta.org]]
+- [[file:derivative.org][derivative.org]]
+- [[file:del operator.org][del operator.org]]
+- [[file:continuity equation.org][continuity equation.org]]
+- [[file:conservative force.org][conservative force.org]]
+- [[file:central force.org][central force.org]]
+- [[file:Newtonian mechanics.org][Newtonian mechanics.org]]
+- [[file:Maxwell's Equations.org][Maxwell's Equations.org]]
+- [[file:Lorentz Force.org][Lorentz Force.org]]
+- [[file:Legendre Transformation.org][Legendre Transformation.org]]
+- [[file:Lagrangian mechanics.org][Lagrangian mechanics.org]]
+- [[file:Fourier Transform.org][Fourier Transform.org]]

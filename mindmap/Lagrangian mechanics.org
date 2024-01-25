@@ -1,0 +1,106 @@
+:PROPERTIES:
+:ID:       83da205c-7966-417e-9b77-a0a354099f30
+:END:
+#+title: Lagrangian mechanics
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+The Lagrangian, $L: (\mathbb{R}, \mathbb{R} \rightarrow \mathbb{R}, \mathbb{R} \rightarrow \mathbb{R}) \rightarrow \mathbb{R}$ is simply a functional:
+\begin{align*}
+L = L(t, f(t), f'(t))
+\end{align*}
+Where the Lagrangian represents some metric by which we calculate how optimized $f(x)$ is. The action:
+\begin{align*}
+J[f] = \int_{a}^{b}L(t, f(t), f'(t))dt \\
+\end{align*}
+Defines the actual relationship between $f(t)$ and its level of optimization, where $a$ and $b$ represent the start
+and end points for a certain curve. For example, if you wanted to minimize the surface area of something, $a$ and $b$
+would be the starting and end points of the surface.
+* Euler-Lagrange Equation
+We first define some function:
+\begin{align*}
+g(t) := f(t) + \epsilon \nu(t)
+\end{align*}
+Where $f(t)$ is our optimized function and $\nu(t)$ represents some function we add to $f(t)$ such that we perturb it
+by some small amount. Now $\epsilon$ is a small number such that the perturbation is small. Note that when $\epsilon = 0$, $g(t) = f(t)$,
+our optimized function.
+\begin{align*}
+J[g] = \int_{a}^{b}L(t, g(t), g'(t))dt
+\end{align*}
+Now $J[g]$ is optimized when $g(t)$ is a maximum or minimum with respect to the Lagrangian. $\frac{dJ}{d\epsilon}$ represents the extent to which
+the action changes when the perturbation changes. When $\epsilon = 0$, $g(t) = f(t)$, which means $\frac{dJ}{d\epsilon}$ evaluated at $\epsilon = 0$
+should be zero, by definition of maxima and minima.
+\begin{align*}
+\frac{dJ[g]}{d\epsilon} = \int_{a}^{b}\frac{dL}{d\epsilon}dt
+\end{align*}
+By the multivariable chain rule:
+\begin{align*}
+\frac{dL}{d\epsilon} = \frac{\partial L}{\partial t}\frac{dt}{d\epsilon} + \frac{\partial L}{\partial g}\frac{dg}{d\epsilon} + \frac{\partial L}{\partial g'}\frac{dg'}{d\epsilon}
+\end{align*}
+because $t$ does not depend on $\epsilon$, $g = f + \epsilon\nu$, and $g' = f' + \epsilon\nu'$:
+\begin{align*}
+\frac{dL}{d\epsilon} = \frac{\partial L}{\partial g}\nu(t) + \frac{\partial L}{\partial g'}\nu'(t)
+\end{align*}
+now substituting back into the integral:
+\begin{align*}
+\frac{dJ}{d\epsilon} = \int_{a}^{b}(\frac{\partial L}{\partial g}\nu(t) + \frac{\partial L}{\partial g'}\nu'(t))dt
+\end{align*}
+applying integration by parts to the right side:
+\begin{align*}
+\frac{dJ}{d\epsilon} = \int_{a}^{b}\frac{\partial L}{\partial g}\nu(t)dt + \nu(t)\frac{\partial L}{\partial g'}\bigg|_{a}^{b} - \int_{a}^{b}\nu(t)\frac{d}{dt}\frac{\partial L}{\partial g'}dt
+\end{align*}
+now $\nu(t)$ can be any perturbation of $f(t)$ but the boundary conditions must stay the same (every function that we are considering for optimization must have the same start and end points);
+therefore, $\nu(a) = \nu(b) = 0$. We can evaluate the bar to be 0 as a result. Doing this, combining the integral, then factoring out $\nu(t)$:
+\begin{align*}
+\frac{dJ}{d\epsilon} = \int_{a}^{b}\nu(t)(\frac{\partial L}{\partial g} - \frac{d}{dt}\frac{\partial L}{\partial g'})dt
+\end{align*}
+Now we finally set $\epsilon = 0$. This means $g(t) = f(t)$, $g'(t) = f'(t)$, and $\frac{dJ}{d\epsilon} = 0$:
+\begin{align*}
+0 = \int_{a}^{b}\nu(t)(\frac{\partial L}{\partial f} - \frac{d}{dt}\frac{\partial L}{\partial f'})dt
+\end{align*}
+And now because $\nu(t)$ can be an arbitrarily large or small valued function as long as the boundary conditions remain the same and the left hand side
+must be zero, we get the Euler-Lagrange equation:
+\begin{align*}
+\frac{\partial L}{\partial f} - \frac{d}{dt}\frac{\partial L}{\partial f'} = 0
+\end{align*}
+This is because the integral implies that for all selections for this function $\nu(t)$, $\nu(t)(\frac{dL}{df} - \frac{d}{dt}\frac{dL}{dg'}) = 0$. Because $\nu(t)$ can be any
+function assuming it satisfies the boundary conditions, this can only be the case if $\frac{dL}{df} - \frac{d}{dt}\frac{dL}{dg'} = 0$.
+In physics, we re-cast $f$ as $q$ and $f'$ as $\dot{q}$, where $q$ and $\dot{q}$ are the /generalized coordinates/ and /generalized velocities/ respectively.
+* The Hamiltonian
+The Hamiltonian represents the total energy in the system; it is the [[id:23df3ba6-ffb2-4805-b678-c5f167b681de][Legendre Transformation]] of the Lagrangian. Applying the Legendre Transformation to the
+Lagrangian for coordinate $\dot{q}$:
+\begin{align*}
+L = \frac{1}{2}m\dot{q}^{2} - V(q) \\
+H = \frac{\partial L}{\partial \dot{q}}\dot{q} - L
+\end{align*}
+the Hamiltonian is defined as:
+\begin{align*}
+H(q, p) = \sum _{i}p_{i}\dot{q_{i}} - L(q, \dot{q})
+\end{align*}
+Or:
+\begin{align*}
+H(q, p) = \frac{p^{2}}{2m} + V(q)
+\end{align*}
+where $p$ is the generalized momentum, and $q$ is a generalized coordinate. This results in two differential equations, the first of which is:
+\begin{align*}
+\frac{\partial H}{\partial p_{i}} = \dot{q_{i}}
+\end{align*}
+which follows directly from the Hamiltonian definition. Then, from the Euler-Lagrange equation:
+\begin{align*}
+L = \sum_{i}p_{i}\dot{q_{i}} - H \\
+\frac{\partial(\sum_{i}p_{i}\dot{q_{i}} - H)}{\partial q_{i}} - \frac{d}{dt}\frac{\partial(\sum_{i}p_{i}\dot{q_{i}} - H)}{\partial \dot{q_{i}}} = 0 \\
+- \frac{\partial H}{\partial q_{i}} = \frac{dp_{i}}{dt} \\
+\frac{\partial H}{\partial q_{i}} = - \frac{dp_{i}}{dt}
+\end{align*}
+Although the generalized coordinate system in question does not have to be linear, we can encode all the differential
+equations for all the coordinates at once with the [[id:4bfd6585-1305-4cf2-afc0-c0ba7de71896][del operator]]:
+\begin{align*}
+\vec{\nabla}_{p}H = \frac{d\vec{q}}{dt} \\
+\vec{\nabla}_{q}H = -\frac{d\vec{p}}{dt}
+\end{align*}
+this notation isn't standard and I kind of made it up, but I think it works, as long as you don't take the divergence
+or the curl of this system to really mean anything. Note that in both the Hamiltonian formulation and Lagrangian formulation,
+the differential equations reduce to [[id:6e2a9d7b-7010-41da-bd41-f5b2dba576d3][Newtonian mechanics]] if we are working in a linear coordinate system with energy conservation.

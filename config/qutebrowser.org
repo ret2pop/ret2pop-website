@@ -18,7 +18,8 @@ We import pathlib to get our home directory.
 I am experimenting with many themes right now, and one of them is the [[https://github.com/gicrisf/qute-city-lights][city-lights]] theme.
 Another one I have used is the [[https://github.com/catppuccin/catppuccin][catppuccin]] theme.
 #+begin_src  python :tangle config.py
-config.source('themes/qute-city-lights/city-lights-theme.py')
+# config.source('themes/qute-city-lights/city-lights-theme.py')
+config.source('gruvbox.py')
 #+end_src
 ** Variables
 We need the location of the home directory.
@@ -96,7 +97,7 @@ for item in js_blacklist:
 ** Misc.
 Doing mundane things like setting the downloads directory to not use an upper case letter.
 #+begin_src python :tangle config.py
-c.downloads.location.directory = "~/downloads"
+c.downloads.location.directory = "~/Downloads"
 #+end_src
 ** End of Config
 #+begin_src python :tangle config.py

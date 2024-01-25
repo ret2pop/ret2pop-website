@@ -15,7 +15,7 @@ A conservative force has this property:
 \end{align*}
 In other words, work done by \(\vec{f}\) is path independent, because in any closed loop integral,
 you go from point \(\vec{a}\) to point \(\vec{b}\) and then back. If these forwards and backwards
-paths end up canceling no matter what path you take, then it is clear that \(\vec{f}\) will do the
+paths end up canceling no matter what path you take, then it is clear that \(\vec{f}\) will be the
 same amount of force no matter what path you take. Using Stokes' theorem:
 \begin{align*}
 \int_{S}(\vec{\nabla} \times \vec{f}) \cdot d\vec{a} = \oint\vec{f} \cdot d\vec{l}

@@ -1,0 +1,31 @@
+:PROPERTIES:
+:ID:       23df3ba6-ffb2-4805-b678-c5f167b681de
+:END:
+#+title: Legendre Transformation
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Definition
+The Legendre Transformation represents a function in terms of the y-intercept of the tangent line at every point on the function.
+we start with the equation for a tangent line:
+\begin{align*}
+y = mx + b
+\end{align*}
+However, the Legendre transform actually solves for $b$. For a general function $f(x)$ we define
+the tangent line to a point on that function to be:
+\begin{align*}
+y = y'(x)x - b
+\end{align*}
+where subtracting $b$ is the convention, for some reason. Then solving for b:
+\begin{align*}
+b = y'(x)x - y
+\end{align*}
+The actual Legendre Transform requires $b$ to be a function of $y'$, therefore:
+\begin{align*}
+x(f') = (f'(x))^{-1} \\
+L\{f(x)\} = b(f') = f'x(f') - f((x(f'))
+\end{align*}
+In [[id:83da205c-7966-417e-9b77-a0a354099f30][Lagrangian mechanics]], the Hamiltonian can be defined as the Legendre transform of the Lagrangian.

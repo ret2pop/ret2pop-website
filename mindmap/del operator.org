@@ -86,6 +86,15 @@ vector field "perpendicular" to the divergence of the field. In fact, if you hav
 you can represent this field as an addition of a curl-less field and a divergence-less field.
 Another way to think of it is that you are measuring the strength of rotational component of the vector field about a certain axis.
 
+** directional derivative
+:PROPERTIES:
+:ID:       e255eb0a-246b-4a4b-8db8-ac0d15d9cc3c
+:END:
+The directional derivative is defined as follows:
+\begin{align*}
+\vec{f} \cdot \vec{\nabla} = \sum_{i=0}^{n}f_{i}\frac{\partial}{\partial x_{i}}
+\end{align*}
+Which represents a superposition of states which corresponds to the direction you want to take the derivative in.
 ** Laplacian
 :PROPERTIES:
 :ID:       65004429-a6b7-41f2-8489-07605841da3d
@@ -98,6 +107,6 @@ It returns a scalar field and is the multivariable analogue to the second deriva
 and gradient have been described, I feel it is trivial to understand the Laplacian.
 
 ** Product Rules
-The product rules pertaining to the del operator are consistent with that of linear algebra.
+The product rules pertaining to the del operator are consistent with that of linear algebra and single variable derivative rules.
 For example, \( \vec{\nabla} \times \vec{\nabla}f = 0\). You can show this yourself quite easily, so I find no need to go over it here.
-When in doubt, just assume the del works the same way as any old vector, and you will usually be correct.
+When in doubt, just assume the del works the same way as any old vector except you apply the [[id:d1e245f4-0b04-450e-8465-a9c85fe57f7e][product rule]], and you will usually be correct.

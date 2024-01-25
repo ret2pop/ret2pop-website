@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       262ca511-432f-404f-8320-09a2afe1dfb7
+:END:
+#+title: Fourier Transform
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+The Fourier Transform is a generalization of the Fourier Series.

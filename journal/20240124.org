@@ -1,0 +1,17 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Wednesday, 24 January 2024
+** 13:43
+For lunch, I ate rice and vegetables, mainly cauliflower, and two eggs. I plan to take my protein in the night, and I need to
+get more protein soon.
+*** TODO Get more protein
+Vega to be mixed with milk.
+** 15:44
+What's weird is I think my journal might be a little broken; I wrote the thing above yesterday. Oh well. I am also looking into
+changing my website's css to make it less ugly. I also need to buy some vega protein.
