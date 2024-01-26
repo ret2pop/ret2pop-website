@@ -181,7 +181,9 @@ pre {
 .preamble {
   font-size: 20px;
 }
-
+pre.src-stem:before {
+  content: "stem";
+}
 .links-page > ul {
   columns: 2;
   -webkit-columns: 2;
