@@ -177,6 +177,7 @@ where the word ~if~ just checks if the third thing from the top of the stack (th
 whatever's inside the first quote, otherwise execute the second quote. Note that this wording is a little bit confusing because the /first thing you write/
 is also the /last thing on the stack/ because adding new things to the stack puts the first thing /below/ the second.
 
+#+caption: Stack effect of if word
 [[file:./img/stack2.png]]
 
 Now, also observe that inside the quotes we are storing valid code. This will become important later on as we introduce the concept of /metaprogramming/. First,
