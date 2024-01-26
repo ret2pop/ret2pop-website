@@ -62,7 +62,12 @@ website:
 #+begin_src shell :exports code
 cd ~/org/website
 git add .
-git commit -m "add code block in website"
+git commit -m "is my website fixed?"
 git push github main
 rsync ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src
+
+#+RESULTS:
+| [main    | 383ca6a]  | add      | code | block         | in | website      |
+| 1        | file      | changed, |    1 | insertion(+), |  7 | deletions(-) |
+| skipping | directory | .        |      |               |    |              |
