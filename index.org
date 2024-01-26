@@ -62,7 +62,7 @@ website:
 #+begin_src shell :exports code :results silent
 cd ~/org/website
 git add .
-git commit -m "manually fix stem code blocks"
+git commit -m "center postamble"
 git push github main
 rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src
