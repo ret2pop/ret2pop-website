@@ -329,7 +329,7 @@ dupt [ [ [ dup ] dip ] dip ] def
 which duplicates the second and third value on the stack respectively. However, we might want to define ~dupn~ for any n, which takes in an integer
 and computes ~dup~ ~n~ values down. We can do that with metaprogramming, or less abstractly, we can do it by repeatedly putting quotes inside quotes,
 and then we can ~eval~ the resultant quote. Here is the code that programs ~dipn~ in its entirety, without any sugarcoating:
-#+begin_src stem
+#+begin_src stem :exports both
 # dsc simply discards the top object on the stack
 dsc2 [ dsc dsc ] def
 dupd [ [ dup ] dip ] def
