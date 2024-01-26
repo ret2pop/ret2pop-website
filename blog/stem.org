@@ -230,6 +230,7 @@ on the stack back after, with the value at that index on top. There are two more
 #+begin_src stem :exports both
 1 2 swap . .
 1 2 . .
+"hello\n" dup . .
 1 2 5 [ + ] dip . .
 #+end_src
 
@@ -238,10 +239,13 @@ on the stack back after, with the value at that index on top. There are two more
 : 2
 : 2
 : 1
+: hello
+: hello
 : 5
 : 3
 
-~swap~ just swaps the top two numbers on the stack, and ~dip~ is just ~eval~ except it does the operation one layer below. In this example, it adds 1 and 2
+~swap~ just swaps the top two numbers on the stack, ~dup~ just duplicates the top of the stack,
+and ~dip~ is just ~eval~ except it does the operation one layer below. In this example, it adds 1 and 2
 instead of 2 and 5, thus you see a 5 and a 3 printed instead. Note that there are more words, but we won't need them for now. Now, we are ready to investigate
 how to define words in terms of other words, or so-called /compound words/.
 
