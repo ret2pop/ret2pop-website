@@ -59,15 +59,23 @@ Who is the man behind ret2pop? How do you contact him? So many mysteries awaitâ€
 ** About this Website
 I wrote this website in org mode. For more information, see the [[file:README.org][README]]. Here is how I upload my
 website:
-#+begin_src shell :exports code
+#+begin_src shell :exports code :results silent
 cd ~/org/website
 git add .
-git commit -m "is my website fixed?"
+git commit -m "add more information for about site"
 git push github main
 rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src
-
 #+RESULTS:
-| [main    | 18ce6fd]  | is       | my | website        | fixed? |             |
-| 1        | file      | changed, |  6 | insertions(+), |      1 | deletion(-) |
-| skipping | directory | .        |    |                |        |             |
+| [main      | 3f83226]    | is       | my        | website        | fixed? |              |           |           |         |         |                |
+| 1          | file        | changed, | 4         | insertions(+), | 4      | deletions(-) |           |           |         |         |                |
+| sending    | incremental | file     | list      |                |        |              |           |           |         |         |                |
+| index.html |             |          |           |                |        |              |           |           |         |         |                |
+|          | 1,400       | 10%      | 0.00kB/s  | 0:00:00        |      | 13,211       |      100% | 11.26MB/s | 0:00:00 | (xfr#1, | to-chk=91/102) |
+|            |             |          |           |                |        |              |           |           |         |         |                |
+| sent       | 3,964       | bytes    | received  | 154            | bytes  | 1,647.20     | bytes/sec |           |         |         |                |
+| total      | size        | is       | 1,868,773 | speedup        | is     | 453.81       |           |           |         |         |                |
+
+No, seriously, this is how I update my website. This code block right here. That's right, this website will be filled
+with code blocks that both act as /examples/ of how the website might be maintained, but also run the commands themselves.
+I run these code blocks from within org files in order to actually execute the commands!
