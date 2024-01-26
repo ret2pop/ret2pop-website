@@ -15,6 +15,7 @@ and objects from the foreign language interface by writing C libraries.
 If you don't know what any of that means, that is okay. I will go over the programming language as if this
 is your first programming language, as stem is one of the most simple programming languages
 that is feasible for practical use. For information on how to install stem on MacOS or Linux, see [[https://github.com/ret2pop/stem][the github page]].
+Documentation on the C API is available on the [[https://stemdoc.nullring.xyz][Doxygen generated page]].
 
 * Language Design
 In stem, all information is stored on what's called /the stack/, and there are things that you can put on the stack.
