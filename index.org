@@ -64,10 +64,10 @@ cd ~/org/website
 git add .
 git commit -m "is my website fixed?"
 git push github main
-rsync ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
+rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src
 
 #+RESULTS:
-| [main    | 383ca6a]  | add      | code | block         | in | website      |
-| 1        | file      | changed, |    1 | insertion(+), |  7 | deletions(-) |
-| skipping | directory | .        |      |               |    |              |
+| [main    | 18ce6fd]  | is       | my | website        | fixed? |             |
+| 1        | file      | changed, |  6 | insertions(+), |      1 | deletion(-) |
+| skipping | directory | .        |    |                |        |             |
