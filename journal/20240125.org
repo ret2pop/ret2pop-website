@@ -14,3 +14,6 @@ silly because it works out of the box, but trust me, there are some weird intera
 I feel quite sleepy, but I've done a lot of my agenda already. I'll be seeing Kaili today which is nice. I am thinking
 of blog posts that I could possibly add, but I can't think of anything right now. Maybe some excuse to use reproducible
 research in org mode.
+** 20:45
+Right now I am with Kaili and I am existing. This piece of text is used to
+demonstrate some journaling capabilities.
