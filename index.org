@@ -31,7 +31,8 @@ If you're interested, you can read my [[file:journal/index.org][journal]]. Note 
 entire personal life but instead will be a focus on interesting things that I
 think of or things that are of a technical nature.
 * [[file:blog/index.org][Blog]]
-My blog contains many longer writings that do not fit into the mindmap format.
+My blog contains many longer writings that do not fit into the mindmap format, and some
+of my writings on some of the projects that I've done.
 * [[file:mindmap/index.org][Mindmap]]
 I also have a mindmap, for those of you who are interested in knowing everything.
 ** What is a mindmap?
@@ -62,7 +63,7 @@ website:
 #+begin_src shell :exports code :results silent
 cd ~/org/website
 git add .
-git commit -m "add blog post"
+git commit -m "add image and start of metaprogramming article"
 git push github main
 rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src

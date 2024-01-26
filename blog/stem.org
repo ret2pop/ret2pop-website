@@ -105,8 +105,13 @@ There are also some basic math operations you can do:
 : 0.750000
 
 One can independently verify that these results are accurate. These basic math operations take /two/ things off of the stack, does the operation
-on those two numbers, and then puts them back on the stack. Then, the period character prints the value and pops them off the stack. There are predefined
-words for other mathematical operations too, all listed here:
+on those two numbers, and then puts the new value back on the stack, deleting the old values. Then, the period character prints the value and pops
+them off the stack.
+
+#+CAPTION: Demonstration of the stack effect of the plus word
+[[file:./img/stack.png]]
+
+There are predefined words for other mathematical operations too, all listed here:
 
 #+begin_src stem :exports both
 0.0 sin .
@@ -293,3 +298,22 @@ loop-some [ dup 0 <= [  ] [ dup . 1 - loop-some ] if ] def
 
 and we can see that it actually loops. You can modify the code to do more complex looping, and in the standard library (the ~stemlib~ folder), there is
 a ~loop~ function that loops any code any amount of times, written by Matthew Hinton.
+
+* Metaprogramming
+So what is this talk of metaprogramming? To put it simply, metaprogramming is a method by which one can autonomously build code and then evaluate it,
+thus allowing oneself to talk about code, or make decisions to make different code based on some inputs, before running the code. So how might
+we use metaprogramming? In the standard library, we define a couple of words ~dupd~, ~dupt~:
+#+begin_src stem :exports both
+dupd [ [ dup ] dip ] def
+dupt [ [ [ dup ] dip ] dip ] def
+3 2 dupd ?
+#+end_src
+
+#+RESULTS:
+: 3
+: 3
+: 2
+
+which duplicates the second and third value on the stack respectively. However, we might want to define ~dupn~ for any n, which takes in an integer
+and computes ~dup~ ~n~ values down. We can do that with metaprogramming, or less abstractly, we can do it by repeatedly putting quotes inside quotes,
+and then we can ~eval~ the resultant quote.
