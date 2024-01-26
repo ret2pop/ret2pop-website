@@ -3,7 +3,7 @@
 
 body {
   margin: 40px auto;
-  width: 610px;
+  width: 700px;
   max-width: 100%;
   line-height: 1.6;
   font-size: 16px;
@@ -170,10 +170,12 @@ pre {
 }
 
 .src,
-.example,
-code {
+.example {
   color: #ebdbb2;
   background-color: #282828;
+  box-shadow:
+    rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .preamble {
