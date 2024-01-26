@@ -63,6 +63,12 @@ website:
 cd ~/org/website
 git add .
 git commit -m "add code block in website"
-git push origin main
+git push github main
 rsync ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src
+
+#+RESULTS:
+| [main    | 9d15d37]  | add      | code                 | block          | in | website      |
+| 12       | files     | changed, | 131                  | insertions(+), | 39 | deletions(-) |
+| create   | mode      | 100644   | journal/20240125.org |                |    |              |
+| skipping | directory | .        |                      |                |    |              |
