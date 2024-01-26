@@ -1,6 +1,6 @@
 #+title: About
 #+author: Preston Pan
-#+description: About me and my contacts
+#+description: About me and my contact information
 #+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
 #+language: en
 #+OPTIONS: broken-links:t

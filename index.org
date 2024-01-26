@@ -1,7 +1,7 @@
 #+title: Introducing ret2pop
 #+author: Preston Pan
 #+date: <2023-06-09 Fri>
-#+description: My personal website
+#+description: A website full of wonder and explanation
 #+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
 #+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 #+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -62,7 +62,7 @@ website:
 #+begin_src shell :exports code :results silent
 cd ~/org/website
 git add .
-git commit -m "add copyright symbol for real"
+git commit -m "add blog post"
 git push github main
 rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src

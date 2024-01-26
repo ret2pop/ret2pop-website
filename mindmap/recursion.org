@@ -8,6 +8,7 @@
 #+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 #+startup: latexpreview
 #+OPTIONS: broken-links:t
+#+description: A description of recursive hierarchies in everything.
 * Recursion is Recursion
 Exactly as I say in the title.
 ** but what is recursion?
