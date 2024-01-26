@@ -105,9 +105,14 @@ procedure is exactly the same as popping those values off a stack!
 ** Stacks Describe Recursion
 To see more transparently how stacks relate to recursion, we use my programming language stem, which is a
 concatenative programming language, as a more transparent example.
-#+begin_src stem
-factorial [ dup 0 <= [ 1 + ] [ dup 1 - factorial * ] ] def
+#+begin_src stem :exports both
+factorial [ dup 0 <= [ 1 + ] [ dup 1 - factorial * ] if ] def
+5 factorial .
 #+end_src
+
+#+RESULTS:
+: 120
+
 * TODO Recursion Describes…?
 
 * TODO Recursion is not Recursive

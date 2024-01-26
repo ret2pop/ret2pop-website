@@ -62,7 +62,7 @@ website:
 #+begin_src shell :exports code :results silent
 cd ~/org/website
 git add .
-git commit -m "edit recursion article mindmap"
+git commit -m "able to run stem code due to org-babel-execute!"
 git push github main
 rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src
