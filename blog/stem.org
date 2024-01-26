@@ -109,6 +109,7 @@ on those two numbers, and then puts the new value back on the stack, deleting th
 them off the stack.
 
 #+CAPTION: Demonstration of the stack effect of the plus word
+#+ATTR_HTML: :width 400px
 [[file:./img/stack.png]]
 
 There are predefined words for other mathematical operations too, all listed here:
