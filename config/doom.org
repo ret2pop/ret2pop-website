@@ -332,7 +332,7 @@ In order to publish my website, we need to configure emacs to publish it somewhe
          :publishing-function org-publish-attachment)
         ("website" :auto-sitemap t :components ("website-org" "website-static"))))
 ;; (setq org-export-html-postamble-format '(("en" "<p class=\"preamble\"><a href=\"../index.html\">previous page</a> | <a href=\"/index.html\">home</a></p>")))
-(setq org-html-postamble "Copyright (c) 2024 Preston Pan")
+(setq org-html-postamble "Copyright © 2024 Preston Pan")
 (setq org-export-with-section-numbers nil)
 #+end_src
 *** Contacts
