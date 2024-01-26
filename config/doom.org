@@ -18,6 +18,7 @@ Below is the old documentation.
 (setq save-interprogram-paste-before-kill t)
 (setq yank-pop-change-selection t)
 (setq org-directory "~/org/")
+(setq warning-minimum-level :emergency)
 #+end_src
 - `load!' for loading external *.el files relative to this one
 - `add-load-path!' for adding directories to the `load-path', relative to
@@ -137,7 +138,7 @@ I'm experimenting with many themes right now. One of these themes is the city-li
 is the catppuccin theme.
 #+begin_src emacs-lisp :tangle yes
 ;; (setq doom-theme 'doom-ayu-light)
-(setq doom-theme 'doom-miramare)
+(setq doom-theme 'doom-gruvbox)
 ;; (setq catppuccin-flavor 'mocha)
 ;; (load-theme 'catppuccin)
 #+end_src
@@ -288,7 +289,6 @@ And then we add the headers needed to export the journal automatically:
       (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
 
 (setq org-journal-file-header 'org-journal-file-header-func)
-(setq org-export-with-section-numbers nil)
 (setq org-journal-file-format "%Y%m%d.org")
 #+end_src
 To add everything to the agenda search path, we toggle:
@@ -303,6 +303,7 @@ I don't use this anymore, but it's good to have.
 *** Roam
 This is the configuration for my mindmap.
 #+begin_src emacs-lisp :tangle yes
+(setq org-roam-graph-viewer "qutebrowser")
 (setq org-roam-directory (file-truename "~/org/website/mindmap"))
 (setq org-roam-capture-templates '(("d" "default" plain "%?"
                                     :target (file+head "${title}.org"
@@ -321,7 +322,8 @@ In order to publish my website, we need to configure emacs to publish it somewhe
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4
-         :auto-preamble t)
+         :html-preamble t
+         :html-preamble-format (("en" "<p class=\"preamble\"><a href=\"/index.html\">home</a> | <a href=\"./index.html\">section main page</a></p><hr>")))
         ("website-static"
          :base-directory "~/org/website"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|ico"
@@ -329,7 +331,9 @@ In order to publish my website, we need to configure emacs to publish it somewhe
          :recursive t
          :publishing-function org-publish-attachment)
         ("website" :auto-sitemap t :components ("website-org" "website-static"))))
+;; (setq org-export-html-postamble-format '(("en" "<p class=\"preamble\"><a href=\"../index.html\">previous page</a> | <a href=\"/index.html\">home</a></p>")))
 (setq org-html-postamble "Copyright (c) 2024 Preston Pan")
+(setq org-export-with-section-numbers nil)
 #+end_src
 *** Contacts
 Now we configure org-contacts, which allows me to store contacts in an org mode file:
@@ -481,7 +485,7 @@ This installs all the doom modules that we are going to be configuring:
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        (ivy +icons +fuzzy)
-       vertico
+       ;; vertico
 
        :ui
        ;;deft              ; notational velocity for Emacs

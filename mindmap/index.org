@@ -30,6 +30,7 @@ you to make a web of notes, something close to a wiki.
 
 * I want to Break the Rules
 No you don't. That being said, if you really want the list of all articles, here you go:
+@@html: <div class="links-page">@@
 #+begin_src shell :results output raw :exports both
 set -f
 IFS='
@@ -81,3 +82,4 @@ set +f
 - [[file:Legendre Transformation.org][Legendre Transformation.org]]
 - [[file:Lagrangian mechanics.org][Lagrangian mechanics.org]]
 - [[file:Fourier Transform.org][Fourier Transform.org]]
+@@html: </div>@@

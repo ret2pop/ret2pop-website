@@ -10,8 +10,11 @@
 ** 13:43
 For lunch, I ate rice and vegetables, mainly cauliflower, and two eggs. I plan to take my protein in the night, and I need to
 get more protein soon.
-*** TODO Get more protein
+*** DONE Get more protein
 Vega to be mixed with milk.
 ** 15:44
 What's weird is I think my journal might be a little broken; I wrote the thing above yesterday. Oh well. I am also looking into
 changing my website's css to make it less ugly. I also need to buy some vega protein.
+** 20:24
+I just finished my new website design. I feel as though it is more modern. However, I may still need to add a navbar
+to the website.

@@ -15,6 +15,7 @@ technical or otherwise. Think about the blog like a mix between
 the wiki format of the mindmap and the journal format.
 
 * Blog Articles
+@@html: <div class="links-page">@@
 #+begin_src shell :results output raw :exports both
 for f in *;
 do
@@ -26,3 +27,5 @@ done
 #+end_src
 
 #+RESULTS:
+
+@@html: </div>@@

@@ -102,6 +102,10 @@ img {
   max-width: 100%;
   border-radius: 10px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 50%;
 }
 
 /* --------------------------------------------- */
@@ -135,28 +139,65 @@ pre {
   background: #ff4081;
 }
 
-#postamble {
+#table-of-contents {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  font-size: 0px;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  border-right: 1px;
+  background: #ffffeb;
 }
-/* #table-of-contents { */
-/*   height: 100%; /\* Full-height: remove this if you want "auto" height *\/ */
-/*   width: 160px; /\* Set the width of the sidebar *\/ */
-/*   position: fixed; /\* Fixed Sidebar (stay in place on scroll) *\/ */
-/*   z-index: 1; /\* Stay on top *\/ */
-/*   top: 0; /\* Stay at the top *\/ */
-/*   left: 0; */
-/*   overflow-x: hidden; /\* Disable horizontal scroll *\/ */
-/*   padding-top: 20px; */
-/* } */
 
-/* #table-of-contents ul a { */
-/*   padding: 6px 8px 6px 16px; */
-/*   text-decoration: none; */
-/*   font-size: 25px; */
-/*   display: block; */
-/* } */
+#table-of-contents ul a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  font-size: 15px;
+}
+#table-of-contents ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.content {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
 
 .src,
-.example {
+.example,
+code {
   color: #ebdbb2;
   background-color: #282828;
+}
+
+.preamble {
+  font-size: 20px;
+}
+
+.links-page > ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1250px) {
+  body {
+    margin: 20px auto;
+    margin-left: 200px;
+  }
 }

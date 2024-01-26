@@ -8,6 +8,7 @@
 They're configurations for extremely obscure programs I use. Yeah, I know, I'm somewhat of a hipster myself.
 ** Configurations
 Here is a list of my configurations for various programs:
+@@html: <div class="links-page">@@
 #+begin_src shell :results output raw :exports both
 for f in *;
 do
@@ -25,3 +26,5 @@ done
 - [[file:kmonad.org][kmonad.org]]
 - [[file:qtile.org][qtile.org]]
 - [[file:qutebrowser.org][qutebrowser.org]]
+
+@@html: </div>@@

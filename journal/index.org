@@ -19,8 +19,10 @@ there will be some). I will also be posting some TODOs that I have
 throughout time.
 
 ** Entries
-Here is a list of all my journal entries:
+@@html: <div class="links-page">@@
+If you're interested, here is a list of all my journal entries:
 #+begin_src shell :results output raw :exports both
+#printf "@@html: <div class=\"links\">@@\n"
 for f in $(ls | sort -r);
 do
     if [[ "$f" == "index.org" || "$f" == "README.org" ]]; then
@@ -28,6 +30,7 @@ do
     fi
     printf -- "- [[file:$f][$f]]\n"
 done
+#printf "@@html: </div>@@\n"
 #+end_src
 
 #+RESULTS:
@@ -58,3 +61,4 @@ done
 - [[file:20230611.org][20230611.org]]
 - [[file:20230610.org][20230610.org]]
 - [[file:20230609.org][20230609.org]]
+@@html: </div>@@

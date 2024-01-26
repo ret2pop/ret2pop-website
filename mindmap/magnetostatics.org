@@ -56,7 +56,7 @@ Due to the [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] law, we k
 \begin{align*}
 \vec{\nabla} \times (\vec{J} \times \frac{\hat{r}}{r^{2}}) = 4\pi\vec{J}(\vec{r'})\delta(\vec{r}) + (\frac{\hat{r}}{r^{2}} \cdot \vec{\nabla})\vec{J} - (\vec{J} \cdot \vec{\nabla})\frac{\hat{r}}{r^{2}}
 \end{align*}
-The first directional derivative is zero because $\vec{J}$ does not depend on the same coordinates as $\vec{\nabla}}$
+The first directional derivative is zero because $\vec{J}$ does not depend on the same coordinates as $\vec{\nabla}$
 with the same reasoning as for the divergence, so we have:
 \begin{align*}
 \vec{\nabla} \times (\vec{J} \times \frac{\hat{r}}{r^{2}}) = 4\pi\vec{J}(\vec{r'})\delta(\vec{r}) - (\vec{J} \cdot \vec{\nabla})\frac{\hat{r}}{r^{2}}

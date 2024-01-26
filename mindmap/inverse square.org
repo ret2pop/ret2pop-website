@@ -122,7 +122,9 @@ k\int_{space}\sigma(\vec{r'})((x^{2} + y^{2} + z^{2})^{-3/2} - 3x^{2}(x^{2} + y^
 \end{align*}
 If we factor out the \((x^{2} + y^{2} + z^{2})^{-\frac{5}{2}}\) term and collecting the like terms:
 \begin{align*}
-k\int_{space}\sigma(\vec{r'})(3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} - 3(x^{2} + y^{2} + z^{2})(x^{2} + y^{2} + z^{2})^{-\frac{5}{2}})d\tau = k\int_{space}(3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} - 3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}})d\tau = 0.
+k\int_{space}\sigma(\vec{r'})(3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} - 3(x^{2} + y^{2} + z^{2})(x^{2} + y^{2} + z^{2})^{-\frac{5}{2}})d\tau \\
+= k\int_{space}(3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}} - 3(x^{2} + y^{2} + z^{2})^{-\frac{3}{2}})d\tau \\
+= 0.
 \end{align*}
 So is the divergence of this field zero? Well, not exactly. In order to understand why, we must ask: What happens to the divergence at \(\vec{0}\)?
 On first glance, it seems clearly undefined. After all, we're dividing by zero. However, after some amount of inspection, the assumption that our field's divergence

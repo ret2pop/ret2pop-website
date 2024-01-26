@@ -1,0 +1,16 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Thursday, 25 January 2024
+** 12:01
+I did not sleep that well, but that is okay for today. I am currently testing how publishing code blocks works. Sounds
+silly because it works out of the box, but trust me, there are some weird interactions.
+** 16:40
+I feel quite sleepy, but I've done a lot of my agenda already. I'll be seeing Kaili today which is nice. I am thinking
+of blog posts that I could possibly add, but I can't think of anything right now. Maybe some excuse to use reproducible
+research in org mode.

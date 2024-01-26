@@ -149,7 +149,7 @@ keys.extend([
     Key([mod], "g", lazy.spawn("gimp"), desc="Run GIMP"),
     Key([mod], "t", lazy.spawn("torbrowser-launcher"), desc="Run Tor Browser"),
     Key([mod], "i", lazy.spawn("emacsclient --eval \"(emacs-everywhere)\""), desc="Emacs Everywhere!"),
-    Key([mod], "d", lazy.spawn("dmenu_run"), desc="dmenu"),
+    Key([mod], "d", lazy.spawn("rofi -show run"), desc="rofi command launcher"),
 ])
 #+end_src
 *** XF86
