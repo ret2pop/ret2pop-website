@@ -67,7 +67,7 @@ with ~cd stemlib~, and then run ~stem repl.stem~. Here you will encounter what i
 doesn't matter. Just know that it runs stem code interactively.
 
 A basic word that prints out the top thing on the stack and removes it is simply a period:
-#+begin_src stem
+#+begin_src stem :exports both
 "hello world\n" .
 #+end_src
 
@@ -76,7 +76,7 @@ A basic word that prints out the top thing on the stack and removes it is simply
 
 where the ~\n~ just signifies a newline character, basically just telling it to not print the "hello world" on the same line as the next thing printed.
 You can print the entire stack like so:
-#+begin_src stem
+#+begin_src stem :exports both
 1 2 3 [ "some quote" ] "string!"
 
 ?
@@ -91,7 +91,7 @@ You can print the entire stack like so:
 : string!
 Which prints the entire stack, where the bottom-most thing is the top thing on the stack.
 There are also some basic math operations you can do:
-#+begin_src stem
+#+begin_src stem :exports both
 3 4 + .
 3 4 - .
 3 4 * .
@@ -108,7 +108,7 @@ One can independently verify that these results are accurate. These basic math o
 on those two numbers, and then puts them back on the stack. Then, the period character prints the value and pops them off the stack. There are predefined
 words for other mathematical operations too, all listed here:
 
-#+begin_src stem
+#+begin_src stem :exports both
 0.0 sin .
 0.0 cos .
 1.0 exp .
@@ -128,7 +128,7 @@ words for other mathematical operations too, all listed here:
 These operations I will assume you are familiar with, and one can independently verify their (approximate) validity. There are also comparison
 and logical operations:
 
-#+begin_src stem
+#+begin_src stem :exports both
 "hi" "hi" = .
 4 3 = .
 3 4 < .
@@ -151,7 +151,7 @@ and logical operations:
 
 Which compare the first number to the second number with a certain operation like "greater than or equals to". The result is a zero or one, indicating
 that the statement is either /true/ or /false/, with 1 being true. With these statements, you can make decisions:
-#+begin_src stem
+#+begin_src stem :exports both
 3 4 < [ "3 < 4" . ] [ "3 >= 4" . ] if
 #+end_src
 
@@ -165,7 +165,7 @@ is also the /last thing on the stack/ because adding new things to the stack put
 Now, also observe that inside the quotes we are storing valid code. This will become important later on as we introduce the concept of /metaprogramming/. First,
 though, we have to introduce a couple more important predefined words.
 
-#+begin_src stem
+#+begin_src stem :exports both
 [ "hello world!\n" . ] eval
 3 quote .
 [ 1 2 ] [ 3 4 ] compose .
@@ -194,7 +194,7 @@ Q: [
 ~eval~ evaluates the top of the stack as if it were a piece of code; ~quote~ puts the top of the stack in a quote and then pushes it back to
 the top of the stack; ~compose~ combines two quotes into one; and ~curry~ puts a value in the front of the quote. Note that some of these operations
 work for strings as well:
-#+begin_src stem
+#+begin_src stem :exports both
 "hello " "world\n" compose .
 #+end_src
 
@@ -202,7 +202,7 @@ work for strings as well:
 : hello world
 
 And some other words that we use to operate on quotes and strings are here:
-#+begin_src stem
+#+begin_src stem :exports both
 [ 1 2 3 4 ] 1 cut . .
 0 [ 5 6 7 8 ] vat .
 "hello\nworld\n" 6 cut . .
@@ -227,7 +227,7 @@ s
 ~cut~ cuts a string or quote into two, where the number in front tells ~cut~ /where/ to cut. Note that normally in programming numbering starts
 at 0, so 1 is actually the /second/ element of the quote. ~vat~ gets the nth element, where n is the /first/ value passed into ~vat~. It also returns the quote or string
 on the stack back after, with the value at that index on top. There are two more words that we have to define:
-#+begin_src stem
+#+begin_src stem :exports both
 1 2 swap . .
 1 2 . .
 1 2 5 [ + ] dip . .
@@ -249,7 +249,7 @@ how to define words in terms of other words, or so-called /compound words/.
 Compound words, or words made up of other words (and literals), are created with yet /another/ word, ~def~. ~def~ takes an undefined word
 (all undefined words are just put on the stack) and a quote, and then from there on the word in question is defined as that quote, where whenever
 stem sees that word in the future, it immediately ~eval~'s that quote.
-#+begin_src stem
+#+begin_src stem :exports both
 hello [ "hello world\n" . ] def
 hello
 #+end_src
@@ -258,7 +258,7 @@ hello
 : hello world
 
 In order to put words on the stack instead of calling them, just escape them:
-#+begin_src stem
+#+begin_src stem :exports both
 \def .
 #+end_src
 
@@ -271,12 +271,12 @@ called /recursion/.
 
 ** Recursion
 We can loop in stem by defining a word that calls itself:
-#+begin_src stem
+#+begin_src stem :exports both
 loop-forever [ "hello world\n" . loop-forever ] def
 #+end_src
 Now, we /don't actually/ want to run this because it will just keep on printing hello world forever, without stopping, and we might want to constrain how
 much it loops. We can do this by only looping under some condition:
-#+begin_src stem
+#+begin_src stem :exports both
 loop-some [ dup 0 <= [  ] [ dup . 1 - loop-some ] if ] def
 4 loop-some
 #+end_src
