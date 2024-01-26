@@ -14,7 +14,7 @@ This blog is not going to be for my personal life in any capacity,
 technical or otherwise. Think about the blog like a mix between
 the wiki format of the mindmap and the journal format.
 
-* Blog Articles
+Blog Articles:
 @@html: <div class="links-page">@@
 #+begin_src shell :results output raw :exports both
 for f in *;

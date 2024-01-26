@@ -160,10 +160,12 @@ pre {
   display: block;
   font-size: 15px;
 }
+
 #table-of-contents ul {
   list-style-type: none;
   padding-left: 0;
 }
+
 .content {
   margin-left: 160px; /* Same as the width of the sidebar */
   padding: 0px 10px;
@@ -181,9 +183,15 @@ pre {
 .preamble {
   font-size: 20px;
 }
-pre.src-stem:before {
-  content: "stem";
+
+.postamble {
+  text-align: center;
 }
+
+pre.src-stem:before {
+  content: "Stem";
+}
+
 .links-page > ul {
   columns: 2;
   -webkit-columns: 2;
