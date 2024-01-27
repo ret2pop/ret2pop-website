@@ -32,6 +32,8 @@ Here are all the methods you should use to contact me:
 - ret2pop@gmail.com
 *** Amateur Radio (In case the world ends)
 My callsign is ~VE7PPN~.
+*** Linkedin
+You can see my [[https://www.linkedin.com/in/preston-pan-4aa635296/https://www.linkedin.com/in/preston-pan-4aa635296/][personal linkedin profile]].
 
 * Professional
 Here you can find [[file:./resume2.pdf][my resume]], which contains it all. I am always open for new job opportunities!
