@@ -5,6 +5,7 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+language: en
 #+OPTIONS: broken-links:t
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
 
 * Why?
 I want a place where I can write long form essays about subjects

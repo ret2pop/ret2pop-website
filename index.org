@@ -10,6 +10,7 @@
 #+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 #+html_head: <meta name="msapplication-TileColor" content="#da532c">
 #+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
 #+language: en
 #+OPTIONS: broken-links:t
 #+OPTIONS: html-preamble:nil
@@ -63,7 +64,7 @@ website:
 #+begin_src shell :exports code :results silent
 cd ~/org/website
 git add .
-git commit -m "add logo"
+git commit -m "add meta tag"
 git push github main
 rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src

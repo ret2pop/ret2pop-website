@@ -2,6 +2,7 @@
 #+author: Preston Pan
 #+description: My own concatenative programming language
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
 #+language: en
 #+OPTIONS: broken-links:t
 

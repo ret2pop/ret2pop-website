@@ -12,6 +12,7 @@
 #+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 #+html_head: <meta name="msapplication-TileColor" content="#da532c">
 #+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
 * Introduction
 This is my journal. It's basically my everyday life from
 a technology perspective (not many personal details although
