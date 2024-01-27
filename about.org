@@ -34,5 +34,4 @@ Here are all the methods you should use to contact me:
 My callsign is ~VE7PPN~.
 
 * Professional
-For now, you should consult [[https://preston.nullring.xyz/about/index.html][my other website]], but I will make
-this my main website in the future.
+Here you can find [[file:./resume2.pdf][my resume]], which contains it all. I am always open for new job opportunities!
