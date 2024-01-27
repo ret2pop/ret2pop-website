@@ -12,6 +12,10 @@ capabilities. Here, I document the syntax a general guide of programming in the 
 as well as some of the process of making it. I will also cover adding new functions
 and objects from the foreign language interface by writing C libraries.
 
+#+CAPTION: The stem programming language, logo designed by Andrei Sova
+#+ATTR_HTML: :height 400px
+[[file:img/stem.png]]
+
 If you don't know what any of that means, that is okay. I will go over the programming language as if this
 is your first programming language, as stem is one of the most simple programming languages
 that is feasible for practical use. For information on how to install stem on MacOS or Linux, see [[https://github.com/ret2pop/stem][the github page]].
