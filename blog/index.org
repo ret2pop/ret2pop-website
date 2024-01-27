@@ -20,7 +20,7 @@ Blog Articles:
 #+begin_src shell :results output raw :exports both
 for f in *;
 do
-    if [[ "$f" == "index.org" ]]; then
+    if [[ "$f" == "index.org" || "$f" == "img" ]]; then
         continue
     fi
     printf -- "- [[file:$f][$f]]\n"
