@@ -6,4 +6,5 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 
 * Introduction
-bla bla bla.
+Self assembly is the process by which a system decreases entropy in its surrounding area
+by way of [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursive]], [[id:b005fb71-2a16-40f9-9bb6-29138f4719a2][emergent]] structures.

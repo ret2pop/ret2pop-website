@@ -187,26 +187,32 @@ And another to connect to libera:
 In order to use this configuration, you must install and configure mu and mbsync.
 #+begin_src emacs-lisp :tangle yes
 
+;; (setq send-mail-function 'smtpmail-send-it)
+;; (setq smtpmail-default-smtp-server "mail.nullring.xyz")
+;; (setq smtpmail-smtp-server "mail.nullring.xyz")
+;; (setq smtpmail-smtp-service 465)
+;; (setq smtpmail-stream-type 'starttls)
+
+(require 'smtpmail)
 (setq send-mail-function 'smtpmail-send-it)
-(setq smtpmail-default-smtp-server "mail.nullring.xyz")
 (setq smtpmail-smtp-server "mail.nullring.xyz")
+(setq smtpmail-default-smtp-server "mail.nullring.xyz")
 (setq smtpmail-smtp-service 465)
+(setq smtpmail-smtp-user "preston@nullring.xyz")
 (setq smtpmail-stream-type 'ssl)
+(setq smtpmail-debug-info t)
+(setq smtpmail-auth-credentials '(("mail.nullring.xyz" 465 "preston@nullring.xyz" "lO7Y`\"-si<zU")))
 
-(after! mu4e
- (setq mu4e-get-mail-command "mbsync prestonpan")
- (setq mu4e-drafts-folder "/Drafts")
- (setq mu4e-sent-folder   "/Sent")
- (setq mu4e-trash-folder  "/Trash")
-
- (setq mu4e-html2text-command "w3m -T text/html"
-       mu4e-update-interval 300
-       mu4e-headers-auto-update t
-       mu4e-view-show-images t
-       mu4e-compose-signature-auto-include nil
-       mu4e-use-fancy-chars t)
- (setq mu4e-compose-reply-ignore-address '("no-?reply" "preston@nullring.xyz")))
+(set-email-account! "prestonpan"
+  '((mu4e-sent-folder       . "/Sent")
+    (mu4e-drafts-folder     . "/Drafts")
+    (mu4e-trash-folder      . "/Trash")
+    (smtpmail-smtp-user     . "preston@nullring.xyz")
+    (user-mail-address      . "preston@nullring.xyz")    ;; only needed for mu < 1.4
+    (mu4e-compose-signature . "---\nPreston Pan"))
+  t)
 #+end_src
+
 *** RSS
 We need to set up elfeed with a list of rss feeds.
 #+begin_src emacs-lisp :tangle yes
@@ -333,7 +339,6 @@ In order to publish my website, we need to configure emacs to publish it somewhe
         ("website" :auto-sitemap t :components ("website-org" "website-static"))))
 ;; (setq org-export-html-postamble-format '(("en" "<p class=\"preamble\"><a href=\"../index.html\">previous page</a> | <a href=\"/index.html\">home</a></p>")))
 (setq org-html-postamble "Copyright © 2024 Preston Pan")
-(setq org-export-with-section-numbers nil)
 #+end_src
 *** Contacts
 Now we configure org-contacts, which allows me to store contacts in an org mode file:
@@ -437,6 +442,11 @@ Our website uses the tufte css styling and we must therefore tell emacs to gener
 #+begin_src emacs-lisp
 (use-package! ox-tufte)
 (use-package! plan9-theme)
+#+end_src
+*** This is supposed to work
+but it doesn't
+#+begin_src emacs-lisp
+(setq org-export-with-section-numbers nil)
 #+end_src
 
 * packages.el Configuration

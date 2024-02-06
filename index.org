@@ -24,7 +24,7 @@ Hello! I'm a person on the internet that does things, such as:
 - Mathematics
 - Physics
 - Linguistics
-- Thinking
+- Thinking about stuff
 And if you're here to do one of these things, I guarantee you're in the right place!
 
 * [[file:journal/index.org][Journal]]
@@ -64,7 +64,7 @@ website:
 #+begin_src shell :exports code :results silent
 cd ~/org/website
 git add .
-git commit -m "add linkedin"
+git commit -m "edit some mindmaps"
 git push github main
 rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src

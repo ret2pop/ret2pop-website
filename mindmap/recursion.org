@@ -19,9 +19,9 @@ Self reference.
 Yeah, but I think it's a good introduction to the subject. You can think of recursion
 as [[id:42dbae12-827c-43c4-8dfc-a2cb1e835efa][self-assembly]] and it has deep connections to topics such as [[id:b005fb71-2a16-40f9-9bb6-29138f4719a2][emergence]]. I will first
 describe it in a mathematics context, and then a programming context.
-For demonstration purposes, I will use [[id:5d2e2f3b-96ac-4196-9baf-4c3d6d349c98][python]].
+For demonstration purposes, I will use my own programming language, [[https://ret2pop.nullring.xyz/blog/stem.html][Stem]] (warning: link takes you outside of mindmap).
 * [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][Mathematics]] Describes Recursion
-For this example, I will be using the  [[id:aed6b5dc-c2ec-4e8c-b793-538cd5d6e355][factorial]]. One might define it like so:
+For this example, I will be using the [[id:aed6b5dc-c2ec-4e8c-b793-538cd5d6e355][factorial]]. One might define it like so:
 \begin{align*}
 f: \mathbb{N}\rightarrow\mathbb{N}\ s.t. \\
 f(0) = 1 \\
@@ -43,69 +43,13 @@ f(1) = 1f(0) = 1 \times 1 = 1 \\
 f(2) = 2f(1) = 2 \times 1 = 2 \\
 f(3) = 3f(2) = 3 \times 2 = 6
 \end{align*}
-and so the result is multiplying $3 * 2 * 1 * 1 = 6$. If you observe what we did, you'll see that we started
+and so the result is multiplying $3 \times 2 \times 1 \times 1 = 6$. If you observe what we did, you'll see that we started
 by trying to replace unknown variables by trying to evaluate $f(x)$ one number down, and eventually we reach
 a "base case" -- zero. As soon as the "base case" occurs, we then "go back up" by replacing all the unknown
 values with known ones -- and that's how we evaluate recursive functions.
 
-* Programming Describes Recursion
-Even if you don't understand programming, it should be clear that this represents the [[id:aed6b5dc-c2ec-4e8c-b793-538cd5d6e355][factorial]] [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]]:
-#+begin_src python :exports both
-def factorial(x):
-    if x < 0:
-        return None
-    elif x == 0:
-        return 1
-    return x * factorial(x - 1)
-return factorial(5)
-#+end_src
-
-#+RESULTS:
-: 120
-
-And it also prints the result that we expect for the factorial of 5. Take note that just like in our mathematics
-example, ~factorial~ calls itself until it reaches a base case, ~x == 0~.
-** The stack frame
-We are now going to modify the code to be more transparent in the sense that it is going to print
-each factorial call out:
-#+begin_src python :results output :exports both
-def factorial(x):
-    if x < 0:
-        return None
-    elif x == 0:
-        print(1)
-        return 1
-    n = x * factorial(x - 1)
-    print(n)
-    return n
-factorial(5)
-#+end_src
-
-#+RESULTS:
-: 1
-: 1
-: 2
-: 6
-: 24
-: 120
-
-what is happening here? Why is it printing in the reverse order? Well, it is the /exact same phenomenon/
-as the "going back up" procedure we did before!
-
-You can model this behavior with a [[id:52d255d2-114c-42f4-b362-f0b4a2f7b83d][stack]], which is why it is called a stack frame. What's interesting is that
-the "going down until you reach the bottom and then building back up" procedure we did to solve $f(3)$ in the
-math section is actually modeled well by a stack. Just look at the far right hand side of all our equations in
-that example: we try but fail to evaluate $f(2)$, then $f(1)$, then $f(0)$. Then, we succeed in evaluating
-$f(0)$, which leads to being able to evaluate $f(1)$, which leads to being able to evaluate $f(2)$. This reverse
-ordering is exactly what we see by pushing a list of items onto a stack then removing them from one. Additionally,
-the second equation block from that section's right hand side is identical to the first few entries we see in the
-results block of this one, and you can see an exact mirroring of the first block in its evaluations of $f(n)$.
-
-So, the "going down" procedure is the same thing as pushing values onto some sort of stack, and the "going back up"
-procedure is exactly the same as popping those values off a stack!
-** Stacks Describe Recursion
-To see more transparently how stacks relate to recursion, we use my programming language stem, which is a
-concatenative programming language, as a more transparent example.
+* Programming Describe Recursion
+In stem, a factorial implementation might look like this:
 #+begin_src stem :exports both
 factorial [ dup 0 <= [ 1 + ] [ dup 1 - factorial * ] if ] def
 5 factorial .
@@ -113,8 +57,42 @@ factorial [ dup 0 <= [ 1 + ] [ dup 1 - factorial * ] if ] def
 
 #+RESULTS:
 : 120
+and in stem, we can print out the stack every step of the way with the builtin word ~?~:
+#+begin_src stem :exports both
+factorial-debug [ dup 0 <= [ 1 + ] [ ? "\n" . dup 1 - factorial-debug dup . * ] if ] def
+5 factorial-debug .
+#+end_src
+
+#+RESULTS:
+#+begin_example
+5
+
+5
+4
+
+5
+4
+3
+
+5
+4
+3
+2
+
+5
+4
+3
+2
+1
+
+1
+1
+2
+6
+24
+120
+#+end_example
 
 * TODO Recursion Describes…?
-
 * TODO Recursion is not Recursive
 * TODO Recursion = [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]]?

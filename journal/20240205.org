@@ -1,0 +1,17 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Monday, 05 February 2024
+** 16:39
+I'm going back to vancouver today, and I'm showing yet another person my journal.
+** 18:36
+I am finally returning home from Victoria, and thus, my schedule will continue on. My agenda currenty has a lot of missed habits
+but hopefully I will be able to recover.
+** 21:57
+Okay, apparently the busses are not running very often. This is kind of bad because I need to wait an hour for the next bus to actually come,
+and this means I will probably get home at around 00:00.
