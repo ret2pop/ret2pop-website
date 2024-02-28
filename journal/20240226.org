@@ -1,0 +1,13 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Monday, 26 February 2024
+** 18:54
+Today, I decided to install NixOS on my machine, and yesterday I got back from Bowen Island to see
+Anslie and her friends, while in the process messaging Josh Cindy more (idk if I've mentioned him in my previous journals but if you don't
+know I won't elaborate). I went to downtown a couple of times during the process, and it was really fun all around.

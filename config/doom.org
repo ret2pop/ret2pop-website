@@ -12,7 +12,6 @@ Below is the old documentation.
 #+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Preston Pan"
       user-mail-address "preston@nullring.xyz")
-
 (setq display-line-numbers-type t)
 (setq x-select-enable-clipboard t)
 (setq save-interprogram-paste-before-kill t)

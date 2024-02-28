@@ -20,6 +20,7 @@ Yeah, but I think it's a good introduction to the subject. You can think of recu
 as [[id:42dbae12-827c-43c4-8dfc-a2cb1e835efa][self-assembly]] and it has deep connections to topics such as [[id:b005fb71-2a16-40f9-9bb6-29138f4719a2][emergence]]. I will first
 describe it in a mathematics context, and then a programming context.
 For demonstration purposes, I will use my own programming language, [[https://ret2pop.nullring.xyz/blog/stem.html][Stem]] (warning: link takes you outside of mindmap).
+Again, stem is a prerequisite as it is the standard programming language in the mindmap.
 * [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][Mathematics]] Describes Recursion
 For this example, I will be using the [[id:aed6b5dc-c2ec-4e8c-b793-538cd5d6e355][factorial]]. One might define it like so:
 \begin{align*}
@@ -59,7 +60,7 @@ factorial [ dup 0 <= [ 1 + ] [ dup 1 - factorial * ] if ] def
 : 120
 and in stem, we can print out the stack every step of the way with the builtin word ~?~:
 #+begin_src stem :exports both
-factorial-debug [ dup 0 <= [ 1 + ] [ ? "\n" . dup 1 - factorial-debug dup . * ] if ] def
+factorial-debug [ dup 0 <= [ 1 + ] [ ? "\n" . dup 1 - factorial-debug ? "\n" . * ] if ] def
 5 factorial-debug .
 #+end_src
 
@@ -85,14 +86,35 @@ factorial-debug [ dup 0 <= [ 1 + ] [ ? "\n" . dup 1 - factorial-debug dup . * ] 
 2
 1
 
-1
-1
+5
+4
+3
 2
+1
+1
+
+5
+4
+3
+2
+1
+
+5
+4
+3
+2
+
+5
+4
 6
+
+5
 24
+
 120
 #+end_example
-
-* TODO Recursion Describes…?
-* TODO Recursion is not Recursive
-* TODO Recursion = [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]]?
+as you can see, the stack is slowly built up to have all of the numbers needed, and then when we reach the basecase (the base case being the condition
+that doesn't cause recursion in the if statement), in which case we "go back up" by multiplying and going back up the stack. This procedure of using a stack
+is present in all programming languages, although in stem the operations are transparent as the stack is accessible by regular program users. In short, we keep
+on going down and down until we hit the bottom, base case, in which case we have all the pieces we need in order to go back up again, where the stack stores
+the information from most recent tasks to be done and we work back up in order to do the less recent tasks.
