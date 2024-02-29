@@ -1,0 +1,346 @@
+#+TITLE: Emacs Configuration
+#+AUTHOR: Preston Pan
+#+DESCRIPTION: my personal emacs configuration for nixOS
+* Introduction
+** UI Elements
+#+begin_src emacs-lisp
+  (display-battery-mode 1)
+  (setq display-time-24hr-format t)
+  (display-time-mode 1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (load-theme 'catppuccin :no-confirm)
+  (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+  (set-face-attribute 'default nil :height 120)
+  (setq use-short-answers t)
+  (setq make-backup-files nil)
+  (setq org-export-with-broken-links t)
+  (setq org-src-fontify-natively t)
+#+end_src
+* Transparency
+#+begin_src emacs-lisp
+  (set-frame-parameter nil 'alpha-background 90)
+  (add-to-list 'default-frame-alist '(alpha-background . 90))
+#+end_src
+* Scrolling
+#+begin_src emacs-lisp
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+  (setq mouse-wheel-progressive-speed nil)
+  (setq mouse-wheel-follow-mouse 't)
+  (setq scroll-step 1)
+#+end_src
+* Agenda
+#+begin_src emacs-lisp
+  (require 'org-habit)
+  (setq org-agenda-files (list "~/org/agenda.org"
+			       "~/org/notes.org"))
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-habit-preceding-days 1)
+#+end_src
+* Publishing
+#+begin_src emacs-lisp
+  (require 'ox-publish)
+  (setq org-publish-project-alist
+	'(("website-org"
+	   :base-directory "~/org/website"
+	   :base-extension "org"
+	   :publishing-directory "~/website_html"
+	   :recursive t
+	   :publishing-function org-html-publish-to-html
+	   :headline-levels 4
+	   :html-preamble t
+	   :html-preamble-format (("en" "<p class=\"preamble\"><a href=\"/index.html\">home</a> | <a href=\"./index.html\">section main page</a></p><hr>")))
+	  ("website-static"
+	   :base-directory "~/org/website"
+	   :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|ico"
+	   :publishing-directory "~/website_html/"
+	   :recursive t
+	   :publishing-function org-publish-attachment)
+	  ("website" :auto-sitemap t :components ("website-org" "website-static"))))
+  ;; (setq org-export-html-postamble-format '(("en" "<p class=\"preamble\"><a href=\"../index.html\">previous page</a> | <a href=\"/index.html\">home</a></p>")))
+  (setq org-html-postamble "Copyright © 2024 Preston Pan")
+#+end_src
+* Autopair
+#+begin_src emacs-lisp
+  ;;(add-hook 'org-mode-hook (lambda ()
+  ;;         (setq-local electric-pair-inhibit-predicate
+  ;;                 `(lambda (c)
+  ;;                (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
+  ;;(add-hook 'prog-mode-hook (lambda () (electric-pair-mode 1)))
+#+end_src
+* Completion
+#+begin_src emacs-lisp
+  (add-hook 'after-init-hook 'global-company-mode)
+#+end_src
+* Org Babel
+#+begin_src emacs-lisp
+(org-babel-do-load-languages 'org-babel-load-languages
+    '(
+        (shell . t)
+    )
+)
+#+end_src
+* Packages
+#+begin_src emacs-lisp
+  (require 'org-tempo)
+  (use-package evil
+    :init
+    (setq evil-want-keybinding nil)
+    :config
+    (evil-mode 1)
+    (evil-set-undo-system 'undo-redo))
+  (use-package evil-collection
+    :init
+    (setq evil-want-keybinding nil)
+    :config
+    (evil-collection-init))
+  (with-eval-after-load 'evil-maps
+  (define-key evil-motion-state-map (kbd "SPC") nil)
+  (define-key evil-motion-state-map (kbd "RET") nil)
+  (define-key evil-motion-state-map (kbd "TAB") nil))
+  (use-package evil-commentary
+    :config
+    (evil-commentary-mode))
+  (use-package evil-org
+    :after org
+    :hook (org-mode . (lambda () evil-org-mode))
+    :config
+    (require 'evil-org-agenda)
+    (evil-org-agenda-set-keys))
+
+  (use-package which-key
+    :config
+    (which-key-mode))
+  (use-package page-break-lines
+    :init
+    (page-break-lines-mode))
+#+end_src
+** Journal
+#+begin_src emacs-lisp
+  (use-package org-journal
+    :init
+      (setq org-journal-dir "~/org/website/journal/")
+      (setq org-journal-date-format "%A, %d %B %Y")
+
+      (defun org-journal-file-header-func (time)
+      "Custom function to create journal header."
+      (concat
+	(pcase org-journal-file-type
+	  (`daily "#+TITLE: Daily Journal\n#+STARTUP: showeverything\n#+DESCRIPTION: My daily journal entry\n#+AUTHOR: Preston Pan\n#+HTML_HEAD: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
+	  (`weekly "#+TITLE: Weekly Journal\n#+STARTUP: folded")
+	  (`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
+	  (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
+
+    (setq org-journal-file-header 'org-journal-file-header-func)
+    (setq org-journal-file-format "%Y%m%d.org")
+    (setq org-journal-enable-agenda-integration t)
+  )
+#+end_src
+** Doom Modeline
+#+begin_src emacs-lisp
+  (use-package doom-modeline
+  :config
+  (doom-modeline-mode 1))
+#+end_src
+** Make Org Look Better
+#+begin_src emacs-lisp
+  (use-package org-superstar
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+#+end_src
+** LSP
+#+begin_src emacs-lisp
+  (use-package eglot 
+    :config
+    (add-hook 'prog-mode-hook 'eglot-ensure))
+#+end_src
+** Dashboard
+#+begin_src emacs-lisp
+  (use-package dashboard
+    :init
+    (setq dashboard-banner-logo-title "Welcome, Commander!")
+    (setq dashboard-icon-type 'nerd-icons)
+    (setq dashboard-vertically-center-content t)
+    (setq dashboard-set-init-info t)
+    (setq dashboard-week-agenda t)
+    (setq dashboard-items '((recents   . 5)
+			(bookmarks . 5)
+			(projects  . 5)
+			(agenda    . 5)
+			(registers . 5)))
+    :config
+    (dashboard-setup-startup-hook))
+#+end_src
+** Projectile
+#+begin_src emacs-lisp
+  (use-package projectile
+    :config
+    (projectile-mode +1))
+#+end_src
+** Ivy
+#+begin_src emacs-lisp
+  (use-package counsel)
+  (use-package ivy
+    :init
+    (setq ivy-use-virtual-buffers t)
+    (setq enable-recursive-minibuffers t)
+    ;; enable this if you want `swiper' to use it
+    ;; (setq search-default-mode #'char-fold-to-regexp)
+    (global-set-key "\C-s" 'swiper)
+    (global-set-key (kbd "C-c C-r") 'ivy-resume)
+    (global-set-key (kbd "<f6>") 'ivy-resume)
+    (global-set-key (kbd "M-x") 'counsel-M-x)
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+    (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+    (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+    (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
+    (global-set-key (kbd "<f1> l") 'counsel-find-library)
+    (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+    (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+    (global-set-key (kbd "C-c g") 'counsel-git)
+    (global-set-key (kbd "C-c j") 'counsel-git-grep)
+    (global-set-key (kbd "C-c k") 'counsel-ag)
+    (global-set-key (kbd "C-x l") 'counsel-locate)
+    (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+    (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+    :config
+    (ivy-mode))
+#+end_src
+** Magit
+#+begin_src emacs-lisp
+(use-package magit)
+#+end_src
+** Keybindings
+#+begin_src emacs-lisp
+  (use-package general
+    :config
+    (general-create-definer leader-key
+      :prefix "SPC")
+    (leader-key 'normal
+      "o a" 'org-agenda
+      "c b" 'counsel-bookmark
+      "o c" 'org-capture
+      "n j j" 'org-journal-new-entry
+      "n r f" 'org-roam-node-find
+      "n r i" 'org-roam-node-insert
+      "n r g" 'org-roam-graph
+      "r s s" 'elfeed
+      "." 'counsel-find-file
+      "g c /" 'magit-dispatch
+      "g c c" 'magit-commit
+      "o t" 'vterm-other-window
+      "o e" 'eshell
+      "o m" 'mu4e
+      "e w" 'eww
+      "p w" 'ivy-pass
+      "m P p" 'org-publish
+      "h m" '(woman :wk "Manual")
+      "h r r" '(lambda () (load-file "~/org/website/config/config.el"))
+      ))
+#+end_src
+** Elfeed
+#+begin_src emacs-lisp
+  (use-package elfeed
+    :init
+    (add-hook 'elfeed-search-mode-hook #'elfeed-update)
+    (setq elfeed-search-filter "@1-month-ago +unread")
+    )
+  (use-package elfeed-org
+    :init
+    (setq rmh-elfeed-org-files '("~/org/website/config/elfeed.org"))
+    :config
+    (elfeed-org))
+#+end_src
+** Eww
+#+begin_src emacs-lisp
+(setq search-engines
+      '(
+        (("google" "g") "https://google.com/search?q=%s")
+        (("duckduckgo" "d" "ddg") "https://duckduckgo.com/?q=%s")
+        (("rfc" "r") "https://www.rfc-editor.org/rfc/rfc%s.txt")
+        (("rfc-kw" "rk") "https://www.rfc-editor.org/search/rfc_search_detail.php?title=%s")))
+
+(setq search-engine-default "google")
+(setq eww-search-prefix "https://google.com/search?q=")
+(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "firefox")
+(setq browse-url-browser-function 'eww-browse-url)
+(add-hook 'eww-mode-hook
+          (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
+#+end_src
+** Org Roam
+#+begin_src emacs-lisp
+  (use-package org-roam
+    :init
+    (setq org-roam-graph-viewer "firefox")
+    (setq org-roam-directory (file-truename "~/org/website/mindmap"))
+    (setq org-roam-capture-templates '(("d" "default" plain "%?"
+				      :target (file+head "${title}.org"
+							 "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
+				      :unnarrowed t))))
+#+end_src
+** Pinentry
+#+begin_src emacs-lisp
+  (use-package pinentry
+    :init (setq epa-pinentry-mode `loopback)
+    :config (pinentry-start))
+#+end_src
+** Auctex
+#+begin_src emacs-lisp
+  (setq TeX-PDF-mode t)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+  (setq org-return-follows-link t)
+#+end_src
+** Mu4e
+#+begin_src emacs-lisp
+    ;; SMTP settings:
+  (setq user-mail-address "preston@nullring.xyz")
+  (setq user-full-name "Preston Pan")
+  (setq sendmail-program "msmtp"
+      send-mail-function 'smtpmail-send-it
+      message-sendmail-f-is-evil t
+      message-sendmail-extra-arguments '("--read-envelope-from")
+      message-send-mail-function 'message-send-mail-with-sendmail)
+
+  (require 'smtpmail)
+  (use-package mu4e
+    :init
+    (setq mu4e-drafts-folder "/Drafts")
+    (setq mu4e-sent-folder   "/Sent")
+    (setq mu4e-trash-folder  "/Trash")
+    (setq mu4e-attachment-dir  "~/Downloads")
+    (setq mu4e-view-show-addresses 't)
+    (setq mu4e-confirm-quit nil)
+
+
+    (setq message-kill-buffer-on-exit t)
+    (setq mu4e-compose-dont-reply-to-self t)
+    (setq mu4e-change-filenames-when-moving t)
+    (setq mu4e-get-mail-command "mbsync prestonpan")
+    (setq mu4e-compose-reply-ignore-address '("no-?reply" "preston@nullring.xyz"))
+    (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
+	  mu4e-update-interval 300                  ; seconds between each mail retrieval
+	  mu4e-headers-auto-update t                ; avoid to type `g' to update
+	  mu4e-view-show-images t                   ; show images in the view buffer
+	  mu4e-compose-signature-auto-include nil   ; I don't want a message signature
+	  mu4e-use-fancy-chars t))
+#+end_src
+** Password Manager
+#+begin_src emacs-lisp
+(use-package ivy-pass)
+#+end_src
+** Music
+#+begin_src emacs-lisp
+  (use-package emms
+    :init
+    (emms-all)
+    (setq emms-source-file-default-directory (expand-file-name "~/music/"))
+    (setq emms-player-mpd-music-directory "~/music/")
+    (setq emms-player-mpd-server-name "localhost")
+    (setq emms-player-mpd-server-port "6600")
+    (setq emms-player-list '(emms-player-mpd))
+    (add-to-list 'emms-info-functions 'emms-info-mpd)
+    (add-to-list 'emms-player-list 'emms-player-mpd)
+  :config
+    (emms-player-mpd-connect))
+#+end_src
