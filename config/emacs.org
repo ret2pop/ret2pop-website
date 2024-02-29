@@ -1,6 +1,8 @@
 #+TITLE: Emacs Configuration
 #+AUTHOR: Preston Pan
 #+DESCRIPTION: my personal emacs configuration for nixOS
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+
 * Introduction
 ** UI Elements
 #+begin_src emacs-lisp
