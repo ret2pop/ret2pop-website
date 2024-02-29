@@ -65,7 +65,7 @@ website:
 cd ~/org/website
 git add .
 git commit -m "publish from thinkpad"
-git push github main
+git push origin main
 rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
 #+end_src
 
