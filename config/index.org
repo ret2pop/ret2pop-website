@@ -22,6 +22,8 @@ done
 #+RESULTS:
 - [[file:doom.org][doom.org]]
 - [[file:elfeed.org][elfeed.org]]
+- [[file:emacs.el][emacs.el]]
+- [[file:emacs.org][emacs.org]]
 - [[file:fish.org][fish.org]]
 - [[file:kmonad.org][kmonad.org]]
 - [[file:qtile.org][qtile.org]]
