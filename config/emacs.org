@@ -4,7 +4,13 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 
 * Introduction
+This is my Vanilla Emacs configuration, made to work with my NixOS configuration. For that
+reason, you will not see :ensure t inside any use-package declaration, for emacs packages
+are all compiled natively and reproducibly on the NixOS side. This configuration uses the
+emacs-lisp language only to configure variables for said packages, for the most part.
 ** UI Elements
+This section contains important UI elements and starting customization variables to make
+emacs work in a semi-sane way and make it not look completely ugly:
 #+begin_src emacs-lisp
   (display-battery-mode 1)
   (setq display-time-24hr-format t)
@@ -14,18 +20,26 @@
   (tool-bar-mode -1)
   (load-theme 'catppuccin :no-confirm)
   (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+  (add-hook 'org-mode-hook #'display-line-numbers-mode)
   (set-face-attribute 'default nil :height 120)
   (setq use-short-answers t)
   (setq make-backup-files nil)
   (setq org-export-with-broken-links t)
   (setq org-src-fontify-natively t)
+  (setq warning-minimum-level :emergency)
+  (add-hook 'text-mode-hook 'visual-line-mode)
+  (add-hook 'after-save-hook 'eglot-format)
+  (setq debug-ignored-errors
+      (cons 'remote-file-error debug-ignored-errors))
 #+end_src
 * Transparency
+My NixOS configuration uses Hyprland to make things transparent:
 #+begin_src emacs-lisp
   (set-frame-parameter nil 'alpha-background 90)
   (add-to-list 'default-frame-alist '(alpha-background . 90))
 #+end_src
 * Scrolling
+Make emacs scroll in a sane way:
 #+begin_src emacs-lisp
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
   (setq mouse-wheel-progressive-speed nil)
@@ -33,6 +47,7 @@
   (setq scroll-step 1)
 #+end_src
 * Agenda
+Configure org agenda variables:
 #+begin_src emacs-lisp
   (require 'org-habit)
   (setq org-agenda-files (list "~/org/agenda.org"
@@ -41,6 +56,7 @@
   (setq org-habit-preceding-days 1)
 #+end_src
 * Publishing
+This is the configuration required to publish my website:
 #+begin_src emacs-lisp
   (require 'ox-publish)
   (setq org-publish-project-alist
@@ -64,18 +80,29 @@
   (setq org-html-postamble "Copyright © 2024 Preston Pan")
 #+end_src
 * Autopair
+Use electric-pair to automatically complete pairs of things. We need to change
+what electric-pair does based on the mode.
 #+begin_src emacs-lisp
-  ;;(add-hook 'org-mode-hook (lambda ()
-  ;;         (setq-local electric-pair-inhibit-predicate
-  ;;                 `(lambda (c)
-  ;;                (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
-  ;;(add-hook 'prog-mode-hook (lambda () (electric-pair-mode 1)))
+  (defun electric-pair ()
+    "If at end of line, insert character pair without surrounding spaces.
+  Otherwise, just insert the typed character."
+    (interactive)
+    (if (eolp) (let (parens-require-spaces) (insert-pair)) (self-insert-command 1)))
+    (add-hook 'org-mode-hook
+	      (lambda ()
+		(define-key org-mode-map "\"" 'electric-pair)
+		(define-key org-mode-map "\'" 'electric-pair)
+		(define-key org-mode-map "(" 'electric-pair)
+		(define-key org-mode-map "[" 'electric-pair)
+		(define-key org-mode-map "{" 'electric-pair)))
 #+end_src
 * Completion
+Company-mode! We need this to do autocomplete stuff.
 #+begin_src emacs-lisp
   (add-hook 'after-init-hook 'global-company-mode)
 #+end_src
 * Org Babel
+For some reason, org-babel doesn't load these languages by default:
 #+begin_src emacs-lisp
 (org-babel-do-load-languages 'org-babel-load-languages
     '(
@@ -84,6 +111,7 @@
 )
 #+end_src
 * Packages
+First, some small configurations and some evil-mode initilaization because I like vim keybindings:
 #+begin_src emacs-lisp
   (require 'org-tempo)
   (use-package evil
@@ -119,6 +147,7 @@
     (page-break-lines-mode))
 #+end_src
 ** Journal
+I use org-journal to journal about my life, and it's a part of my website:
 #+begin_src emacs-lisp
   (use-package org-journal
     :init
@@ -140,24 +169,28 @@
   )
 #+end_src
 ** Doom Modeline
+The default modeline is ugly.
 #+begin_src emacs-lisp
   (use-package doom-modeline
   :config
   (doom-modeline-mode 1))
 #+end_src
 ** Make Org Look Better
+Org superstar adds those nice looking utf-8 bullets:
 #+begin_src emacs-lisp
   (use-package org-superstar
   :config
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 #+end_src
 ** LSP
+We set up eglot, the LSP manager for emacs, now built in:
 #+begin_src emacs-lisp
   (use-package eglot 
     :config
     (add-hook 'prog-mode-hook 'eglot-ensure))
 #+end_src
 ** Dashboard
+We want our emacs initialization to be pretty and display useful things.
 #+begin_src emacs-lisp
   (use-package dashboard
     :init
@@ -175,12 +208,14 @@
     (dashboard-setup-startup-hook))
 #+end_src
 ** Projectile
+Manages projects and shit.
 #+begin_src emacs-lisp
   (use-package projectile
     :config
     (projectile-mode +1))
 #+end_src
 ** Ivy
+Ivy is a pretty cool general program for displaying stuff:
 #+begin_src emacs-lisp
   (use-package counsel)
   (use-package ivy
@@ -237,11 +272,15 @@
       "e w" 'eww
       "p w" 'ivy-pass
       "m P p" 'org-publish
+      "s e" 'sudo-edit
+      "m m" 'emms
       "h m" '(woman :wk "Manual")
-      "h r r" '(lambda () (load-file "~/org/website/config/config.el"))
+      "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
       ))
 #+end_src
-** Elfeed
+** RSS Feed
+I use really simple syndication (RSS) in order to read news. As a result, I use
+elfeed to fetch feeds found on my website:
 #+begin_src emacs-lisp
   (use-package elfeed
     :init
@@ -255,6 +294,8 @@
     (elfeed-org))
 #+end_src
 ** Eww
+Used only for the purpose of viewing RSS feed items in emacs if I can, only resorting
+to Firefox if I have to:
 #+begin_src emacs-lisp
 (setq search-engines
       '(
@@ -271,6 +312,7 @@
           (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
 #+end_src
 ** Org Roam
+For all my mathematics and programming notes:
 #+begin_src emacs-lisp
   (use-package org-roam
     :init
@@ -282,18 +324,21 @@
 				      :unnarrowed t))))
 #+end_src
 ** Pinentry
+Set up pinentry so that I can use emacs as my pinentry frontend:
 #+begin_src emacs-lisp
   (use-package pinentry
     :init (setq epa-pinentry-mode `loopback)
     :config (pinentry-start))
 #+end_src
 ** Auctex
+Make LaTeX a litle better:
 #+begin_src emacs-lisp
   (setq TeX-PDF-mode t)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
   (setq org-return-follows-link t)
 #+end_src
-** Mu4e
+** Email
+Email in emacs can be done with Mu4e.
 #+begin_src emacs-lisp
     ;; SMTP settings:
   (setq user-mail-address "preston@nullring.xyz")
@@ -328,16 +373,18 @@
 	  mu4e-use-fancy-chars t))
 #+end_src
 ** Password Manager
+I use ~pass~ in order to manage my passwords on linux, and this is an ivy frontend for it:
 #+begin_src emacs-lisp
 (use-package ivy-pass)
 #+end_src
 ** Music
+Set up emms in order to play music from my music directory:
 #+begin_src emacs-lisp
   (use-package emms
     :init
     (emms-all)
     (setq emms-source-file-default-directory (expand-file-name "~/music/"))
-    (setq emms-player-mpd-music-directory "~/music/")
+    (setq emms-player-mpd-music-directory "/home/preston/music/")
     (setq emms-player-mpd-server-name "localhost")
     (setq emms-player-mpd-server-port "6600")
     (setq emms-player-list '(emms-player-mpd))
@@ -345,4 +392,10 @@
     (add-to-list 'emms-player-list 'emms-player-mpd)
   :config
     (emms-player-mpd-connect))
+#+end_src
+** Stem
+My own programming language.
+#+begin_src emacs-lisp
+  (use-package stem-mode)
+  (add-to-list 'auto-mode-alist '("\\.stem\\'" . stem-mode))
 #+end_src

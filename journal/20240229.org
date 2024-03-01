@@ -6,9 +6,10 @@
 #+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 #+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 #+options: broken-links:t
-* Wednesday, 28 February 2024
-** 21:03
-I am inside my new emacs setup inside NixOS, which is extremely cool. I am journaling from my
-thinkpad for the first time in a while.
-** 22:16 
-Just showing someone my emacs config yet again. You know how this works at this point.
+* Thursday, 29 February 2024
+** 15:24 
+I'm at Starbucks right now, about to do some real analysis. I think I'm going to move to the basement
+today, and I'm mostly finished my NixOS configuration with the exception of the mpd server, which
+for some reason doesn't start even though I have all the required configurations.
+** 18:47 
+I'm journaling in emacs!

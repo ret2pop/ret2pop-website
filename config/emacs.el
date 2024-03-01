@@ -6,11 +6,17 @@
 (tool-bar-mode -1)
 (load-theme 'catppuccin :no-confirm)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'org-mode-hook #'display-line-numbers-mode)
 (set-face-attribute 'default nil :height 120)
 (setq use-short-answers t)
 (setq make-backup-files nil)
 (setq org-export-with-broken-links t)
 (setq org-src-fontify-natively t)
+(setq warning-minimum-level :emergency)
+(add-hook 'text-mode-hook 'visual-line-mode)
+(add-hook 'after-save-hook 'eglot-format)
+(setq debug-ignored-errors
+    (cons 'remote-file-error debug-ignored-errors))
 
 (set-frame-parameter nil 'alpha-background 90)
 (add-to-list 'default-frame-alist '(alpha-background . 90))
@@ -47,11 +53,18 @@
 ;; (setq org-export-html-postamble-format '(("en" "<p class=\"preamble\"><a href=\"../index.html\">previous page</a> | <a href=\"/index.html\">home</a></p>")))
 (setq org-html-postamble "Copyright © 2024 Preston Pan")
 
-;;(add-hook 'org-mode-hook (lambda ()
-;;         (setq-local electric-pair-inhibit-predicate
-;;                 `(lambda (c)
-;;                (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
-;;(add-hook 'prog-mode-hook (lambda () (electric-pair-mode 1)))
+(defun electric-pair ()
+  "If at end of line, insert character pair without surrounding spaces.
+Otherwise, just insert the typed character."
+  (interactive)
+  (if (eolp) (let (parens-require-spaces) (insert-pair)) (self-insert-command 1)))
+  (add-hook 'org-mode-hook
+	    (lambda ()
+	      (define-key org-mode-map "\"" 'electric-pair)
+	      (define-key org-mode-map "\'" 'electric-pair)
+	      (define-key org-mode-map "(" 'electric-pair)
+	      (define-key org-mode-map "[" 'electric-pair)
+	      (define-key org-mode-map "{" 'electric-pair)))
 
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -195,8 +208,10 @@
     "e w" 'eww
     "p w" 'ivy-pass
     "m P p" 'org-publish
+    "s e" 'sudo-edit
+    "m m" 'emms
     "h m" '(woman :wk "Manual")
-    "h r r" '(lambda () (load-file "~/org/website/config/config.el"))
+    "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
     ))
 
 (use-package elfeed
@@ -279,7 +294,7 @@
   :init
   (emms-all)
   (setq emms-source-file-default-directory (expand-file-name "~/music/"))
-  (setq emms-player-mpd-music-directory "~/music/")
+  (setq emms-player-mpd-music-directory "/home/preston/music/")
   (setq emms-player-mpd-server-name "localhost")
   (setq emms-player-mpd-server-port "6600")
   (setq emms-player-list '(emms-player-mpd))
@@ -287,3 +302,6 @@
   (add-to-list 'emms-player-list 'emms-player-mpd)
 :config
   (emms-player-mpd-connect))
+
+(use-package stem-mode)
+(add-to-list 'auto-mode-alist '("\\.stem\\'" . stem-mode))

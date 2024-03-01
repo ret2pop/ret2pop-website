@@ -26,6 +26,7 @@ done
 - [[file:emacs.org][emacs.org]]
 - [[file:fish.org][fish.org]]
 - [[file:kmonad.org][kmonad.org]]
+- [[file:nix.org][nix.org]]
 - [[file:qtile.org][qtile.org]]
 - [[file:qutebrowser.org][qutebrowser.org]]
 
