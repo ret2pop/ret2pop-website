@@ -1,0 +1,48 @@
+:PROPERTIES:
+:ID:       122fd244-ffeb-47d0-89ce-bf9bc6f01b70
+:END:
+#+title: limit
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+A limit in mathematics is a tool used to describe the intuitive process
+of a value or a set of values tending towards another. First, we will define
+limits as they pertain to sequences, and then we will define them on [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][functions]].
+For a sequence $\{s_{n}\}$:
+
+\begin{align*}
+\lim s_{n} = s \iff \forall \epsilon > 0, \exists N , n > N \implies | s_{n} - s | < \epsilon
+\end{align*}
+
+What this means is that at some point in the sequence, for some choice of epsilon, no matter how small
+it is, there has to be an index where every term after that index is closer to $s$ than epsilon. If
+some single number $s$ and sequence $\{s_{n}\}$ fulfills this criteria, then it is said that the limit
+of the sequence is $s$. Generally speaking, we use the set $\mathbb{R} \cup \{ -\infty, +\infty \}$, where there is a natural
+ordering:
+
+\begin{align*}
+\forall a \in \mathbb{R}, - \infty < a < +\infty
+\end{align*}
+defined. Note that we can define equivalence relations on these symbols, but algebra reamins undefined.
+** Limits on Monotone Sequences
+An increasing sequence is a sequence $\{s_{n}\}$ defined such that:
+\begin{align*}
+\forall n \in \mathbb{N}, \forall m \in \mathbb{N}, n \ge m \implies s_{n} \ge s_{m}.
+\end{align*}
+and now we wish to prove that the limit of monotone sequences always exist.
+
+\begin{align*}
+\lim s_{n} = s \iff \forall \epsilon > 0, \exists N, n > N \implies | s_{n} - s | < \epsilon \\
+\end{align*}
+
+#+begin_theorem
+If I am bad, then you are too.
+#+end_theorem
+
+#+begin_proof
+
+#+end_proof

@@ -11,4 +11,4 @@
 * Definition
 The operator \(\frac{\partial}{\partial x_{n}}\) takes the [[id:31d3944a-cddc-496c-89a3-67a56e821de3][derivative]] of a function \(f(\vec{x})\) with respect to \(x_{n}\) in
 the direction of the \(x_{n}\) axis. In other words, we take the derivative \(f(\vec{x})\) as if all variables
-except \(x_{n}\) is constant.
+except \(x_{n}\) is constant; this is useful in cases where you only care about one variable.

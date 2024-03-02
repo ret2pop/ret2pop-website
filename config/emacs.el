@@ -12,9 +12,9 @@
 (setq make-backup-files nil)
 (setq org-export-with-broken-links t)
 (setq org-src-fontify-natively t)
+(setq org-highlight-latex-and-related '(latex script entities))
 (setq warning-minimum-level :emergency)
 (add-hook 'text-mode-hook 'visual-line-mode)
-(add-hook 'after-save-hook 'eglot-format)
 (setq debug-ignored-errors
     (cons 'remote-file-error debug-ignored-errors))
 
@@ -58,10 +58,16 @@
 Otherwise, just insert the typed character."
   (interactive)
   (if (eolp) (let (parens-require-spaces) (insert-pair)) (self-insert-command 1)))
+
   (add-hook 'org-mode-hook
 	    (lambda ()
 	      (define-key org-mode-map "\"" 'electric-pair)
-	      (define-key org-mode-map "\'" 'electric-pair)
+	      (define-key org-mode-map "(" 'electric-pair)
+	      (define-key org-mode-map "[" 'electric-pair)
+	      (define-key org-mode-map "{" 'electric-pair)))
+(add-hook 'prog-mode-hook
+	  (lambda ()
+	      (define-key org-mode-map "\"" 'electric-pair)
 	      (define-key org-mode-map "(" 'electric-pair)
 	      (define-key org-mode-map "[" 'electric-pair)
 	      (define-key org-mode-map "{" 'electric-pair)))
@@ -210,6 +216,7 @@ Otherwise, just insert the typed character."
     "m P p" 'org-publish
     "s e" 'sudo-edit
     "m m" 'emms
+    "f f" 'eglot-format
     "h m" '(woman :wk "Manual")
     "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
     ))
@@ -241,12 +248,15 @@ Otherwise, just insert the typed character."
 
 (use-package org-roam
   :init
+  (setq org-roam-db-update-on-save t)
   (setq org-roam-graph-viewer "firefox")
   (setq org-roam-directory (file-truename "~/org/website/mindmap"))
   (setq org-roam-capture-templates '(("d" "default" plain "%?"
-				    :target (file+head "${title}.org"
-						       "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
-				    :unnarrowed t))))
+  :target (file+head "${title}.org"
+       "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
+    :unnarrowed t)))
+  :config
+  (org-roam-db-autosync-mode))
 
 (use-package pinentry
   :init (setq epa-pinentry-mode `loopback)
