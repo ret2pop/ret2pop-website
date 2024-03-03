@@ -4,7 +4,7 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 
 * Configuration
-#+begin_src nix :tangle
+#+begin_src nix :tangle t
   # Edit this configuration file to define what should be installed on
   # your system.  Help is available in the configuration.nix(5) man page
   # and in the NixOS manual (accessible by running ‘nixos-help’).
@@ -93,7 +93,6 @@
 	pkgs.acpilight
 	pkgs.light
 	pkgs.gnupg
-	pkgs.pass
 	pkgs.fira-code
 	pkgs.croc
 	pkgs.nixpkgs-fmt
@@ -123,6 +122,7 @@
 	pkgs.mpc-cli
 	pkgs.yt-dlp
 	pkgs.mpv
+	pkgs.python3
 	(pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; })
 	(pkgs.discord.override {
 	  withOpenASAR = true;
@@ -1121,6 +1121,12 @@
 	  a = "add";
 	  s = "switch";
 	  b = "branch";
+	};
+      };
+      programs.password-store = {
+	enable = true;
+	settings = {
+	  PASSWORD_STORE_KEY = "2B749D1FB976E81613858E490290504780B30E20"; 
 	};
       };
 

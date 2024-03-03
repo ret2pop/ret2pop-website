@@ -13,6 +13,11 @@
 #+html_head: <meta name="msapplication-TileColor" content="#da532c">
 #+html_head: <meta name="theme-color" content="#ffffff">
 
+* Webrings
+This website is a part of these webrings:
+
+[[https://baccyflap.com][<]] [[https://nullring.xyz][nullring]] [[https://pen15.agency][>]]
+
 * About Me
 ** whoami?
 [[https://preston.nullring.xyz][Preston Pan]]. Although, that is not really important for the enjoyment of ret2pop, and
