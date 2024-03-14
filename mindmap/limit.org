@@ -28,21 +28,31 @@ ordering:
 \forall a \in \mathbb{R}, - \infty < a < +\infty
 \end{align*}
 defined. Note that we can define equivalence relations on these symbols, but algebra reamins undefined.
+** Unbounded Sequences
+Unbounded sequences can still limit to $+\infty$ or $-\infty$, although the limit does not exist
+for many unbounded sequences. If a sequence is one of:
+1. unbounded above
+2. unbounded below
+but not both, it is possible that such sequences limit to $\infty$.
 ** Limits on Monotone Sequences
 An increasing sequence is a sequence $\{s_{n}\}$ defined such that:
 \begin{align*}
 \forall n \in \mathbb{N}, \forall m \in \mathbb{N}, n \ge m \implies s_{n} \ge s_{m}.
 \end{align*}
-and now we wish to prove that the limit of monotone sequences always exist.
 
+#+begin_theorem
+The limit of monotone sequences always exists.
+#+end_theorem
+
+#+begin_proof
+We know:
 \begin{align*}
 \lim s_{n} = s \iff \forall \epsilon > 0, \exists N, n > N \implies | s_{n} - s | < \epsilon \\
 \end{align*}
 
-#+begin_theorem
-If I am bad, then you are too.
-#+end_theorem
-
-#+begin_proof
-
+and our sequence $\{s_{n}\}$ is monotone. If $\{s_{n}\}$ is increasing, we have:
+\begin{align*}
+s_{n + 1} \ge s_{n}
+\end{align*}
+for all n.
 #+end_proof

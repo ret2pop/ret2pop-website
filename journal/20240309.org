@@ -1,0 +1,18 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Saturday, 09 March 2024
+** 19:04 
+Today, I showed some friends around downtown even though they sort of already know downtown decently well.
+I used to live in Victoria Downtown so I therefore have a lot to say about the area. Additionally, I am doing
+this journal entry on a bus because I am disappointed with my track record of journal entries.
+
+I am pretty much finished my NixOS configuration, but one thing, CJK input, will not work. I assume this is a
+problem that can be fixed quite easily, however. Maybe just a wayland issue in particular.
+
+I have started using IRC again recently.

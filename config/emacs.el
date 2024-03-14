@@ -1,3 +1,5 @@
+(pixel-scroll-precision-mode 1)
+(setq scroll-conservatively 101)
 (display-battery-mode 1)
 (setq display-time-24hr-format t)
 (display-time-mode 1)
@@ -5,6 +7,7 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (load-theme 'catppuccin :no-confirm)
+(setq display-line-numbers-type 'relative)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'org-mode-hook #'display-line-numbers-mode)
 (set-face-attribute 'default nil :height 120)
@@ -12,11 +15,33 @@
 (setq make-backup-files nil)
 (setq org-export-with-broken-links t)
 (setq org-src-fontify-natively t)
-(setq org-highlight-latex-and-related '(latex script entities))
+;; (setq org-highlight-latex-and-related '(latex script entities))
 (setq warning-minimum-level :emergency)
 (add-hook 'text-mode-hook 'visual-line-mode)
+(and window-system (server-start))
 (setq debug-ignored-errors
-    (cons 'remote-file-error debug-ignored-errors))
+  (cons 'remote-file-error debug-ignored-errors))
+(set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
+(setq prettify-symbols-alist
+  '(("#+begin_src" . ?)
+    ("#+BEGIN_SRC" . ?)
+    ("#+end_src" . ?)
+    ("#+END_SRC" . ?)
+    ("#+begin_example" . ?)
+    ("#+BEGIN_EXAMPLE" . ?)
+    ("#+end_example" . ?)
+    ("#+END_EXAMPLE" . ?)
+    ("#+header:" . ?)
+    ("#+HEADER:" . ?)
+    ("#+name:" . ?﮸)
+    ("#+NAME:" . ?﮸)
+    ("#+results:" . ?)
+    ("#+RESULTS:" . ?)
+    ("#+call:" . ?)
+    ("#+CALL:" . ?)
+    (":PROPERTIES:" . ?)
+    (":properties:" . ?)))
+(prettify-symbols-mode 1)
 
 (set-frame-parameter nil 'alpha-background 90)
 (add-to-list 'default-frame-alist '(alpha-background . 90))
@@ -72,11 +97,26 @@ Otherwise, just insert the typed character."
 	      (define-key org-mode-map "[" 'electric-pair)
 	      (define-key org-mode-map "{" 'electric-pair)))
 
+(add-hook 'nix-mode-hook
+	  (lambda ()
+	      (define-key org-mode-map "\"" 'electric-pair)
+	      (define-key org-mode-map "(" 'electric-pair)
+	      (define-key org-mode-map "[" 'electric-pair)
+	      (define-key org-mode-map "{" 'electric-pair)))
+
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	      (define-key org-mode-map "\"" 'electric-pair)
+	      (define-key org-mode-map "(" 'electric-pair)
+	      (define-key org-mode-map "[" 'electric-pair)
+	      (define-key org-mode-map "{" 'electric-pair)))
+
 (add-hook 'after-init-hook 'global-company-mode)
 
 (org-babel-do-load-languages 'org-babel-load-languages
     '(
-        (shell . t)
+	(shell . t)
+	(python . t)
     )
 )
 
@@ -87,6 +127,7 @@ Otherwise, just insert the typed character."
   :config
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo))
+
 (use-package evil-collection
   :init
   (setq evil-want-keybinding nil)
@@ -96,9 +137,11 @@ Otherwise, just insert the typed character."
 (define-key evil-motion-state-map (kbd "SPC") nil)
 (define-key evil-motion-state-map (kbd "RET") nil)
 (define-key evil-motion-state-map (kbd "TAB") nil))
+
 (use-package evil-commentary
   :config
   (evil-commentary-mode))
+
 (use-package evil-org
   :after org
   :hook (org-mode . (lambda () evil-org-mode))
@@ -109,6 +152,7 @@ Otherwise, just insert the typed character."
 (use-package which-key
   :config
   (which-key-mode))
+
 (use-package page-break-lines
   :init
   (page-break-lines-mode))
@@ -192,31 +236,68 @@ Otherwise, just insert the typed character."
 
 (use-package magit)
 
+(setq
+ erc-nick "prestonpan"
+ erc-user-full-name "Preston Pan")
+
+(defun prestonpan ()
+  (interactive)
+  (erc-tls :server "nullring.xyz"
+	   :port   "6697"))
+
+(defun matrix-org ()
+  (interactive)
+  (ement-connect :uri-prefix "http://localhost:8009"))
+
+(use-package gptel
+ :init
+ (setq gptel-default-mode 'org-mode)
+ (setq-default
+ gptel-model "zephyr:latest"
+ gptel-backend (gptel-make-ollama "Ollama"
+		 :host "localhost:11434"
+		 :stream t
+		 :models '("zephyr:latest"))))
+
 (use-package general
   :config
   (general-create-definer leader-key
     :prefix "SPC")
   (leader-key 'normal
-    "o a" 'org-agenda
-    "c b" 'counsel-bookmark
-    "o c" 'org-capture
-    "n j j" 'org-journal-new-entry
-    "n r f" 'org-roam-node-find
-    "n r i" 'org-roam-node-insert
-    "n r g" 'org-roam-graph
-    "r s s" 'elfeed
-    "." 'counsel-find-file
-    "g c /" 'magit-dispatch
-    "g c c" 'magit-commit
-    "o t" 'vterm-other-window
-    "o e" 'eshell
-    "o m" 'mu4e
-    "e w" 'eww
-    "p w" 'ivy-pass
-    "m P p" 'org-publish
-    "s e" 'sudo-edit
-    "m m" 'emms
-    "f f" 'eglot-format
+    "o a" '(org-agenda :wk "Open agenda")
+    "o c" '(org-capture :wk "Capture")
+    "n j j" '(org-journal-new-entry :wk "Make new journal entry")
+    "n r f" '(org-roam-node-find :wk "Find roam node")
+    "n r i" '(org-roam-node-insert :wk "Insert roam node")
+    "n r g" '(org-roam-graph :wk "Graph roam database")
+    "r s s" '(elfeed "rss feed")
+    "." '(counsel-find-file :wk "find file")
+    "g /" '(magit-dispatch :wk "git commands")
+    "g P" '(magit-push :wk "git push")
+    "g c" '(magit-commit :wk "git commit")
+    "g p" '(magit-pull :wk "Pull from git")
+    "o t" '(vterm :wk "Terminal")
+    "o e" '(eshell :wk "Elisp Interpreter")
+    "o m" '(mu4e :wk "Email")
+    "e w w" '(eww :wk "web browser")
+    "e c c" '(ellama-chat :wk "Chat with Ollama")
+    "e a b" '(ellama-ask-about :wk "Ask Ollama")
+    "e s" '(ellama-summarize :wk "Summarize text with Ollama")
+    "e c r" '(ellama-code-review :wk "Review code with Ollama")
+    "e c C" '(ellama-code-complete :wk "Complete code with Ollama")
+    "e c a" '(ellama-code-add :wk "Add code with Ollama")
+    "e c e" '(ellama-code-edit :wk "Edit code with Ollama")
+    "e w i" '(ellama-improve-wording :wk "Improve wording with Ollama")
+    "e g i" '(ellama-improve-grammar :wk "Improve grammar with Ollama")
+    "g s" '(gptel-send :wk "Send to Ollama")
+    "g e" '(gptel :wk "Ollama interface")
+    "p w" '(ivy-pass :wk "Password manager interface")
+    "m P p" '(org-publish :wk "Publish website components")
+    "s e" '(sudo-edit :wk "Edit file with sudo")
+    "m m" '(emms :wk "Music player")
+    "o p" '(treemacs :wk "Project Drawer")
+    "f f" '(eglot-format :wk "Format code buffer")
+    "i c" '(prestonpan :wk "Connect to my IRC server")
     "h m" '(woman :wk "Manual")
     "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
     ))
@@ -265,6 +346,9 @@ Otherwise, just insert the typed character."
 (setq TeX-PDF-mode t)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
 (setq org-return-follows-link t)
+(use-package latex-preview-pane
+  :config
+  (latex-preview-pane-enable))
 
 ;; SMTP settings:
 (setq user-mail-address "preston@nullring.xyz")
@@ -304,7 +388,7 @@ Otherwise, just insert the typed character."
   :init
   (emms-all)
   (setq emms-source-file-default-directory (expand-file-name "~/music/"))
-  (setq emms-player-mpd-music-directory "/home/preston/music/")
+  (setq emms-player-mpd-music-directory (expand-file-name "~/music/"))
   (setq emms-player-mpd-server-name "localhost")
   (setq emms-player-mpd-server-port "6600")
   (setq emms-player-list '(emms-player-mpd))
@@ -315,3 +399,7 @@ Otherwise, just insert the typed character."
 
 (use-package stem-mode)
 (add-to-list 'auto-mode-alist '("\\.stem\\'" . stem-mode))
+
+;; (use-package treesit-auto
+;;   :config
+;;   (global-treesit-auto-mode))

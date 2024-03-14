@@ -64,11 +64,20 @@ website:
 #+begin_src shell :exports code :results silent
 cd ~/org/website
 git add .
-git commit -m "add webring"
+git commit -m "Add cryptocurrency"
 git push origin main
-rsync -azvP ~/website_html/ root@nullring.xyz:/var/www/ret2pop/
+rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/
 #+end_src
 
 No, seriously, this is how I update my website. This code block right here. That's right, this website will be filled
 with code blocks that both act as /examples/ of how the website might be maintained, but also run the commands themselves.
 I run these code blocks from within org files in order to actually execute the commands!
+
+* Donate
+If you like anything that I do, donate! But should you use cryptocurrency? Why do people shill for it, and should
+it be used as a means of exchange? Probably not, but it's cool and free for me to do so here you go:
+#+begin_example
+BTC: bc1qjxec4e08hzv09h0ss8q80ey0kc7356p6c8fg8h
+ETH: 0x8512B753D1613143A379d0ba39bd335e94F37DCF
+XMR: 42eCG7GXqhofN9X4m8kTiwBLWr7b2m6QgdSd1NTtKZWqKCUzC7xuRcWUzct7SydZfUCqpf7KsWC6FhFmuP1ffGFwFskuURH
+#+end_example

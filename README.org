@@ -25,39 +25,12 @@ To use my dotfiles, clone this repository:
 #+begin_src bash
 git clone https://github.com/ret2pop/ret2pop-website.git ~/org/website
 #+end_src
-and install my ~configuration.nix~ file. The org files /are/ the dotfiles, or
+and install my [[https://github.com/ret2pop/hyprnixmacs][NixOS Configuration]]. The org files /are/ the dotfiles, or
 at least in the case of emacs.
 
 To use my full system, you also need to have a ~password-store~ from the ~pass~
 password manager in its standard location with an entry called ~Mail~, and you need
-to clone my [[https://github.com/ret2pop/wallpapers.git][wallpapers]] repository. Therefore, in full, my configuration can be fully
-installed like so:
-#+begin_src bash
-  # Run this in root, and after copying the configuration.nix file and running nixos-rebuild switch.
-  # You must also change the gpg key used for git and pass. Make sure
-  # you've installed your gpg keys and your ssh keys before this.
-  # Install your music to ~/music. Of course, also change your location
-  # of stuff like your mail server.
-  su preston # if you change your username, change this too
-  cd ~
-  mkdir ~/org
-  # if you want to make this process deterministic, clone a particular commit
-  git clone https://github.com/ret2pop/ret2pop-website.git ~/org/website
-  git clone https://github.com/ret2pop/wallpapers.git
-  # replace this with your password-store
-  git clone git@nullring.xyz:/var/www/password_store.git ~/.password-store/
-  mbsync prestonpan # change this with your own name in the nix config and here
-  # TODO: mu init/index
-  mpc add /
+to clone my [[https://github.com/ret2pop/wallpapers.git][wallpapers]] repository.
 
-  # Afterwards, open firefox, enable all the plugins that are already installed,
-  # and install the catppuccin firefox theme. For vencord, use the catppuccin
-  # betterdiscord theme; open emacs and run pdf-tools-install, nerd-icons-install-fonts,
-  # and all-the-icons-install-fonts. These things are not completely set up for you but
-  # the good news is that the vast majority of the functionality is included.
-
-#+end_src
-Without the comments, it is a 10 line program that installs everything needed to run my system,
-and configures those programs as well!
 * License
 See the [[file:LICENSE.org][license]]. The style.css has its own license.

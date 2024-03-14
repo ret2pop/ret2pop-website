@@ -1,0 +1,13 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Wednesday, 13 March 2024
+** 17:38 
+I have dropped my fountain pen and the nib is beyond repair. I will go to the Papery most likely tomorrow, and get a replacement nib, as well as a couple extras if I can afford to. I am with my friends at the beach where I dropped this thing
+in a tragic manner. Yesterday, I borked my server and had to start a new one. I don't know how I am going to get the email
+server working, but that is the only thing I am missing right now, other than a gitea server. Many losses.

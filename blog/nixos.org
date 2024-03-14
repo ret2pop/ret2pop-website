@@ -1,0 +1,33 @@
+* Introduction
+NixOS is a reproducible, scalable operating system that is used in server
+infrastructure. This month, I decided to torture myself and run it on a
+personal computing machine.
+
+Just kidding, it's really good, and currently the only operating system
+that can do what NixOS does is GNU Guix. What's particularly interesting
+is that when GNU and Linux people say, "Look! Finally something that only Linux
+can do well!", there's usually some tool out there that can get most of the
+behavior out of MacOS and Windows, or maybe there's even a "better" version
+of it on those two operating systems. However, NixOS and Guix are truly
+unique and their usage truly cannot be replicated on either of the two systems.
+I will talk about NixOS in particular because that is the operating system I
+currently use.
+
+** So What's the Pitch?
+When you write a configuration for NixOS, it works forever until the packages
+stop being hosted, meaning as long as the NixOS team exists, your particular
+version of NixOS, running your particular configuration, will /always/ work
+in the same way. It will even work the same way across multiple computers, given
+you don't put in too much hardware-specific configuration into your /configuration.nix/
+file. Interestingly enough, it is possible to /make sure/ that network copying
+errors don't happen, and make the system almost completely deterministic. Essentially,
+you can /define your operating system as a function that takes in inputs and outputs/,
+and then /specify those inputs in a specific way/, which then allows you to
+/ensure the reproducibility of your environment/.
+
+On top of that, it is possible to /roll back/ your configuration. That is,
+
+You can see why this might be used in industry for mass deploying servers, and you might
+even understand why one might use this type of system for docker containers, but /why on earth/
+would someone run it as a personal machine? Well, there are a couple of good reasons to do so:
+1. You like how your computer operates.

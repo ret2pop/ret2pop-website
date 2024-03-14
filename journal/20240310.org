@@ -1,0 +1,36 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Sunday, 10 March 2024
+** 23:02 
+I am currently quite bored, and have nothing to do. I am in Howard's dorm with Anslie, talking about
+what to order at McDonald's, and I am sick. I had a really weird dream.
+*** The dream
+I was with Anslie, walking around. Next thing I knew, I was in Vancouver, taking the skytrain with this
+middle aged man. Him and Anslie confessed their love to me at the same time, which was quite strange.
+
+I was riding the skytrain with this man, then he spent an abnormally long time on the outside of one of
+the stops, and he didn't get back in in time so the skytrain closed its doors. He left his bag on the
+skytrain, so now I had his bag, my bag, and a deck of cards in my hand. I got off next station but it
+was a process as the bags were heavy. I looked back inside and saw some scattered cards on the seat,
+so I got back in and tried to collect them. Turns out, the scattered cards were not mine and I had
+a complete deck of cards in the first place, so now I left all the possessions at the station I was
+supposed to be at and the skytrain started moving. I only had my cards left with me.
+
+As for the destination, I was supposed to go to my therapist's office in Downtown (which I haven't visited
+in three years in real life), and I wanted to meet Anslie as the final destination. However, I never got
+there and the next thing I rememember is me travelling inside my mind. My mind looked like a spaceship,
+and I could make appear anything that I wanted to. Physics equations were outside the glass windows
+of the spaceship, and I could see things related to card magic, linguistics, physics, mathematics,
+and programming all swimming around the spaceship and inside the spaceship. I could command these things
+to do whatever I wanted them to. Then, everything zoomed out the the extreme and the only thing that there
+was was this great artwork that I couldn't recognize. A narrator said, "the only piece he's missing is
+that he's not missing a piece at all", and then this artwork turned into many puzzle pieces and the last one
+clicked in. This was truly a full body experience. Then, I went back into my own mind for a bit, and then woke
+up to another dream of Anslie getting out of the shower and handing me a drink. Then, the dream was looping
+on itself again and I woke up to Anslie typing on her computer, for real this time.
