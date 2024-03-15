@@ -1,0 +1,113 @@
+#+title: A Review of Cryptocurrency
+#+author: Preston Pan
+#+description: Are cryptocurrencies useful in economic transactions? As technologies?
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
+#+OPTIONS: html-preamble:nil
+
+* Introduction
+Cryptocurrencies are often talked about as either a new technology that will solve everything, or
+an environment destroying, ponzi creating mechanism that has no real value other than to criminals
+or to people who want to scam other people looking to "invest" in said technology. I say it's still
+too early to tell what the economic impacts of cryptocurrency are, and I will be looking at this
+from the perspective of someone that is not a libertarian, but is nonetheless a techbro at heart.
+** "It's a ponzi scheme"
+Yes, in many cases they are, but people who say this often aren't getting the whole picture. Popular
+cryptocurrencies such as bitcoin often have the expectation attached to them that whoever is marketing
+it is either a sleezy businessperson trying to take your money, a financial institution that likes gambling
+on retail liquidity, or a libertarian techbro whose only hopes are to make a money that is untracable, often
+to the detriment of society due to factors such as the lack of financial regulation, sound monetary policy,
+high transaction fees, etc. Bitcoin in particular takes a lot of the blame for being the biggest Ponzi scheme
+on earth. However, if /other/ cryptocurrencies have value, that would peg the price of bitcoin to being
+the de-facto metric of cryptocurrency success, thus pegging it to some real value in the world.
+
+To prove what I just said, most cryptocurrency prices move with bitcoin, rather than moving independently,
+which is a fact known to almost anyone that has done trading in the cryptocurrency world. Additionally, because
+bitcoin is the first of these currencies to exist, it is basically the face of the industry, with the largest
+market cap (as of me writing this) out of all of these cryptocurrencies. In esscense, purchasing bitcoin is equivalent
+to an informal prediction market on cryptocurrency success, plus the added cost of the small chance it as of replacing
+fiat currency (something I think will not happen).
+*** Other Currencies and Their Value
+The ethereum network is, generally speaking, what people in the cryptocurrency space point to when they talk about
+real world applications. Although this is currently far-fetched, I don't believe it's far-fetched enough for it
+to make sense talking about banning cryptocurrencies and investment into these industries. There are many competing
+networks that do essentially the same thing as ethereum but maybe better, but the point is to talk about the idea.
+
+Ethereum is an interesting case because it is home to the idea of smart-contracts. They can be used to automate away
+the arbitrator in any agreement between two parties that can be formalized within blockchain internet (web3. See, it's
+a useful phrase!) facing code. Though there are currently centralization issues with using smart contracts and having
+to trust a single source of truth, projects like ChainLink solve this by using yet another decentralized information
+rewarding system that provides reliable information to smart contracts for the Ethereum network. I believe many
+other such centralization issues such as the ones outlined by, for example, various NFT critics (that NFTs aren't
+stored on-chain but rather via google drive links, etc...) can be solved with other projects such as something like Filecoin.
+Which leads me to this common talking point:
+** "You Don't Actually Own NFTs"
+You have ownership to a pointer of a picture but not the rights to the picture via copyright. This is correct, but this
+is not usually what people value. Rather, what people value when they buy digital artwork is just some conception of
+"owning" the picture in question. Yes, you can /copy/ the image, but the particular token you are trading will always
+be both non-fungible and scarce.
+*** "But the Google Drive Links"
+Yes, while many NFTs are stored on google drive, many are stored on IPFS, a decentralized storage system where, if pinned,
+IPFS addresses /always/ host the same content. If any one of these protocols becomes standardized, then it could be easy
+to see how these NFTs suddenly become quite valuable, because a given CID on IPFS will almost /always/ correspond to a
+given piece of data, and vise versa. Now, on Ethereum, for example, any person can create a contract that points to the
+same data. However, for a /particular/ contract, everyone can verify how many of each NFT is actually created, and if you
+believe that the contract supplier is trustworthy (where there is an open market for contract suppliers), then it can
+be easy to see how you can trace the chain between NFTs and some form of value. If you /could/ own IPFS addresses, it would
+actually be easy to see the value, and all that is needed is a particular set of contract providers on Ethereum to be
+trusted from consumers in order to see how you could assign IPFS links to NFTs that could be considered to retain value
+in the same way owning art retains value. If you just see the system for what it is and the logical chain of ownership,
+you can see that the only link in the chain that is inconsistent is not the ownership of the tokens, not the IPFS links,
+but the tokens corresponding bijectively to the IPFS links, and that can be solved pretty easily with the market naturally
+trusting a single or set of providers.
+
+What's particularly frustrating is that I've had people tell me that they host images on IPFS like this is somehow scamming
+the person buying the NFT, when IPFS is pretty rock solid, only requiring a little bit more trust compared to storing
+the image on-chain. But of course, NFTs are only a small part of why smart-contracts are useful.
+** "Just Buzzwords"
+Smart contracts! DeFi! Web3! Those are all just buzzwords, they couldn't mean anything, right? Well, if you've actually
+been paying attention for long enough, you can assign a meaning to all of these words in a completely logical manner.
+DeFi is actually a particularly interesting usage of smart contracts, as it allows one to automatically transfer liquidity
+(make loans, make financial contracts between willing parties). This is useful because it automates the job that banks have.
+We like automation when it comes to everything else (unless you're a luddite or don't know anything about economics),
+so we should try to automate arbitration jobs in the same way. But people, for some reason, lose their minds when we do this.
+
+In any case, Web3, like I said above, can literally just be taken to mean /Blockchain-Internet Facing/. This is important
+as a phrase because blockchain itself is a /walled garden/, with very specific informational requirements (the network
+and all data that gets supplied to the network as inputs to smart contracts have to be trustless). Smart contracts are
+legitimately just the term used to describe the type of financial transaction automated by cryptocurrencies.
+** "Global Warming!"
+That's all industry/technology right now, why would you expect blockchain to be any different? Okay, maybe it uses more
+power than some other things, but that's because I think we have a combination of a few things:
+1. we might have a genuine blockchain bubble
+2. the technology is not mature, so everyone is rushing to use blockchain while the technology to make it scalable is not there
+but proof of stake does really well at counteracting blockchain energy usage, currently.
+** Transaction Costs
+Proof of stake solves this to an extent, but there are also some high transaction-per-second (TPS) networks (such as Polygon)
+that stack up well against existing payment processors with respect to TPS. Also, I think some currencies should be more
+liberal for how much they print for miner rewards (paying miners/validators costs a lot of money for the network it
+turns out), which is pretty easy to try out, and would reduce the transaction costs by quite a lot.
+** "Do you Think It'll Actually be Useful?"
+I don't know, and if I knew for sure, I would be trading options on cryptocurrency right now, but I'm clearly not. However,
+what I do know is that the promise of automating arbitration jobs is niche yet enticing
+(also, blockchains can do other cool things like with Chainlink and manufacturing truth with a decentralized network).
+Already, they have some niche usecases like in prediction markets and in the NFT space (although, yes, that space does
+run a lot of scams, it'll eventually be just the beneficial stuff). Monero is already used as a currency on the dark web
+because it's anonymous. If one of these experimenters could come up with a good enough algorithm that could keep into
+account price stability, cryptocurrency might actually be the superior way of transacting, simply because it has a lot
+of programability baked into it.
+* For the Laymen
+Before you talk about cryptocurrency like you know everything about it, you should figure out more about the underlying
+ecosystem. Although I like listening to and reading Paul Krugman, he gets cryptocurrency pretty wrong, maybe because
+a lot of libertarians shill the technology. You might be the same. I'm pretty confident that I know a decent bit about
+the technology, but if you think I'm wrong, then you can message me. Though, it seems pretty obvious that how legacy
+media talks about cryptocurrency isn't the full picture, and neither is how libertarian tech-bros talk about it.

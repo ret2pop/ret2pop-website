@@ -1,0 +1,21 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Thursday, 14 March 2024
+** 15:13 
+Did nothing today, except laze around. Going to the Papery to get my replacement nib, and also suprise
+(not suprise) Anslie. Suprise! She's reading this right now, so it's not really one anymore. Ate at the sub.
+
+Server is coming along, the only server that I want to run now is the email server, although that is quite hard
+as it involves running both an imaps and smtps server with dkims and dmarc verification. It's not very easy
+to get accepted as not-spam, even if you do add these verification markers.
+
+In any case, I also want to run a gitea server or some frontend where people can view code. Perhaps a mailing
+list and a cgit interface is enough for this, as one can simply mail patches over to be applied, and email
+is a good interface for stuff like this
+.
