@@ -205,10 +205,19 @@ pre.src-stem:before {
 @media (max-width: 1250px) {
   body {
     margin: 20px auto;
-    margin-left: 200px;
     font-size: 20px;
+  }
+  h1 {
+      font-size: 20px;
+  }
+  h2 {
+      font-size: 18px;
   }
   #table-of-contents {
     display: none;
+  }
+  #table-of-contents ul a {
+    padding: 0px 0px 0px 0px;
+    text-decoration: none;
   }
 }

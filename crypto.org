@@ -25,18 +25,18 @@ cryptocurrencies such as bitcoin often have the expectation attached to them tha
 it is either a sleezy businessperson trying to take your money, a financial institution that likes gambling
 on retail liquidity, or a libertarian techbro whose only hopes are to make a money that is untracable, often
 to the detriment of society due to factors such as the lack of financial regulation, sound monetary policy,
-high transaction fees, etc. Bitcoin in particular takes a lot of the blame for being the biggest Ponzi scheme
+high transaction fees, etc. [[https://bitcoin.org][Bitcoin]] in particular takes a lot of the blame for being the biggest Ponzi scheme
 on earth. However, if /other/ cryptocurrencies have value, that would peg the price of bitcoin to being
 the de-facto metric of cryptocurrency success, thus pegging it to some real value in the world.
 
 To prove what I just said, most cryptocurrency prices move with bitcoin, rather than moving independently,
 which is a fact known to almost anyone that has done trading in the cryptocurrency world. Additionally, because
 bitcoin is the first of these currencies to exist, it is basically the face of the industry, with the largest
-market cap (as of me writing this) out of all of these cryptocurrencies. In esscense, purchasing bitcoin is equivalent
+market cap (as of me writing this) out of all of these cryptocurrencies. In essense, purchasing bitcoin is equivalent
 to an informal prediction market on cryptocurrency success, plus the added cost of the small chance it has of replacing
 fiat currency (something I think will not happen).
 *** Other Currencies and Their Value
-The ethereum network is, generally speaking, what people in the cryptocurrency space point to when they talk about
+The [[https://ethereum.org/en/][Ethereum]] network is, generally speaking, what people in the cryptocurrency space point to when they talk about
 real world applications. Although this is currently far-fetched, I don't believe it's far-fetched enough for it
 to make sense talking about banning cryptocurrencies and investment into these industries. There are many competing
 networks that do essentially the same thing as ethereum but maybe better, but the point is to talk about the idea.
@@ -44,7 +44,7 @@ networks that do essentially the same thing as ethereum but maybe better, but th
 Ethereum is an interesting case because it is home to the idea of smart-contracts. They can be used to automate away
 the arbitrator in any agreement between two parties that can be formalized within blockchain internet (web3. See, it's
 a useful phrase!) facing code. Though there are currently centralization issues with using smart contracts and having
-to trust a single source of truth, projects like ChainLink solve this by using yet another decentralized information
+to trust a single source of truth, projects like [[https://chain.link/][ChainLink]] solve this by using yet another decentralized information
 rewarding system that provides reliable information to smart contracts for the Ethereum network. I believe many
 other such centralization issues such as the ones outlined by, for example, various NFT critics (that NFTs aren't
 stored on-chain but rather via google drive links, etc...) can be solved with other projects such as something like Filecoin.
@@ -55,7 +55,7 @@ is not usually what people value. Rather, what people value when they buy digita
 "owning" the picture in question. Yes, you can /copy/ the image, but the particular token you are trading will always
 be both non-fungible and scarce.
 *** "But the Google Drive Links"
-Yes, while many NFTs are stored on google drive, many are stored on IPFS, a decentralized storage system where, if pinned,
+Yes, while many NFTs are stored on google drive, many are stored on [[https://ipfs.tech/][IPFS]], a decentralized storage system where, if pinned,
 IPFS addresses /always/ host the same content. If any one of these protocols becomes standardized, then it could be easy
 to see how these NFTs suddenly become quite valuable, because a given CID on IPFS will almost /always/ correspond to a
 given piece of data, and vise versa. Now, on Ethereum, for example, any person can create a contract that points to the
@@ -76,9 +76,10 @@ the image on-chain. But of course, NFTs are only a small part of why smart-contr
 Smart contracts! DeFi! Web3! Those are all just buzzwords, they couldn't mean anything, right? Well, if you've actually
 been paying attention for long enough, you can assign a meaning to all of these words in a completely logical manner.
 DeFi is actually a particularly interesting usage of smart contracts, as it allows one to automatically transfer liquidity
-(make loans, make financial contracts between willing parties). This is useful because it automates the job that banks have.
-We like automation when it comes to everything else (unless you're a luddite or don't know anything about economics),
-so we should try to automate arbitration jobs in the same way. But people, for some reason, lose their minds when we do this.
+(make loans, make financial contracts between willing parties; see [[https://aave.com/][AAVE]]). This is useful because it automates the job
+that banks have. We like automation when it comes to everything else (unless you're a luddite or don't know anything about
+economics), so we should try to automate arbitration jobs in the same way. But people, for some reason, lose their minds
+when we do this.
 
 In any case, Web3, like I said above, can literally just be taken to mean /Blockchain-Internet Facing/. This is important
 as a phrase because blockchain itself is a /walled garden/, with very specific informational requirements (the network
@@ -91,7 +92,7 @@ power than some other things, but that's because I think we have a combination o
 2. the technology is not mature, so everyone is rushing to use blockchain while the technology to make it scalable is not there
 but proof of stake does really well at counteracting blockchain energy usage, currently.
 ** Transaction Costs
-Proof of stake solves this to an extent, but there are also some high transaction-per-second (TPS) networks (such as Polygon)
+Proof of stake solves this to an extent, but there are also some high transaction-per-second (TPS) networks (such as [[https://polygon.technology/][Polygon]])
 that stack up well against existing payment processors with respect to TPS. Also, I think some currencies should be more
 liberal for how much they print for miner rewards (paying miners/validators costs a lot of money for the network it
 turns out), which is pretty easy to try out, and would reduce the transaction costs by quite a lot.
@@ -100,13 +101,51 @@ I don't know, and if I knew for sure, I would be trading options on cryptocurren
 what I do know is that the promise of automating arbitration jobs is niche yet enticing
 (also, blockchains can do other cool things like with Chainlink and manufacturing truth with a decentralized network).
 Already, they have some niche usecases like in prediction markets and in the NFT space (although, yes, that space does
-run a lot of scams, it'll eventually be just the beneficial stuff). Monero is already used as a currency on the dark web
-because it's anonymous. If one of these experimenters could come up with a good enough algorithm that could keep into
+run a lot of scams, it'll eventually be just the beneficial stuff). [[https://www.getmonero.org/][Monero]] is already used as THE currency on the dark web
+because it's anonymous (not an endorsement of the dark web usage, just a living example of a crypto economy).
+If one of these experimenters could come up with a good enough algorithm that could keep into
 account price stability, cryptocurrency might actually be the superior way of transacting, simply because it has a lot
 of programability baked into it.
+
+Even anonymity can be used to its advantage. With the inception of Monero, corrupt governments have a harder time tracing
+usually-legal citizen activity. Yes, it does give a lot of power to money launderers, but at the same time, it's not like
+it has its upsides and usecases.
+** Were we Better off Without Cryptocurrency?
+I don't know, I can't go to the universe where they haven't been invented, but so long as they exist, we should probably
+make the most of them. My personal opinion, though, is that they are a net gain.
+* Misc.
+There are other curious things within cryptocurrency that are not explained in this article, so I'm adding them here.
+** DAOs
+DAOs, or decentralized autonomous organizations, is made up of a collection of smart contracts that enables certain
+NFT or token owners to be able to take part in actions in a particular organization, usually something like a company.
+Because they are trustless, they are sovereign which means they need no other institution to legitimize them. In this
+way, DAOs usually outline an ownership structure of stuff on the blockchain (which represents capital) and contracts
+can be made that mimic the shareholder capabilities in conventional companies.
+
+They are useful already for managing DeFi organizations. For instance, AAVE, the smart contract linked above, runs
+on a DAO and they generally move (as of me writing this) $14B USD in financial assets* at any given point in time.
+
+So there are successful DAOs on-chain because they seem like a natural and integrated company structure for on-chain
+services, but are there any DAOs which run in real life? Well, that would be pretty illegal at the moment, but at the
+same time, I think it's plausible that they will in the future. People are experimenting with the many ways in which
+DAOs could potentially out-perform joint-stock companies in a trustless manner, and I think they have potential as a
+systems engineering tool for formalizing the hierarchy structure of existing companies via code. It's pretty enticing
+to just be able to copy and paste an existing management structure that you think works well for your own company,
+and I think it would be pretty useful for that reason. But also, maybe something can be done with trustlessness that
+just beats the government-granted joint-stock system out there in some miracle of efficiency, which is definitely
+something that can happen.
+** Off-chain Systems
+There are projects such as [[https://layerzero.network/][Layer Zero]] which work off-chain but in a conventional peer-to-peer trustless fashion, which
+aims to provide the ability to communicate between different blockchains. These kinds of projects also exist within
+the cryptocurrency sphere, and utilize conventional computing methods in order to take load off of blockchains.
+Blockchains only need to handle a small part of the job, i.e. they are an environment that both /provides incentives/
+and /ensures/ trustlessness. But in some cases, the /incentives/ part can be done in other ways, so you can scrap the
+monetary or scarce aspect of these networks, which means you don't need a blockchain. In the case of layer zero, it
+is believed that any organization which manages a blockchain would also want to host a node because they gain access
+to liquidity over a wider range of blockchain networks, for example.
 * For the Laymen
 Before you talk about cryptocurrency like you know everything about it, you should figure out more about the underlying
-ecosystem. Although I like listening to and reading Paul Krugman, he gets cryptocurrency pretty wrong, maybe because
+ecosystem. Although I like listening to and reading [[https://www.nytimes.com/column/paul-krugman][Paul Krugman]], he gets cryptocurrency pretty wrong, maybe because
 a lot of libertarians shill the technology. You might be the same. I'm pretty confident that I know a decent bit about
 the technology, but if you think I'm wrong, then you can message me. Though, it seems pretty obvious that how legacy
 media talks about cryptocurrency isn't the full picture, and neither is how libertarian tech-bros talk about it.
