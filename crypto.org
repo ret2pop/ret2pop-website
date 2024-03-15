@@ -12,7 +12,6 @@
 #+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
 #+language: en
 #+OPTIONS: broken-links:t
-#+OPTIONS: html-preamble:nil
 
 * Introduction
 Cryptocurrencies are often talked about as either a new technology that will solve everything, or
@@ -34,7 +33,7 @@ To prove what I just said, most cryptocurrency prices move with bitcoin, rather 
 which is a fact known to almost anyone that has done trading in the cryptocurrency world. Additionally, because
 bitcoin is the first of these currencies to exist, it is basically the face of the industry, with the largest
 market cap (as of me writing this) out of all of these cryptocurrencies. In esscense, purchasing bitcoin is equivalent
-to an informal prediction market on cryptocurrency success, plus the added cost of the small chance it as of replacing
+to an informal prediction market on cryptocurrency success, plus the added cost of the small chance it has of replacing
 fiat currency (something I think will not happen).
 *** Other Currencies and Their Value
 The ethereum network is, generally speaking, what people in the cryptocurrency space point to when they talk about
