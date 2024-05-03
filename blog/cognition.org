@@ -1,0 +1,582 @@
+#+title: Cognition
+#+author: Preston Pan
+#+description: Other languages are inflexible and broken. Let's fix that.
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
+
+* Introduction
+Cognition is an active research project that Matthew Hinton and I have been working on for the past
+couple of months. Although my commit history for [[https://github.com/metacrank/cognition][this project]] has not been impressive, we came up with
+a lot of the theory together, working alongside each other in order to achieve one of the most generalized
+systems of syntax we know of. Let's take a look at the conceptual reason why cognition needs to exist, as
+well as some /baremetal cognition/ code (you'll see what I mean by this later). There's a paper about this language
+available about the language in the repository, for those interested. Understanding cognition might require a
+lot of background in parsing, tokenization, and syntax, but I've done my best to write this in a very understandable way.
+The repository is available at https://github.com/metacrank/cognition, for your information.
+* The problem
+Lisp programmers claim that their system of s-expression code in addition to its featureful macro system makes it a
+metaprogrammable and generalized system. This is of course true, but there's something very broken with lisp: metaprogramming
+and programming /aren't the same thing/, meaning there will always be rigid syntax within lisp
+(its parentheses or the fact that it needs to have characters that tell lisp to /read ahead/). The left parenthesis tells
+lisp that it needs to keep on reading until the right parenthesis in order to finish some process that allows it to stop
+and evaluate the whole expression. This makes the left and right parenthesis unchangable from within the language (not
+conceptually, but under some implementations it is not possible), and, more importantly, it makes the process of retroactively
+changing the sequence in which these tokens are delimited /impossible/, without a heavy amount of string processing. Other
+langauges have other ways in which they need to read ahead when they see a certain token in order to decide what to do.
+This process of having a program read ahead based on current input is called /syntax/.
+
+And as long as you read ahead, or assume a default way of reading ahead, you fall into the trap of having some form of syntax.
+Cognition is different in that it uses an antisyntax that is fully /postfix/. This has similarities with concatenative
+programming languages, but concatenative programming langauges also suffer from two main problems: first, the introduction
+of the left and right bracket character (which is in fact prefix notation, as it needs to read ahead of the input stream),
+and the quote character for strings. This is unsuitable for such a general language. You can even see the same problem
+in lisp's C syntax implementation: escape characters everywhere, awkward must-have spaces delimit the start and end
+of certain tokens (and if not, it requires post-processing). The racket programming language has its macro system,
+but it is not /runtime dynamic/. It still utilizes preprocessing.
+
+So, what's the percise solution to this connundrum? Well, it's beautiful; but it requires some /cognition/.
+
+* Baremetal Cognition
+Baremetal cognition has a couple of perculiar attributes, and it is remarkably like the /Brainfuck/ programming language.
+But unlike its look-alike, it has the ability to do some /serious metaprogramming/. Let's take a look at what the
+bootstrapping code for a /very minimal/ syntax looks like:
+#+begin_example
+ldfgldftgldfdtgl
+df 
+ 
+dfiff1 crank f
+#+end_example
+And *do* note the whitespace (line 2 has a whitespace after df, and the newlines matter). Erm, okay. What?
+
+So, our goal in this post is to get from a syntax that looks like /that/ to a syntax that looks like [[file:stem.org][Stem]].
+But how on earth does this piece of code even work? Well, we have to introduce two new ideas: delimiters, and ignores.
+
+** Tokenization
+Delimiters allow the tokenizer to figure out when one token ends and another begins. The list of single character tokenizers
+is public, allowing that list to be modified and read from within cognition itself. Ignored characters are characters
+that are completely ignored by the tokenizer in the first stage of every read-eval-print loop; that is, at the start of
+collecting the token, it fist skips a set of ignored characters. By default, every single character is a delimiter, and
+no characters are ignored characters. The delimiter and ignored characters list allows you to toggle a flag to tell it
+to blacklist or whitelist the given characters, adding brevity (and practicality) to the language.
+
+Let's take the first line of code as an example:
+#+begin_example
+ldfgldftgldfdtgl
+#+end_example
+because of the delimiter and ignored rules set by default, every single character is read as a token, and no character
+is skipped. We therefore read the first character, ~l~. By default, Cognition works off a stack-based programming language
+design. If you're not familiar, see the [[file:stem.org][Stem blogpost]] for more detail (in fact if you're not familiar this /won't work/
+as an explanation for you, so you should see it, or read up on the /Forth/ programming language).
+Though, we call them /containers/, as they are more general than stacks. Additionally, in this default environment, /no/
+word is executed except for special /faliases/, as we will cover later.
+
+Therefore, the character ~l~ gets read in and is put on the stack. Then, the character ~d~ is read in and put on the stack.
+But ~f~ is different. In order to execute words in Cognition, we must take a look at the falias system.
+** Faliases
+Faliases are a list of words that get executed when they are put on the stack, or container as we will call it in the future.
+All of them in fact execute the equivalent of ~eval~ in stem but as soon as they are put on their container. Meaning, when
+~f~, the default falias, is run, it doesn't go on the container, but rather executes the top of the container which is ~d~.
+~d~ changes the delimiter list to the string value of a word, meaning that it changes the delimiters to /blacklist/ only
+the character ~l~ as a delimiter. Everything else by default is a delimiter because everything by default is parsed
+into single character words.
+** Delimiter Caveats
+Delimiters have an interesting rule, and that is that the delimiter character is excluded from the tokenized word
+unless we have not ignored a character in the tokenization loop, in which case we collect the character as a part of
+the current token and keep going. This is in contrast to a third kind of tokenization category called the singlet, which
+/includes/ itself into a token before skipping itself and ending the tokenization collection.
+
+In addition, remember what I said about the /blacklist/? Well, you can toggle between /blacklisting/ and /whitelisting/
+your list of delimiters, singlets, and ignored characters. By default, there are no /blacklisted/ delimiters, no
+/whitelisted/ singlets, and no /whitelisted/ ignored characters.
+
+We then also observe that all other characters will simply skip themselves while being collected as a part of the current
+token, without ending this loop, therefore collecting new characters until the loop halts via delimiter or singlet rules.
+** Continuing the Bootstrap Code
+So far, we looked at this part of the code:
+#+begin_example
+ldf
+#+end_example
+which simply creates ~l~ as a non-delimiter. Now, for the rest of the code:
+#+begin_example
+gldftgldfdtgl
+df 
+  
+dfiff1 crank f
+#+end_example
+~gldf~ puts ~gl~ on the stack due to ~d~ being a delimiter, and ~f~ is called on it, meaning that now ~g~ and ~l~ are
+the only non-delimiters. Then, ~tgl~ gets put on the stack and they become non-delimiters with ~df~. ~dtgl~ gets
+put on the stack, and the newline becomes the only non-delimiter with ~\ndf~ (yes, the newline is actually a part of
+the code here, and spaces need to be as well in order for this to work). Then, the space character, due to how delimiter
+rules work (if you don't ignore, the first character is parsed normally even if it is a delimiter)
+and ~\n~ gets put on the stack. Then, another ~\ \n~ word is tokenized (you might not see it, but there's another
+space on line 3). The current stack looks like this (bottom to top):
+#+begin_example
+3. dtgl
+2. [space char]\n
+1. [space char]\n
+#+end_example
+~df~ sets the non-delimiters to ~\ \n~. ~if~ sets the ignores to ~\ \n~, which ignores these characters at the start
+of tokenization. ~f~ executes ~dtgl~, which is a word that toggles the /dflag/, the flag that stores the whitelist/blacklist
+distinction for delimiters. Now, all non-delimiters are delimiters and all delimiters are non-delimiters.
+Finally, we're put in an environment where spaces and newlines are the delimiters for tokens, and they are ignored at the
+start of tokenizing a token. Next, ~1~ is tokenized and put on the stack, and then the ~crank~ word, which is then executed
+by ~f~ (the ~1~ token is treated as a number in this case, but everything textual in cognition is a word).
+We are done our bootstrapping sequence! Now, you might wonder what ~crank~ does. That we will explain in a later section.
+
+* Bootstrapping Takeaways
+From this, we see a couple principles: first, cognition is able to change how it tokenizes on the fly and it can do it
+programmatically, allowing you to program a program in cognition that would theoretically automate the process of changing
+these delimiters, singlets, and ignores. This is something impossible in other languages, being able to
+/program your own tokenizer for some foreign language from within cognition/, and have
+/future code be tokenized exactly like how you want it to be/. This is solely possible because the language is postfix
+and doesn't read ahead, so it doesn't require more than one token to be parsed before an expression is evaluated. Second,
+faliases allow us to execute words without having to have prefix words or any default execution of words.
+
+* Crank
+The /metacrank/ system allows us to set a default way in which tokens are executed on the stack. The ~crank~ word takes
+a number as its argument and by effect executes the top of the stack for every ~n~ words you put on the stack. To make
+this concept concrete, let's look at some code (running from what we call /crank 1/ as we set our environment to
+crank one at the end of the bootstrapping sequence):
+#+begin_example
+5 crank 2crank 2 crank
+1 crank unglue swap quote prepose def
+#+end_example
+the crank 1 environment allows us to stop using ~f~ in order to evaluate tokens. Instead, every /1/ token that is
+tokenized is evaluated. Since we programmed in a newline and space-delimited syntax, we can safely interpret this code
+intuitively.
+
+The code begins by trying to evaluate ~5~, which evaluates to itself as it is not a builtin. ~crank~ evaluates and puts
+us in 5 crank, meaning every /5th/ token evaluates from here on. ~2crank~, ~2~, ~crank~, ~1~ are all put on the stack,
+leaving us with a stack that looks like so (notice that ~crank~ doesn't get executed even though it is a bulitin because
+we set ourselves to using crank 5):
+#+begin_example
+4. 2crank
+3. 2
+2. crank
+1. 1
+#+end_example
+~crank~ is the 5th word, so it executes. Note that this puts us back in crank 1, meaning every word is evaluated.
+~unglue~ is a builtin that gets the value of the word at the top of the stack (as ~1~ is used up by the ~crank~ we
+evaluated), and so it gets the value of ~crank~, which is a builtin. What that in effect does is it gets the function
+pointer associated with the crank builtin. Our new stack looks like this:
+#+begin_example
+3. 2crank
+2. 2
+1. [CLIB]
+#+end_example
+Where CLIB is our function pointer that points to the ~crank~ builtin. We then ~swap~:
+#+begin_example
+3. 2crank
+2. [CLIB]
+1. 2
+#+end_example
+then ~quote~, a builtin that quotes the top thing on the stack:
+#+begin_example
+3. 2crank
+2. [CLIB]
+1. [2]
+#+end_example
+then prepose, a builtin like ~compose~ in stem, except that it preposes and that it puts things in what we call a VMACRO:
+#+begin_example
+2. 2crank
+1. ( [2] [CLIB] )
+#+end_example
+then we call ~def~. This defines a word ~2crank~ that puts ~2~ on the stack and then calls a function pointer pointing
+us to the crank builtin. Now, we still have to define what VMACROs are, and in order to do that we might have to explain
+some differences between the cognition stack and the stem stack.
+** Differeneces
+In the stem stack, putting words on the stack directly is allowed. In cognition, words are put in containers when
+they are put on the stack and not evaluated. This means words like ~compose~ in stem work on words (or more accurately
+containers with a single word in them) as well as other containers, making the API for this language more consistent.
+Additionally, words like ~cd~ as we will make use of this concept.
+
+*** Macros
+Macros are another difference between stem quotes and cognition containers. When macros are evaluated, everything in
+the macro is evaluated, ignoring the crank. If bound to a word, evaluating that word evaluates the macro which will ignore
+the crank completely and will only increment the cranker by one, while evaluating each statement in the macro. They
+are useful for making crank-agnostic code, and expanding macros is very useful for the purpose of optimization, although
+we will actually have to write the word ~expand~ from more primitive words later on (hint: it uses recursive ~unglue~).
+** More Code
+Here is te rest of the code in ~bootstrap.cog~ in ~coglib/~:
+#+begin_example
+getd dup _ concat _ swap d i 
+_quote_swap_quote_compose_swap_dup_d_i eval 
+
+2crank ing 0 crank spc
+2crank ing 1 crank swap quote def
+2crank ing 0 crank endl
+2crank ing 1 crank swap quote def
+2crank ing 1 crank
+2crank ing 3 crank load ../coglib/ quote
+2crank ing 2 crank swap unglue concat unglue fread unglue evalstr unglue
+2crank ing 1 crank compose compose compose compose VMACRO cast def
+2crank ing 1 crank
+2crank ing 1 crank getargs 1 split swap drop 1 split drop
+2crank ing 1 crank
+2crank ing 1 crank epop drop
+2crank ing 1 crank INDEX spc OUT spc OF spc RANGE
+2crank ing 1 crank concat concat concat concat concat concat =
+2crank ing 1 crank
+2crank ing 1 crank missing spc filename concat concat dup endl concat
+2crank ing 1 crank swap quote swap quote compose
+2crank ing 2 crank print compose exit compose
+2crank ing 1 crank
+2crank ing 0 crank fread evalstr
+2crank ing 1 crank compose
+2crank ing 1 crank
+2crank ing 1 crank if
+#+end_example
+Okay, well, the syntax still doesn't look so good, and it's still pretty hard to get what this is doing. But the
+basic idea is that ~2crank~ is a macro and is therefore crank agnostic, and we guarantee its execution with ~ing~, another
+falias (because it's funny). Then, we execute an ~n crank~, which standardizes what crank each line is in (you might
+wonder what ~ing~ and ~f~'s interaction is with the cranker. It actually just guarantees the evaluation of the previous
+thing, so if the previous thing already evaluated ~f~ and ~ing~ both do nothing). In any case, this defines words that
+are useful, such as ~load~, which loads something from the coglib. It does this by ~compose~-ing things into quotes and
+then ~def~-ing those quotes.
+
+The crank, and by extension, the metacrank system is needed in order to discriminate between /evaluating/ some tokens
+and /storing/ others for metaprogramming without having to use ~f~, while also keeping the system postfix. Crank
+is just one word that allows for this type of behavior; the more general word, ~metacrank~, allows for much more
+interesting kinds of syntax manipulation. We have examples of ~metacrank~ down the line, but for now I should explain
+the /metacrank word/.
+** Metacrank
+~n m metacrank~ sets a periodic evaluation ~m~ for an element ~n~ items down the stack. The ~crank~ word is therefore
+equivalent to ~0 m metacrank~. Only one token can be evaluated per tokenized token, although /every/ metacrank is incremented
+per token, where lower metacranks get priority. This means that if you set two different metacranks, only /one/ of them
+can execute per token tokenized, and the lower metacrank gets priority. Note that metacrank and, by extension, crank,
+don't /just/ depend on tokenized words; they also work while evaluating word definitions recursively, meaning if a word
+is evaluated in ~2 crank~, one out of two words will execute in each level of the evaluation tree. You can play around
+with this in the repl to get a sense of how it works: run ~../crank bootstrap.cog repl.cog devel.cog load~, and use stem
+like syntax in order to define a function. Then, run that function in ~2 crank~. You will see how the evaluation tree
+respects cranking in the same way that the program file itself does.
+
+Metacrank allows for not only metaprogramming in the form of code building, but also
+direct syntax manipulation (i.e. /I want to execute this token once I have read n other token(s)/). The advantages to
+this system compared to other programming languages' systems are clear: you can program a prefix word and ~undef~ it
+when you want to rip out that part of syntax. You can write a prefix character that doesn't stop at an ending character
+but /always/ stops when you read a certain number of tokens. You can feed user input into a math program and feed the
+output into a syntax system like metacrank. The possibilities are endless! And with that, we will slowly build up the
+~stem~ programming language, v2, now with macros and from within our own /cognition/.
+* The Stem Dialect, Improved
+In this piece of code, we define the /comment/:
+#+begin_example
+2crank ing 0 crank ff 1
+2crank ing 1 crank cut unaliasf
+2crank ing 0 crank 0
+2crank ing 1 crank cut swap quote def
+2crank ing 0 crank
+2crank ing 0 crank #
+2crank ing 0 crank geti getd gets crankbase f d f i endl s
+2crank ing 1 crank compose compose compose compose compose compose compose compose compose
+2crank ing 0 crank drop halt crank s d i
+2crank ing 1 crank compose compose compose compose compose VMACRO cast quote compose
+2crank ing 0 crank halt 1 quote ing 1 quote ing metacrank
+2crank ing 1 crank compose compose compose compose VMACRO cast
+2crank ing 1 crank def
+2crank ing 2 crank # singlet # delim
+2crank ing 1 crank #comment: geti getd gets crankbase '' d '' i '\n' s ( drop halt crank s d i ) halt 1 1 metacrank
+#+end_example
+and it is our first piece of code that builds something /truly/ prefix. The comment character is a prefix that drops
+all the text before the newline character, which is a type of word that tells the parser to /read ahead/. This is our
+first indication that everything that we thought was possible within cognition truly /is/.
+
+But before that, we can look at the first couple of lines:
+#+begin_example
+2crank ing 0 crank ff 1
+2crank ing 1 crank cut unaliasf
+2crank ing 0 crank 0
+2crank ing 1 crank cut swap quote def
+2crank ing 0 crank
+#+end_example
+which simply unaliases ~f~ from the falias list, with ~ing~ being the only remaining falias. In cognition, even these
+faliases are changeable.
+
+Since we can't put ~f~ directly on the stack (if we try by just using ~f~, it would execute), we instead utilize some
+very minimal string processing to do it, putting ~ff~ on the stack and then cutting the string in half to get two copies
+of ~f~. We then want ~f~ to mean false, which in cognition is just an empty word. Therefore, we make an empty word by
+calling ~0 cut~ on this string, and then ~def~-ing f to the empty string. The following code is where the comment is
+defined:
+
+#+begin_example
+2crank ing 0 crank #
+2crank ing 0 crank geti getd gets crankbase f d f i endl s
+2crank ing 1 crank compose compose compose compose compose compose compose compose compose
+2crank ing 0 crank drop halt crank s d i
+2crank ing 1 crank compose compose compose compose compose VMACRO cast quote compose
+2crank ing 0 crank halt 1 quote ing 1 quote ing metacrank
+2crank ing 1 crank compose compose compose compose VMACRO cast
+2crank ing 1 crank def
+2crank ing 2 crank # singlet # delim
+2crank ing 1 crank #comment: geti getd gets crankbase '' d '' i '\n' s ( drop halt crank s d i ) halt 1 1 metacrank
+#+end_example
+Relevant: ~halt~ just puts you in 0 for all metacranks, and ~VMACRO cast~ just turns the top thing on the stack from a
+container to a macro. ~geti~, ~getd~, ~gets~ gets the ignores, delims, and singlets respectively as a string; ~drop~ is
+~dsc~ in stem. ~singlet~ and ~delim~ sets the singlets and delimiters. ~endl~ is defined withint ~bootstrap.cog~ and just
+puts the newline character as a word on the stack. ~crankbase~ gets the current crank.
+
+we call a lot of ~compose~ words in order to build this definition, and we make the ~#~ character a singlet delimiter in
+order to allow for spaces after the comment. We put ourselves in ~1 1 metacrank~ in the ~#~ definition while altering
+the tokenization rules beforehand in order to tokenize everything until a newline as a token while calling ~#~ on said word
+in order to effectively drop that comment and get ourselves back in the original crank and metacrank. Thus, the brilliant
+~#~ character is written, operating on a token that is tokenized /in the future/, with complete default postfix syntax.
+With the information above, one can work out the specifics of how it works; the point is that it /does/, and one can test
+that it does by going into the ~coglib~ folder and running ~../crank bootstrap.cog repl.cog devel.cog load~, which will load
+the REPL and load ~devel.cog~, which will in turn load ~comment.cog~.
+** The Great Escape
+Here we define a preliminary prefix escape character:
+#+begin_example
+2crank ing 2 crank comment.cog load
+2crank ing 0 crank
+2crank ing 1 crank # preliminary escape character \
+2crank ing 1 crank \
+2crank ing 0 crank halt 1 quote ing crank
+2crank ing 1 crank compose compose
+2crank ing 2 crank VMACRO cast quote eval
+2crank ing 0 crank halt 1 quote ing dup ing metacrank
+2crank ing 1 crank compose compose compose compose
+2crank ing 2 crank VMACRO cast
+2crank ing 1 crank def
+2crank ing 0 crank
+2crank ing 0 crank
+#+end_example
+This allows for escaping so that we can put something on the stack even if it is to be evaluated,
+but we want to redefine this character eventually to be compatible with stem-like quotes. We're
+even using our comment character in order to annotate this code by now! Here is the full quote definition (once we have
+this definition, we can use it to improve itself):
+#+begin_example
+2crank ing 0 crank [
+2crank ing 0 crank
+2crank ing 1 crank # init
+2crank ing 0 crank crankbase 1 quote ing metacrankbase dup 1 quote ing =
+2crank ing 1 crank compose compose compose compose compose
+2crank ing 0 crank
+2crank ing 1 crank # meta-crank-stuff0
+2crank ing 3 crank dup ] quote =
+2crank ing 1 crank compose compose
+2crank ing 16 crank drop swap drop swap 1 quote swap metacrank swap crank quote
+2crank ing 3 crank compose dup quote dip swap
+2crank ing 1 crank compose compose compose compose compose compose compose compose
+2crank ing 1 crank compose compose compose compose compose \ VMACRO cast quote compose
+2crank ing 3 crank compose dup quote dip swap
+2crank ing 1 crank compose compose compose \ VMACRO cast quote compose \ if compose
+2crank ing 1 crank \ VMACRO cast quote quote compose
+2crank ing 0 crank
+2crank ing 1 crank # meta-crank-stuff1
+2crank ing 3 crank dup ] quote =
+2crank ing 1 crank compose compose
+2crank ing 16 crank drop swap drop swap 1 quote swap metacrank swap crank
+2crank ing 1 crank compose compose compose compose compose compose compose compose \ VMACRO cast quote compose
+2crank ing 3 crank compose dup quote dip swap
+2crank ing 1 crank compose compose compose \ VMACRO cast quote compose \ if compose
+2crank ing 1 crank \ VMACRO cast quote quote compose
+2crank ing 0 crank
+2crank ing 1 crank # rest of the definition
+2crank ing 16 crank if dup stack swap 0 quote crank
+2crank ing 2 crank 1 quote 1 quote metacrank
+2crank ing 1 crank compose compose compose compose compose compose compose compose
+2crank ing 1 crank compose \ VMACRO cast
+2crank ing 0 crank
+2crank ing 1 crank def
+#+end_example
+Um, it's quite the spectacle how Matthew Hinton ever came up with this thing, but alas, it exists. Then, we use it in
+order to redefine itself, but better as the old quote definition can't do recursive quotes
+(we can do this because the definition is /used/ before you redefine the word due to postfix ~def~, a
+development pattern seen often in low level cognition):
+#+begin_example
+\ [
+
+[ crankbase ] [ 1 ] quote compose [ metacrankbase dup ] compose [ 1 ] quote compose [ = ] compose
+
+[ dup ] \ ] quote compose [ = ] compose
+[ drop swap drop swap ] [ 1 ] quote compose [ swap metacrank swap crank quote compose ] compose
+[ dup ] quote compose [ dip swap ] compose \ VMACRO cast quote compose
+[ dup dup dup ] \ [ quote compose [ = swap ] compose \ ( quote compose [ = or swap ] compose \ \ quote compose [ = or ] compose
+[ eval ] quote compose
+[ compose ] [ dup ] quote compose [ dip swap ] compose \ VMACRO cast quote compose [ if ] compose \ VMACRO cast
+quote compose [ if ] compose \ VMACRO cast quote quote
+
+[ dup ] \ ] quote compose [ = ] compose
+[ drop swap drop swap ] [ 1 ] quote compose [ swap metacrank swap crank ] compose \ VMACRO cast quote compose
+[ dup dup dup ] \ [ quote compose [ = swap ] compose \ ( quote compose [ = or swap ] compose \ \ quote compose [ = or ] compose
+[ eval ] quote compose
+[ compose ] [ dup ] quote compose [ dip swap ] compose \ VMACRO cast quote compose [ if ] compose \ VMACRO cast
+quote compose [ if ] compose \ VMACRO cast quote quote
+
+compose compose [ if dup stack swap ] compose [ 0 ] quote compose [ crank ] compose
+[ 1 ] quote dup compose compose [ metacrank ] compose \ VMACRO cast
+
+def
+#+end_example
+Okay, so now we can use recursive quoting, just like in stem. But there are still a couple things missing that we probably
+want: a good string quote implementation, and probably escape characters that work in the brackets. Also, since Cognition
+utilizes macros, we probably want a way to notate those as well, and we probably want a way to expand macros. We can do
+all of that! First, we will have to redefine ~\~ once more:
+#+begin_example
+\ \
+[ [ 1 ] metacrankbase [ 1 ] = ]
+[ halt [ 1 ] [ 1 ] metacrank quote compose [ dup ] dip swap ]
+\ VMACRO cast quote quote compose
+[ halt [ 1 ] crank ] VMACRO cast quote quote compose
+[ if halt [ 1 ] [ 1 ] metacrank ] compose \ VMACRO cast
+def
+#+end_example
+This piece of code defines the bracket but for macros (split just splits a list into two):
+#+begin_example
+\ (
+\ [ unglue
+[ 11 ] split swap [ 10 ] split drop [ macro ] compose
+[ 18 ] split quote [ prepose ] compose dip
+[ 17 ] split eval eval
+[ 1 ] del [ \ ) ] [ 1 ] put
+quote quote quote [ prepose ] compose dip
+[ 16 ] split eval eval
+[ 1 ] del [ \ ) ] [ 1 ] put
+quote quote quote [ prepose ] compose dip
+prepose
+def
+#+end_example
+We want these macros to automatically expand because it's more efficient to bind already expanded macros to words,
+and they functionally evaluate identically (~isdef~ just returns a boolean where true is a non-empty string, false
+is an empty string, if a word is defined):
+#+begin_example
+\ (
+( crankbase [ 1 ] metacrankbase dup [ 1 ] =
+  [ ( dup \ ) =
+      ( drop swap drop swap [ 1 ] swap metacrank swap crank quote compose ( dup ) dip swap )
+      ( dup dup dup \ [ = swap \ ( = or swap \ \ = or
+        ( eval )
+        ( dup isdef ( unglue ) [ ] if compose ( dup ) dip swap )
+        if )
+      if ) ]
+  [ ( dup \ ) =
+      ( drop swap drop swap [ 1 ] swap metacrank swap crank )
+      ( dup dup dup \ [ = swap \ ( = or swap \ \ = or
+        ( eval )
+        ( dup isdef ( unglue ) [ ] if compose ( dup ) dip swap )
+        if )
+      if ) ]
+  if dup macro swap
+  [ 0 ] crank [ 1 ] [ 1 ] metacrank ) def
+#+end_example
+and you can see that as we define more things, our language is beginning to look more or less like it has syntax!
+In this ~quote.cog~ file which we have been looking at, there are more things, but the bulk of it is pretty much done.
+From here on, I will just explain the syntax programmed by quote.cog instead of showing the specific code.
+
+As an example, here is ~expand~:
+#+begin_example
+# define basic expand (works on nonempty macros only)
+[ expand ]
+( macro swap
+  ( [ 1 ] split
+    ( isword ( dup isdef ( unglue ) ( ) if ) ( ) if compose ) dip
+    size [ 0 ] > ( ( ( dup ) dip swap ) dip swap eval ) ( ) if )
+  dup ( swap ( swap ) dip ) dip eval drop swap drop ) def
+
+# complete expand (checks for definitions within child first without copying hashtables)
+[ expand ]
+( size [ 0 ] > ( type [ VSTACK ] = ) ( return ) if ?
+  ( macro swap
+    macro
+    ( ( ( size dup [ 0 ] > ) dip swap ) dip swap
+      ( ( ( 1 - dup ( vat ) dip swap ( del ) dip ) dip compose ) dip dup eval )
+      ( drop swap drop )
+      if ) dup eval
+    ( ( [ 1 ] split
+        ( isword
+          ( compose cd dup isdef
+            ( unglue pop )
+              ( pop dup isdef ( unglue ) ( ) if )
+            if ) ( ) if
+          ( swap ) dip compose swap ) dip
+        size [ 0 ] > ) dip swap
+      ( dup eval ) ( drop drop swap compose ) if ) dup eval )
+  ( expand )
+  if ) def
+#+end_example
+Which recursively expands word definitions inside a quote or macro, using the word ~unglue~. We've used the ~expand~
+word in order to redefine itself in a more general case.
+* The Brainfuck Dialect
+And returning to whence we came, we define the /Brainfuck/ dialect with our current advanced stem dialect:
+#+begin_example
+comment.cog load
+quote.cog load
+
+[ ] [ ] [ 0 ]
+
+[ > ] [[ swap [[ compose ]] dip size [ 0 ] = [ [ 0 ] ] [[ [ 1 ] split swap ]] if ]] def
+[ < ] [[ prepose [[ size dup [ 0 ] = [ ] [[ [ 1 ] - split ]] if ]] dip swap ]] def
+[ + ] [[ [ 1 ] + ]] def
+[ - ] [[ [ 1 ] - ]] def
+[ . ] [[ dup char print ]] def
+[ , ] [[ drop read byte ]] def
+
+[ pick ] ( ( ( dup ) dip swap ) dip swap ) def
+[ exec ] ( ( [ 1 ] * dup ) dip swap [ 0 ] = ( drop ) ( dup ( evalstr ) dip \ exec ) if ) def
+
+\ [ (
+  ( dup [ \ ] ] =
+    ( drop swap - [ 1 ] * dup [ 0 ] =
+      ( drop swap drop halt [ 1 ] crank exec )
+      ( swap [ \ ] ] concat pick )
+      if )
+    ( dup [ \ [ ] =
+      ( concat swap + swap pick )
+      ( concat pick )
+      if )
+    if )
+  dup [ 1 ] swap f swap halt [ 1 ] [ 1 ] metacrank
+) def
+
+><+-,.[] dup ( i s itgl f d ) eval
+#+end_example
+test with ~../crank -s 2 bootstrap.cog helloworld.bf brainfuck.cog~. You may of course load your favorite brainfuck
+file with this method. Note that brainfuck.cog isn't a brainfuck parser in the ordinary sense; it actually
+/defines brainfuck words/ and /tokenizes/ brainfuck, running it in the native cognition environment.
+
+It's very profound, as well, how our current syntax allows us to define an /alternate/ syntax with great ease. It might
+make you wonder if it's possible to /specifically craft/ a syntax whose job is to write other syntaxes. Another interesting
+observation you might have is that Cognition defines syntax by defining a prefix character as a /word/ that uses metacrank,
+rather than reading symbols and deciding what to do based on symbols. It's almost as if the syntax becomes /inherent/ to the
+word that's being defined.
+
+These two ideas synthesize to create something truly exciting, but that hasn't yet been implemented in the standard library
+(though we very much know that it is possible). Introducing: the /dialect dialect/ of Cognition...
+** The Dialect Dialect
+Imagine a word ~mkprefix~, that takes two input words (say for example ~[~ and ~]~), and an operation, and
+/automatically defines/ ~[~ to apply said operation until it hits a ~]~ character. This is possible because constructs
+like ~metacrank~ and ~def~ are all just /regular words/, so it's possible to use /them/ as words to metaprogram with.
+In fact, /everything/ is just a word (even ~d~, ~i~, and ~s~), so you can imagine a hyperabstract dialect that includes
+words like ~mkprefix~, using syntax to automate the process of implementing more syntax. Such a construct I have not
+encountered in /any other programming language/. Yet, in your own /Cognition/, you can make nearly anything a reality.
+
+Such creative things Matthew Hinton and I have discussed as possibilities regarding the standard library. Right now, the
+standard library has metawords that generate abstract words automatically and call them. This is possible through string
+concatenation and using ~def~ in the definition of another word also (this is also possible in my prior programming
+language Stem). We have discussed the possibility of a word that searches for word-generators to abstract its current
+wordlist automatically, and we have talked about the possibility of directing this abstraction framework for the purpose
+of solving a problem. These are conceptually possible words to write within cognition, and this might give you an idea
+of how /powerful/ this idea is.
+* Theoretical Musings
+There are a couple of things about Cognition that make it interesting beyond its quirks. For instance,
+string processing in this language is equivalent to tokenizer postprocessing, which makes string operations inherently
+extremely powerful in this language. It also has potential applications in Symbolic AI and in syntax and grammar research,
+where prototypes of languages and metalanguages can be tested with ease. I'd imagine that anyone configuring a program
+that reads a configuration file would really want their configuration language to be something like this, where they can
+have full freedom over the syntax (and metasyntax) in which they program in (think about a Cognition based shell,
+or a Cognition based operating system!). Though, the point of working on this language was never its applications;
+its intrinsic beauty is its own philosophical statement.
+* Conclusion
+You can imagine cognition can program basically any syntax you would want, and in this article, we demonstrate the power
+of the already existing code that makes cognition work. In short, the system allows for true /syntax as code/, as my
+friend Andrei put it; one can /dynamically program/ and even /automate/ the production of syntax. In this article, we
+didn't have the space to cover other important Cognition concepts like the /Metastack/ and words like ~cd~, but this
+can be done in a part 2 of this blog post.

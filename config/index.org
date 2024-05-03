@@ -6,6 +6,8 @@
 #+OPTIONS: broken-links:t
 * What is this magic?
 They're configurations for extremely obscure programs I use. Yeah, I know, I'm somewhat of a hipster myself.
+Also, this is kind of outdated, because I use my [[https://github.com/ret2pop/hyprnixmacs][NixOS Configuration]] instead. Well, I still use the vanilla
+(not doom) emacs configuration.
 ** Configurations
 Here is a list of my configurations for various programs:
 @@html: <div class="links-page">@@

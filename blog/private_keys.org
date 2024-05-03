@@ -1,0 +1,87 @@
+#+title: Passwords Are Obselete
+#+author: Preston Pan
+#+description: Why haven't we switched to asymmetric cryptography?
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
+
+* Introduction
+Passwords are obsolete, and they should've never existed in the first place. We have a cryptographically
+stronger version of passwords that a lot of existing infrastructure already relies on, and that is asymmetric
+key cryptography. Let's look at why everything should use this technology instead of passwords.
+** Passwords are Hard to Manage
+You only need one or a couple of private keys, but often people use password managers in order to manage their
+many passwords so that their identities are secure in case someone tries to brute force their passwords or something.
+By identifying with your private key instead, such a thing is cryptographically infeasible, making using only one
+key very secure already. This eliminates the need for a password manager.
+
+It also makes it a lot harder to be insecure, because even if people send the same public key over to every server,
+it will still be secure so long as they don't reveal their private key. With a password system, cracking one password
+via brute force password list attacks would comprimise everything.
+*** Hacks Pretty Much Stop Mattering as Much
+If someone gets your password hash, that's very bad because they can start brute forcing said hash with a password list.
+If someone gets your public key, that is effectively useless for them. Thus, hacks are made a lot worse.
+
+** Signing and Encrypting
+While signing with your private key can prove your identity by reputation, what's really cool about asymmetric cryptography
+is that others can use your public key to encrypt messages and send them to you. You and another party can generate keys
+and send them to each other, creating a shared public and private key from which you can then send messages to each other.
+Attackers or evesdroppers won't be able to look within the system to determine any useful information.
+
+In short, one could imagine a system where if enough people had private keys, all messages on the internet could be encrypted.
+This would be even better with quantum safe cryptography.
+** Revoking
+You can trustlessly revoke your identity with a public-private key system by signing a message that says that your private
+key is no longer valid. Obviously, if an attacker has your private key, it is not in their interest to send this message,
+so the message must be coming from the person being attacked. Thus, one can disable all accounts associated with a certain
+private key with this method.
+* Concerns
+** Quantum Safety
+People have concerns over asymmetric cryptography being broken by quantum computers, and the solution is to obviously
+just use a quantum-safe algorithm, like many of the algorithms that utilize linear space lattices. You can make keys that
+will take millions of years of the earth's compute to crack, which is enough security for most people.
+** Encrypting your Private Key
+You should encrypt your private key, and in that case, you should use symmetric cryptography that relies on a password.
+The difference between this system and passwords in general is just that you only have to remember one, and it's extremely
+secure. You also don't have to generate a ton of passwords that still might be guessed in order for your websites to be
+secure. In short, a key pair is just a better version of a password manager, because it's as convinent as having a single
+password.
+** Losing Your Key or Having it Stolen
+Like I said above, you would most likely want to revoke your key, and if we had the infrastructure, websites would query
+a database that contains revocation certificates. You can't really get your data back if this happens, as it shifts
+the incentives such that it would be in a hacker's best interest to revoke certificates, so the only thing that should
+be done by websites in this case is disable your account. Still, it centrally disables all accounts related to your
+digital identity in case of a hack.
+
+The only way you could get hacked is if you store your key insecurely and don't encrypt your key with a strong password,
+or you just give it to someone (don't do that). But then again, new infrastructure can be built to accomedate dumb people
+from sharing their private keys. Until then, just /don't share your private key, at all costs/. Or, you could make multiple,
+but that defeats some of the purpose of private keys. Though, it's still more secure than having a lot of passwords.
+** Ease of Use
+They're pretty much as easy to use as passwords if you want them to be. A simple GUI application could show you your public
+and private key, and they are just text files that are generated by some program, which could also be a GUI application.
+All you have to do is upload your public key or copy and paste it when you make an account, or use an identity server that
+stores keys.
+** MITM Attacks
+Of course these are possible. The current HTTPS infrastructure does pretty okay at mitigating this, but what you
+might actually want to do is have a reputation system with certain keys.
+* Conclusion
+Everything that you don't like is implicitly caused by passwords. Hacks where people leak hashes of peoples' passwords,
+guessing passwords using a password list, needing a password manager, all of these things would be resovled by using
+asymmetric cryptography, and it would essentially be feature-for-feature equivalent otherwise. You'd still need 2fa
+if you wanted to get into your account when losing your password, but /even 2fa can be done better/, using a clever scheme
+that my friends and I are devising. Otherwise, 2fa is just a hack situated on top of passwords being insecure. All these
+things that people hate on the internet including fraud can be solved by the combination of things being memory safe, and
+passwords being replaced with public and private key pairs. It's so obviously better that I don't know why we haven't done
+it yet.
+
+Correlary: I'm probably going to write a library that does this keyserver integration with signing in order to verify
+identity.

@@ -1,3 +1,17 @@
+#+title: You should use NixOS
+#+author: Preston Pan
+#+description: You can run a system from the 2040s, today.
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
 * Introduction
 NixOS is a reproducible, scalable operating system that is used in server
 infrastructure. This month, I decided to torture myself and run it on a
@@ -13,7 +27,7 @@ unique and their usage truly cannot be replicated on either of the two systems.
 I will talk about NixOS in particular because that is the operating system I
 currently use.
 
-** So What's the Pitch?
+* So What's the Pitch?
 When you write a configuration for NixOS, it works forever until the packages
 stop being hosted, meaning as long as the NixOS team exists, your particular
 version of NixOS, running your particular configuration, will /always/ work
@@ -25,9 +39,44 @@ you can /define your operating system as a function that takes in inputs and out
 and then /specify those inputs in a specific way/, which then allows you to
 /ensure the reproducibility of your environment/.
 
-On top of that, it is possible to /roll back/ your configuration. That is,
+On top of that, it is possible to /roll back/ your configuration. That is, you can reset
+the state of your computer to a previous version, as previous versions or /generations/
+are cached until they are disposed of manually. This means that the state of your system
+is extremely persistent.
 
 You can see why this might be used in industry for mass deploying servers, and you might
 even understand why one might use this type of system for docker containers, but /why on earth/
 would someone run it as a personal machine? Well, there are a couple of good reasons to do so:
 1. You like how your computer operates.
+2. You don't want that way of operating to change, randomly.
+3. You want to reproduce how you operate on any machine that you will own in the future.
+4. You want features like backups to be highly integrated into the operating system.
+You can see how this system is genuinely so much better than anything that exists, because
+if you're looking for the above, NixOS is for you!
+* Sounds Great! Any Issues?
+Although the language itself is documented decently well, nix is not a very good language to program
+in and the documentation on some of the library functions/builtins are not very good. Also, the documentation
+for stuff like home-manager (if you want to manage your home directory in a declarative, reproducible way)
+is not very good. It's pretty possible to learn, though, and if you get it working once, it works forever.
+** Building from Source
+Because of how packages are managed on NixOS, building a package that's not from the repositories is a pain.
+Additionally, to my knowledge NixOS has no equivalent of Gentoo USE flags, or if they do exist, they are confusing
+and undocumented, so you might have to fork the standard NixOS repositories yourself.
+** Flakes
+Flakes are an initially confusing part of NixOS especially since there isn't any documentation on them. They
+essentially allow you to specify inputs into a given system, and they return a declarative state. This is useful
+because flakes allow you to "pin" the inputs (make it so that the inputs are all compared to their hashes such that
+they never change), which makes the outputs completely deterministic given the code run is also deterministic (always
+the case in pure flakes, and NixOS uses a functional programming model that eliminates side-effects). I recommend
+using a flake in order to define your system instead of the default configuration.nix file.
+* GNU Guix
+There is yet another system out there that I believe is technically better than NixOS at a lot
+of things, yet I also believe it to be hard to use in practice, and that is GNU Guix. GNU Guix
+has the same operating system model except everything is written in scheme. This is beneficial
+because programs like emacs and Nyxt integrate well with the package manager, and the init system
+is GNU Shepherd which is almost completely configured in scheme. This is a notable operating system
+although it is somewhat confusing and has less documentation than NixOS.
+* Conclusion
+Running this operating system for me has genuinely felt like running an alien system from 10 years in the future.
+It is a shame that it does not get widespread adoption as it is clearly one of the most effective systems that exists,
+barring the fact that operating systems like these may need more developers.

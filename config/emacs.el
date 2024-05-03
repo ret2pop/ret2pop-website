@@ -111,6 +111,13 @@ Otherwise, just insert the typed character."
 	      (define-key org-mode-map "[" 'electric-pair)
 	      (define-key org-mode-map "{" 'electric-pair)))
 
+(use-package lyrics-fetcher
+  :after (emmsx)
+  :config
+  (setq lyrics-fetcher-genius-access-token
+    (password-store-get "genius_api"))
+  (lyrics-fetcher-use-backend 'genius))
+
 (add-hook 'after-init-hook 'global-company-mode)
 
 (org-babel-do-load-languages 'org-babel-load-languages
@@ -156,6 +163,7 @@ Otherwise, just insert the typed character."
 (use-package page-break-lines
   :init
   (page-break-lines-mode))
+(evil-set-initial-state 'pdf-view-mode 'normal)
 
 (use-package org-journal
   :init
@@ -270,7 +278,7 @@ Otherwise, just insert the typed character."
     "n r f" '(org-roam-node-find :wk "Find roam node")
     "n r i" '(org-roam-node-insert :wk "Insert roam node")
     "n r g" '(org-roam-graph :wk "Graph roam database")
-    "r s s" '(elfeed "rss feed")
+    "r s s" '(elfeed :wk "rss feed")
     "." '(counsel-find-file :wk "find file")
     "g /" '(magit-dispatch :wk "git commands")
     "g P" '(magit-push :wk "git push")
@@ -295,6 +303,7 @@ Otherwise, just insert the typed character."
     "m P p" '(org-publish :wk "Publish website components")
     "s e" '(sudo-edit :wk "Edit file with sudo")
     "m m" '(emms :wk "Music player")
+    "m l" '(lyrics-fetcher-show-lyrics :wk "Music lyrics")
     "o p" '(treemacs :wk "Project Drawer")
     "f f" '(eglot-format :wk "Format code buffer")
     "i c" '(prestonpan :wk "Connect to my IRC server")

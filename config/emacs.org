@@ -141,6 +141,15 @@ what electric-pair does based on the mode.
 		(define-key org-mode-map "[" 'electric-pair)
 		(define-key org-mode-map "{" 'electric-pair)))
 #+end_src
+* Lyrics
+#+begin_src emacs-lisp
+  (use-package lyrics-fetcher
+    :after (emmsx)
+    :config
+    (setq lyrics-fetcher-genius-access-token
+      (password-store-get "genius_api"))
+    (lyrics-fetcher-use-backend 'genius))
+#+end_src
 * Completion
 Company-mode! We need this to do autocomplete stuff.
 #+begin_src emacs-lisp
@@ -195,6 +204,7 @@ First, some small configurations and some evil-mode initilaization because I lik
   (use-package page-break-lines
     :init
     (page-break-lines-mode))
+  (evil-set-initial-state 'pdf-view-mode 'normal)
 #+end_src
 ** Journal
 I use org-journal to journal about my life, and it's a part of my website:
@@ -340,7 +350,7 @@ Ivy is a pretty cool general program for displaying stuff:
 	"n r f" '(org-roam-node-find :wk "Find roam node")
 	"n r i" '(org-roam-node-insert :wk "Insert roam node")
 	"n r g" '(org-roam-graph :wk "Graph roam database")
-	"r s s" '(elfeed "rss feed")
+	"r s s" '(elfeed :wk "rss feed")
 	"." '(counsel-find-file :wk "find file")
 	"g /" '(magit-dispatch :wk "git commands")
 	"g P" '(magit-push :wk "git push")
@@ -365,6 +375,7 @@ Ivy is a pretty cool general program for displaying stuff:
 	"m P p" '(org-publish :wk "Publish website components")
 	"s e" '(sudo-edit :wk "Edit file with sudo")
 	"m m" '(emms :wk "Music player")
+	"m l" '(lyrics-fetcher-show-lyrics :wk "Music lyrics")
 	"o p" '(treemacs :wk "Project Drawer")
 	"f f" '(eglot-format :wk "Format code buffer")
 	"i c" '(prestonpan :wk "Connect to my IRC server")

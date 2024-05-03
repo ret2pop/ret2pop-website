@@ -1,0 +1,14 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Friday, 15 March 2024
+** 16:56 
+Just ripped a CD at Kai's house; finished cryptocurrency post. Planning on making my mail server actually work,
+although that is quite hard to do.
+** 17:56 
+Just finished my hangout, and I am going back to UVic. I showed Kai my song entitled, "Socrates".

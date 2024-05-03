@@ -18,16 +18,20 @@ the wiki format of the mindmap and the journal format.
 Blog Articles:
 @@html: <div class="links-page">@@
 #+begin_src shell :results output raw :exports both
-for f in *;
-do
-    if [[ "$f" == "index.org" || "$f" == "img" ]]; then
-        continue
-    fi
-    printf -- "- [[file:$f][$f]]\n"
-done
+  for f in *;
+  do
+      if [[ "$f" == "index.org" || "$f" == "img" ]]; then
+	  continue
+      fi
+      printf -- "- [[file:$f][$f]]\n"
+  done
 #+end_src
 
 #+RESULTS:
+- [[file:automation.org][automation.org]]
+- [[file:crypto.org][crypto.org]]
+- [[file:machine_learning.org][machine_learning.org]]
+- [[file:nixos.org][nixos.org]]
 - [[file:stem.org][stem.org]]
 
 @@html: </div>@@

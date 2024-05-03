@@ -1,7 +1,7 @@
 #+title: A Review of Cryptocurrency
 #+author: Preston Pan
 #+description: Are cryptocurrencies useful in economic transactions? As technologies?
-#+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 #+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 #+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -66,6 +66,7 @@ actually be easy to see the value, and all that is needed is a particular set of
 trusted from consumers in order to see how you could assign IPFS links to NFTs that could be considered to retain value
 in the same way owning art retains value. If you just see the system for what it is and the logical chain of ownership,
 you can see that the only link in the chain that is inconsistent is not the ownership of the tokens, not the IPFS links,
+not even the problem of your token always corresponding to the same image (as some have claimed),
 but the tokens corresponding bijectively to the IPFS links, and that can be solved pretty easily with the market naturally
 trusting a single or set of providers.
 
@@ -109,7 +110,7 @@ of programability baked into it.
 
 Even anonymity can be used to its advantage. With the inception of Monero, corrupt governments have a harder time tracing
 usually-legal citizen activity. Yes, it does give a lot of power to money launderers, but at the same time, it's not like
-it has its upsides and usecases.
+it doesn't have its upsides and usecases.
 ** Were we Better off Without Cryptocurrency?
 I don't know, I can't go to the universe where they haven't been invented, but so long as they exist, we should probably
 make the most of them. My personal opinion, though, is that they are a net gain.
@@ -142,8 +143,18 @@ Blockchains only need to handle a small part of the job, i.e. they are an enviro
 and /ensures/ trustlessness. But in some cases, the /incentives/ part can be done in other ways, so you can scrap the
 monetary or scarce aspect of these networks, which means you don't need a blockchain. In the case of layer zero, it
 is believed that any organization which manages a blockchain would also want to host a node because they gain access
-to liquidity over a wider range of blockchain networks, for example.
-* For the Laymen
+to liquidity over a wider range of blockchain networks, for example. Volunteer networks such as tor already run decently
+well (with a small centralization problem with NSA controlled nodes but overall pretty secure), with i2p being another
+protocol that incentivizes hosting nodes without any direct payment, only entry into the network.
+* Conclusion
+While many critics talk about cryptocurrency in a fair way, time and time again, it is misrepresented on the internet
+in several terrible ways, often leading to the spread of misinformation about these new technologies. This wave of
+cryptocurrency hate was garnered by an initial wave of scammers, crooks, and utopian techbros that were (and still are)
+unsavory parts of the cryptocurrency ecosystem, with Coffeezilla playing a big role in the takedown of many of these
+scams where retail money lost big. As a result of this initial wave, there has been a pushback on cryptocurrency and
+the culture has since not reflected the amount of good work that trustworthy players in the industry are doing.
+
+** For the Laymen
 Before you talk about cryptocurrency like you know everything about it, you should figure out more about the underlying
 ecosystem. Although I like listening to and reading [[https://www.nytimes.com/column/paul-krugman][Paul Krugman]], he gets cryptocurrency pretty wrong, maybe because
 a lot of libertarians shill the technology. You might be the same. I'm pretty confident that I know a decent bit about

@@ -1,0 +1,16 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Saturday, 23 March 2024
+** 17:47 
+I am going to the board game cafe right now with some of my friends, and I might play some piano later as well.
+Additionally, project Cognition is being released very soon. I hope people will like it, as it has the potential to
+be revolutionary in several ways, ranging from novel ways of runtime parsing to novel tokenization manipulation using
+postfix.
+
+In any case, we have a working model for this in a private repository.

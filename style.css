@@ -140,7 +140,7 @@ pre {
 
 #table-of-contents {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
+  width: 250px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -149,7 +149,7 @@ pre {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
   border-right: 1px;
-  background: #ffffeb;
+  background: #133201;
 }
 
 #table-of-contents ul a {
@@ -158,6 +158,33 @@ pre {
   font-size: 25px;
   display: block;
   font-size: 15px;
+  color: black;
+}
+
+#table-of-contents ul a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  font-size: 15px;
+  color: white;
+  background-color: #133201;
+}
+
+
+#table-of-contents ul a:hover {
+  color: white;
+  background-color: #133201;
+}
+
+#table-of-contents ul a:visited {
+  color: white;
+  border-color: #133201;
+}
+
+#table-of-contents ul a:visited:hover {
+  color: white;
+  background-color: #133201;
 }
 
 #table-of-contents ul {

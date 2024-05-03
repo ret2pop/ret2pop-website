@@ -67,7 +67,7 @@ rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/
 #+end_src
 Then I run magit after.
 * Donate
-If you like anything that I do, donate! But [[file:./crypto.org][should you use cryptocurrency]]? Should
+If you like anything that I do, donate! But [[file:blog/crypto.org][should you use cryptocurrency]]? Should
 it be used as a means of exchange? Probably not, but it's cool and free for me to do so here you go:
 ** XMR
 An anonymous form of ecash, the only one out of these that is actually being used for the purpose

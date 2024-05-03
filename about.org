@@ -30,9 +30,9 @@ Some might know me as ret2pop, some as Preston Pan, and others as LiCoO2.
 ** Contact
 Here are all the methods you should use to contact me:
 *** IRC
+- ret2pop on nullring.xyz, 6697. Go to #nullring; this channel is the most active, probably.
 - ret2pop on libera.chat
   - Note: I will not always be online and I don't use a bouncer on this server. Email me to coordinate a time if you really need to reach me this way.
-- ret2pop on nullring.xyz, 6697
 *** Matrix
 contact me on matrix at ~ret2pop:social.nullring.xyz~.
 *** Email

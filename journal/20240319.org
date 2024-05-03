@@ -1,0 +1,29 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Tuesday, 19 March 2024
+** 17:02 
+Just took mushrooms (by which I mean I ate some delicious mushrooms as a part of a balanced meal),
+and I played some piano and it was fun. I am with Ainslie and Howard and Jude (not right now though).
+I am, however, with them temporally by which I mean we were in this room 2 hours ago.
+
+Amazing!
+** 18:05
+What's particularly interesting as an observation is that I seem to have incorporated another person into every
+part of my life, and that's kind of weird. I don't really know what that means for my existence, and I am trying
+desparately to figure out. That's kind of what I'm trying to figure out I guess.
+
+Actually, a lot of things are quite confusing. I don't really know why they happen, and I seem to have a lot
+of different disparate parts of myself that I can connect to in order to create this statement. In a lot of ways,
+things are pretty confusing. I'd probably like there to be something, someone, to tell me what I have to do
+in the next day or maybe week. But nobody can really do that, so I just have to figure out what I am doing myself.
+
+I live inside my own head a lot, because sometimes it's hard to tell the difference between the physical places and the
+types of mindstates that I used to be in. In some ways, they are pretty much the same.
+
+This is literally just me thinking about stuff. I have generated 29 lines of just me thinking, wow.

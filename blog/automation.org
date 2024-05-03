@@ -1,0 +1,127 @@
+#+title: Automation, Hypocrisy, and Capitalism
+#+author: Preston Pan
+#+description: Is automation taking jobs? Is capitalism causing all the world's problems?
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
+* Introduction
+Many people talk of automation in a negative light when it comes to their jobs. I believe that this
+is a fallacy, and that we should seek to automate as many useful jobs away as possible. Now, I can't
+really change anything about the way things are currently run and I can't really change public opinion,
+either, but if you are here with an open mind and believe automation is taking away useful jobs from workers
+or believe have a strong fixation on the material conditions of workers after jobs have been automated,
+this will be for you. However, I will also try to articulate my views on production in general, as well
+as an outline of why I believe that the profit motive is a good thing.
+** On Production
+It is no question that specialization has caused much wealth to be generated. It is my opinion that this is a good
+thing, and if you do not believe this is a good thing, I have bad news for you: you're outnumbered. However, good
+for you. And if you actually do believe we should go back to disease, hunger, and base subsistance, then this
+writing is /not/ for you. Otherwise, we shall agree that technological progress is a /good/ thing. Right?
+
+Now, then, we shall proceed. Because specialization is what generates these living conditions, we should seek to maximize
+the extent to which we specialize, at least with respect to non-hobby jobs. If everyone takes a cut of the work that
+the global production system needs, then everyone wins out, because commodity transfer is made easy with /money/. This
+volume of trade, GDP, ensures that resources are optimally distributed, because trades are beneficial for both parties.
+If a lot of /mutually valuable/ trades happen, then the world becomes richer without production. In a sense,
+/trade/ optimizes for a lack of waste, or at least, an optimal usage of resources over time.
+
+So the aggregation of mutually beneficial agreements is what makes up an economy, and mutually beneficial trades are often
+equivalent to /voluntary/ trades. There are many cases in which that is /not/ true, but for the sake of this simplified
+model, we shall assume it to be so.
+
+Then, what happens to an automated job? Yes, that job replaces a job that used to exist. However, if the price signals
+dicate that it is /profitable/ for that job to be automated, that means that it /uses less resources/. Wait, how can
+using a /machine/, which takes so long to assemble and makes so much waste, /use less resources?/
+
+Well, that's a good question, and it's not strictly true. But since /one/ machine can replace /thousands of jobs/,
+it means that the economic cost of trades that occur in a chain end up being less for all parties than hiring the workers
+to do the job. Now, there is a global warming component to it, but that could theoretically be priced in with a carbon tax.
+
+Okay then, so having a machine doing the job is more /efficient/ than the workers doing the job given that the price is
+lower. But what about all the workers? Well, remember what I said about specialization? There are a /lot/ of consumers,
+and /not a lot/ of workers in any given industry. So, in order to scale, we should make it so that /everyone/ does a little
+bit of the job in order for /everyone/ to benefit. Same principle applied here, in order to scale, we should value the prices
+that /consumers/ pay much more than /workers/. If you /are/ a worker in that industry, the world already priced all the
+/other/ automation into your purchases, so it's not fair that we halt the progression of any one industry arbitrarily.
+
+So, whenever someone complains about automation, /they've/ been profiting off of automation for as long as they've been
+buying things, and they want to stop it in /their/ industry for some arbitrary reason. The effects of automation on
+consumers is /invisible/, whereas the effect is /visible/ on producers. Since I want to be better off on average, I would
+like to see automation in /as many/ useful industries as possible.
+
+** An Extended Explanation of Global Warming
+This is an externality, not priced in by the market because the transaction harms a third party that did not agree to the
+trade happening. Thus, we cannot accurately price pollution beccause /nobody owns air/, and therefore nobody can take
+accountability for polluting it. Therefore, a carbon tax roughly equal to the problems caused by pollution is in order.
+This applies to all externalities, positive and negative, where voluntary actions between people end up having consequences
+on a third party that did not agree to the transaction.
+
+* Why we Can't Just Stop at our Current Technological Level
+Continuing our trend of technological progress is required for several things, as I will talk about in these sections.
+** Stock Derivatives
+Most of the world runs on a private equity system, and this is probably not going anywhere. A lot of credit is tied
+in the expectation of technological advancement. What's more, people /want/ technological advancement because it makes
+life easier. This translates to people betting on its advancement, which means a /lot/ of money is at stake when we talk
+about automation. This is not even a bad thing as investments are needed in order to drive innovation in these sectors.
+
+So if we just halted progress tomorrow, the economy would just vanish with it because all those derivatives would be worth
+/zero/. Retirement funds, private banks and hedge fund institutions, everything would go down the shitter. And don't think
+/you/ wouldn't also go down the shitter with it, because you /would/. Less credit means less investment which means less
+credit which means less investment... and then a debt spiral. You could stop this for a while by printing /a lot/ of money,
+but we would /waste/ a lot of resources, because all that capital that went into automation would suddenly vanish, instead
+of being used for something more short term. Needless to say, we probably don't want that to happen.
+
+Well, it /could/ also be a gradual process, but I have one question: /why/? We could live ever more comfortably, ever more
+well, and it would be extremely popular to continue advancing. We have outer space to discover, and new physics to discover
+as well, which requires industrialization. It's really cool, so in my opinion, we should continue.
+** Exploitation of Third World Countries
+If you want to create more wealth so that everyone can have nice things, you need to /produce/ things, hence you are talking
+about a problem of /efficiency/ and /resource allocation/ yet again, /not/ a problem of morals. If you want to help people
+who are in need, we must make it in everyones' best interests to work together and improve everyone's living conditions
+by making trades with third world countries that benefit both parties. Factors such as corruption will be unprofitable in
+the long term.
+
+It is the case that we have abundance here in the first world, but that wealth can't be /exported/ cheaply. A very effective
+way that has been done is by outsourcing labor and companies engaging in foreign investment, but shipping over supplies
+itself /consumes/ supplies, and we want to create incentives to distribute things because we want those methods of
+distribution to be sustainable for us. Hence, exporting excess wealth will not work in the long run.
+
+*** Exploitation by Keeping Third Word Countries as Slaves
+This is a common argument that is often made in order to deter the commercialization and commodification of resources
+in many countries. The argument goes as follows: the fact that both parties have a choice doesn't matter because one
+country is exploiting another's permanently weaker position in order to make the trade much more beneficial for us
+than for them, and in the long term, it would benefit both parties more to give aid because redistribution creates
+externalities in society that are positive. Let us investigate these claims.
+
+First of all, we have a living counterexample to the first claim: China. China was a desparately poor country, and
+embracing relatively lax foreign investment law lead to its large labour force getting put to work. But this very fact
+that Chinese workers were being put to work by foreign multinational corporations was not a factor that lead to their
+permanent subjugation. Much the opposite: these workers became productive, and wealth was generated for foreign countries,
+as well as China itself. They did not need foreign aid in order to continue industrializing, and we see in many of the
+east Asian countries this story repeats itself, sometimes with government investments, sometimes with private investment,
+but always with the intention of the USA making a profit. Would these countries rather close their borders, close off
+capital, and remain isolationist, resisting the so-called expoitation by a foreign power?
+
+It remains clear that the idea that countries that are utilized for labor or capital is somehow exploitation is quite
+bogus. It's clear in practice, but in theory, what is happening is simply that it's not profitable for companies and
+governments to continue exporting labour without also exporting the capital and infrastructure required for labour to
+become productive. And that is simply what correlates to a rise in living conditions: if people don't have roads, it
+is as bad for a company that needs workers to be on time as it is for the common person driving to the grocery store.
+
+What's more, these third world countries might even be disproportionally benefited by foreign involvement. Most of the
+capital generated today is in intellectual property, something that can be exported very easily. Technologies that are
+already developed by industrial giants need only be sold to poorer countries, and they need not develop such technologies
+themselves, which is an economic boon for themselves, and also the person selling such products in question. For example,
+third world countries need not develop their own methods of scaling, as the problem has already been solved by others.
+
+Not to mention the fact that even if /none of this were true/, making people within your country poorer for the purpose
+of helping others that they don't know would never gain popular support. Therefore, the best way we know of to help
+foreign countries is clear: we need to employ economies of scale in as many countries as we can to meet consumer demand.
