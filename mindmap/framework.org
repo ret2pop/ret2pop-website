@@ -1,0 +1,38 @@
+:PROPERTIES:
+:ID:       6d8c8bcc-58b0-4267-8035-81b3bf753505
+:END:
+#+title: framework
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+Frameworks are an essential thing to understand are fundamental to how we work, and this statement will
+never be contradicted. The main [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][two]] hallmarks of a framework are as follows:
+1. the framework has a set of axioms i.e. statements that are taken as a given.
+2. the framework can use some form of pseudo-logical deduction in order to reach conclusions.
+Note that this sounds a lot like [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][mathematics]]. Indeed, mathematics is an instantiation of a framework, but there
+are other frameworks as well. Mathematics is a framework detached from reality, and we often develop mathematics
+in order to fit those mathematical models to reality. Mathematical frameworks aren't wrong or right, they're contradictory
+or logical (i.e. they either degenerate into principle of explosion or they are logically consistent). In other words,
+a theory or framework can be independent of reality.
+
+Applying mathematical models to reality are a statement about that particular system you are modelling i.e. you are
+supposedly applying said mathematical model because there is some belief that reality conforms to whatever axioms
+the mathematical model has. General mathematical models tend to model more things, but the axioms are weaker, meaning
+the predictions of said models are also weaker. Adding additional assumptions to models generally makes those predictions
+stronger.
+
+Of course, there are other ways to model things as well other than with mathematics; one can also use the framework of
+word-based logical reasoning in order to make models. This mindmap utilizes this kind of modelling to a great extent,
+and this very article is an instantiation of word-based logical reasoning. In this mindmap, the same model will be used
+in order to model many things, leading to a fine structure.
+** Perscription and Description
+Perscriptive models tend to make value judgements about a particular system, meaning they in general view agents of
+said system as responsible and non-deterministic agents, whereas descriptive models in general view agents of said system
+to be deterministic and not able to be self aware. In other words, perscription is where "thinking" ends and where
+"action" begins. Adding more levels of determinism to the model tend to make it more descriptive of reality (this is
+an emperical statement, and not a theoretical one).
+** Metaframeworks
+This article is a metaframework, another instantiation of [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursion]]. Metaframeworks are also frameworks.

@@ -1,0 +1,30 @@
+:PROPERTIES:
+:ID:       f4d70abf-242c-41b7-b0dd-d7f1813cfb33
+:END:
+#+title: philosophy
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+Philosophy is a hard to describe term, but this mindmap defines this term as the study of living life optimally. We use
+this definition to ground meta-ethical frameworks in [[id:326eb3f8-680a-432c-bf69-42ba4d366116][egoism]], which gives meaning to perscriptive ethical statements (which
+this mindmap holds there is regularly no meaning to in the colloquial sense). This mindmap defines an ethical statement
+such as "it is wrong to do x" as a statement which says, "it maximizes utility for your own life if not x". Of course,
+because it is an emperically justified statement to say that most people act the same, this can ground commonly held
+moral beliefs. There are several possible refutations to this point of view, but this mindmap maintains that refutations
+to this point of view usually appeal to some feeling of wrongness rather than being definitionally inconsistent, which
+is again an instantiation of this point of view (to argue moral truths from a point of view of a feeling of wrongness is
+an instantiation or a confirmation of this point of view).
+
+For instance, one possible counterargument that is brought up involves the fact that this theory equates preferences to
+moral statements. "I prefer red" and "x is morally right" indeed /feel/ like two separate things. This mindmap maintains
+that they are two different things in many senses, but that the fundamental assertion of these two statements is the same.
+It is just a different kind of emotion, but there is no underlying fact of the matter that one can point to with regards
+to moral theory.
+
+Note that there are several arguments that facts are treated on a separate footing to moral theory under such a framework.
+Indeed it is true that this mindmap will rest on some emperical facts, but this mindmap maintains that doing this is a
+perfectly internally consistent and descriptive standpoint. From here on, we will use ethical and moral statements as
+a description of people, rather than a description of some real moral fact.

@@ -1,0 +1,38 @@
+#+title: Representative Voting
+#+author: Preston Pan
+#+description: What do we do about voter turnout? Voting demographics? Polarization?
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
+* Introduction
+Current voting systems are broken, and people argue about ways to solve it. Many talk about about ranked-choice
+voting or other ballot-systems, but I argue that the real problem in voting has to do with game theory principles.
+In this article I endorse a system that has been tried out before, but has been forgotten: /random representation/. I
+argue that it has game theoretic foundations that make it superior to other kinds of voting systems.
+
+** The Model
+Let us assume that there is a small probability that you can swing the election $$ \rho $$, and a cost to voting; that
+is to say, it takes some amount of time, which has opportunity cost associated with it to vote, which we
+will call $$ \alpha $$. Let us assume that there is a high /reward/ in swinging the vote; that is to say, if you were
+the one that swings the vote, your vote is worth some high monetary value. Let $$ \beta $$ be the median price of swinging.
+Let $$ n $$ be the number of people voting, and let the weight of each vote be equal between all participants.
+Let the choice of candidate between all voters be binary; voting for one candidate mutually excludes you from
+voting for another, and there are two candidates (this is to simply the model; you will see that this does not
+lose generality). Then, let us model the expected value of voting for singular individuals.
+
+For a given person, the probability that your vote swings (or at least ties) depends on the probability that
+$$ x = \frac{n - 1}{2} $$, where $ x $$ is the number of people that vote for your candidate. The probability
+density function for the probability that $$ m $$ people vote for your candidate we'll call $$ f $$. We will assume
+it is binomial, and you might expect it to be closer to 50/50 most of the time, but that is pretty hard to model.
+We will therefore compensate by modeling it more accurately afterwards. For now, we assume all participants have
+a 50% chance to pick either candidate.
+\begin{align*}
+\end{align*}

@@ -30,6 +30,8 @@ and you have to omit details. However, I think this is a pretty reasonable
 attempt at doing so and you will soon notice that the frameworks that I
 am presenting can in fact be used to explain the article itself, albeit
 in a somewhat contradictory way.
+** Isn't this just another Framework?
+Yes. In fact, I have a page about [[id:6d8c8bcc-58b0-4267-8035-81b3bf753505][frameworks]]!
 * Something
 I linked them above, but if you want to read about something that is not
 everything, go here:

@@ -15,8 +15,7 @@
 
 * Webrings
 This website is a part of these webrings:
-
-[[https://baccyflap.com][<]] [[https://nullring.xyz][nullring]] [[https://pen15.agency][>]]
+[[https://tommi.space][<]] [[https://nullring.xyz][nullring]] [[https://pen15.agency][>]]
 
 * About Me
 ** whoami?

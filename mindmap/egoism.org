@@ -1,0 +1,28 @@
+:PROPERTIES:
+:ID:       326eb3f8-680a-432c-bf69-42ba4d366116
+:END:
+#+title: egoism
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+Egoism, broadly defined, is the philosophical view that one should maximize for their own utility function, or well-being,
+or self-satisfaction, etc..., whatever you want to call it. The general statement is that there is some value one would
+want to maximize for themselves. This philosophical view is a metaethical view in general but can be applied descriptively.
+* Descriptively
+In economics, homo-econimus is a kind of idealized economic agent that maximizes for their own economic value. Descriptive
+egoism is in a sense the statement that people tend to maximize for some utility function. In a sense, there are many games
+that people can play, and economics is just one of them; there's homo-politicus, homo-vitamus, and many other games that
+agents try to play. Descriptive egoism is the descriptive formulation of a utility function that people have in-built,
+and a statement that people tend to play according to said utility functions with generalized rational expectations.
+* Perscriptively
+The perscriptive egoism is a meta-ethical framework that simply asserts that one should act in their own self interest.
+Self interest is a loosely defined term that is subjective to the individual.
+* Critisisms
+Often many will point out the fact that it is a circular system, that it has no descriptive power because one can formulate
+anything in terms of an egoist outlook. Therefore, while one can accept or deny the validity of egoism, the [[id:6d8c8bcc-58b0-4267-8035-81b3bf753505][framework]] of
+egoism has weak axioms and it is therefore possible to formulate many sub-philosophies that are compatible with egoism.
+(Meta-comment: I would describe myself as someone that formulates sub-philosophies inscribed within the egoist framework,
+and I would myself describe my own views in an egoist manner).

@@ -56,17 +56,17 @@ By definition of electromagnetic induction (and to make Ampere's law consistent 
 \vec{\nabla} \times \vec{E} = - \frac{\partial\vec{B}}{\partial t}
 \end{align*}
 Instead of assuming induction as an axiom, it is possible to fix Ampere's equation with the [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] first, and then
-assume Lorentz symmetry. This explanation is a work in progress.
+assume Lorentz Covariance. This explanation is a work in progress.
 * Implications
 Maxwell's Equations can be used to calculate all electromagnetic phenomena on the macro scale all the way down to the atom.
 In practice, solving Maxwell's Equations can be analytically impossible, so several simplifying assumptions are often made.
 To recap, these are the four equations:
-\begin{align*}
+\begin{align}
 \vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilon_{0}} \\
 \vec{\nabla} \times \vec{E} = -\frac{\partial\vec{B}}{\partial t} \\
 \vec{\nabla} \cdot \vec{B} = 0 \\
 \vec{\nabla} \times \vec{B} = \mu_{0}\vec{J} + \mu_{0}\epsilon_{0}\frac{\partial\vec{E}}{\partial t}
-\end{align*}
+\end{align}
 * Speed of Light
 Maxwell's Equations can be shown to reproduce the speed of light in a vacuum, where:
 \begin{align*}
@@ -76,3 +76,31 @@ Maxwell's Equations can be shown to reproduce the speed of light in a vacuum, wh
 It is known that Maxwell's Equations are consistent with [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]] and can be expressed
 in terms of curved spacetime. In fact, if relativity is taken as an axiom, it can be proven that the electric
 and magnetic fields are descriptions of the same phenomena; this can be taken as a specific example of a [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]].
+The result is a Lorentz Invariant theory of Electromagnetism.
+** Relativistic Electrodynamics
+The [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] has a Lorentz Invariant counterpart. We unify the charge density and the current density
+under a four-vector quantity ~j~:
+\begin{align*}
+j = (\rho , J)
+\end{align*}
+Where ~J~ is the current density, and $$ \rho $$ is the charge density. The continuity equation can be reformulated
+like so:
+\begin{align*}
+\partial_{\alpha} j^{\alpha} = 0
+\end{align*}
+Likewise, the electric scalar potential and the magnetic vector potential create an invariant four-vector:
+\begin{align*}
+a = (V, A)
+\end{align*}
+We notice that Gauss' Law:
+\begin{align*}
+\nabla^{2} V = \frac{\rho}{\epsilon_{0}}
+\end{align*}
+needs a more general formulation, as the potential and the charge density need to be replaced with Lorentz Invariant
+quantities. We then use Ampere's law:
+\begin{align}
+\vec{\nabla} \times \vec{\nabla} \times \vec{A} = \mu_{0}\vec{J} + \mu_{0}\epsilon_{0}\frac{\partial(\nabla V)}{\partial t} \\
+\vec{\nabla} \cdot \vec{\nabla} \times \vec{\nabla} \times \vec{A} = \nabla \cdot \mu_{0}\vec{J} + \mu_{0}\epsilon_{0}\frac{\partial(\nabla^{2} V)}{\partial t} \\
+\vec{\nabla} \cdot \vec{\nabla} \times \vec{\nabla} \times \vec{A} = \mu_{0} \nabla\cdot\vec{J} + \mu_{0}\frac{\partial\rho}{\partial t} \\
+\vec{\nabla} \cdot \vec{\nabla} \times \vec{\nabla} \times \vec{A} = \mu_{0} (\nabla\cdot\vec{J} + \frac{\partial\rho}{\partial t}) \\
+\end{align}

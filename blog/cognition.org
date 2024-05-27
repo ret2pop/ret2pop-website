@@ -12,16 +12,6 @@
 #+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
 #+language: en
 #+OPTIONS: broken-links:t
-
-* Introduction
-Cognition is an active research project that Matthew Hinton and I have been working on for the past
-couple of months. Although my commit history for [[https://github.com/metacrank/cognition][this project]] has not been impressive, we came up with
-a lot of the theory together, working alongside each other in order to achieve one of the most generalized
-systems of syntax we know of. Let's take a look at the conceptual reason why cognition needs to exist, as
-well as some /baremetal cognition/ code (you'll see what I mean by this later). There's a paper about this language
-available about the language in the repository, for those interested. Understanding cognition might require a
-lot of background in parsing, tokenization, and syntax, but I've done my best to write this in a very understandable way.
-The repository is available at https://github.com/metacrank/cognition, for your information.
 * The problem
 Lisp programmers claim that their system of s-expression code in addition to its featureful macro system makes it a
 metaprogrammable and generalized system. This is of course true, but there's something very broken with lisp: metaprogramming
@@ -45,6 +35,18 @@ but it is not /runtime dynamic/. It still utilizes preprocessing.
 
 So, what's the percise solution to this connundrum? Well, it's beautiful; but it requires some /cognition/.
 
+* Introduction
+Cognition is an active research project that Matthew Hinton and I have been working on for the past
+couple of months. Although my commit history for [[https://github.com/metacrank/cognition][this project]] has not been impressive, we came up with
+a lot of the theory together, working alongside each other in order to achieve one of the most generalized
+systems of syntax we know of. Let's take a look at the conceptual reason why cognition needs to exist, as
+well as some /baremetal cognition/ code (you'll see what I mean by this later). There's a paper about this language
+available about the language in the repository, for those interested. Understanding cognition might require a
+lot of background in parsing, tokenization, and syntax, but I've done my best to write this in a very understandable way.
+The repository is available at https://github.com/metacrank/cognition, for your information.
+
+#+CAPTION: The Cognition programming language, logo designed by Matthew Hinton
+[[file:img/coglogo.png]]
 * Baremetal Cognition
 Baremetal cognition has a couple of perculiar attributes, and it is remarkably like the /Brainfuck/ programming language.
 But unlike its look-alike, it has the ability to do some /serious metaprogramming/. Let's take a look at what the
@@ -55,7 +57,8 @@ df
  
 dfiff1 crank f
 #+end_example
-And *do* note the whitespace (line 2 has a whitespace after df, and the newlines matter). Erm, okay. What?
+And *do* note the whitespace (line 2 has a whitespace after df, line 3 has a whitespace, and the newlines matter).
+Erm, okay. What?
 
 So, our goal in this post is to get from a syntax that looks like /that/ to a syntax that looks like [[file:stem.org][Stem]].
 But how on earth does this piece of code even work? Well, we have to introduce two new ideas: delimiters, and ignores.
@@ -255,9 +258,9 @@ per token, where lower metacranks get priority. This means that if you set two d
 can execute per token tokenized, and the lower metacrank gets priority. Note that metacrank and, by extension, crank,
 don't /just/ depend on tokenized words; they also work while evaluating word definitions recursively, meaning if a word
 is evaluated in ~2 crank~, one out of two words will execute in each level of the evaluation tree. You can play around
-with this in the repl to get a sense of how it works: run ~../crank bootstrap.cog repl.cog devel.cog load~, and use stem
-like syntax in order to define a function. Then, run that function in ~2 crank~. You will see how the evaluation tree
-respects cranking in the same way that the program file itself does.
+with this in the repl to get a sense of how it works: run ~../crank bootstrap.cog repl.cog devel.cog load~
+in the coglib folder, and use stem like syntax in order to define a function. Then, run that function in ~2 crank~.
+You will see how the evaluation tree respects cranking in the same way that the program file itself does.
 
 Metacrank allows for not only metaprogramming in the form of code building, but also
 direct syntax manipulation (i.e. /I want to execute this token once I have read n other token(s)/). The advantages to
@@ -332,7 +335,13 @@ With the information above, one can work out the specifics of how it works; the 
 that it does by going into the ~coglib~ folder and running ~../crank bootstrap.cog repl.cog devel.cog load~, which will load
 the REPL and load ~devel.cog~, which will in turn load ~comment.cog~.
 ** The Great Escape
-Here we define a preliminary prefix escape character:
+Here, we accelerate our way out of this primitive syntax, and it all starts with the great escape character. We make
+many great leaps in this section that aren't entirely explained for the sake of brevity, but you are free to play around
+with all of these things by using the repl. In any case, I hope you will enjoy this great leap in syntax technology; by
+the end, we will have reached something with real /structure/.
+
+Here we define a preliminary prefix escape character. Also you will notice that ~2crank ing 0 crank~ is used as
+padding between lines:
 #+begin_example
 2crank ing 2 crank comment.cog load
 2crank ing 0 crank
@@ -579,4 +588,4 @@ You can imagine cognition can program basically any syntax you would want, and i
 of the already existing code that makes cognition work. In short, the system allows for true /syntax as code/, as my
 friend Andrei put it; one can /dynamically program/ and even /automate/ the production of syntax. In this article, we
 didn't have the space to cover other important Cognition concepts like the /Metastack/ and words like ~cd~, but this
-can be done in a part 2 of this blog post.
+can be done in a part 2 of this blog post. For now, let's leave off here, and we can meet here once more for a /part two/.
