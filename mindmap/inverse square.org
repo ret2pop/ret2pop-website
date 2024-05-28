@@ -18,7 +18,7 @@ and many of which inherit from the definition of a [[id:c1e836e3-a80c-459d-8b68-
 5. The force works in the same way no matter where in the universe you are.
 
 We will call our mysterious force field \(\vec{f(\vec{r})}\). We also want to consider two particles, and for simplicity we can say these
-particles have no volume, so they are just points. These point particles we will call \(P_{1)}\) and \(P_{2}\). For simplicity, we will also
+particles have no volume, so they are just points. These point particles we will call \(P_{1}\) and \(P_{2}\). For simplicity, we will also
 consider two dimensions instead of three, realizing that generalizing to arbitrary dimensions in euclidean space is trivial in this case.
 Now, the direction of force must be solely dependent on the orientation of the other particle, which follows from property 4.
 We call this direction \(\hat{r}\) and the distance between them \(r\); the vector that represents the direction and the distance together
