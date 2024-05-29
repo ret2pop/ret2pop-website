@@ -1,0 +1,84 @@
+:PROPERTIES:
+:ID:       6dbe2931-cc18-48fc-8cc1-6c71935a6be3
+:END:
+#+title: LRC circuit
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+LRC circuits are equivalent to mass-spring oscillation systems in terms of the differential equation generated. In other
+words, they are an example of a wave generator. First we introduce the LRC circuit without a voltage source. Later,
+another circuit diagram will include a possibly variable voltage source.
+#+name: LRC Circuit
+#+header: :exports results :file lrc_circuit.png 
+#+header: :imagemagick yes :iminoptions -density 600 :imoutoptions -geometry 400 
+#+header: :fit yes :noweb yes :headers '("\\usepackage{circuitikz}")
+#+begin_src latex :exports results :file 
+    \documentclass{article}
+    \usepackage{circuitikz}
+    \begin{document}
+    \begin{center}
+    \begin{circuitikz} \draw
+    (0,0) to[resistor, l=\mbox{$R$}] (0,4)
+      to[inductor, l=\mbox{$L$}] (4,4)
+      to[capacitor, l=\mbox{$C$}] (4,0)
+      (4,0) -- (0,0)
+      (2,0) -- (2,-1)
+      to (2, -1) node[shape=ground]{};
+    \end{circuitikz}
+    \end{center}
+    \end{document}
+#+end_src
+
+#+RESULTS: LRC Circuit
+#+begin_export latex
+#+end_export
+
+* Mass-Spring Equation Equivalence
+We know these relations for the given circuit elements above:
+\begin{align}
+v(t) = L\frac{di}{dt} \\
+i(t) = C\frac{dv}{dt} \\
+v = iR
+\end{align}
+if we analyze the current current signal, Kirchhoff's voltage law tells us that the total voltage
+drop throughout this circuit is zero. We use the capacitor equation in integral form and sum the voltages:
+\begin{align*}
+L\frac{di}{dt} + \frac{1}{C}\int i(t)dt + iR = 0
+\end{align*}
+We then take a derivative to remove the integral:
+\begin{align*}
+L\frac{d^{2}i}{dt^{2}} + R\frac{di}{dt} + \frac{1}{C}i = 0 \\
+(LD^{2} + RD + \frac{1}{C}) i(t) = 0
+\end{align*}
+it is clear that the characteristic polynomial of this homogeneous linear differential equation is:
+\begin{align*}
+L\lambda^{2} + R\lambda + \frac{1}{C} = 0
+\end{align*}
+which, utilizing the quadratic formula, has the solutions:
+\begin{align*}
+\lambda_{1} = \frac{-R + \sqrt{R^{2} - \frac{4L}{C}}}{2L},
+\lambda_{2} = \frac{-R - \sqrt{R^{2} - \frac{4L}{C}}}{2L}
+\end{align*}
+which implies the general solution to this differential equation is:
+\begin{align*}
+i(t) = \sum_{n=0}^{\infty} A_{n}e^{\lambda_{1} t} + B_{n}e^{\lambda_{2} t}
+\end{align*}
+We can make this nicer by setting $-\frac{R}{2L} = m$, $\frac{\sqrt{R^{2} - \frac{4L}{C}}}{2L} = p$,
+then $\lambda_{1} = m + p$, $\lambda_{2} = m - p$. Then:
+\begin{align*}
+i(t) = \sum_{n=0}^{\infty} A_{n}e^{(m + p) t} + B_{n}e^{(m - p) t} \\
+i(t) = e^{m}(\sum_{n=0}^{\infty} A_{n}e^{pt} + B_{n}e^{-pt})
+\end{align*}
+Then we can just recast our notation for the constants $A_{n}$ and $B_{n}$ to include this $e^{m}$ term:
+\begin{align*}
+i(t) = \sum_{n=0}^{\infty} A_{n}e^{pt} + B_{n}e^{-pt}
+\end{align*}
+** Dampened Oscillation
+In the case $R^{2} < \frac{4L}{C}$, $p = i\frac{\sqrt{\sigma}}{2L}$ for some $\sigma > 0$. We re-case $\lambda = \frac{\sqrt{\sigma}}{2L}$ so $p = i\lambda$. Then:
+\begin{align*}
+i(t) = \sum_{n=0}^{\infty} A_{n}e^{i\lambda t} + B_{n}e^{-i\lambda t}
+\end{align*}

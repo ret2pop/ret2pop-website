@@ -124,6 +124,7 @@ Otherwise, just insert the typed character."
     '(
 	(shell . t)
 	(python . t)
+	(latex . t)
     )
 )
 

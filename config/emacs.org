@@ -162,6 +162,7 @@ For some reason, org-babel doesn't load these languages by default:
       '(
 	  (shell . t)
 	  (python . t)
+	  (latex . t)
       )
   )
 #+end_src
