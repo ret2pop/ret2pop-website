@@ -338,16 +338,25 @@ Otherwise, just insert the typed character."
           (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
 
 (use-package org-roam
-  :init
-  (setq org-roam-db-update-on-save t)
-  (setq org-roam-graph-viewer "firefox")
-  (setq org-roam-directory (file-truename "~/org/website/mindmap"))
-  (setq org-roam-capture-templates '(("d" "default" plain "%?"
-  :target (file+head "${title}.org"
-       "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
-    :unnarrowed t)))
-  :config
-  (org-roam-db-autosync-mode))
+    :init
+    (setq org-roam-db-update-on-save t)
+    (setq org-roam-graph-viewer "chromium")
+    (setq org-roam-directory (file-truename "~/org/website/mindmap"))
+    (setq org-roam-capture-templates '(("d" "default" plain "%?"
+    :target (file+head "${title}.org"
+	 "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
+      :unnarrowed t)))
+    :config
+    (org-roam-db-autosync-mode))
+
+(use-package org-roam-ui
+    :after org-roam
+    :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+	  org-roam-ui-follow t
+	  org-roam-ui-update-on-save t
+	  org-roam-ui-open-on-start t))
 
 (use-package pinentry
   :init (setq epa-pinentry-mode `loopback)

@@ -26,7 +26,7 @@ The divergence of the magnetic field is the same as in [[id:5c36d0f1-06ad-436a-a
 \vec{\nabla} \cdot \vec{B} = 0
 \end{align*}
 ** Ampere's Law with Modifications
-The [[id:5c36d0f1-06ad-436a-a56f-5ecc198b9b3e][magnetostatic]] magnetic field is given by the Bio-Savart Law, which can be derived from [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]] and [[id:5388f4e8-7bb8-452e-b997-fe9892aefcf3][Coulomb's Law]]:
+The [[id:5c36d0f1-06ad-436a-a56f-5ecc198b9b3e][magnetostatic]] magnetic field is given by the Bio-Savart Law:
 \begin{align*}
 \vec{B} = \frac{\mu_{0}}{4\pi}\int_{V}\frac{\vec{J} \times \hat{r}}{r^{2}}d\tau
 \end{align*}
@@ -56,7 +56,8 @@ By definition of electromagnetic induction (and to make Ampere's law consistent 
 \vec{\nabla} \times \vec{E} = - \frac{\partial\vec{B}}{\partial t}
 \end{align*}
 Instead of assuming induction as an axiom, it is possible to fix Ampere's equation with the [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] first, and then
-assume Lorentz Covariance. This explanation is a work in progress.
+assume Lorentz Covariance. This explanation is a work in progress. Though, a possible explanation is through the fact
+that this is the simplest way for Maxwell's equation to describe waves in a vacuum.
 * Implications
 Maxwell's Equations can be used to calculate all electromagnetic phenomena on the macro scale all the way down to the atom.
 In practice, solving Maxwell's Equations can be analytically impossible, so several simplifying assumptions are often made.
@@ -77,30 +78,88 @@ It is known that Maxwell's Equations are consistent with [[id:e38d94f2-8332-4811
 in terms of curved spacetime. In fact, if relativity is taken as an axiom, it can be proven that the electric
 and magnetic fields are descriptions of the same phenomena; this can be taken as a specific example of a [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][duality]].
 The result is a Lorentz Invariant theory of Electromagnetism.
-** Relativistic Electrodynamics
-The [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] has a Lorentz Invariant counterpart. We unify the charge density and the current density
-under a four-vector quantity ~j~:
-\begin{align*}
-j = (\rho , J)
-\end{align*}
-Where ~J~ is the current density, and $$ \rho $$ is the charge density. The continuity equation can be reformulated
-like so:
-\begin{align*}
-\partial_{\alpha} j^{\alpha} = 0
-\end{align*}
-Likewise, the electric scalar potential and the magnetic vector potential create an invariant four-vector:
-\begin{align*}
-a = (V, A)
-\end{align*}
-We notice that Gauss' Law:
-\begin{align*}
-\nabla^{2} V = \frac{\rho}{\epsilon_{0}}
-\end{align*}
-needs a more general formulation, as the potential and the charge density need to be replaced with Lorentz Invariant
-quantities. We then use Ampere's law:
+** Gauss-Ampere Equation
+The [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] has a Lorentz Invariant counterpart, as predicted by [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]]. We take a look at
+Maxwell's equations (specifically Gauss' law and Ampere's law) in the uncondensed form:
 \begin{align}
-\vec{\nabla} \times \vec{\nabla} \times \vec{A} = \mu_{0}\vec{J} + \mu_{0}\epsilon_{0}\frac{\partial(\nabla V)}{\partial t} \\
-\vec{\nabla} \cdot \vec{\nabla} \times \vec{\nabla} \times \vec{A} = \nabla \cdot \mu_{0}\vec{J} + \mu_{0}\epsilon_{0}\frac{\partial(\nabla^{2} V)}{\partial t} \\
-\vec{\nabla} \cdot \vec{\nabla} \times \vec{\nabla} \times \vec{A} = \mu_{0} \nabla\cdot\vec{J} + \mu_{0}\frac{\partial\rho}{\partial t} \\
-\vec{\nabla} \cdot \vec{\nabla} \times \vec{\nabla} \times \vec{A} = \mu_{0} (\nabla\cdot\vec{J} + \frac{\partial\rho}{\partial t}) \\
+\partial_{x}E_{x} + \partial_{y}E_{y} + \partial_{z}E_{z} = \frac{\rho}{\epsilon_{0}} \\
+\partial_{x}E_{x} + \partial_{y}E_{y} + \partial_{z}E_{z} = \mu_{0}c^{2}\rho \\
+\frac{1}{c}(\partial_{x}E_{x} + \partial_{y}E_{y} + \partial_{z}E_{z}) = \mu_{0}j_{t}
 \end{align}
+Where $j_{t} = c\rho$. Once we formulate a covariant form of the continuity equation, this will become more clear.
+And now the unexpanded version of Ampere's law:
+\begin{align}
+\partial_{y}E_{z} - \partial_{z}E_{y} = \mu_{0}j_{x} + \frac{1}{c}\partial_{t}E_{x} \\
+\partial_{z}E_{x} - \partial_{x}E_{z}  = \mu_{0}j_{y} + \frac{1}{c}\partial_{t}E_{y} \\
+\partial_{x}E_{y} - \partial_{y}E_{x}  = \mu_{0}j_{z} + \frac{1}{c}\partial_{t}E_{z}
+\end{align}
+(where $\partial_{t} = \frac{1}{c}\frac{\partial}{\partial t}$). We can now construct a 4-dimensional rank-2 tensor equation for these equations:
+\begin{align}
+D \cdot
+\begin{pmatrix}
+0 && \frac{1}{c}E_{x} && \frac{1}{c}E_{y} && \frac{1}{c}E_{z} \\
+-\frac{1}{c}E_{x} && 0 && E_{z} && -E_{y} \\
+-\frac{1}{c}E_{y} && -E_{z} && 0 && E_{x} \\
+-\frac{1}{c}E_{z} && E_{y} && -E_{x} && 0 \\
+\end{pmatrix}
+= \mu_{0}
+\begin{pmatrix}
+j_{t} \\
+j_{x} \\
+j_{y} \\
+j_{z}
+\end{pmatrix}
+\end{align}
+where the right hand side is an emergent four-vector $(c\rho, j)$, and $D$ is an operator that takes the t, x, y,
+and z derivative of each respective column and then sums the rows to make a vector. We can reformulate
+the [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] in terms of this four-vector:
+\begin{align*}
+\vec{\nabla} \cdot \vec{j} = 0
+\end{align*}
+Where $\vec{\nabla}$ in this case represents the del operator but with a forth time dimension.
+If we condense the notation, we can write:
+\begin{align*}
+D \cdot M = \vec{j}
+\end{align*}
+** Gauss-Faraday Equation
+By the same logic, we can use the remaining two equations (the divergence and curl of $B$) to construct this tensor:
+\begin{align}
+D \cdot
+\begin{pmatrix}
+0 && -B_{x} && -B_{y} && -B_{z} \\
+B_{x} && 0 && -B_{z} && B_{y} \\
+B_{y} && B_{z} && 0 && -B_{x} \\
+B_{z} && -B_{y} && B_{x} && 0 \\
+\end{pmatrix}
+= \vec{0}
+\end{align}
+we can write this in compact form:
+\begin{align*}
+D \cdot M' = \vec{0}
+\end{align*}
+$M'$ is the dual tensor of $M$, where all the $E_{n}$ are swapped with $B_{n}$, and it is negative. Note that
+all these tensors are antisymmetric; they are symmetric under reflection across their diagonals and by flipping the signs.
+** Covariant Form
+The covariant form can be reached by gauge-fixing. Gauge fixing is a process wherein we utilize gauge invariance
+(invariance to a scalar addition to a potential) in order to fix a single scalar and remove a redundancy. Remember that
+in [[id:63713308-0ff7-433f-8103-8b64ba9bdbe1][electrostatics]]:
+\begin{align}
+\vec{E} = -\vec{\nabla}V
+\end{align}
+and in [[id:5c36d0f1-06ad-436a-a56f-5ecc198b9b3e][magnetostatics]]:
+\begin{align}
+\vec{B} = \vec{\nabla} \times \vec{A}
+\end{align}
+but in electrodynamics:
+\begin{align}
+\vec{E} = -\vec{\nabla}V - \frac{\partial \vec{A}}{\partial t} \\
+\vec{B} = \vec{\nabla} \times \vec{A}
+\end{align}
+because any [[id:6f2aba40-5c9f-406b-a1fa-13018de55648][conservative force]] field added to $\vec{A}$ preserves the properties of $\vec{B}$ when you take the [[id:b25e0e44-c764-4f0a-a5ad-7f9d79c7660d][curl]].
+You can verify that if we take it for granted that $(\frac{V}{c}, A)$ is covariant, we can formulate the above two tensor
+equations in terms of a single equation:
+\begin{align}
+D \cdot (M + M') = \mu_{0}\vec{j} \\
+\Box A = \mu_{0}\vec{j}
+\end{align}
+where $\Box = \partial^{2}_{t} - \vec{\nabla}$. This single equation is the covariant Maxwell's equation. Truly a beautiful sight.

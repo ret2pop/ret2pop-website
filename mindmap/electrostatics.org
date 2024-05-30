@@ -1,5 +1,5 @@
 :PROPERTIES:
-:ID:       32f0b8b1-17bc-4c91-a824-2f2a3bbbdbd1
+:ID:       63713308-0ff7-433f-8103-8b64ba9bdbe1
 :END:
 #+title: electrostatics
 #+author: Preston Pan
@@ -113,10 +113,16 @@ field:
 \oint\vec{E} \cdot d\vec{l} = \vec{0}
 \end{align*}
 
-* Electrostatic Potentials
+* electrostatic potential
+:PROPERTIES:
+:ID:       951db9ac-3e8b-49a1-b609-2bbb795be834
+:ROAM_ALIASES: "potential difference" voltage
+:END:
 Because \(\vec{E}\) is a [[id:6f2aba40-5c9f-406b-a1fa-13018de55648][conservative field]]:
 \begin{align*}
 \vec{E} = -\vec{\nabla}V \\
 \nabla^{2}V = -\frac{\sigma(\vec{r_{1}})}{\epsilon_{0}} \\
-V(\vec{r}) = \frac{1}{4\pi \epsilon_{0}}\int\frac{\sigma(\vec{r_{2}})}{r}dr
+V(\vec{r}) = -\frac{1}{4\pi \epsilon_{0}}\int\frac{\sigma(\vec{r_{2}})}{r}dr
 \end{align*}
+Note that the difference of two points in the potential scalar field is also known as potential difference
+between those two points, or the voltage between those two points.

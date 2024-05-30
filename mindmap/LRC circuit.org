@@ -9,33 +9,36 @@
 #+options: broken-links:t
 
 * Introduction
-LRC circuits are equivalent to mass-spring oscillation systems in terms of the differential equation generated. In other
+LRC circuits are equivalent to mass-spring oscillation systems in terms of the [[id:4be41e2e-52b9-4cd1-ac4c-7ecb57106692][differential equation]] generated. In other
 words, they are an example of a wave generator. First we introduce the LRC circuit without a voltage source. Later,
 another circuit diagram will include a possibly variable voltage source.
-#+name: LRC Circuit
-#+header: :exports results :file lrc_circuit.png 
+#+name: LRC Circuit Without Voltage Source
+#+header: :exports both :file lrc_circuit.png 
 #+header: :imagemagick yes :iminoptions -density 600 :imoutoptions -geometry 400 
 #+header: :fit yes :noweb yes :headers '("\\usepackage{circuitikz}")
-#+begin_src latex :exports results :file 
+#+begin_src latex :exports both :file 
     \documentclass{article}
     \usepackage{circuitikz}
     \begin{document}
     \begin{center}
     \begin{circuitikz} \draw
-    (0,0) to[resistor, l=\mbox{$R$}] (0,4)
-      to[inductor, l=\mbox{$L$}] (4,4)
-      to[capacitor, l=\mbox{$C$}] (4,0)
-      (4,0) -- (0,0)
-      (2,0) -- (2,-1)
-      to (2, -1) node[shape=ground]{};
+    (0,0) to[resistor, l=\mbox{$R$}] (0,12)
+      to[inductor, l=\mbox{$L$}] (12,12)
+      to[capacitor, l=\mbox{$C$}] (12,0)
+      (12,0) -- (0,0)
+      (6,0) -- (6,-3)
+      to (6, -3) node[shape=ground]{};
     \end{circuitikz}
     \end{center}
     \end{document}
 #+end_src
 
-#+RESULTS: LRC Circuit
+#+RESULTS: LRC Circuit Without Voltage Source
 #+begin_export latex
 #+end_export
+
+#+CAPTION: LRC Circuit without voltage source
+[[./lrc_circuit.png]]
 
 * Mass-Spring Equation Equivalence
 We know these relations for the given circuit elements above:
@@ -44,7 +47,7 @@ v(t) = L\frac{di}{dt} \\
 i(t) = C\frac{dv}{dt} \\
 v = iR
 \end{align}
-if we analyze the current current signal, Kirchhoff's voltage law tells us that the total voltage
+if we analyze the current signal, Kirchhoff's voltage law tells us that the total voltage
 drop throughout this circuit is zero. We use the capacitor equation in integral form and sum the voltages:
 \begin{align*}
 L\frac{di}{dt} + \frac{1}{C}\int i(t)dt + iR = 0
@@ -54,7 +57,7 @@ We then take a derivative to remove the integral:
 L\frac{d^{2}i}{dt^{2}} + R\frac{di}{dt} + \frac{1}{C}i = 0 \\
 (LD^{2} + RD + \frac{1}{C}) i(t) = 0
 \end{align*}
-it is clear that the characteristic polynomial of this homogeneous linear differential equation is:
+it is clear that the characteristic polynomial of this homogeneous linear [[id:4be41e2e-52b9-4cd1-ac4c-7ecb57106692][differential equation]] is:
 \begin{align*}
 L\lambda^{2} + R\lambda + \frac{1}{C} = 0
 \end{align*}
@@ -63,22 +66,56 @@ which, utilizing the quadratic formula, has the solutions:
 \lambda_{1} = \frac{-R + \sqrt{R^{2} - \frac{4L}{C}}}{2L},
 \lambda_{2} = \frac{-R - \sqrt{R^{2} - \frac{4L}{C}}}{2L}
 \end{align*}
-which implies the general solution to this differential equation is:
+which implies the general solution to this [[id:4be41e2e-52b9-4cd1-ac4c-7ecb57106692][differential equation]] is:
 \begin{align*}
-i(t) = \sum_{n=0}^{\infty} A_{n}e^{\lambda_{1} t} + B_{n}e^{\lambda_{2} t}
+i(t) = Ae^{\lambda_{1} t} + Be^{\lambda_{2} t}
 \end{align*}
 We can make this nicer by setting $-\frac{R}{2L} = m$, $\frac{\sqrt{R^{2} - \frac{4L}{C}}}{2L} = p$,
 then $\lambda_{1} = m + p$, $\lambda_{2} = m - p$. Then:
 \begin{align*}
-i(t) = \sum_{n=0}^{\infty} A_{n}e^{(m + p) t} + B_{n}e^{(m - p) t} \\
-i(t) = e^{m}(\sum_{n=0}^{\infty} A_{n}e^{pt} + B_{n}e^{-pt})
+i(t) = Ae^{(m + p) t} + Be^{(m - p) t}
 \end{align*}
-Then we can just recast our notation for the constants $A_{n}$ and $B_{n}$ to include this $e^{m}$ term:
+** Underdampened Oscillation
+In the case $R^{2} < \frac{4L}{C}$, $p = i\frac{\sqrt{\sigma}}{2L}$ for some $\sigma > 0$. We re-cast $\lambda = \frac{\sqrt{\sigma}}{2L}$ so $p = i\lambda$. Then:
 \begin{align*}
-i(t) = \sum_{n=0}^{\infty} A_{n}e^{pt} + B_{n}e^{-pt}
+i(t) = Ae^{m + i\lambda t} + Be^{m -i\lambda t}
 \end{align*}
-** Dampened Oscillation
-In the case $R^{2} < \frac{4L}{C}$, $p = i\frac{\sqrt{\sigma}}{2L}$ for some $\sigma > 0$. We re-case $\lambda = \frac{\sqrt{\sigma}}{2L}$ so $p = i\lambda$. Then:
+This function $i(t)$ clearly describes an sinusoidal oscillation.
+** Critical Oscillation
+In the case $R^{2} - \frac{4L}{C} = 0$, we have:
 \begin{align*}
-i(t) = \sum_{n=0}^{\infty} A_{n}e^{i\lambda t} + B_{n}e^{-i\lambda t}
+i(t) = Ae^{mt} + Be^{mt} = Ce^{mt}
 \end{align*}
+note that this is actually a decaying solution because $m$ must be negative.
+* AC [[id:951db9ac-3e8b-49a1-b609-2bbb795be834][Voltage]] Source
+Here is the circuit diagram for the LRC circuit with a voltage source:
+#+name: LRC Circuit
+#+header: :exports both :file lrc_circuit_source.png 
+#+header: :imagemagick yes :iminoptions -density 600 :imoutoptions -geometry 400 
+#+header: :fit yes :noweb yes :headers '("\\usepackage{circuitikz}")
+#+begin_src latex :exports both :file 
+    \documentclass{article}
+    \usepackage{circuitikz}
+    \begin{document}
+    \begin{center}
+    \begin{circuitikz} \draw
+    (0,0) to[resistor, l=\mbox{$R$}] (0,12)
+      to[inductor, l=\mbox{$L$}] (12,12)
+      to[capacitor, l=\mbox{$C$}] (12,0)
+      (12,0) to[sinusoidal voltage source] (0,0);
+    \end{circuitikz}
+    \end{center}
+    \end{document}
+#+end_src
+
+#+RESULTS: LRC Circuit
+#+begin_export latex
+#+end_export
+
+#+CAPTION: LRC Circuit
+[[./lrc_circuit_source.png]]
+This new [[id:4be41e2e-52b9-4cd1-ac4c-7ecb57106692][differential equation]] looks like this:
+\begin{align*}
+[LD^{2} + RD + \frac{1}{C}]i(t) = V_{0}sin(\phi + 2\pi\omega t)
+\end{align*}
+where the right hand side of the equation includes the term created by the AC [[id:951db9ac-3e8b-49a1-b609-2bbb795be834][voltage]] source.

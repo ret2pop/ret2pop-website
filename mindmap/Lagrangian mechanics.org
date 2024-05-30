@@ -19,7 +19,10 @@ J[f] = \int_{a}^{b}L(t, f(t), f'(t))dt \\
 Defines the actual relationship between $f(t)$ and its level of optimization, where $a$ and $b$ represent the start
 and end points for a certain curve. For example, if you wanted to minimize the surface area of something, $a$ and $b$
 would be the starting and end points of the surface.
-* Euler-Lagrange Equation
+* Euler-Lagrange equation
+:PROPERTIES:
+:ID:       aaba4bf0-3d82-4ede-8cf3-0a1ccddcd376
+:END:
 We first define some function:
 \begin{align*}
 g(t) := f(t) + \epsilon \nu(t)
@@ -69,7 +72,10 @@ must be zero, we get the Euler-Lagrange equation:
 This is because the integral implies that for all selections for this function $\nu(t)$, $\nu(t)(\frac{dL}{df} - \frac{d}{dt}\frac{dL}{dg'}) = 0$. Because $\nu(t)$ can be any
 function assuming it satisfies the boundary conditions, this can only be the case if $\frac{dL}{df} - \frac{d}{dt}\frac{dL}{dg'} = 0$.
 In physics, we re-cast $f$ as $q$ and $f'$ as $\dot{q}$, where $q$ and $\dot{q}$ are the /generalized coordinates/ and /generalized velocities/ respectively.
-* The Hamiltonian
+* Hamiltonian
+:PROPERTIES:
+:ID:       3473dbbe-35b8-4aad-b08f-f02d9929c932
+:END:
 The Hamiltonian represents the total energy in the system; it is the [[id:23df3ba6-ffb2-4805-b678-c5f167b681de][Legendre Transformation]] of the Lagrangian. Applying the Legendre Transformation to the
 Lagrangian for coordinate $\dot{q}$:
 \begin{align*}
