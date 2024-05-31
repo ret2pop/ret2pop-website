@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:       4be41e2e-52b9-4cd1-ac4c-7ecb57106692
+:END:
+#+title: differential equation
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+A differential equation is an equation whose solutions are functions and which incorporate derivatives of the function
+you're solving for. Differential equations often have a family of infinite solutions, where a general solution for
+a differential equation incorporates many particular solutions. Particular solutions to differential equations are specific
+functions, corresponding to a single choice of an initial value problem. Therefore, general solutions tell you how to solve
+initial value problems.
+
+Differential equations are often used to model real world systems, and are the main tool in numerical simulations of said
+systems.
+** ODE
+An ODE is a differential equation involving single variable function solution classes and their derivatives.
+** PDE
+A PDE is a differential equation involving multivariable function solution classes and generally involve partial derivatives
+of the unknown function.
+** initial value problem
+An initial value problem is a problem where one is given a differential equation and particular values of the unknown function
+and particular values of its derivatives, and the result is a particular solution.

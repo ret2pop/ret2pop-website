@@ -1,0 +1,35 @@
+:PROPERTIES:
+:ID:       1d586d6b-bd97-4c59-ad57-8894ae4ac8ba
+:END:
+#+title: Kirchhoff's Laws
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+Kirchhoff's Laws, along with Ohm's law, create the axioms of circuit analysis. The two laws are the Kirchhoff Voltage Law
+(KVL) and Kirchhoff's Current Law (KCL). They can be derived from an approximation of [[id:fde2f257-fa2e-469a-bc20-4d11714a515e][Maxwell's Equations]].
+** KCL
+:PROPERTIES:
+:ID:       9f7e61fa-a6ed-4d9b-8cdf-7f4ffdd80f06
+:END:
+Due to the [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] for electrodynamics, current is always conserved locally. In an ideal one-dimensional
+wire, the surface integral can be reduced to a simple line integral, given the current only moves in one direction
+(which we will assume for circuits).
+\begin{align}
+\int I \cdot d\vec{l} = -\frac{\partial Q_{enc}}{\partial t}
+\end{align}
+If the total amount of charge in the wires are conserved:
+\begin{align}
+\label{}
+\int \vec{I} \cdot d\vec{l} = 0
+\end{align}
+Therefore:
+\begin{align}
+\label{}
+\sum_{n}I_{n} = 0
+\end{align}
+where the total current $\vec{I}$ can be decomposed into many currents of each branched path $I_{n}$.
+** KVL

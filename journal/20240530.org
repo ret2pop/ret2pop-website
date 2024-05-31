@@ -1,0 +1,21 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Thursday, 30 May 2024
+** 00:49 
+I am currently trying to optimize my emacs workflow more, as I realize that my NixOS configuration is quite complete.
+After Kanata is added, my NixOS configuration covers almost every usecase; on the other hand, there are many small annoyances
+within emacs that are persistent, such as the lack of RSS feeds, the lack of good snippets for LaTeX editing, the lack
+of grammar checking and spell checking, and the lack of consistent autocomplete and the awkwardness of how new buffers
+open in panes. Additionally, mu4e is not configured for my email account.
+
+I will then use this emacs configuration to edit my mindmap more in tandem with the configuring. I've already added many new
+articles.
+** 16:59 
+I successfully improved my emacs configuration by a lot, and I'm going to keep on making the editing much more
+streamlined.
