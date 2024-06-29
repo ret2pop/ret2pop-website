@@ -1,5 +1,6 @@
 :PROPERTIES:
 :ID:       262ca511-432f-404f-8320-09a2afe1dfb7
+:ROAM_ALIASES: "Heat Equation" "Fourier Series"
 :END:
 #+title: Fourier Transform
 #+author: Preston Pan
@@ -9,4 +10,109 @@
 #+options: broken-links:t
 
 * Introduction
-The Fourier Transform is a generalization of the Fourier Series.
+The Fourier Transform is a generalization of the Fourier Series. It has applications in solving [[id:4be41e2e-52b9-4cd1-ac4c-7ecb57106692][differential equations]] and
+has applications in many different fields, including [[id:136e79df-106f-4989-ab19-89705929cf91][quantum mechanics]], radio, planetary motion, and even the study
+of the heat equation. In this article we will study the heat equation, the Fourier Series, and the Fourier transform.
+
+** The Heat Equation
+The heat equation is the study of how heat travels in a conductor with the unknown function in question being $f(\vec{r}, t)$,
+giving the temperature at position $\vec{r}$ at time $t$. Now we want to describe the time rate of change of this function, so we use a
+[[id:3993a45d-699b-4512-93f9-ba61f498f77f][partial derivative]]:
+\begin{align}
+\label{Heat equation 1}
+\partial_{t}f = ?f
+\end{align}
+the left hand side should intuitively be some operator on $f$ dealing with how heat changes in space. A single spacial
+derivative operator $\partial_{x}f$ might give you the rate of change of the temperature over space. The [[id:a871e62c-b4a0-4674-9dea-d377de2f780b][continuity equation]] for
+heat might look like this:
+\begin{align}
+\label{}
+\partial_{t}f + \vec{\nabla} \cdot \vec{j} = 0
+\end{align}
+where $\vec{j}$ is the heat current. It makes sense that the heat equation ought to satisfy some continuity equation, because
+heat can't just teleport without leaving some enclosed area (in order for this theory to be physical, it must respect
+local conservation of energy). The heat current vector field and a scalar heat field might have a similar relation to
+that of the potential-vector field relation in [[id:6f2aba40-5c9f-406b-a1fa-13018de55648][conservative force]] fields:
+\begin{align}
+\label{}
+\vec{j} = -\vec{\nabla}u
+\end{align}
+substituting:
+\begin{align}
+\label{}
+\partial_{t}f = \nabla^{2}u
+\end{align}
+and heat $u$ is proportional to temperature $f$, so we have:
+\begin{align}
+\label{}
+\partial_{t}f = \alpha\nabla^{2}f
+\end{align}
+The result is a [[id:365190d8-0f3a-4728-9b09-83a216292256][PDE]] that we can solve analytically in one dimension.
+*** Solving the Heat Equation in One Dimension
+In one dimension, the heat equation looks like this:
+\begin{align}
+\label{}
+\partial_{t}f = \alpha\partial_{xx}f
+\end{align}
+we assume this is a [[id:8e9c975a-cd75-447e-b094-16258147d83c][separable differential equation]] i.e. the solution can be written:
+\begin{align}
+\label{}
+f(x, t) = X(x)T(t)
+\end{align}
+Plugging this in:
+\begin{align}
+\label{}
+X(x)\frac{dT}{dt} = \alpha T(t)\frac{d^{2}X}{dx^{2}} \\
+\frac{1}{T}\frac{dT}{dt} = \alpha \frac{1}{X}\frac{d^{2}X}{dx^{2}}
+\end{align}
+we see that each side doesn't depend on any variables from the other side, so we can separate this into two [[id:5ef63bef-2d8f-4e00-b292-8206cf69469a][ODEs]],
+because each side looks like a constant to the other side:
+\begin{align}
+\label{}
+\frac{1}{T}\frac{dT}{dt} = \alpha \frac{1}{X}\frac{d^{2}X}{dx^{2}} = -k
+\end{align}
+Now we solve for $T(t)$, by reducing this problem to being a homogeneous differential equation:
+\begin{align}
+\label{}
+\frac{dT}{dt} + kT = 0 \\
+\lambda + k = 0 \\
+\lambda = k \\
+T(t) = Ae^{-kt}
+\end{align}
+Solving for $X(x)$ is also a homogeneous case:
+\begin{align}
+\label{}
+\frac{d^{2}X}{dx^{2}} + \frac{k}{\alpha}X = 0 \\
+\lambda^{2} + \frac{k}{\alpha} = 0 \\
+\lambda = \pm \sqrt{-\frac{k}{\alpha}} \\
+X(x) = Be^{x\sqrt{-\frac{k}{\alpha}}} + Ce^{-x\sqrt{-\frac{k}{\alpha}}}
+\end{align}
+re-using $\lambda$ to mean something else and casting $\sqrt{\frac{k}{\alpha}} = \lambda$:
+\begin{align}
+\label{}
+X(x) = Be^{i\lambda x} + Ce^{-i\lambda x} \\
+T(t) = Ae^{-\lambda^{2}\alpha t} \\
+f(x, t) = ABe^{i\lambda x - \lambda^{2}\alpha t} + ACe^{-i\lambda x - \lambda^{2}\alpha t} \\
+f(x, t) = A_{1}e^{i\lambda x - \lambda^{2}\alpha t} + A_{2}e^{-i\lambda x - \lambda^{2}\alpha t}
+\end{align}
+we know that by the [[id:422653e2-daa4-422a-9cb7-3983a5a72554][superposition principle]]:
+\begin{align}
+\label{}
+f(x, t) = \sum_{i=0}^{N}f_{i}(x, t)
+\end{align}
+Now, in order to proceed, we need to formulate this as an [[id:bc7e9e01-9721-4b3e-a886-74a2fd27daf3][initial value problem]] with boundary conditions. A classic
+example would be a wire of dimension 1 and length $L$. Thus we set a couple of boundary conditions:
+
+* The Fourier Transform
+Taking the Fourier series and letting $T \rightarrow \infty$:
+\begin{align}
+\label{}
+f(x) = \sum_{n=-\infty}^{\infty}c_{n}e^{\frac{inx}{T}} \\
+Tc_{n} = \lim_{T\rightarrow\infty} \int_{-T}^{T}f(x)e^{\frac{inx}{T}}dx \\
+F(\omega) := Tc_{n} \\
+\omega := \frac{n}{T} \\
+F(\omega) = \int_{-\infty}^{\infty}f(x)e^{i\omega x}dx
+\end{align}
+$F(\omega)$ is the Fourier Transform of $f(x)$. Putting different functions as arguments gives you a Fourier Transform
+table, and the inverse transform is same as the forward transform, scaled by a constant. This makes Fourier Transforms
+useful tools for solving differential equations.

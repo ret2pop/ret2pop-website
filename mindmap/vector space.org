@@ -1,0 +1,27 @@
+:PROPERTIES:
+:ID:       ab024db7-6903-48ee-98fc-b2a228709c04
+:ROAM_ALIASES: vector linear "linear space"
+:END:
+#+title: vector space
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+A vector space $V$ is a set with addition and scalar multiplication defined. It obeys the following axioms:
+\begin{align}
+\label{}
+\vec{a} + (\vec{b} + \vec{c}) = (\vec{a} + \vec{b}) + \vec{c} \\
+\vec{a} + \vec{b} = \vec{b} + \vec{a} \\
+\exists \vec{0},\forall \vec{a}, \vec{a} + \vec{0} = \vec{a} \\
+\forall \vec{a},\exists\vec{-a}, \vec{a} + \vec{-a} = \vec{0} \\
+(cd)\vec{a} = c(d\vec{a}) \\
+1\vec{a} = \vec{a} \\
+c(\vec{a} + \vec{b}) = c\vec{a} + c\vec{b} \\
+(c + d)\vec{a} = c\vec{a} + d\vec{a}
+\end{align}
+
+vector spaces are an Abelian [[id:ba7b95b0-0ce6-4b33-9a79-5e5fddaea710][group]] under addition. $\vec{a}$, $\vec{b}$, and $\vec{c}$ are considered vectors so long as they fulfill these
+properties.

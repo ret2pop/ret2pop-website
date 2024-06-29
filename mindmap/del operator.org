@@ -107,6 +107,6 @@ It returns a scalar field and is the multivariable analogue to the second deriva
 and gradient have been described, I feel it is trivial to understand the Laplacian.
 
 ** Product Rules
-The product rules pertaining to the del operator are consistent with that of linear algebra and single variable derivative rules.
+The [[id:d1e245f4-0b04-450e-8465-a9c85fe57f7e][product rules]] pertaining to the del operator are consistent with that of linear algebra and single variable derivative rules.
 For example, \( \vec{\nabla} \times \vec{\nabla}f = 0\). You can show this yourself quite easily, so I find no need to go over it here.
 When in doubt, just assume the del works the same way as any old vector except you apply the [[id:d1e245f4-0b04-450e-8465-a9c85fe57f7e][product rule]], and you will usually be correct.

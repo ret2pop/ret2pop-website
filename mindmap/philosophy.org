@@ -24,7 +24,45 @@ that they are two different things in many senses, but that the fundamental asse
 It is just a different kind of emotion, but there is no underlying fact of the matter that one can point to with regards
 to moral theory.
 
-Note that there are several arguments that facts are treated on a separate footing to moral theory under such a framework.
+Note that there are several arguments that facts are treated on a separate footing to moral theory under such a [[id:6d8c8bcc-58b0-4267-8035-81b3bf753505][framework]].
 Indeed it is true that this mindmap will rest on some emperical facts, but this mindmap maintains that doing this is a
 perfectly internally consistent and descriptive standpoint. From here on, we will use ethical and moral statements as
 a description of people, rather than a description of some real moral fact.
+
+Generally speaking, one can use [[id:29ebc4f9-0fd8-4203-8bfe-84f8558e09cf][logical deduction]] in order to reach conclusions from initial epistemological or
+metaphysical assertions in philosophy. People also apply the same reasoning to moral intuition, but as I explained above,
+I do not hold moral philosophy to be important.
+* Philosophy and Egoism
+Egoism is a generally acceptable bootstrapping belief; it can get oneself into talking about moral facts (or the lack
+thereof) without many buy-ins, and it can describe a wide variety of other beliefs from within its own framework. The logical
+consequence of choosing egoism as an acceptable framework is that philosophy becomes the study of maximizing for the
+goals created by oneself; in esscence, egoism is the weak assertion that there is something in life to be optimized.
+
+One can, in general, create an optimal life by doing two things:
+1. When a value is easier to get rid of than to satisfy, get rid of it.
+2. Derive as many current values from deeper, more fundamental values as possible, using [[id:29ebc4f9-0fd8-4203-8bfe-84f8558e09cf][logic]].
+Being attached to moral values is itself in contradiction to satisfying said moral values; you're creating more work
+for yourself, much of which one can't do. One should view values themselves as tools to achieve some optimal end,
+whatever that may mean to you, and deriving current values from deeper values using logic allows you to rule out
+values that you hold for no good reason. This metavalue system is efficient because it gets rid of values that do harm
+to the egoist goal.
+
+For instance, some may care about climate change, and wish to do something about climate change because of some moral
+value that they hold. I hold that this is, in many cases, ill advised, because singular people cannot do anything about
+climate change. However, many still hold onto the belief that they are somehow important in the cause, when they just
+objectively aren't (it would be [[id:7456da20-684d-4de6-9235-714eaafb2440][IEEDI]] syndrome), and hold that they should still do it for "moral reasons". If these "moral reasons" are just tools
+that you can bend given you convince yourself of something else, why would one subject themselves to doing something
+suboptimal?
+
+The answer is that two things could be going on: either it is hard mentally for them to accept getting rid of their
+values, in which case they should keep their values, or they haven't thought about the fact that it isn't a good idea
+from an egoist standpoint. I think this is common.
+
+Very few modern ideas that people would consider "moral things to do" are built into the human condition. As long
+as you can escape those ideas easily, you'd have more time and energy to allocate towards doing something that satisfies
+goals that are more tangible (you can't fix climate change on your own, but you can fix your own life). Give up on
+things that don't give you an advantage, or gives you a disadvantage (advantage and disadvantage being with respect
+to values that are hard to give up on, such as having friends, eating food, drinking water, etc...).
+* Isn't This Value Itself A Tool?
+Yes, and I could've described this in many different ways using many different metaframeworks, as they all probably
+have the same perscriptive power. However, I hold that this would "work better" for most people who try it.

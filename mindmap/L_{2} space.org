@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       0ecee9ae-7786-4db0-940c-c3d64f6240f6
+:END:
+#+title: L_{2} space
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+The $L_{2}$ space is a [[id:9a1cc2d9-ef99-436c-8c21-9e68fd7df192][normed vector space]] with a particular norm:
+\begin{align}
+\label{}
+(\sum_{n=0}^{N}x_{n}^{2})^{\frac{1}{2}}
+\end{align}
+It is easy to prove that this norm satisfies the triangle inequality, and it is even more trivial to prove
+that this norm satisfies the other postulates. This norm is a part of a larger set of norms that all satisfy the
+norm definition.

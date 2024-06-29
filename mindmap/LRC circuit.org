@@ -1,5 +1,6 @@
 :PROPERTIES:
 :ID:       6dbe2931-cc18-48fc-8cc1-6c71935a6be3
+:ROAM_ALIASES: "mass-spring system"
 :END:
 #+title: LRC circuit
 #+author: Preston Pan
@@ -90,7 +91,8 @@ note that this is actually a decaying solution because $m$ must be negative.
 * AC [[id:951db9ac-3e8b-49a1-b609-2bbb795be834][Voltage]] Source
 Here is the circuit diagram for the LRC circuit with a voltage source:
 #+name: LRC Circuit
-#+header: :exports both :file lrc_circuit_source.png 
+#+header: :export
+#+header: :exports both :file lrc_circuit.png 
 #+header: :imagemagick yes :iminoptions -density 600 :imoutoptions -geometry 400 
 #+header: :fit yes :noweb yes :headers '("\\usepackage{circuitikz}")
 #+begin_src latex :exports both :file 
@@ -118,4 +120,140 @@ This new [[id:4be41e2e-52b9-4cd1-ac4c-7ecb57106692][differential equation]] look
 \begin{align*}
 [LD^{2} + RD + \frac{1}{C}]i(t) = V_{0}sin(\phi + 2\pi\omega t)
 \end{align*}
-where the right hand side of the equation includes the term created by the AC [[id:951db9ac-3e8b-49a1-b609-2bbb795be834][voltage]] source.
+where the right hand side of the equation includes the term created by the AC [[id:951db9ac-3e8b-49a1-b609-2bbb795be834][voltage]] source. Now we take the
+[[id:e73baa24-1a29-4f35-9d3d-0fad4a3a8e59][Laplace Transform]] of both sides (using euler notation to keep track of the phase shift $\phi$):
+\begin{align}
+\label{}
+\mathcal{L}\{LD^{2} + RD + \frac{1}{C}\}i(t) = V_{0}e^{i\phi}\mathcal{L}\{e^{i 2\pi\omega t}\} \\
+L(s^{2}I(s) - s i(0) - i'(0)) + R(sI(s) - i(0)) + \frac{1}{C}I(s) = V_{0}e^{i\phi}\mathcal{L}\{e^{i 2\pi\omega t}\} \\
+(Ls^{2} + (R - i(0))s + \frac{1}{C})I(s) = V_{0}e^{i\phi}\mathcal{L}\{e^{i 2\pi\omega t}\} + i'(0) + i(0) \\
+I(s) = \frac{V_{0}e^{i\phi}\frac{1}{s - 2\pi i \omega} + i'(0) + i(0)}{Ls^{2} + (R - i(0))s + \frac{1}{C}} \\
+i(t) = \mathcal{L}^{-1}\{\frac{V_{0}e^{i\phi}}{(s - 2\pi i \omega)(Ls^{2} + (R - i(0))s + \frac{1}{C})}\} +
+\mathcal{L}^{-1}\{\frac{i'(0) + i(0)}{Ls^{2} + (R - i(0))s + \frac{1}{C}}\}
+\end{align}
+We want to use partial fraction decomposition in order to break these denominators apart, so that doing the inverse
+transform is easier (the Laplace transform is [[id:ab024db7-6903-48ee-98fc-b2a228709c04][linear]]). Now we already know the roots of the polynomial, and we can
+set the root $2\pi i\omega = z_{1}$. Let's also ignore the rightmost term for now:
+\begin{align}
+\label{Pain}
+i(t) = V_{0}e^{i\phi}\mathcal{L}^{-1}\{\frac{1}{(s - z_{1})(s - z_{2})(s - z_{3})}\}
+\end{align}
+where $z_{2}$ and $z_{3}$ are the two roots we found for the homogeneous case. We then use partial fraction decomposition:
+\begin{align}
+\label{}
+\frac{1}{(s - z_{1})(s - z_{2})(s - z_{3})} = \frac{A}{s - z_{1}} + \frac{B}{s - z_{2}} + \frac{C}{s - z_{3}} \\
+A(s - z_{2})(s - z_{3}) + B(s - z_{1})(s - z_{3}) + C(s - z_{1})(s - z_{2}) = 1
+\end{align}
+from this we know:
+\begin{align}
+\label{}
+A + B + C = 0 \\
+z_{2}z_{3}A + z_{1}z_{3}B + z_{1}z_{2}C = 1 \\
+(z_{2} + z_{3})A + (z_{1} + z_{3})B + (z_{1} + z_{2})C = 0
+\end{align}
+Which is a linear system of equations. Eliminating C:
+\begin{align}
+\label{}
+(z_{2}z_{3} - z_{1}z_{2})A + (z_{1}z_{3} - z_{1}z_{2})B = 1 \\
+(z_{2} + z_{3})A + (z_{1} + z_{3})B - (z_{1} + z_{2})(A + B) = 0
+\end{align}
+Now we want to eliminate B:
+\begin{align}
+\label{}
+[(z_{2} + z_{3}) - (z_{1} + z_{2})]A + [(z_{1} + z_{3}) - (z_{1} + z_{2})]B = 0 \\
+(z_{3} - z_{1})A + (z_{3} - z_{2})B = 0 \\
+B = -\frac{z_{3} - z_{1}}{z_{3} - z_{2}}A \\
+\end{align}
+finally, we have one equation in terms of A:
+\begin{align}
+\label{}
+[(z_{2}z_{3} - z_{1}z_{2}) - (z_{1}z_{3} - z_{1}z_{2})\frac{z_{3} - z_{1}}{z_{3} - z_{2}}]A  = 1 \\
+[(z_{2}z_{3} - z_{1}z_{2})\frac{z_{3} - z_{2}}{z_{3} - z_{2}}
+- (z_{1}z_{3} - z_{1}z_{2})\frac{z_{3} - z_{1}}{z_{3} - z_{2}}]A  = 1 \\
+\frac{(z_{2}z_{3} - z_{1}z_{2})(z_{3} - z_{2}) - (z_{1}z_{3} - z_{1}z_{2})(z_{3} - z_{1})}{z_{3} - z_{2}}A = 1 \\
+\frac{z_{2}z_{3}^{2} - z_{1}z_{2}z_{3} - z_{2}^{2}z_{3} + z_{1}z_{2}^{2} -
+z_{1}z_{3}^{2} + z_{1}z_{2}z_{3} + z_{1}^{2}z_{3} - z_{1}^{2}z_{2}}{z_{3} - z_{2}}A = 1 \\
+\frac{z_{2}z_{3}^{2} - z_{2}^{2}z_{3} + z_{1}z_{2}^{2} -
+z_{1}z_{3}^{2} + z_{1}^{2}z_{3} - z_{1}^{2}z_{2}}{z_{3} - z_{2}}A = 1 \\
+A = \frac{z_{3} - z_{2}}{z_{2}z_{3}^{2} + z_{1}z_{2}^{2} + z_{1}^{2}z_{3} - z_{1}z_{3}^{2} - z_{1}^{2}z_{2} - z_{2}^{2}z_{3}} \\
+B = -\frac{z_{3} - z_{1}}{z_{3} - z_{2}}A \\
+B = -\frac{z_{3} - z_{1}}{z_{2}z_{3}^{2} + z_{1}z_{2}^{2} + z_{1}^{2}z_{3} - z_{1}z_{3}^{2} - z_{1}^{2}z_{2} - z_{2}^{2}z_{3}} \\
+C = -(A + B) \\
+C = \frac{z_{2} - z_{1}}{z_{2}z_{3}^{2} + z_{1}z_{2}^{2} + z_{1}^{2}z_{3} - z_{1}z_{3}^{2} - z_{1}^{2}z_{2} - z_{2}^{2}z_{3}}
+\end{align}
+So we have the three coefficients:
+\begin{align}
+\label{}
+A = \frac{z_{3} - z_{2}}{z_{2}z_{3}^{2} + z_{1}z_{2}^{2} + z_{1}^{2}z_{3} - z_{1}z_{3}^{2} - z_{1}^{2}z_{2} - z_{2}^{2}z_{3}} \\
+B = \frac{z_{1} - z_{3}}{z_{2}z_{3}^{2} + z_{1}z_{2}^{2} + z_{1}^{2}z_{3} - z_{1}z_{3}^{2} - z_{1}^{2}z_{2} - z_{2}^{2}z_{3}} \\
+C = \frac{z_{2} - z_{1}}{z_{2}z_{3}^{2} + z_{1}z_{2}^{2} + z_{1}^{2}z_{3} - z_{1}z_{3}^{2} - z_{1}^{2}z_{2} - z_{2}^{2}z_{3}}
+\end{align}
+The resulting solution looks like this:
+\begin{align}
+\label{}
+i(t) = V_{0}e^{i\phi}(Ae^{z_{1}t} + Be^{z_{2}t} + Ce^{z_{3}t})
+\end{align}
+where:
+\begin{align}
+\label{}
+z_{1} = 2\pi i \omega \\
+z_{2} = \frac{-(R - i(0)) + \sqrt{(R - i(0))^{2} - \frac{4L}{C}}}{2L} \\
+z_{3} = \frac{-(R - i(0)) - \sqrt{(R - i(0))^{2} - \frac{4L}{C}}}{2L}
+\end{align}
+by taking the inverse Laplace Transform. The other terms can be either ignored if $i'(0) = 0$ and $i(0) = 0$ or
+one can solve for them in the same way. Solving for the two other terms:
+\begin{align}
+\label{}
+\frac{1}{(s - z_{2})(s - z_{3})} = \frac{D}{s - z_{2}} + \frac{E}{s - z_{3}} \\
+D(s - z_{3}) + E(s - z_{2}) = 1 \\
+D + E = 0 \\
+D z_{3} + E z_{2} = -1
+\end{align}
+We have a much easier linear system:
+\begin{align}
+\label{}
+E = -D \\
+D(z_{3} - z_{2}) = -1 \\
+D = -\frac{1}{z_{3} - z_{2}} \\
+E = \frac{1}{z_{3} - z_{2}}
+\end{align}
+so the full solution including the terms used for the [[id:bc7e9e01-9721-4b3e-a886-74a2fd27daf3][initial value problem]] looks like this:
+\begin{align}
+\label{}
+i(t) = V_{0}e^{i\phi}(Ae^{z_{1}t} + Be^{z_{2}t} + Ce^{z_{3}t}) + (i'(0) + i(0))(De^{z_{2}t} + Ee^{z_{3}t})
+\end{align}
+the sinusoidal part of the solution looks like this:
+\begin{align}
+\label{hello world}
+\frac{(z_{3} - z_{2})V_{0}e^{i\phi}e^{2\pi i\omega t}}{z_{2}z_{3}^{2} + z_{1}z_{2}^{2} + z_{1}^{2}z_{3} - z_{1}z_{3}^{2} - z_{1}^{2}z_{2} - z_{2}^{2}z_{3}}
+\end{align}
+
+* Mass-Spring System
+Starting from [[id:6e2a9d7b-7010-41da-bd41-f5b2dba576d3][Newtonian mechanics]] in a single dimension:
+\begin{align}
+\label{}
+F_{net} = \sum_{i} m\frac{d^{2}x}{dt}
+\end{align}
+With Hooke's law:
+\begin{align}
+\label{}
+F = -kx
+\end{align}
+then:
+\begin{align}
+\label{}
+m\ddot{x} = -kx \\
+m\ddot{x} + kx = 0
+\end{align}
+We can define some damping force to be:
+\begin{align}
+\label{}
+F_{damp} = -a\dot{x}
+\end{align}
+which will always resist a change in the direction of motion. Then, the new equation is:
+\begin{align}
+\label{}
+m\ddot{x} + a\dot{x} + kx = 0
+\end{align}
+which has the same form as the above LRC circuit equation. Now, any external driving force will appear
+on the right hand side.

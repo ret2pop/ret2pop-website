@@ -26,11 +26,11 @@ integrate over \(\vec{f}\), we define \(V(\vec{r})\) such that:
 \int_{\vec{a}}^{\vec{b}}\vec{f} \cdot d\vec{l} = V(\vec{a}) - V(\vec{b})
 \end{align*}
 because it is path independent, we do not need to consider the infinite paths between \(\vec{a}\) and \(\vec{b}\), which
-allows us to define this function \(V(\vec{r})\). Then by the fundamental theorem of calculus:
+allows us to define this function \(V(\vec{r})\). Then by the fundamental theorem of calculus, using the [[id:3587c3b4-c3d8-4ff1-b0ba-8eecb1ef0e4c][Gradient]]:
 \begin{align*}
 \vec{f} = -\vec{\nabla}V
 \end{align*}
-Therefore, conservative forces can be represented by a scalar field. Now taking the curl of both sides we get:
+Therefore, conservative forces can be represented by a scalar field. Now taking the [[id:b25e0e44-c764-4f0a-a5ad-7f9d79c7660d][Curl]] of both sides we get:
 \begin{align*}
 \vec{\nabla} \times \vec{f} = 0
 \end{align*}

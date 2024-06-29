@@ -1,0 +1,40 @@
+:PROPERTIES:
+:ID:       7456da20-684d-4de6-9235-714eaafb2440
+:END:
+#+title: IEEDI
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+Short for "if everyone else did it...". This particular /syndrome/ involves arguments about group mentality
+that would be completely insolvent in game theory, yet are often brought up in defense of modern practices.
+** The Democracy Game
+Democracy is a good example of IEEDI syndrome. The gain of voting in an $n$ player game involving two candidates
+and popular vote drops off at $\frac{1}{n}$, but the time it takes to be informed and vote has a constant value. The decisions
+of individuals in this game most likely, in real life, at most influence the decision making of one or two other people
+(in total, from the whole chain reaction),
+so the effect of influence is not very significant (so you can't argue that you have an influence over the crowd to vote,
+because you don't). Given all these conditions, for a large $n$, voting should not be
+worth it for most people, because the choice of you voting is independent of everyone else voting. You voting or not voting
+has no bearing over the crowd. Yet, the common retort is, "if everyone thought like you...". This logic is dead on arrival,
+because /not/ everyone's going to think like you. The character of the system is that other people irrationally vote
+regardless of if you do, and your decision to vote or not vote has no bearing over the crowd voting or not voting.
+
+This simple fact is IEEDI syndrome; people are quick to conform rather than think about the personal cost-benefit analysis,
+even if the logic stops working for large societies.
+** The Activism Game
+The activism game is similar; your activism doesn't matter much, and the crowd would continue existing even if you weren't
+a part of it. Thus, any attempt to engage in activism at almost any cost is useless.
+
+* Symptoms
+One may diagnose people with IEEDI syndrome if they:
+1. cannot affect a situation meaningfully, yet they try to anyways.
+2. make [[id:700073f4-04d5-4d20-8bcd-ee9ba0a739c8][IAK]] statements regularly.
+3. engage in activism.
+
+* Conclusion
+Almost any decision to try to influence large societies where your influence is a fraction of everyone elses'
+is unjustified from a cost benefit analysis standpoint.

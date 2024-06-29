@@ -189,4 +189,10 @@ V(\vec{r}) := k\int_{space}\frac{\sigma(r')}{r}d\tau
 \end{align*}
 Note that because this field does not require keeping track of vector orientation, it is significantly easier to solve for \(V\) then convert to \(\vec{f}\). Additionally,
 setting a reference point to something that is not infinity would be valid as well -- we just choose infinity because it cancels off the constant term. However,
-the /difference/ in potentials is absolute and does not require any constant adjustment.
+the /difference/ in potentials is absolute and does not require any constant adjustment. Then, the divergence of inverse
+square fields can be reformulated with the [[id:65004429-a6b7-41f2-8489-07605841da3d][Laplacian]] operator:
+\begin{align}
+\label{}
+\nabla^{2}V(\vec{r''}) = k\sigma(\vec{r''})
+\end{align}
+

@@ -219,6 +219,32 @@ pre.src-stem:before {
   -webkit-columns: 2;
   -moz-columns: 2;
 }
+.theorem {
+display:block;
+margin-left:10px;
+margin-bottom:20px;
+font-style:normal;
+}
+.theorem:before{
+content:"Theorem.\00a0\00a0";
+float:left;
+font-weight:bold;
+}
+.proof{
+display:block;
+margin-left:10px;
+margin-bottom:30px;
+font-style:normal;
+}
+.proof:before{
+content:'Proof.\00a0\00a0';
+float:left;
+font-weight:bold;
+}
+.proof:after{
+content:"\25FC";
+float:right;
+}
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {

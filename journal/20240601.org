@@ -6,10 +6,6 @@
 #+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 #+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 #+options: broken-links:t
-* Friday, 31 May 2024
-** 03:42 
-I can't sleep. This is quite painful.
-** 20:51 
-I've optimized my setup a decent bit, and I'm currently deliberating on the trade-off between package use and
-functionality. I do want to keep the dependencies for this Emacs configuration slim in order to effectively make it
-portable across different versions of Emacs.
+* Saturday, 01 June 2024
+** 11:23 
+Slept okay but still feel tired; had a latte from the Mighty Oak. Need to work on writegood.el and other things.

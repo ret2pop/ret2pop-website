@@ -11,6 +11,9 @@
 Egoism, broadly defined, is the philosophical view that one should maximize for their own utility function, or well-being,
 or self-satisfaction, etc..., whatever you want to call it. The general statement is that there is some value one would
 want to maximize for themselves. This philosophical view is a metaethical view in general but can be applied descriptively.
+
+This view is a part of a broader view of [[id:4b4d4071-2ef4-4a6d-ada3-adc8cac425cc][consequentialism]], a view that I broadly subscribe to; sometimes utilitarian
+analysis is useful for describing things inside the egoist framework, and sometimes it is not.
 * Descriptively
 In economics, homo-econimus is a kind of idealized economic agent that maximizes for their own economic value. Descriptive
 egoism is in a sense the statement that people tend to maximize for some utility function. In a sense, there are many games

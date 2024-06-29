@@ -1,0 +1,123 @@
+#+title: You Don't Matter
+#+author: Preston Pan
+#+description: Ideas aren't real, and morality is a spook.
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
+* Introduction
+You don't matter. This should be entirely clear, yet I don't believe people actually get some of the implications
+of this idea. Your ideas aren't real. This, too, is something that everyone intuitively understands yet in practice
+seems to be not further extrapolated on. In this blog post I attempt to explain peoples' impact on the world, and
+peoples' ideas as it pertains to greater society. Note that I talk about my progressive culture because that is what I know.
+This is almost certainly the case (maybe even moreso) for other cultures around the world.
+** Morality is a Spook
+People in my progressive culture are pretty quick to realize that their sense of morality is not "real", and that
+peoples' moral sensibilities may not always be in line with other people. In other words, it seems perfectly acceptable
+to say that morality is subjective, or that in some sense it does not pertain to the real world, and it is made up
+by people. This is a statement which seems to be true from an empirical standpoint, and even if you don't agree that it
+is, there seems to be truth in the statement seeing as how the term morality would seem to have no meaning without conscious
+beings, or, depending on your outlook on animals, morality would seem to be a useless term without humans.
+
+Now, if you're a progressive and don't "believe in" any particular god, this subjective sense of morality seems to be
+quite viable. Given that morality is not real, it is still true that people in general have some in-built goals or desires.
+Now the question to what you "should do" in life remains clear. It seems perfectly clear that from your perspective, your
+goal in life is to try to achieve some in-built goals or desires. This could include being conventionally moral, or it
+could not. In either case, you decide.
+
+Said in-built goals or desires are not permanently fixed. You can start caring about more things, or stop caring
+about other things. In other words, giving up on a goal achieves the same effect as achieving said goal with respect
+to fulfilling all your desires. In this sense, one should evaluate all goals as a cost-benefit analysis of giving up
+on them versus actually working on them and achieving them. In the future, when I tell you, the reader, that you
+"should do x", it is in this sense I mean it. I mean that it is likely that if you do the cost-benefit analysis for your
+own goals, it is probable that x will achieve your goals, either by way of giving up or by otherwise changing your
+circumstance, in the most "painless" way possible (takes the least time, least effort, basically the most efficient way
+to get to where you want to be). In this sense, "should" is highly tied to prescription which is tied to moral outlook
+(you "should" do x if and only if it is moral to do x, and it is moral to do x if and only if it is efficient
+towards the goal of achieving your needs). Let's take this idea and expand on it in several practical examples.
+** Your Ideas Aren't Real
+Think about democracy. Is it a system which is moral in and of itself, or is it a system which is used to achieve some
+objectives? Many people would say the first, except if you take the previous section as fact it seems wildly incoherent
+to say that some idea, democracy, can have any inherent moral worth at all. Instead, it seems plausible to assume that
+what we mean by some statement like, "democracy is moral", is actually a proxy for some sort of cost-benefit analysis
+of the pros and cons of democracy existing totaling to it being a pro. Now let me ask a pretty obvious question: if you're
+an individual person, what does weighing the pros and cons of a system /mean/? Of course, the individual need not consider
+/systems/ in order to simply achieve their goals in most cases, it is sufficient to just focus on your own life.
+
+You could say you're weighing the pros and cons with respect to /society/. Okay, depending on your definition
+of society, it seems as though the definition of a statement like, "democracy is moral" has restored its meaning. Yet,
+I can point out something else that seems pretty obvious to say, which is that /you are not society/. In fact, you have
+/little to no/ influence over broader society, and you make no significant portion of society. You may have friends that
+you can count on, as well as a family, but democracy is an idea that pertains, in many cases, to nation states.
+
+Your ultimate goal in life could be that you want to influence society as much as possible. I am telling you that it
+/shouldn't be/. That is to say, it is a lot easier to have influence over your own actions than influence over society,
+so it is easier to give up on that ambition than to actually satisfy that ambition (I would argue that this is unambiguously
+true in almost all circumstances). If you're not convinced, there are most likely a couple million people in your society,
+and you're only one of them. The empirical probability that those millions of people should listen to you either directly
+or indirectly is objectively low (drops off proportional to 1/n), else you are delusional.
+
+So to recap, what does it mean to make a statement such as, "democracy is moral"? Well, it seems logical that it means
+something like, "it is better on average for society to have democracy than to not, weighing the pros and cons". Yet,
+this kind of statement is useless to say for nearly every individual who says it, if it isn't said for fun or for some
+goal which you should probably give up on anyways. Speaking of democracy, let's run a social experiment.
+** The Democracy Experiment
+The gain of voting in an n player game involving two candidates
+and popular vote drops off at 1/n, but the time it takes to be informed and vote has a constant value. The decisions
+of individuals in this game most likely, in real life, at most influence the decision making of one or two other
+people (in total, from the whole chain reaction),
+so the effect of influence is not very significant (so you can't argue that you have an influence over the crowd to vote,
+because you don't). Given all these conditions, for a large n, voting should not be
+worth it for most people, because the choice of you voting is independent of everyone else voting. You voting or not voting
+has no bearing over the crowd. Yet, the common retort is, "if everyone thought like you...". This logic is dead on arrival,
+because /not/ everyone's going to think like you. The character of the system is that other people irrationally vote
+regardless of if you do, and your decision to vote or not vote has no bearing over the crowd voting or not voting.
+
+This simple fact is what I call IEEDI (if everyone else did it) syndrome; people are quick to conform rather than
+think about the personal cost-benefit analysis, even if the logic stops working for large societies.
+*** Activism
+Activism is another example of IEEDI syndrome where people irrationally calculate the cost-benefit analysis of going
+to protests, divesting, engaging in violence, etc... and go along with the crowd, even if it does not benefit them.
+Again, it is much easier to give up on the ambition of doing activism rather than incurring all the costs of doing
+activism, most likely. "If everyone thought like you, nothing would change" is another instance of IEEDI. You have no
+control over what others think.
+** Politics
+When people say, "do you think we should do x", it is clear using this analysis that this means something like,
+"do you think the cost-benefit analysis for society weighs in favor of doing x?". It is worth pointing out whenever
+someone does this that your opinion on any analysis for broader society doesn't matter, as your opinion cannot change
+anything. People can get divided over political opinions even though it seems to literally not matter what
+political opinions you have from an impact perspective (even if someone is /literally hitler/, they can't do anything
+to change broader society in practice). One could argue that there are some personality traits that are associated with
+political opinions. For everyone inside the acceptable range of discourse right now, the personality trait differences
+are probably really low on average, even though they can be shown to exist. Anyways, if it's really the personality
+trait differences that matter, it seems irrational to comment on the politics of the person, because it's actually
+the personality traits that you're filtering for.
+
+That is to say, despite how useless politics is in every day life, people irrationally commit a lot of their personal
+lives to it and operate suboptimally as a result. This is another case of IEEDI.
+** You Don't Matter
+Perhaps a common theme in this blog post is that you don't matter. More accurately, you /do/ matter to yourself and people
+around you, and you should try to maximize your life around that, if that is your goal, because it is an achievable goal.
+On the other hand, trying to influence society in any way, or treat society as something more real than you, is a lost
+cause, in the sense that in most cases you should either look to give up on your goals of influencing society, or you
+are making some category error that I've just demonstrated is irrational given the premises.
+
+Another sense in which you don't matter is the sense in which your identity is malleable. You don't have to care
+about nearly anything, but there are some things which are hard not to care about, such as the people around you,
+your own well-being, and maybe one or two divine or ultimate purposes at a given point in time (I personally
+fulfill this by trying to get people around me and people on the internet to seriously consider opposing viewpoints,
+which I myself find satisfying). Note that there is nothing wrong with having such a purpose, so long as it is harder
+to get rid of than to fulfill, or it's just fun. In my case, it is pretty fun to do what I'm doing.
+* Conclusion
+Unless you are a millionaire or a billionaire or are doing it for fun, it's pretty hard to have control over millions
+of other people, so you should probably give up. You don't matter, ideas aren't real, and morality is a spook. And
+I can't promise you anything: this advice disguised as a rant may help you, or it may hurt you in your case. If it helps
+you, I also can't promise your situation will become well after you take my advice. I /can/ promise you that you'll
+start to actually improve your life.

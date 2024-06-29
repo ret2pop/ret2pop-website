@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: pclass
+# key: pclass
+# --
+
+class $1:
+    def __init__(self$2):
+        $0

@@ -1,47 +1,80 @@
 (pixel-scroll-precision-mode 1)
-(setq scroll-conservatively 101)
-(display-battery-mode 1)
-(setq display-time-24hr-format t)
-(display-time-mode 1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(load-theme 'catppuccin :no-confirm)
-(setq display-line-numbers-type 'relative)
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
-(add-hook 'org-mode-hook #'display-line-numbers-mode)
-(set-face-attribute 'default nil :height 120)
-(setq use-short-answers t)
-(setq make-backup-files nil)
-(setq org-export-with-broken-links t)
-(setq org-src-fontify-natively t)
-;; (setq org-highlight-latex-and-related '(latex script entities))
-(setq warning-minimum-level :emergency)
-(add-hook 'text-mode-hook 'visual-line-mode)
-(and window-system (server-start))
-(setq debug-ignored-errors
-  (cons 'remote-file-error debug-ignored-errors))
-(set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
-(setq prettify-symbols-alist
-  '(("#+begin_src" . ?)
-    ("#+BEGIN_SRC" . ?)
-    ("#+end_src" . ?)
-    ("#+END_SRC" . ?)
-    ("#+begin_example" . ?)
-    ("#+BEGIN_EXAMPLE" . ?)
-    ("#+end_example" . ?)
-    ("#+END_EXAMPLE" . ?)
-    ("#+header:" . ?)
-    ("#+HEADER:" . ?)
-    ("#+name:" . ?﮸)
-    ("#+NAME:" . ?﮸)
-    ("#+results:" . ?)
-    ("#+RESULTS:" . ?)
-    ("#+call:" . ?)
-    ("#+CALL:" . ?)
-    (":PROPERTIES:" . ?)
-    (":properties:" . ?)))
-(prettify-symbols-mode 1)
+  (setq scroll-conservatively 101)
+  (display-battery-mode 1)
+  (setq display-time-24hr-format t)
+  (display-time-mode 1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (load-theme 'catppuccin :no-confirm)
+  (setq display-line-numbers-type 'relative)
+  (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+  (add-hook 'org-mode-hook #'display-line-numbers-mode)
+  (setq org-confirm-babel-evaluate nil)
+  (set-face-attribute 'default nil :height 120)
+  (setq use-short-answers t)
+  (setq make-backup-files nil)
+  (setq org-export-with-broken-links t)
+  (setq org-src-fontify-natively t)
+  ;; (setq org-highlight-latex-and-related '(latex script entities))
+  (setq warning-minimum-level :emergency)
+  (add-hook 'text-mode-hook 'visual-line-mode)
+  (and window-system (server-start))
+  (setq debug-ignored-errors
+    (cons 'remote-file-error debug-ignored-errors))
+  (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
+  (setq org-preview-latex-image-directory "/home/preston/.cache/ltximg/")
+  (add-hook 'prog-mode-hook
+  (lambda ()
+   (setq prettify-symbols-alist
+      '(("lambda" . ?λ)
+	("->"     . ?→)
+	("map"    . ?↦)
+	("/="     . ?≠)
+	("!="     . ?≠)
+	("=="     . ?≡)
+	("<="     . ?≤)
+	(">="     . ?≥)
+	("&&"     . ?∧)
+	("||"     . ?∨)
+	("sqrt"   . ?√)
+	("..."    . ?…)))
+    (prettify-symbols-mode)))
+
+    (add-hook 'org-mode-hook (lambda ()
+     (setq prettify-symbols-alist
+     '(("#+begin_src" . ?)
+      ("#+BEGIN_SRC" . ?)
+      ("#+end_src" . ?)
+      ("#+END_SRC" . ?)
+      ("#+begin_example" . ?)
+      ("#+BEGIN_EXAMPLE" . ?)
+      ("#+end_example" . ?)
+      ("#+END_EXAMPLE" . ?)
+      ("#+header:" . ?)
+      ("#+HEADER:" . ?)
+      ("#+name:" . ?﮸)
+      ("#+NAME:" . ?﮸)
+      ("#+results:" . ?)
+      ("#+RESULTS:" . ?)
+      ("#+call:" . ?)
+      ("#+CALL:" . ?)
+      (":PROPERTIES:" . ?)
+      (":properties:" . ?)
+      ("lambda" . ?λ)
+	  ("->"     . ?→)
+	  ("map"    . ?↦)
+	  ("/="     . ?≠)
+	  ("!="     . ?≠)
+	  ("=="     . ?≡)
+	  ("<="     . ?≤)
+	  (">="     . ?≥)
+	  ("&&"     . ?∧)
+	  ("||"     . ?∨)
+	  ("sqrt"   . ?√)
+	  ("..."    . ?…))))
+   (prettify-symbols-mode))
+(global-prettify-symbols-mode 1)
 
 (set-frame-parameter nil 'alpha-background 90)
 (add-to-list 'default-frame-alist '(alpha-background . 90))
@@ -84,7 +117,7 @@ Otherwise, just insert the typed character."
   (interactive)
   (if (eolp) (let (parens-require-spaces) (insert-pair)) (self-insert-command 1)))
 
-  (add-hook 'org-mode-hook
+(add-hook 'org-mode-hook
 	    (lambda ()
 	      (define-key org-mode-map "\"" 'electric-pair)
 	      (define-key org-mode-map "(" 'electric-pair)
@@ -92,33 +125,38 @@ Otherwise, just insert the typed character."
 	      (define-key org-mode-map "{" 'electric-pair)))
 (add-hook 'prog-mode-hook
 	  (lambda ()
-	      (define-key org-mode-map "\"" 'electric-pair)
-	      (define-key org-mode-map "(" 'electric-pair)
-	      (define-key org-mode-map "[" 'electric-pair)
-	      (define-key org-mode-map "{" 'electric-pair)))
-
-(add-hook 'nix-mode-hook
-	  (lambda ()
-	      (define-key org-mode-map "\"" 'electric-pair)
-	      (define-key org-mode-map "(" 'electric-pair)
-	      (define-key org-mode-map "[" 'electric-pair)
-	      (define-key org-mode-map "{" 'electric-pair)))
-
-(add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	      (define-key org-mode-map "\"" 'electric-pair)
-	      (define-key org-mode-map "(" 'electric-pair)
-	      (define-key org-mode-map "[" 'electric-pair)
-	      (define-key org-mode-map "{" 'electric-pair)))
+	      (define-key prog-mode-map "\"" 'electric-pair)
+	      (define-key prog-mode-map "(" 'electric-pair)
+	      (define-key prog-mode-map "[" 'electric-pair)
+	      (define-key prog-mode-map "{" 'electric-pair)))
 
 (use-package lyrics-fetcher
-  :after (emmsx)
+  :after (emms)
   :config
   (setq lyrics-fetcher-genius-access-token
     (password-store-get "genius_api"))
   (lyrics-fetcher-use-backend 'genius))
 
-(add-hook 'after-init-hook 'global-company-mode)
+(use-package org-fragtog :hook (org-mode . org-fragtog-mode))
+
+(use-package yasnippet
+  :config
+  (add-to-list 'yas-snippet-dirs "~/org/website/yasnippet/")
+  (yas-global-mode 1))
+(add-hook 'org-mode-hook
+	(lambda () (yas-minor-mode)
+	    (yas-activate-extra-mode 'latex-mode)))
+
+(eval-after-load "company" '(add-to-list 'company-backends '(company-ispell company-capf company-yasnippet company-files))) (add-hook 'after-init-hook 'global-company-mode)
+(use-package ispell
+  :init
+  (setq ispell-program-name "aspell")
+  (setq ispell-silently-savep t)
+  (setq ispell-dictionary "en")
+  (setq ispell-alternate-dictionary "/home/preston/.local/share/my.dict"))
+
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
 
 (org-babel-do-load-languages 'org-babel-load-languages
     '(
@@ -167,6 +205,7 @@ Otherwise, just insert the typed character."
 (evil-set-initial-state 'pdf-view-mode 'normal)
 
 (use-package org-journal
+  :after (org)
   :init
     (setq org-journal-dir "~/org/website/journal/")
     (setq org-journal-date-format "%A, %d %B %Y")
@@ -186,18 +225,31 @@ Otherwise, just insert the typed character."
 )
 
 (use-package doom-modeline
-:config
-(doom-modeline-mode 1))
+  :config
+  (doom-modeline-mode 1))
+
+(use-package writegood-mode)
+
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (writegood-mode))))
 
 (use-package org-superstar
-:config
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+  :after (org)
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
 (use-package eglot 
   :config
   (add-hook 'prog-mode-hook 'eglot-ensure))
 
+(use-package projectile
+  :init
+  (setq projectile-project-search-path '("~/org" "~/src"))
+  :config
+  (projectile-mode +1))
+
 (use-package dashboard
+  :after (projectile)
   :init
   (setq dashboard-banner-logo-title "Welcome, Commander!")
   (setq dashboard-icon-type 'nerd-icons)
@@ -211,10 +263,6 @@ Otherwise, just insert the typed character."
 		      (registers . 5)))
   :config
   (dashboard-setup-startup-hook))
-
-(use-package projectile
-  :config
-  (projectile-mode +1))
 
 (use-package counsel)
 (use-package ivy
@@ -239,9 +287,9 @@ Otherwise, just insert the typed character."
   (global-set-key (kbd "C-c k") 'counsel-ag)
   (global-set-key (kbd "C-x l") 'counsel-locate)
   (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
   :config
   (ivy-mode))
+(define-key ivy-minibuffer-map (kbd "C-j") 'ivy-immediate-done)
 
 (use-package magit)
 
@@ -278,6 +326,7 @@ Otherwise, just insert the typed character."
     "n j j" '(org-journal-new-entry :wk "Make new journal entry")
     "n r f" '(org-roam-node-find :wk "Find roam node")
     "n r i" '(org-roam-node-insert :wk "Insert roam node")
+    "n r a" '(org-roam-alias-add :wk "Add alias to org roam node")
     "n r g" '(org-roam-graph :wk "Graph roam database")
     "r s s" '(elfeed :wk "rss feed")
     "." '(counsel-find-file :wk "find file")
@@ -285,6 +334,7 @@ Otherwise, just insert the typed character."
     "g P" '(magit-push :wk "git push")
     "g c" '(magit-commit :wk "git commit")
     "g p" '(magit-pull :wk "Pull from git")
+    "g s" '(magit-status :wk "Change status of files")
     "o t" '(vterm :wk "Terminal")
     "o e" '(eshell :wk "Elisp Interpreter")
     "o m" '(mu4e :wk "Email")
@@ -306,22 +356,36 @@ Otherwise, just insert the typed character."
     "m m" '(emms :wk "Music player")
     "m l" '(lyrics-fetcher-show-lyrics :wk "Music lyrics")
     "o p" '(treemacs :wk "Project Drawer")
+    "o P" '(treemacs-projectile :wk "Import Projectile project to treemacs")
     "f f" '(eglot-format :wk "Format code buffer")
     "i c" '(prestonpan :wk "Connect to my IRC server")
     "h m" '(woman :wk "Manual")
+    "h i" '(info :wk "Info")
+    "s m" '(proced :wk "System Manager")
+    "l p" '(list-processes :wk "List Emacs Processes")
+    "m I" '(org-id-get-create :wk "Make org id")
+    "y n s" '(yas-new-snippet :wk "Create new snippet")
+    "u w" '((lambda () (interactive) (shell-command "rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/")) :wk "rsync website update")
     "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
     ))
 
 (use-package elfeed
   :init
   (add-hook 'elfeed-search-mode-hook #'elfeed-update)
-  (setq elfeed-search-filter "@1-month-ago +unread")
-  )
+  (setq elfeed-search-filter "@1-month-ago +unread"))
 (use-package elfeed-org
   :init
   (setq rmh-elfeed-org-files '("~/org/website/config/elfeed.org"))
   :config
   (elfeed-org))
+
+(use-package treemacs)
+(use-package treemacs-evil
+  :after (treemacs evil))
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+(use-package treemacs-magit
+  :after (treemacs magit))
 
 (setq search-engines
       '(
@@ -332,7 +396,7 @@ Otherwise, just insert the typed character."
 
 (setq search-engine-default "google")
 (setq eww-search-prefix "https://google.com/search?q=")
-(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "firefox")
+(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "chromium")
 (setq browse-url-browser-function 'eww-browse-url)
 (add-hook 'eww-mode-hook
           (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
@@ -365,9 +429,9 @@ Otherwise, just insert the typed character."
 (setq TeX-PDF-mode t)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
 (setq org-return-follows-link t)
-(use-package latex-preview-pane
-  :config
-  (latex-preview-pane-enable))
+;; (use-package latex-preview-pane
+;;   :config
+;;   (latex-preview-pane-enable))
 
 ;; SMTP settings:
 (setq user-mail-address "preston@nullring.xyz")
@@ -393,7 +457,7 @@ Otherwise, just insert the typed character."
   (setq mu4e-compose-dont-reply-to-self t)
   (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-get-mail-command "mbsync prestonpan")
-  (setq mu4e-compose-reply-ignore-address '("no-?reply" "preston@nullring.xyz"))
+  (setq mu4e-compose-reply-ignore-address '("no-?reply" "ret2pop@gmail.com"))
   (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
 	mu4e-update-interval 300                  ; seconds between each mail retrieval
 	mu4e-headers-auto-update t                ; avoid to type `g' to update
@@ -419,6 +483,4 @@ Otherwise, just insert the typed character."
 (use-package stem-mode)
 (add-to-list 'auto-mode-alist '("\\.stem\\'" . stem-mode))
 
-;; (use-package treesit-auto
-;;   :config
-;;   (global-treesit-auto-mode))
+(server-start)

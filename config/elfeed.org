@@ -1,4 +1,4 @@
-#+title: Elfeed Feed
+#+title: Interesting RSS Feeds
 #+author: Preston Pan
 #+date: <2023-06-09 Fri>
 #+description: My list of blogs, news sites, and channels.
@@ -6,33 +6,45 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 
 * Feed :elfeed:
-In general, this feed has rss feeds whose associated links are viewable in
-eww, by design. It has a focus on technology related subjects, with some of my personal
-feeds. Feeds labeled private are feeds that are connected to an account I have, so
-you might not want them.
+This is the feed I use for Elfeed, and the elfeed-org package allows me to publish
+them here in an automated fashion. This is why Emacs is so great!
 ** Blogs :blog:
 Here are some interesting blogs, many of which are from substack.
-*** https://graymirror.substack.com/feed
-*** https://lukesmith.xyz/index.xml :lukesmith:
-
+*** [[https://graymirror.substack.com/feed][Gray Mirror]]
+Curtis Yarvin is quite the interesting person.
+*** [[https://lukesmith.xyz/index.xml][Luke Smith]] :lukesmith:
+Luke Smith is quite the interesting person.
+*** [[https://terrytao.wordpress.com/feed/][Terence Tao]]
+I like math.
 ** News :news:
 These are the news articles that I subscribe to. Some of these are politics related
 but I mostly just want to inform myself about technology subjects.
-*** https://www.wired.com/feed/tag/ai/latest/rss
-*** https://www.wired.com/feed/category/science/latest/rss
-*** https://feeds.washingtonpost.com/rss/politics?itid=lk_inline_manual_2
-*** https://news.ycombinator.com/rss
-
+*** [[https://www.wired.com/feed/tag/ai/latest/rss][Wired AI News]]
+Wired isn't too bad at covering science and technology.
+*** [[https://www.wired.com/feed/category/science/latest/rss][Wired Science]]
+*** [[https://feeds.washingtonpost.com/rss/politics?itid=lk_inline_manual_2][Washington Post Politics]]
+Politics is almost useless, but it helps with understanding what people are saying around me.
+*** [[https://news.ycombinator.com/rss][Hacker News]]
+Hacker News!
+*** [[https://api.quantamagazine.org/feed/][Quanta Magazine]]
+Credibility: misreported on ER EPR correspondence
 ** Podcasts :podcast:
-*** https://notrelated.xyz/rss :lukesmith:
-
+*** [[https://notrelated.xyz/rss][Not Related]] :lukesmith:
 ** Forums :forum:
-*** https://reddthat.com/feeds/front/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjkwMiwiaXNzIjoicmVkZHRoYXQuY29tIiwiaWF0IjoxNjg3NzgyNjk1fQ.XVCUjs0u5-kjNwFKvE6xlGCu7ij1QmzGEy0Pettdc_s.xml?sort=Active :personal:
-
 ** Science Journals :journal:
 I like to get new information about recent studies related to technology.
-*** http://www.nature.com/nmat/current_issue/rss/
-
+*** [[http://www.nature.com/nmat/current_issue/rss/][Nature]]
+Nature is a prestigious journal with a good bit of good content.
+** YouTube :youtube:
+These are YouTube channels that I find interesting enough to keep up with:
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC7_gcs09iThXybpVgjHZ_7g][PBS Space Time]]
+PBS space time is a channel that discusses various (sometimes cutting edge) topics in Physics in an expert manner.
+I find that they are highly accurate, and the host is highly educated in Physics.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCWvq4kcdNI1r1jZKFw9TiUA][ScienceClic]]
+ScienceClic is another YouTube channel that does an especially good job at covering cutting edge ideas in physics.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCMxiv15iK_MFayY_3fU9loQ][UnHerd]] :podcast:
+UnHerd is one of the best, most interesting political podcasts, period, in my opinion. Though, do note that learning
+about politics is kind of pointless.
 ** Misc.
 This is a section dedicated to everything that does not fit the above categories
 or is newly added from Qutebrowser with the xr keybinding.

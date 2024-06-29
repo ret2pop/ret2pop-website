@@ -58,7 +58,7 @@ factorial [ dup 0 <= [ 1 + ] [ dup 1 - factorial * ] if ] def
 
 #+RESULTS:
 : 120
-and in stem, we can print out the stack every step of the way with the builtin word ~?~:
+and in stem, we can print out the [[id:52d255d2-114c-42f4-b362-f0b4a2f7b83d][stack]] every step of the way with the builtin word ~?~:
 #+begin_src stem :exports both
 factorial-debug [ dup 0 <= [ 1 + ] [ ? "\n" . dup 1 - factorial-debug ? "\n" . * ] if ] def
 5 factorial-debug .
@@ -118,3 +118,16 @@ that doesn't cause recursion in the if statement), in which case we "go back up"
 is present in all programming languages, although in stem the operations are transparent as the stack is accessible by regular program users. In short, we keep
 on going down and down until we hit the bottom, base case, in which case we have all the pieces we need in order to go back up again, where the stack stores
 the information from most recent tasks to be done and we work back up in order to do the less recent tasks.
+
+This concept is important in programming because it allows one to build definitions in an intuitive way, simply by
+specifying the base case and specifying the case that is not the base case. Such an algorithm absolves oneself from having
+to design complicated patterns, as instead the entire computation emerges out of simple rules.
+
+In general, we see recursive definitions and design patterns in nature in the form of fractals.
+* Self Reference Problems
+A big part of [[id:654280d8-82e8-4a0e-a914-bd32181c101b][infinite]] [[id:8f265f93-e5fd-4150-a845-a60ab7063164][recursion]] has to do with self reference problems. For instance, Russel's paradox with respect to
+set theory: does a set that contains all sets that do not contain themselves contain itself?
+
+Such a set would contain itself if and only if it didn't contain itself. This apparent contradiction in set theory is an
+example of using recursion to reach self reference paradoxes. There are more examples, such as Godel's theorems and
+Turing's computability theorem.

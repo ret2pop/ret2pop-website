@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       a7d6d6e9-9f7a-446f-b6af-255c802f86b1
+:END:
+#+title: circuit analysis
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+Circuit analysis is the study of real world circuits using circuit elements and circuit components with idealized
+wires. There are three basic axioms of circuit analysis, the two [[id:1d586d6b-bd97-4c59-ad57-8894ae4ac8ba][Kirchhoff's Laws]], and [[id:3cdce475-7644-4529-a447-6e790ad4055f][Ohm's Law]]. Circuit analysis
+is generally visualized via circuit diagrams, but one can represent circuits using [[id:4be41e2e-52b9-4cd1-ac4c-7ecb57106692][differential equations]] as well.
+Simple examples of circuits analyzed in this field include the [[id:6dbe2931-cc18-48fc-8cc1-6c71935a6be3][LRC circuit]] and various filters.

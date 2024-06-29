@@ -20,7 +20,7 @@ There is no currently known theory that can describe [[id:2b8515d8-9f3c-44a3-a40
 many correspondences and [[id:1b1a8cff-1d20-4689-8466-ea88411007d7][dualities]].
 ** Classical Mechanics
 Classical mechanics deals with fields of physics that do not deal with time dilation or quantum
-weirdness. It is called classical mechanics because most of these theories wer invented before
+weirdness. It is called classical mechanics because most of these theories were invented before
 their quantum or relativistic counterparts, and usually serve as a baseline understanding
 for the later topics.
 *** [[id:6e2a9d7b-7010-41da-bd41-f5b2dba576d3][Newtonian mechanics]]
@@ -30,8 +30,10 @@ governed all things.
 This is a different strain of classical mechanics. Instead of looking at direction and vectors,
 it looks at a single fundamental principle, even more fundamental than inertia and conservation of momentum:
 optimization. We believe that nature always optimizes for some parameters in all physical phenomena. Almost
-all physical theories including electromagnetism, general relativity, Newtonian mechanics, and even quantum mechanics can be explained
-within the Lagrangian framework.
+all physical theories including electromagnetism, general relativity, Newtonian mechanics, and even quantum
+mechanics can be explained within the Lagrangian framework.
+*** Fluid Mechanics
+*** Thermodynamics
 *** Classical Electrodynamics
 Classical electrodynamics attempts to explain the electromagnetic force from a classical perspective. What is
 light? How does electricity actually work? All these questions you will find (half) answered in the study
@@ -39,7 +41,13 @@ of electrodynamics, giving rise to the complete theory encoded in [[id:fde2f257-
 *** General Relativity
 General Relativity aims unify gravity with [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]], in a unified theory of macroscopic forces
 including classical electromagnetism.
-
-** Quantum Mechanics
+** [[id:136e79df-106f-4989-ab19-89705929cf91][Quantum Mechanics]] 
 Quantum mechanics renounces all hope of having a deterministic view of physics, and instead replaces direct causation
 with statistical causation, at least according to some interpretations.
+** QFT
+Quantum Field Theory is an approach that combines [[id:e38d94f2-8332-4811-b7bd-060f80fcfa9b][special relativity]] with [[id:136e79df-106f-4989-ab19-89705929cf91][quantum mechanics]], then utilizing a process
+called canonical quantization in order to quantize a given field. This is the closest thing we have to a theory of [[id:2b8515d8-9f3c-44a3-a40d-147f6a2bbb25][everything]]
+in physics.
+
+* Note
+I did not exhaustively cover all fields in physics but this is most of it.

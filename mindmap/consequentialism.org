@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       4b4d4071-2ef4-4a6d-ada3-adc8cac425cc
+:END:
+#+title: consequentialism
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+Consequentialism is a set of metaethical views that give importance to the consequence of actions rather than some
+inherent quality in the action. Examples of consequentialism include [[id:326eb3f8-680a-432c-bf69-42ba4d366116][egoism]] and utilitarianism. This is in contrast
+to [[id:6d8c8bcc-58b0-4267-8035-81b3bf753505][frameworks]] that posit that there is some inherent moral quality to certain things or actions, such as virtue ethics
+or deontologism. I posit that these non-consequentialist frameworks are special cases of consequentialist calculation,
+less abstracted versions of the same phenomenon. Of course, to say anything is more or less abstract is itself
+suspect as anything can be explained in terms of anything else, but it is a useful fiction to assume that one comes from
+the other, because of heuristics that follow downstream from consequentialism, such as noticing [[id:7456da20-684d-4de6-9235-714eaafb2440][IEEDI]] syndrome.
+

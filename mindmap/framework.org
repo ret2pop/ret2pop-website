@@ -1,5 +1,6 @@
 :PROPERTIES:
 :ID:       6d8c8bcc-58b0-4267-8035-81b3bf753505
+:ROAM_ALIASES: system
 :END:
 #+title: framework
 #+author: Preston Pan

@@ -4,3 +4,10 @@
 #+title: stack
 #+author: Preston Pan
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+* Introduction
+A stack in programming is a data structure that satisfies the following API rules:
+1. Push: puts something on the top of the stack
+2. Pop: takes item off stack and gives it to the caller
+3. Peek: hands copy of top item on the stack to caller
+4. isEmpty: checks if the stack size is zero
+where stacks generally store their data in a list, either an array or a singly linked list.

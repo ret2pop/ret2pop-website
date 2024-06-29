@@ -1,0 +1,22 @@
+:PROPERTIES:
+:ID:       6f24f731-60e5-4904-88d7-c63869505981
+:ROAM_ALIASES: metric
+:END:
+#+title: metric space
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+A metric space $(G, d)$ is a set with a metric $d(x,y): G \times G \rightarrow \mathbb{R}$ defined on members of the set.
+This metric is a generalization of distance, with the following properties:
+\begin{align}
+\label{}
+d(x, x) = 0 \\
+x \ne y \implies d(x, y) > 0 \\
+d(x, y) = d(y, x) \\
+d(x, z) \le d(x, y) + d(x, z)
+\end{align}
+where property $(4)$ is the triangle inequality.

@@ -1,0 +1,28 @@
+:PROPERTIES:
+:ID:       53dade38-21e1-4fa9-a552-6ceab8a75f82
+:END:
+#+title: Heaviside Step Function
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+the Heaviside Step Function $H(t)$ is an important function in signal analysis. It is defined as follows:
+\begin{align}
+\label{}
+H(t) =
+\[   \left\{
+\begin{array}{ll}
+0 & t \leq 0 \\
+1 & t > 0
+\end{array}
+\right. \]
+\end{align}
+and it is related to the [[id:90574fea-88f4-4b80-9cda-32cff0bcb76d][dirac delta]] distribution by taking a [[id:31d3944a-cddc-496c-89a3-67a56e821de3][derivative]]:
+\begin{align}
+\label{}
+\frac{dH}{dt} = \delta(t)
+\end{align}
+Note that this definition of the derivative may be different than that of the regular derivative definition.

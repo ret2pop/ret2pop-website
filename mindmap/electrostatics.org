@@ -25,14 +25,14 @@ these charges have no mass or volume; we call these /point charges/. The equatio
 on \( P_{1} \) is as follows:
 
 \begin{align*}
-\vec{F(\vec{r})} = \frac{1}{4\pi\epsilon_{0}}\frac{qQ}{r^{2}} \hat{r}.
+\vec{F(\vec{r})} = \frac{1}{4\pi\epsilon_{0}}\frac{qQ}{r^{2}} \hat{r}
 \end{align*}
 
 Where \( \hat{r} \) is the unit vector pointing in the direction of \( P_{2} \). Note that there are a
 couple of interesting things about this force. First, it is an [[id:2a543b79-33a0-4bc8-bd1c-e4d693666aba][inverse square]] law, and the formula looks a lot like the one for gravitation,
 only charge can be negative and mass cannot. Second, it is symmetrical,
 in the sense that the force felt by \( P_{2} \) is going to be the same, only \( \hat{r} \)
-is pointing in the other direction. Also, note that due to linearity, this force calculation follows the /superposition principle/.
+is pointing in the other direction. Also, note that due to linearity, this force calculation follows the [[id:422653e2-daa4-422a-9cb7-3983a5a72554][superposition principle]].
 That is, if we have different electrostatic forces acting on one particle:
 
 \begin{align*}
@@ -83,7 +83,7 @@ The result is we find a way to express force in a /test charge independent way/.
 because we often want to find the force if an arbitrary object with an arbitrary charge is next
 to the particle in question, instead of focusing specifically on two charges.
 
-Note that it is trivial to prove that \( \vec{E} \) also follows the superposition principle.
+Note that it is trivial to prove that \( \vec{E} \) also follows the [[id:422653e2-daa4-422a-9cb7-3983a5a72554][superposition principle]].
 
 
 ** Continuous Charge Distributions

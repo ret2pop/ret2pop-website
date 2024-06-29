@@ -1,0 +1,92 @@
+#+title: Tech Bros
+#+author: Preston Pan
+#+description: and other people that other people hate.
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
+* Introduction
+People use the term "tech bro" in a pejorative manner. This blog post is meant to be a cultural analysis
+of why people hate tech bros, and, in general, this blog post is meant to be a cultural analysis of tolerance and intolerance
+towards groups of people. In general, I believe that progressive or liberal cultural values are just as intolerant
+as conservative cultural values; progressives will tell me that this is wrong for many reasons, and I will try to give
+my best explanation as to why the common retorts are made from a misinformed stance.
+
+I think related to the culture of hating tech bros is hating self proclaimed smart people. Many like to make sarcastic
+or ironic remarks after people self-report intelligence, even though downplaying identity in any other context would
+be culturally unacceptable. In general, this is the case for people that are confident in any conventionally useful
+identity trait. People are, generally speaking, much more tolerant of "punching up" -- a concept that /shouldn't exist/
+if you take a postmodern outlook on identity. The rich are often made fun of in various ways, for example. In response
+to the statement I just made, someone might make fun of that fact, say, "oh no, not rich people!", or some sarcastic
+or ironic statement to that effect. I think this cultural phenomenon is toxic -- the statement "these people are doing
+better, therefore I can make fun of them" is not logically valid. A does not imply B -- "these people are doing better"
+does not imply "therefore, I get to be mean to them". It is just not a good reason to punch up. Ideally you'd consider
+the fact that the quality of categories of people doesn't matter in the face of individual people.
+
+Now, I understand the mentality of people that do this. There are common arguments that this is to be expected because of
+they themselves are a part of many marginalized groups; punching up seems to be an empowering way to use that against
+those same people who punch down. What people in general don't understand, I think, is that there are no groups of people,
+only individuals inside those categories. People that others in general make fun of aren't a monolithic group, and even
+progressives seem to not be able to register this fact at times.
+** Sexism and Feminism
+Now, I will also point out that sexism literally exists for everyone, not just women.
+I've heard the statement "I hate men" many times throughout my life, genuinely unable to tell whether
+or not they are being ironic. Obviously, one could say they are expressing their own personal life
+experiences, many of which may be negative, but people who are otherwise sexist or racist also do that. And, no,
+I don't think it's because "men lose out from the patriarchy too"; I think most people that subscribe to feminist
+analysis in practice don't pay attention to this after giving some minor lip service to this.
+I have no problem with feminism; it's a useful tool for observing the world, and the patriarchy is just a descriptive
+term (it is a model of the world that can be correct or incorrect, just like other
+models), and people may have their opinions about what is happening in the real world based on said descriptive models.
+But for most people, I don't think having said prescriptive opinion is useful because most people can't meaningfully change
+other people. If that is the case, it makes more sense to create a descriptive model than a prescriptive model. Unless,
+of course, your goal is to appear morally righteous to your peers. If that is the case, I'm not even judging you --
+I'm just calling this behavior out because it doesn't currently get enough attention.
+
+I'm not a feminist, but I'm not an anti-feminist. There are interesting points to be discussed regarding feminism,
+but I think there is value in using the same descriptive outlooks and coming to different conclusions. Yet,
+something tells me that there are some things that people would not like to actually think about from a morally neutral
+perspective (I am personally favorable to the argument that patriarchy is a /bad/ thing -- but then again, I think
+Capitalism is a /good/ thing, and apparently [[https://www.thegazelle.org/issue/199/capitalism-patriarchy-inseperable][Capitalism implies patriarchy]]. Wait, what does /good/ or /bad/ mean
+in the first place? Well, I actually think those terms are ultimately /meaningless/ -- but that's for another article).
+** Race
+The only race of people for which there is no slur is white people. Now, the term "cracker" might be seen as a slur,
+but many don't consider it to be, and the fact that I'm able to put it in quotes and just put it there as opposed
+to the N-word or the C-word might tell you that there's a special status assigned to "cracker" (note that I myself
+am allowed to say the C-word, or "chink", as I am asian. Yet I don't think this rule "should" exist either).
+
+Using the same "punching up" mentality, you can make the argument for assigning this special status. Yet, it's kind
+of psychotic in my opinion to make fun of someone's race. I've heard people say, "I hate white people" in the same
+way I've heard people say, "I hate men". I think they use irony to mask what they think in the same way ultra
+white-nationalist people do. Not to compare them in any other way, though.
+
+Not everyone that has white privilege feels it. Depending on your definition, not all white people may even have
+white privilege. It's not very empathetic or progressive to just say you hate white people. In truth, it is pretty
+deranged. The same is true for saying you hate men.
+** Confidence/Intelligence
+People who are confident about their intelligence or some other form of personality trait generally considered positive
+often are the butt of jokes. You get the point already, "I am oppressed, they are not, therefore let's be assholes" is
+not a logically coherent reason to just be an asshole to someone i.e. mock them when they are trying to tell you something
+that probably reflects some reality.
+** Class
+Same argument applies in almost the exact same way, read above.
+* Conclusion
+This is to say, tech bros are one of the most well-paid, intelligent, disproportionately white and male populations on
+the planet. I believe this is why they are also the most hated people in the progressive sphere, and one of the more
+misunderstood classes of people in my culture as a result. That statement might /sound/ really wrong to you. I don't
+want any conservative audience either championing anything that I say, because I think the conservative/"libertarian"
+crowd is one of the main sources of people shutting their brains off. Still, conservative /sounding/ statements are just
+tasteless to the progressive culture, even if they point to some reality. I wish to live until the day we ask ourselves
+/why/.
+
+And everything that I've said applies in the opposite direction, obviously. This should go without saying, but
+saying that you "hate women" is even more deranged than saying you hate men, and the same with race as well. Though,
+I didn't include this because everyone in my culture already knows. They need to desperately hear the other side of
+the story. Not to say that I have any influence over culture, anyway -- but it's fun sometimes to try.

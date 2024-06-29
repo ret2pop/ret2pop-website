@@ -1,0 +1,30 @@
+:PROPERTIES:
+:ID:       e73baa24-1a29-4f35-9d3d-0fad4a3a8e59
+:END:
+#+title: Laplace Transform
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+The dual-edge Laplace Transform is defined as:
+\begin{align}
+\label{Laplace Transform}
+F(s) = \int_{-\infty}^{\infty}f(t)e^{-st}dt
+\end{align}
+when $s$ is complex (which it usually is), the [[id:262ca511-432f-404f-8320-09a2afe1dfb7][Fourier Transform]] can be taken to be a special case of the
+dual-edge Laplace Transform. One can think of this as analyzing the complex exponential domain, rather than just
+the frequency domain (imaginary exponential domain). Now, multiplying the signal by the [[id:53dade38-21e1-4fa9-a552-6ceab8a75f82][Heaviside Step Function]]:
+\begin{align}
+\label{Step Function}
+F(s) = \int_{-\infty}^{\infty}H(t)f(t)e^{-st}dt = \int_{0}^{\infty}f(t)e^{-st}dt
+\end{align}
+gives you the conventional Laplace Transform.
+** Usage
+The Laplace Transform is primarily used for analyzing [[id:32a116d9-b813-4b5a-a2e8-6dd7b767ec16][linear differential equations]] as it converts these equations into
+algebraic equations. The inverse Laplace Transform is complicated, and is therefore not used often. Instead, Laplace
+Transform tables are used in order to convert back into the time-domain. Taking the Laplace transform of all terms in
+a linear differential equation will yield this result. One of the simplest differential equations that the Laplace
+Transform can solve is the [[id:6dbe2931-cc18-48fc-8cc1-6c71935a6be3][mass-spring system]], and it also generally has applications in [[id:a7d6d6e9-9f7a-446f-b6af-255c802f86b1][circuit analysis]].

@@ -49,10 +49,22 @@ We know:
 \begin{align*}
 \lim s_{n} = s \iff \forall \epsilon > 0, \exists N, n > N \implies | s_{n} - s | < \epsilon \\
 \end{align*}
-
+which is equivalent to:
+\begin{align*}
+\lim s_{n} = s \iff \forall \epsilon > 0, \exists N, n > N \implies s - \epsilon < s_{n} < s + \epsilon
+\end{align*}
 and our sequence $\{s_{n}\}$ is monotone. If $\{s_{n}\}$ is increasing, we have:
 \begin{align*}
 s_{n + 1} \ge s_{n}
 \end{align*}
-for all n.
+for all n. Without loss of generality we shall assume $\{s_{n}\}$ is increasing. Then we take two cases:
+1. $\{s_{n}\}$ is bounded.
+2. $\{s_{n}\}$ is unbounded.
+In the case $\{s_{n}\}$ is bounded:
+\begin{align}
+\label{}
+\exists M, \forall n, s_{n} \le M \\
+s_{0} \le ... \le s_{n} \le s_{n + 1} \le s_{n + 2} \le ... \le M
+\end{align}
+
 #+end_proof

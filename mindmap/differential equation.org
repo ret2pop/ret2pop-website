@@ -17,10 +17,301 @@ initial value problems.
 Differential equations are often used to model real world systems, and are the main tool in numerical simulations of said
 systems.
 ** ODE
+:PROPERTIES:
+:ID:       5ef63bef-2d8f-4e00-b292-8206cf69469a
+:END:
 An ODE is a differential equation involving single variable function solution classes and their derivatives.
 ** PDE
+:PROPERTIES:
+:ID:       365190d8-0f3a-4728-9b09-83a216292256
+:END:
 A PDE is a differential equation involving multivariable function solution classes and generally involve partial derivatives
 of the unknown function.
 ** initial value problem
+:PROPERTIES:
+:ID:       bc7e9e01-9721-4b3e-a886-74a2fd27daf3
+:END:
 An initial value problem is a problem where one is given a differential equation and particular values of the unknown function
 and particular values of its derivatives, and the result is a particular solution.
+** separable differential equation
+:PROPERTIES:
+:ID:       8e9c975a-cd75-447e-b094-16258147d83c
+:END:
+For [[id:5ef63bef-2d8f-4e00-b292-8206cf69469a][ODEs]], separable differential equations are differential equations of the form:
+\begin{align}
+\label{}
+\frac{dy}{dx} = f(y)g(x)
+\end{align}
+which can be solved by taking an integral on both sides:
+\begin{align}
+\label{}
+\frac{dy}{f(y)} = g(x)dx \\
+\int\frac{dy}{f(y)} = \int g(x)dx
+\end{align}
+evaluating the integrals and solving for $y$, you obtain solutions for $y$ in terms of $x$.
+** [[id:ab024db7-6903-48ee-98fc-b2a228709c04][linear]] differential equation
+:PROPERTIES:
+:ID:       32a116d9-b813-4b5a-a2e8-6dd7b767ec16
+:END:
+Linear differential equations are differential equations of the form:
+\begin{align}
+\label{}
+[\sum_{i}f_{i}(x)D^{i}]y(x) = g(x)
+\end{align}
+where $D$ is the [[id:31d3944a-cddc-496c-89a3-67a56e821de3][derivative]] operator. They are linear because the unknown function $y(x)$ is being operated on by some
+linear operator, and common methods in linear algebra can be used in order to analyze equations of this kind. For
+example, a first-order linear differential equation would look like this:
+\begin{align}
+\label{}
+[f(x)D + g(x)]y(x) = h(x)
+\end{align}
+which can be easily solved in the following way where $G(x) = \frac{g(x)}{f(x)}$ and $H(x) = \frac{h(x)}{f(x)}$:
+\begin{align}
+\label{}
+[D + G(x)]y(x) = H(x) \\
+\mu(x)[D + G(x)]y(x) = \mu(x)H(x) \\
+\mu'(x) := G(x)\mu(x) \\
+D(\mu(x)y(x)) = \mu(x)H(x) \\
+y(x) = \frac{\int\mu(x)H(x)dx}{\mu(x)}
+\end{align}
+Now to solve for $\mu(x)$, using [[id:8e9c975a-cd75-447e-b094-16258147d83c][separable differential equation]] methods:
+\begin{align}
+\label{}
+\frac{d\mu}{dx} = G(x)\mu(x) \\
+\frac{1}{\mu}d\mu = G(x)dx \\
+\int\frac{1}{\mu}d\mu = \int G(x)dx \\
+ln(\mu) = \int G(x)dx \\
+e^{\int G(x)dx} = \mu
+\end{align}
+Therefore:
+\begin{align}
+\label{}
+y(x) = \frac{\int e^{\int G(x)dx}H(x)dx}{e^{\int G(x)dx}}
+\end{align}
+Then, to model any particular first order system, plug in functions for $G(x)$ and $H(x)$.
+*** superposition principle
+:PROPERTIES:
+:ID:       422653e2-daa4-422a-9cb7-3983a5a72554
+:END:
+The principle of superposition states that any solutions $f_i(x)$ add to a new solution:
+\begin{align}
+\label{}
+\sum_{i=0}^{N}f_{i}(x) = f_{new}(x)
+\end{align}
+that also satisfies the linear differential equation. This works because the operator is [[id:ab024db7-6903-48ee-98fc-b2a228709c04][linear]], so additive properties
+work over this space.
+*** Higher Order Linear Differential Equations
+Solving higher order linear differential equations requires a couple of tricks. For example, transforms such
+as the [[id:e73baa24-1a29-4f35-9d3d-0fad4a3a8e59][Laplace Transform]] or the [[id:262ca511-432f-404f-8320-09a2afe1dfb7][Fourier Transform]] may be used. Such transforms reduce differential equation
+problems to algebraic problems, thus simplifying their solution methods. Other methods include guessing (I'm not
+pulling your leg here, this is real), formulation as an eigenvalue problem, and taylor polynomial solutions. We will
+take a look at all of these in this section.
+*** Homogeneous Case
+Take the case $Ay'' + By' + Cy = 0$, the substitute the form $y = De^{kt}$. Then:
+\begin{align}
+\label{}
+De^{kt}(Ak^{2} + Bk + C) = 0 \\
+Ak^{2} + Bk + C = 0
+\end{align}
+Then, use the quadratic formula to solve for $k$ in terms of the other constants. Such a polynomial is called the
+characteristic polynomial of this differential equation.
+*** Eigenvalue Problems
+Eigenvalue problems can be solved just like in the familiar linear algebra case. For instance, take some differential
+equation in this form:
+\begin{align}
+\label{}
+A(f) = \lambda f
+\end{align}
+where $A$ is a linear operator in [[id:b1f9aa55-5f1e-4865-8118-43e5e5dc7752][function]] space, and $\lambda$ is any constant. Traditionally, one would solve such an eigenvalue
+problem like so:
+\begin{align}
+\label{}
+\det{(A - \lambda I)} = 0
+\end{align}
+In the simple example of a polynomial basis, this function $f$ can be represented as some linear combination of linearly
+independent polynomials. A simple basis to choose could be the Taylor series basis i.e. $\vec{e_{n}} = x^{n}$ where $e_{n}$ is the nth
+basis vector. Note that there are many polynomial bases that are an orthogonal basis and span this subset of function
+space, but this is a simple example. In this case, the matrix $A$ would represent an operation on an infinite polynomial,
+and the $\lambda I$ tells you to subtract $\lambda$ from all its diagonals. You can interpret this literally, using the following example.
+**** Example
+\begin{align}
+\label{}
+D(r^{2}D(f(r)) = \lambda f(r)
+\end{align}
+is such an example of an eigenvalue problem. Now, using the Taylor basis, we need to know two things: what $D$ is as an
+infinite dimensional matrix in this basis, and what $t^{2}$ is as an infinite dimensional matrix. $f$ is some unknown vector
+we are trying to solve for in this system. Note this observation:
+\begin{align}
+\label{}
+\begin{pmatrix}
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 2 & 0 & 0 \\
+0 & 0 & 0 & 3 & 0 \\
+0 & 0 & 0 & 0 & 4 \\
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+b \\
+c \\
+d \\
+e
+\end{pmatrix}
+=
+\begin{pmatrix}
+b \\
+2c \\
+3d \\
+4e
+\end{pmatrix}
+\end{align}
+
+That this matrix encodes the power rule for the Taylor eigenbasis for 4 dimensions; each entry in the vectors encodes the nth
+power monomial term, which means, for example:
+\begin{align}
+\label{}
+\begin{pmatrix}
+a \\
+b \\
+c \\
+d \\
+e
+\end{pmatrix} := a + bx + cx^{2} + dx^{3} + ex^{4}
+\end{align}
+then the derivative of this vector would be:
+\begin{align}
+\label{derivative}
+b + 2cx + 3dx^{2} + 4ex^{3}
+\end{align}
+which is exactly the coefficients in the resultant vector! Now, if we generalize this to an infinite amount of dimensions
+(where the vector has an infinite length and the matrix has infinite entries), this corresponds to the same effect.
+
+Thus, the infinite matrix with the off-diagonal increasing entries is the $D$ matrix, or $D$ operator. But what is the
+$r^{2}$ operator? We know it must be a matrix operation that shifts the entire vector up by two, and pads the first two
+entries of the vector with two zeros. If we find this matrix, the matrix multiplication $DRD$ should yield a new
+infinite matrix $M$, which we can use in order to solve the eigenvalue problem $\det{(M - \lambda I)} = 0$. Now this matrix is:
+\begin{align}
+\label{R matrix}
+\begin{pmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+\end{pmatrix}
+\end{align}
+and so on. This matrix does the exact same thing to a polynomial vector as what multiplying $r^{2}$ does to a polynomial.
+We then multiply the two matrices to get this new matrix:
+\begin{align}
+\label{new}
+\begin{pmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 2 & 0 & 0 \\
+0 & 0 & 0 & 3 & 0 \\
+0 & 0 & 0 & 0 & 4 \\
+0 & 0 & 0 & 0 & 0
+\end{pmatrix} =
+\begin{pmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 2 & 0 & 0 \\
+0 & 0 & 0 & 3 & 0 \\
+\end{pmatrix}
+\end{align}
+and so on, as you can see the pattern. Now we multiply in another $D$:
+\begin{align}
+\label{DS}
+\begin{pmatrix}
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 2 & 0 & 0 \\
+0 & 0 & 0 & 3 & 0 \\
+0 & 0 & 0 & 0 & 4 \\
+0 & 0 & 0 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 2 & 0 & 0 \\
+0 & 0 & 0 & 3 & 0 \\
+\end{pmatrix} =
+\begin{pmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 2 \cdot 1 & 0 & 0 & 0 \\
+0 & 0 & 3 \cdot 2 & 0 & 0 \\
+0 & 0 & 0 & 4 \cdot 3 & 0 \\
+0 & 0 & 0 & 0 & 5 \cdot 4
+\end{pmatrix}
+\end{align}
+of course the $5 \cdot 4$ isn't actually resultant from the image above, but it is from the infinite version
+of this process. Now, we can finally subtract $\lambda$ from this infinite matrix:
+\begin{align}
+\label{lambda}
+\begin{pmatrix}
+-\lambda & 0 & 0 & 0 & 0 \\
+0 & 2 \cdot 1 - \lambda & 0 & 0 & 0 \\
+0 & 0 & 3 \cdot 2 - \lambda & 0 & 0 \\
+0 & 0 & 0 & 4 \cdot 3 - \lambda & 0 \\
+0 & 0 & 0 & 0 & 5 \cdot 4 - \lambda
+\end{pmatrix}
+\end{align}
+Now, you might be wondering how we're going to take the determinant of this infinite matrix. We can take
+a [[id:122fd244-ffeb-47d0-89ce-bf9bc6f01b70][limit]] of finite matrices to find out what the generalization might be. For instance, the 3d case might look like this:
+\begin{align}
+\label{}
+\lambda^{2}(2\cdot 1 - \lambda)
+\end{align}
+(as the very last diagonal entry in the finite case does not extend infinitely, there is no $3 \cdot 2$ term). Now taking some
+higher dimensions:
+\begin{align}
+\label{higher dimensions}
+\lambda^{2}(2 \cdot 1 - \lambda)(3 \cdot 2 - \lambda) \\
+\lambda^{2}(2 \cdot 1 - \lambda)(3 \cdot 2 - \lambda)(4 \cdot 3 - \lambda) \\
+\lambda^{2}(2 \cdot 1 - \lambda)(3 \cdot 2 - \lambda)(4 \cdot 3 - \lambda)(5 \cdot 4 - \lambda)
+\end{align}
+using inductive reasoning we should expect the infinite form to be:
+\begin{align}
+\label{}
+det(M) = -\lambda(2 \cdot 1 - \lambda)(3 \cdot 2 - \lambda)(4 \cdot 3 - \lambda)(5 \cdot 4 - \lambda)(6 \cdot 5 - \lambda)\dots
+\end{align}
+(note that it isn't $\lambda^{2}$ because the very last $-\lambda$ never gets multiplied, and it's negative for that reason too). Note
+that if we want to set $det(M) = 0$, $\lambda = n(n - 1)$ where $n$ is a natural number (including zero). Then we substitute
+back in the $\lambda$ for some $n$, let's use $n = 2$ as an example:
+\begin{align}
+\label{n=2}
+\begin{pmatrix}
+-2 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 4 & 0 & 0 \\
+0 & 0 & 0 & 10 & 0 \\
+0 & 0 & 0 & 0 & 18
+\end{pmatrix}
+\begin{pmatrix}
+a_{1} \\
+a_{2} \\
+a_{3} \\
+a_{4} \\
+a_{5} \\
+\end{pmatrix} =
+\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+0 \\
+0
+\end{pmatrix}
+\end{align}
+clearly, when we choose $n = 2$, the second value $a_{2}$ is free, and the rest for the given eigenfunction
+must be zero, meaning for a given $n$, the resulting eigenvector is $ax^{n}$ for any value $a$. This is one of the solutions
+to this differential equation.
+
+It turns out there's another solution in a space that the Taylor space does not span, but I'll leave it as an exercise
+to find the other solution using this method, by extending it to include other kinds of functions. Note that for your
+eigenbasis one can use the [[id:262ca511-432f-404f-8320-09a2afe1dfb7][Fourier Transform]] to make a Fourier basis, but that's also easy to generalize.

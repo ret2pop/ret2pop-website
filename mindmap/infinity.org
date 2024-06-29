@@ -19,3 +19,4 @@ extends the real numbers to include infinites. However, only order is well defin
 \begin{align*}
 \forall a \in \mathbb{R}, -\infty < a < \infty
 \end{align*}
+This definition of infinity is generally used to define concepts such as [[id:122fd244-ffeb-47d0-89ce-bf9bc6f01b70][limits]] in [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][mathematics]].

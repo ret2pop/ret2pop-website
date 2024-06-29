@@ -1,0 +1,23 @@
+:PROPERTIES:
+:ID:       9a1cc2d9-ef99-436c-8c21-9e68fd7df192
+:END:
+#+title: normed vector space
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+A normed vector space is a [[id:ab024db7-6903-48ee-98fc-b2a228709c04][vector space]] with a norm defined, which describes the "length" of the vector.
+This norm obeys these properties:
+\begin{align}
+\label{}
+\lVert ax \rVert = \lvert a \rvert \lVert x \rVert \\
+\lVert x + y \rVert \le \lVert x \rVert + \lVert y \rVert
+\end{align}
+this gives rise to a [[id:6f24f731-60e5-4904-88d7-c63869505981][metric]] $d(x, y)$:
+\begin{align}
+\label{}
+d(x, y) = \lVert x - y \rVert
+\end{align}

@@ -3,13 +3,14 @@
 :END:
 #+title: Kirchhoff's Laws
 #+author: Preston Pan
+#+description: basic laws of circuit analysis
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 #+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 #+options: broken-links:t
 
 * Introduction
-Kirchhoff's Laws, along with Ohm's law, create the axioms of circuit analysis. The two laws are the Kirchhoff Voltage Law
+Kirchhoff's Laws, along with [[id:3cdce475-7644-4529-a447-6e790ad4055f][Ohm's Law]], create the axioms of [[id:a7d6d6e9-9f7a-446f-b6af-255c802f86b1][circuit analysis]]. The two laws are the Kirchhoff Voltage Law
 (KVL) and Kirchhoff's Current Law (KCL). They can be derived from an approximation of [[id:fde2f257-fa2e-469a-bc20-4d11714a515e][Maxwell's Equations]].
 ** KCL
 :PROPERTIES:
@@ -29,7 +30,33 @@ If the total amount of charge in the wires are conserved:
 Therefore:
 \begin{align}
 \label{}
-\sum_{n}I_{n} = 0
+\sum_{n}^{N}I_{n} = 0
 \end{align}
 where the total current $\vec{I}$ can be decomposed into many currents of each branched path $I_{n}$.
 ** KVL
+:PROPERTIES:
+:ID:       92c952ee-f1f3-4782-b9e2-6fecb56caac6
+:END:
+The Kirchhoff voltage law can be derived also from [[id:fde2f257-fa2e-469a-bc20-4d11714a515e][Maxwell's Equations]], specifically the [[id:63713308-0ff7-433f-8103-8b64ba9bdbe1][electrostatics]] equations
+that formulate the electric field as an [[id:951db9ac-3e8b-49a1-b609-2bbb795be834][electrostatic potential]]:
+\begin{align}
+\label{}
+\vec{E} = -\vec{\nabla}V
+\end{align}
+more specifically, the [[id:951db9ac-3e8b-49a1-b609-2bbb795be834][potential difference]] across a circuit element can be defined by
+$\int \vec{E} \cdot d\vec{l} = V(b) - V(a)$, where $a$ and $b$ correspond to the positions before and after the circuit element.
+We know from electrostatics that:
+\begin{align}
+\label{}
+\oint \vec{E} \cdot d\vec{l} = 0
+\end{align}
+and from the superposition principle we know:
+\begin{align}
+\label{}
+V_{tot} = \sum V_{i}
+\end{align}
+so the total voltage drop, or potential difference around the entire circuit must be zero:
+\begin{align}
+\label{}
+\sum_{n=0}^{N}V_{n} = 0
+\end{align}

@@ -1,7 +1,7 @@
 :PROPERTIES:
-:ID:       29ebc4f9-0fd8-4203-8bfe-84f8558e09cf
+:ID:       eac079b7-1144-4506-b8c5-4717ccac8a7b
 :END:
-#+title: logic
+#+title: Hilbert Space
 #+author: Preston Pan
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -9,7 +9,4 @@
 #+options: broken-links:t
 
 * Introduction
-Logic is the foundation of everything mathematical, and can even study itself; this is known as metalogic. In order to
-demonstrate logic, we must first demonstrate some axioms of logic, starting with propositional logic.
-** Propositional Logic
-Propositional logic
+A Hilbert Space $\mathcal{H}$ is an [[id:36a2715c-a8db-4b75-b799-61ce43be2d2d][inner product space]] whose inner product defines a complete metric space.

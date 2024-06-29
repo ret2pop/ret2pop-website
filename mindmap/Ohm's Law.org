@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       3cdce475-7644-4529-a447-6e790ad4055f
+:END:
+#+title: Ohm's Law
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+The name is a misnomer; Ohm's law simply refers to the tendency for real world materials to obey this relation:
+\begin{align}
+\label{}
+V = IR
+\end{align}
+where $V$ is the [[id:951db9ac-3e8b-49a1-b609-2bbb795be834][voltage]], $I$ is the current, and $R$ is a proportionality constant arguably defined by this equation.
+Essentially this law posits that resistors scale the current in a [[id:ab024db7-6903-48ee-98fc-b2a228709c04][linear]] fashion. This law is used extensively in
+the analysis of resistors in [[id:a7d6d6e9-9f7a-446f-b6af-255c802f86b1][circuit analysis]].
+

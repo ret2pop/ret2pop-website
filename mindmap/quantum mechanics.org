@@ -1,0 +1,45 @@
+:PROPERTIES:
+:ID:       136e79df-106f-4989-ab19-89705929cf91
+:END:
+#+title: quantum mechanics
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+Quantum mechanics was discovered as a predictive [[id:6d8c8bcc-58b0-4267-8035-81b3bf753505][framework]] in the early 1900's after a set of experiments (i.e. the
+photoelectric effect and the Stern Gerlach experiment) showed that particles were better described as waves, and
+that the probability of measurement of particle states were random. Indeed, other experiments that tested Bell's
+inequality have confirmed this assertion of quantum mechanics that the world is fundamentally random. Let's take
+a look at some of the postulates of quantum mechanics (for which the [[id:a6bc601a-7910-44bb-afd5-dffa5bc869b1][mathematics]] borrow from linear algebra quite a bit).
+* Postulates
+Here, we describe all the postulates of quantum mechanics, with some motivation when needed.
+** Postulate 1
+$| \psi \rangle$ is the state vector in a [[id:eac079b7-1144-4506-b8c5-4717ccac8a7b][Hilbert Space]] $\mathcal{H}$ which describes the entire system.
+** Postulate 2 
+The norm $\langle \psi | \psi \rangle$ of all state vectors are 1.
+** Postulate 3 
+If $| \psi \rangle$ and $| \phi\rangle$ represent two different quantum systems, the composite system can be described by
+$| \psi \rangle \otimes | \phi \rangle$, where $\otimes$ is the tensor product.
+** Postulate 4
+Observable quantities are represented by Hermitian operators $\hat{A}$ whose eigenvectors form a basis for $\mathcal{H}$.
+Solutions to $\hat{A}|\psi\rangle = a|\psi\rangle$ for eigenvalues $a$ are the only possible observable values for a given eigenvector $|\psi\rangle$.
+** Postulate 5
+The time-evolution of the state vector $|\psi\rangle$ can be given by the Schrodinger equation, a [[id:365190d8-0f3a-4728-9b09-83a216292256][PDE]]:
+\begin{align}
+\label{}
+\hat{H}|\psi\rangle = i\hbar\partial_{t}|\psi\rangle
+\end{align}
+which is motivated by the De Broglie hypothesis:
+\begin{align}
+\label{}
+p = hf
+\end{align}
+where $p$ is the momentum, and $f$ is the frequency. De Broglie hypothesized that all matter behaves like a wave,
+after Einstein came up with the same relation for light:
+\begin{align}
+\label{}
+p = \frac{E}{c} = hf
+\end{align}
+where $h$ is Planck's constant, which is specifically a relation

@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       700073f4-04d5-4d20-8bcd-ee9ba0a739c8
+:END:
+#+title: IAK
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Introduction
+Short for "I am king". Refers to the modern propensity for people to talk about political issues
+/as if they personally ran policy/, without any care to think about the fact that they /don't/.
+
+For example, the statement "we should raise taxes" is an IAK statement because "we" doesn't mean anything here.
+The person talking has no control over the "we", or the group of people making public policy. To say that they
+do via democracy is very likely to be a case of [[id:7456da20-684d-4de6-9235-714eaafb2440][IEEDI]] syndrome. Talking about IAK without being aware of the lack
+of direct input can put people in an unhealthy mindset.
+
+* Conclusion
+It can be fun to make IAK statements, in which case do so, but many do not realize how useless they are, because
+it is a direct consequence of [[id:7456da20-684d-4de6-9235-714eaafb2440][IEEDI]], which people also don't get in general.

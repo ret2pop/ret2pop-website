@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:       36a2715c-a8db-4b75-b799-61ce43be2d2d
+:END:
+#+title: inner product space
+#+author: Preston Pan
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+
+* Introduction
+An inner product space is a [[id:9a1cc2d9-ef99-436c-8c21-9e68fd7df192][normed vector space]] with an inner product defined. This inner product obeys the
+following properties:
+\begin{align}
+\label{}
+\langle x,y \rangle = \overline{\langle y,x \rangle} \\
+\langle ax + by, z \rangle = a\langle x,z \rangle + b\langle y,z \rangle \\
+\langle x,x \rangle > 0, x > 0 \\
+\langle x,x \rangle = 0, x = 0
+\end{align}
+where $\overline{\langle y,x \rangle}$ is the complex conjugate of $\langle x,y \rangle$. This gives rise to a normed vector space:
+\begin{align}
+\label{}
+\lVert x \rVert = \langle x,x \rangle
+\end{align}
+

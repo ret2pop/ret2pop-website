@@ -7,22 +7,17 @@
 #+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
 
-* Mathematics is Logic
-With a couple of set theory axioms. One might
-describe it as an extrapolation framework
-without grounding (i.e. a set of implications;
-if p then q, but never specifying if p is a property
-of a real system or not). Therefore, mathematics
-is suitable for modeling other things if we believe
-those other things have some rules and are logically
-consistent.
+* Mathematics is [[id:29ebc4f9-0fd8-4203-8bfe-84f8558e09cf][Logic]] 
+With a couple of set theory axioms. One might describe it as an extrapolation framework
+without grounding (i.e. a set of implications; if p then q, but never specifying if p is a property
+of a real system or not). Therefore, mathematics is suitable for modeling other things if we believe
+those other things have some rules and are logically consistent.
 
-There are many subfields in math, ranging from group theory
-to complex analysis. However, much of the time we are able to find
-morphisms between these different fields in mathematics, which we
+There are many subfields in math, ranging from group theory to calculus.
+However, much of the time we are able to find morphisms between these different fields in mathematics, which we
 model using category theory.
-
 ** Mathematical Models
+There are many fields where mathematics is the main method of analysis.
 *** [[id:ece8bf94-4e3c-4939-a77a-9949c1ec0dc6][Physics]]
 Physics is the study of the natural world and its laws, usually resorting to a mathematical framework.
 

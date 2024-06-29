@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: braket
+# key: braket
+# --
+\left\langle $2 \middle| $1 \right\rangle $0

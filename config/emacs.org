@@ -10,52 +10,85 @@ are all compiled natively and reproducibly on the NixOS side. This configuration
 emacs-lisp language only to configure variables for said packages, for the most part.
 ** UI Elements
 This section contains important UI elements and starting customization variables to make
-emacs work in a semi-sane way and make it not look completely ugly:
+emacs work in a semi-sane way and make it not look ugly:
 #+begin_src emacs-lisp
-  (pixel-scroll-precision-mode 1)
-  (setq scroll-conservatively 101)
-  (display-battery-mode 1)
-  (setq display-time-24hr-format t)
-  (display-time-mode 1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1)
-  (load-theme 'catppuccin :no-confirm)
-  (setq display-line-numbers-type 'relative)
-  (add-hook 'prog-mode-hook #'display-line-numbers-mode)
-  (add-hook 'org-mode-hook #'display-line-numbers-mode)
-  (set-face-attribute 'default nil :height 120)
-  (setq use-short-answers t)
-  (setq make-backup-files nil)
-  (setq org-export-with-broken-links t)
-  (setq org-src-fontify-natively t)
-  ;; (setq org-highlight-latex-and-related '(latex script entities))
-  (setq warning-minimum-level :emergency)
-  (add-hook 'text-mode-hook 'visual-line-mode)
-  (and window-system (server-start))
-  (setq debug-ignored-errors
-    (cons 'remote-file-error debug-ignored-errors))
-  (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
-  (setq prettify-symbols-alist
-    '(("#+begin_src" . ?)
-      ("#+BEGIN_SRC" . ?)
-      ("#+end_src" . ?)
-      ("#+END_SRC" . ?)
-      ("#+begin_example" . ?)
-      ("#+BEGIN_EXAMPLE" . ?)
-      ("#+end_example" . ?)
-      ("#+END_EXAMPLE" . ?)
-      ("#+header:" . ?)
-      ("#+HEADER:" . ?)
-      ("#+name:" . ?﮸)
-      ("#+NAME:" . ?﮸)
-      ("#+results:" . ?)
-      ("#+RESULTS:" . ?)
-      ("#+call:" . ?)
-      ("#+CALL:" . ?)
-      (":PROPERTIES:" . ?)
-      (":properties:" . ?)))
-  (prettify-symbols-mode 1)
+    (pixel-scroll-precision-mode 1)
+    (setq scroll-conservatively 101)
+    (display-battery-mode 1)
+    (setq display-time-24hr-format t)
+    (display-time-mode 1)
+    (menu-bar-mode -1)
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)
+    (load-theme 'catppuccin :no-confirm)
+    (setq display-line-numbers-type 'relative)
+    (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+    (add-hook 'org-mode-hook #'display-line-numbers-mode)
+    (setq org-confirm-babel-evaluate nil)
+    (set-face-attribute 'default nil :height 120)
+    (setq use-short-answers t)
+    (setq make-backup-files nil)
+    (setq org-export-with-broken-links t)
+    (setq org-src-fontify-natively t)
+    ;; (setq org-highlight-latex-and-related '(latex script entities))
+    (setq warning-minimum-level :emergency)
+    (add-hook 'text-mode-hook 'visual-line-mode)
+    (and window-system (server-start))
+    (setq debug-ignored-errors
+      (cons 'remote-file-error debug-ignored-errors))
+    (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
+    (setq org-preview-latex-image-directory "/home/preston/.cache/ltximg/")
+    (add-hook 'prog-mode-hook
+    (lambda ()
+     (setq prettify-symbols-alist
+	'(("lambda" . ?λ)
+	  ("->"     . ?→)
+	  ("map"    . ?↦)
+	  ("/="     . ?≠)
+	  ("!="     . ?≠)
+	  ("=="     . ?≡)
+	  ("<="     . ?≤)
+	  (">="     . ?≥)
+	  ("&&"     . ?∧)
+	  ("||"     . ?∨)
+	  ("sqrt"   . ?√)
+	  ("..."    . ?…)))
+      (prettify-symbols-mode)))
+
+      (add-hook 'org-mode-hook (lambda ()
+       (setq prettify-symbols-alist
+       '(("#+begin_src" . ?)
+	("#+BEGIN_SRC" . ?)
+	("#+end_src" . ?)
+	("#+END_SRC" . ?)
+	("#+begin_example" . ?)
+	("#+BEGIN_EXAMPLE" . ?)
+	("#+end_example" . ?)
+	("#+END_EXAMPLE" . ?)
+	("#+header:" . ?)
+	("#+HEADER:" . ?)
+	("#+name:" . ?﮸)
+	("#+NAME:" . ?﮸)
+	("#+results:" . ?)
+	("#+RESULTS:" . ?)
+	("#+call:" . ?)
+	("#+CALL:" . ?)
+	(":PROPERTIES:" . ?)
+	(":properties:" . ?)
+	("lambda" . ?λ)
+	    ("->"     . ?→)
+	    ("map"    . ?↦)
+	    ("/="     . ?≠)
+	    ("!="     . ?≠)
+	    ("=="     . ?≡)
+	    ("<="     . ?≤)
+	    (">="     . ?≥)
+	    ("&&"     . ?∧)
+	    ("||"     . ?∨)
+	    ("sqrt"   . ?√)
+	    ("..."    . ?…))))
+     (prettify-symbols-mode))
+  (global-prettify-symbols-mode 1)
 #+end_src
 * Transparency
 My NixOS configuration uses Hyprland to make things transparent:
@@ -114,7 +147,7 @@ what electric-pair does based on the mode.
     (interactive)
     (if (eolp) (let (parens-require-spaces) (insert-pair)) (self-insert-command 1)))
 
-    (add-hook 'org-mode-hook
+  (add-hook 'org-mode-hook
 	      (lambda ()
 		(define-key org-mode-map "\"" 'electric-pair)
 		(define-key org-mode-map "(" 'electric-pair)
@@ -122,38 +155,49 @@ what electric-pair does based on the mode.
 		(define-key org-mode-map "{" 'electric-pair)))
   (add-hook 'prog-mode-hook
 	    (lambda ()
-		(define-key org-mode-map "\"" 'electric-pair)
-		(define-key org-mode-map "(" 'electric-pair)
-		(define-key org-mode-map "[" 'electric-pair)
-		(define-key org-mode-map "{" 'electric-pair)))
-
-  (add-hook 'nix-mode-hook
-	    (lambda ()
-		(define-key org-mode-map "\"" 'electric-pair)
-		(define-key org-mode-map "(" 'electric-pair)
-		(define-key org-mode-map "[" 'electric-pair)
-		(define-key org-mode-map "{" 'electric-pair)))
-
-  (add-hook 'emacs-lisp-mode-hook
-	    (lambda ()
-		(define-key org-mode-map "\"" 'electric-pair)
-		(define-key org-mode-map "(" 'electric-pair)
-		(define-key org-mode-map "[" 'electric-pair)
-		(define-key org-mode-map "{" 'electric-pair)))
+		(define-key prog-mode-map "\"" 'electric-pair)
+		(define-key prog-mode-map "(" 'electric-pair)
+		(define-key prog-mode-map "[" 'electric-pair)
+		(define-key prog-mode-map "{" 'electric-pair)))
 #+end_src
 * Lyrics
 #+begin_src emacs-lisp
   (use-package lyrics-fetcher
-    :after (emmsx)
+    :after (emms)
     :config
     (setq lyrics-fetcher-genius-access-token
       (password-store-get "genius_api"))
     (lyrics-fetcher-use-backend 'genius))
 #+end_src
+* Fragtog
+#+begin_src emacs-lisp
+  (use-package org-fragtog :hook (org-mode . org-fragtog-mode))
+#+end_src
+* Snippets
+#+begin_src emacs-lisp
+  (use-package yasnippet
+    :config
+    (add-to-list 'yas-snippet-dirs "~/org/website/yasnippet/")
+    (yas-global-mode 1))
+  (add-hook 'org-mode-hook
+	  (lambda () (yas-minor-mode)
+	      (yas-activate-extra-mode 'latex-mode)))
+#+end_src
 * Completion
 Company-mode! We need this to do autocomplete stuff.
 #+begin_src emacs-lisp
-  (add-hook 'after-init-hook 'global-company-mode)
+    (eval-after-load "company" '(add-to-list 'company-backends '(company-ispell company-capf company-yasnippet company-files))) (add-hook 'after-init-hook 'global-company-mode)
+    (use-package ispell
+      :init
+      (setq ispell-program-name "aspell")
+      (setq ispell-silently-savep t)
+      (setq ispell-dictionary "en")
+      (setq ispell-alternate-dictionary "/home/preston/.local/share/my.dict"))
+#+end_src
+* Spelling
+#+begin_src emacs-lisp
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
 #+end_src
 * Org Babel
 For some reason, org-babel doesn't load these languages by default:
@@ -211,6 +255,7 @@ First, some small configurations and some evil-mode initilaization because I lik
 I use org-journal to journal about my life, and it's a part of my website:
 #+begin_src emacs-lisp
   (use-package org-journal
+    :after (org)
     :init
       (setq org-journal-dir "~/org/website/journal/")
       (setq org-journal-date-format "%A, %d %B %Y")
@@ -233,15 +278,24 @@ I use org-journal to journal about my life, and it's a part of my website:
 The default modeline is ugly.
 #+begin_src emacs-lisp
   (use-package doom-modeline
-  :config
-  (doom-modeline-mode 1))
+    :config
+    (doom-modeline-mode 1))
+#+end_src
+** Grammar
+I want to write good!
+#+begin_src emacs-lisp
+  (use-package writegood-mode)
+
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (writegood-mode))))
 #+end_src
 ** Make Org Look Better
 Org superstar adds those nice looking utf-8 bullets:
 #+begin_src emacs-lisp
   (use-package org-superstar
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+    :after (org)
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 #+end_src
 ** LSP
 We set up eglot, the LSP manager for emacs, now built in:
@@ -250,10 +304,20 @@ We set up eglot, the LSP manager for emacs, now built in:
     :config
     (add-hook 'prog-mode-hook 'eglot-ensure))
 #+end_src
+** Projectile
+Manages projects and shit.
+#+begin_src emacs-lisp
+  (use-package projectile
+    :init
+    (setq projectile-project-search-path '("~/org" "~/src"))
+    :config
+    (projectile-mode +1))
+#+end_src
 ** Dashboard
 We want our emacs initialization to be pretty and display useful things.
 #+begin_src emacs-lisp
   (use-package dashboard
+    :after (projectile)
     :init
     (setq dashboard-banner-logo-title "Welcome, Commander!")
     (setq dashboard-icon-type 'nerd-icons)
@@ -268,42 +332,35 @@ We want our emacs initialization to be pretty and display useful things.
     :config
     (dashboard-setup-startup-hook))
 #+end_src
-** Projectile
-Manages projects and shit.
-#+begin_src emacs-lisp
-  (use-package projectile
-    :config
-    (projectile-mode +1))
-#+end_src
 ** Ivy
 Ivy is a pretty cool general program for displaying stuff:
 #+begin_src emacs-lisp
-  (use-package counsel)
-  (use-package ivy
-    :init
-    (setq ivy-use-virtual-buffers t)
-    (setq enable-recursive-minibuffers t)
-    ;; enable this if you want `swiper' to use it
-    ;; (setq search-default-mode #'char-fold-to-regexp)
-    (global-set-key "\C-s" 'swiper)
-    (global-set-key (kbd "C-c C-r") 'ivy-resume)
-    (global-set-key (kbd "<f6>") 'ivy-resume)
-    (global-set-key (kbd "M-x") 'counsel-M-x)
-    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-    (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-    (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-    (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
-    (global-set-key (kbd "<f1> l") 'counsel-find-library)
-    (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-    (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-    (global-set-key (kbd "C-c g") 'counsel-git)
-    (global-set-key (kbd "C-c j") 'counsel-git-grep)
-    (global-set-key (kbd "C-c k") 'counsel-ag)
-    (global-set-key (kbd "C-x l") 'counsel-locate)
-    (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-    (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-    :config
-    (ivy-mode))
+    (use-package counsel)
+    (use-package ivy
+      :init
+      (setq ivy-use-virtual-buffers t)
+      (setq enable-recursive-minibuffers t)
+      ;; enable this if you want `swiper' to use it
+      ;; (setq search-default-mode #'char-fold-to-regexp)
+      (global-set-key "\C-s" 'swiper)
+      (global-set-key (kbd "C-c C-r") 'ivy-resume)
+      (global-set-key (kbd "<f6>") 'ivy-resume)
+      (global-set-key (kbd "M-x") 'counsel-M-x)
+      (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+      (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+      (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+      (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
+      (global-set-key (kbd "<f1> l") 'counsel-find-library)
+      (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+      (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+      (global-set-key (kbd "C-c g") 'counsel-git)
+      (global-set-key (kbd "C-c j") 'counsel-git-grep)
+      (global-set-key (kbd "C-c k") 'counsel-ag)
+      (global-set-key (kbd "C-x l") 'counsel-locate)
+      (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+      :config
+      (ivy-mode))
+    (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-immediate-done)
 #+end_src
 ** Magit
 #+begin_src emacs-lisp
@@ -340,49 +397,58 @@ Ivy is a pretty cool general program for displaying stuff:
 #+end_src
 ** Keybindings
 #+begin_src emacs-lisp
-    (use-package general
-      :config
-      (general-create-definer leader-key
-	:prefix "SPC")
-      (leader-key 'normal
-	"o a" '(org-agenda :wk "Open agenda")
-	"o c" '(org-capture :wk "Capture")
-	"n j j" '(org-journal-new-entry :wk "Make new journal entry")
-	"n r f" '(org-roam-node-find :wk "Find roam node")
-	"n r i" '(org-roam-node-insert :wk "Insert roam node")
-	"n r g" '(org-roam-graph :wk "Graph roam database")
-	"r s s" '(elfeed :wk "rss feed")
-	"." '(counsel-find-file :wk "find file")
-	"g /" '(magit-dispatch :wk "git commands")
-	"g P" '(magit-push :wk "git push")
-	"g c" '(magit-commit :wk "git commit")
-	"g p" '(magit-pull :wk "Pull from git")
-	"o t" '(vterm :wk "Terminal")
-	"o e" '(eshell :wk "Elisp Interpreter")
-	"o m" '(mu4e :wk "Email")
-	"e w w" '(eww :wk "web browser")
-	"e c c" '(ellama-chat :wk "Chat with Ollama")
-	"e a b" '(ellama-ask-about :wk "Ask Ollama")
-	"e s" '(ellama-summarize :wk "Summarize text with Ollama")
-	"e c r" '(ellama-code-review :wk "Review code with Ollama")
-	"e c C" '(ellama-code-complete :wk "Complete code with Ollama")
-	"e c a" '(ellama-code-add :wk "Add code with Ollama")
-	"e c e" '(ellama-code-edit :wk "Edit code with Ollama")
-	"e w i" '(ellama-improve-wording :wk "Improve wording with Ollama")
-	"e g i" '(ellama-improve-grammar :wk "Improve grammar with Ollama")
-	"g s" '(gptel-send :wk "Send to Ollama")
-	"g e" '(gptel :wk "Ollama interface")
-	"p w" '(ivy-pass :wk "Password manager interface")
-	"m P p" '(org-publish :wk "Publish website components")
-	"s e" '(sudo-edit :wk "Edit file with sudo")
-	"m m" '(emms :wk "Music player")
-	"m l" '(lyrics-fetcher-show-lyrics :wk "Music lyrics")
-	"o p" '(treemacs :wk "Project Drawer")
-	"f f" '(eglot-format :wk "Format code buffer")
-	"i c" '(prestonpan :wk "Connect to my IRC server")
-	"h m" '(woman :wk "Manual")
-	"h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
-	))
+  (use-package general
+    :config
+    (general-create-definer leader-key
+      :prefix "SPC")
+    (leader-key 'normal
+      "o a" '(org-agenda :wk "Open agenda")
+      "o c" '(org-capture :wk "Capture")
+      "n j j" '(org-journal-new-entry :wk "Make new journal entry")
+      "n r f" '(org-roam-node-find :wk "Find roam node")
+      "n r i" '(org-roam-node-insert :wk "Insert roam node")
+      "n r a" '(org-roam-alias-add :wk "Add alias to org roam node")
+      "n r g" '(org-roam-graph :wk "Graph roam database")
+      "r s s" '(elfeed :wk "rss feed")
+      "." '(counsel-find-file :wk "find file")
+      "g /" '(magit-dispatch :wk "git commands")
+      "g P" '(magit-push :wk "git push")
+      "g c" '(magit-commit :wk "git commit")
+      "g p" '(magit-pull :wk "Pull from git")
+      "g s" '(magit-status :wk "Change status of files")
+      "o t" '(vterm :wk "Terminal")
+      "o e" '(eshell :wk "Elisp Interpreter")
+      "o m" '(mu4e :wk "Email")
+      "e w w" '(eww :wk "web browser")
+      "e c c" '(ellama-chat :wk "Chat with Ollama")
+      "e a b" '(ellama-ask-about :wk "Ask Ollama")
+      "e s" '(ellama-summarize :wk "Summarize text with Ollama")
+      "e c r" '(ellama-code-review :wk "Review code with Ollama")
+      "e c C" '(ellama-code-complete :wk "Complete code with Ollama")
+      "e c a" '(ellama-code-add :wk "Add code with Ollama")
+      "e c e" '(ellama-code-edit :wk "Edit code with Ollama")
+      "e w i" '(ellama-improve-wording :wk "Improve wording with Ollama")
+      "e g i" '(ellama-improve-grammar :wk "Improve grammar with Ollama")
+      "g s" '(gptel-send :wk "Send to Ollama")
+      "g e" '(gptel :wk "Ollama interface")
+      "p w" '(ivy-pass :wk "Password manager interface")
+      "m P p" '(org-publish :wk "Publish website components")
+      "s e" '(sudo-edit :wk "Edit file with sudo")
+      "m m" '(emms :wk "Music player")
+      "m l" '(lyrics-fetcher-show-lyrics :wk "Music lyrics")
+      "o p" '(treemacs :wk "Project Drawer")
+      "o P" '(treemacs-projectile :wk "Import Projectile project to treemacs")
+      "f f" '(eglot-format :wk "Format code buffer")
+      "i c" '(prestonpan :wk "Connect to my IRC server")
+      "h m" '(woman :wk "Manual")
+      "h i" '(info :wk "Info")
+      "s m" '(proced :wk "System Manager")
+      "l p" '(list-processes :wk "List Emacs Processes")
+      "m I" '(org-id-get-create :wk "Make org id")
+      "y n s" '(yas-new-snippet :wk "Create new snippet")
+      "u w" '((lambda () (interactive) (shell-command "rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/")) :wk "rsync website update")
+      "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
+      ))
 #+end_src
 ** RSS Feed
 I use really simple syndication (RSS) in order to read news. As a result, I use
@@ -391,17 +457,26 @@ elfeed to fetch feeds found on my website:
   (use-package elfeed
     :init
     (add-hook 'elfeed-search-mode-hook #'elfeed-update)
-    (setq elfeed-search-filter "@1-month-ago +unread")
-    )
+    (setq elfeed-search-filter "@1-month-ago +unread"))
   (use-package elfeed-org
     :init
     (setq rmh-elfeed-org-files '("~/org/website/config/elfeed.org"))
     :config
     (elfeed-org))
 #+end_src
+** Project Drawer
+#+begin_src emacs-lisp
+  (use-package treemacs)
+  (use-package treemacs-evil
+    :after (treemacs evil))
+  (use-package treemacs-projectile
+    :after (treemacs projectile))
+  (use-package treemacs-magit
+    :after (treemacs magit))
+#+end_src
 ** Eww
 Used only for the purpose of viewing RSS feed items in emacs if I can, only resorting
-to Firefox if I have to:
+to Chromium if I have to:
 #+begin_src emacs-lisp
 (setq search-engines
       '(
@@ -412,7 +487,7 @@ to Firefox if I have to:
 
 (setq search-engine-default "google")
 (setq eww-search-prefix "https://google.com/search?q=")
-(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "firefox")
+(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "chromium")
 (setq browse-url-browser-function 'eww-browse-url)
 (add-hook 'eww-mode-hook
           (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
@@ -455,9 +530,9 @@ Make LaTeX a litle better:
   (setq TeX-PDF-mode t)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
   (setq org-return-follows-link t)
-  (use-package latex-preview-pane
-    :config
-    (latex-preview-pane-enable))
+  ;; (use-package latex-preview-pane
+  ;;   :config
+  ;;   (latex-preview-pane-enable))
 #+end_src
 ** Email
 Email in emacs can be done with Mu4e.
@@ -486,7 +561,7 @@ Email in emacs can be done with Mu4e.
       (setq mu4e-compose-dont-reply-to-self t)
       (setq mu4e-change-filenames-when-moving t)
       (setq mu4e-get-mail-command "mbsync prestonpan")
-      (setq mu4e-compose-reply-ignore-address '("no-?reply" "preston@nullring.xyz"))
+      (setq mu4e-compose-reply-ignore-address '("no-?reply" "ret2pop@gmail.com"))
       (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
 	    mu4e-update-interval 300                  ; seconds between each mail retrieval
 	    mu4e-headers-auto-update t                ; avoid to type `g' to update
@@ -521,10 +596,8 @@ My own programming language.
   (use-package stem-mode)
   (add-to-list 'auto-mode-alist '("\\.stem\\'" . stem-mode))
 #+end_src
-** Syntax
+** Server
+So that emacsclient can connect.
 #+begin_src emacs-lisp
-  ;; (use-package treesit-auto
-  ;;   :config
-  ;;   (global-treesit-auto-mode))
+(server-start)
 #+end_src
-
