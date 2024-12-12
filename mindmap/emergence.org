@@ -56,6 +56,5 @@ have made more particular statements about the state of economic affairs with th
 under neokeynesian theory.
 
 *** Languages Emergent
-
 * Key Takeaway
 Emergence is the bootstrapping problem that attempts to solve the problem of induction.

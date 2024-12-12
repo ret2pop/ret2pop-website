@@ -1,80 +1,93 @@
 (pixel-scroll-precision-mode 1)
-  (setq scroll-conservatively 101)
-  (display-battery-mode 1)
-  (setq display-time-24hr-format t)
-  (display-time-mode 1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1)
-  (load-theme 'catppuccin :no-confirm)
-  (setq display-line-numbers-type 'relative)
-  (add-hook 'prog-mode-hook #'display-line-numbers-mode)
-  (add-hook 'org-mode-hook #'display-line-numbers-mode)
-  (setq org-confirm-babel-evaluate nil)
-  (set-face-attribute 'default nil :height 120)
-  (setq use-short-answers t)
-  (setq make-backup-files nil)
-  (setq org-export-with-broken-links t)
-  (setq org-src-fontify-natively t)
-  ;; (setq org-highlight-latex-and-related '(latex script entities))
-  (setq warning-minimum-level :emergency)
-  (add-hook 'text-mode-hook 'visual-line-mode)
-  (and window-system (server-start))
-  (setq debug-ignored-errors
-    (cons 'remote-file-error debug-ignored-errors))
-  (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
-  (setq org-preview-latex-image-directory "/home/preston/.cache/ltximg/")
-  (add-hook 'prog-mode-hook
-  (lambda ()
-   (setq prettify-symbols-alist
-      '(("lambda" . ?λ)
-	("->"     . ?→)
-	("map"    . ?↦)
-	("/="     . ?≠)
-	("!="     . ?≠)
-	("=="     . ?≡)
-	("<="     . ?≤)
-	(">="     . ?≥)
-	("&&"     . ?∧)
-	("||"     . ?∨)
-	("sqrt"   . ?√)
-	("..."    . ?…)))
-    (prettify-symbols-mode)))
+(setq scroll-conservatively 101)
+(display-battery-mode 1)
+(setq display-time-24hr-format t)
+(display-time-mode 1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(load-theme 'catppuccin :no-confirm)
+(setq display-line-numbers-type 'relative)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'org-mode-hook #'display-line-numbers-mode)
+(setq org-confirm-babel-evaluate nil)
+(set-face-attribute 'default nil :height 120)
+(setq use-short-answers t)
+(setq make-backup-files nil)
+(setq org-export-with-broken-links t)
+(setq org-src-fontify-natively t)
+;; (setq org-highlight-latex-and-related '(latex script entities))
+(setq warning-minimum-level :emergency)
+(add-hook 'text-mode-hook 'visual-line-mode)
+(and window-system (server-start))
+(setq debug-ignored-errors
+      (cons 'remote-file-error debug-ignored-errors))
+(set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
+(setq org-preview-latex-image-directory "/home/preston/.cache/ltximg/")
 
-    (add-hook 'org-mode-hook (lambda ()
-     (setq prettify-symbols-alist
-     '(("#+begin_src" . ?)
-      ("#+BEGIN_SRC" . ?)
-      ("#+end_src" . ?)
-      ("#+END_SRC" . ?)
-      ("#+begin_example" . ?)
-      ("#+BEGIN_EXAMPLE" . ?)
-      ("#+end_example" . ?)
-      ("#+END_EXAMPLE" . ?)
-      ("#+header:" . ?)
-      ("#+HEADER:" . ?)
-      ("#+name:" . ?﮸)
-      ("#+NAME:" . ?﮸)
-      ("#+results:" . ?)
-      ("#+RESULTS:" . ?)
-      ("#+call:" . ?)
-      ("#+CALL:" . ?)
-      (":PROPERTIES:" . ?)
-      (":properties:" . ?)
-      ("lambda" . ?λ)
-	  ("->"     . ?→)
-	  ("map"    . ?↦)
-	  ("/="     . ?≠)
-	  ("!="     . ?≠)
-	  ("=="     . ?≡)
-	  ("<="     . ?≤)
-	  (">="     . ?≥)
-	  ("&&"     . ?∧)
-	  ("||"     . ?∨)
-	  ("sqrt"   . ?√)
-	  ("..."    . ?…))))
-   (prettify-symbols-mode))
+(setq-default fill-column 100)
+(add-hook 'text-mode-hook #'auto-fill-mode)
+(add-hook 'prog-mode-hook #'auto-fill-mode)
+(add-hook 'org-mode-hook #'auto-fill-mode)
+
+(setopt display-fill-column-indicator-column 100)
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+(add-hook 'org-mode-hook #'display-fill-column-indicator-mode)
+
+(add-hook 'prog-mode-hook
+	  (lambda ()
+	    (setq prettify-symbols-alist
+		  '(("lambda" . ?λ)
+		    ("->"     . ?→)
+		    ("map"    . ?↦)
+		    ("/="     . ?≠)
+		    ("!="     . ?≠)
+		    ("=="     . ?≡)
+		    ("<="     . ?≤)
+		    (">="     . ?≥)
+		    ("&&"     . ?∧)
+		    ("||"     . ?∨)
+		    ("sqrt"   . ?√)
+		    ("..."    . ?…)))
+	    (prettify-symbols-mode)))
+
+(add-hook 'org-mode-hook (lambda ()
+			   (setq prettify-symbols-alist
+				 '(("#+begin_src" . ?)
+				   ("#+BEGIN_SRC" . ?)
+				   ("#+end_src" . ?)
+				   ("#+END_SRC" . ?)
+				   ("#+begin_example" . ?)
+				   ("#+BEGIN_EXAMPLE" . ?)
+				   ("#+end_example" . ?)
+				   ("#+END_EXAMPLE" . ?)
+				   ("#+header:" . ?)
+				   ("#+HEADER:" . ?)
+				   ("#+name:" . ?﮸)
+				   ("#+NAME:" . ?﮸)
+				   ("#+results:" . ?)
+				   ("#+RESULTS:" . ?)
+				   ("#+call:" . ?)
+				   ("#+CALL:" . ?)
+				   (":PROPERTIES:" . ?)
+				   (":properties:" . ?)
+				   ("lambda" . ?λ)
+				   ("->"     . ?→)
+				   ("map"    . ?↦)
+				   ("/="     . ?≠)
+				   ("!="     . ?≠)
+				   ("=="     . ?≡)
+				   ("<="     . ?≤)
+				   (">="     . ?≥)
+				   ("&&"     . ?∧)
+				   ("||"     . ?∨)
+				   ("sqrt"   . ?√)
+				   ("..."    . ?…))))
+	  (prettify-symbols-mode))
 (global-prettify-symbols-mode 1)
+
+(use-package unicode-fonts
+  :init (unicode-fonts-setup))
 
 (set-frame-parameter nil 'alpha-background 90)
 (add-to-list 'default-frame-alist '(alpha-background . 90))
@@ -123,12 +136,14 @@ Otherwise, just insert the typed character."
 	      (define-key org-mode-map "(" 'electric-pair)
 	      (define-key org-mode-map "[" 'electric-pair)
 	      (define-key org-mode-map "{" 'electric-pair)))
+
 (add-hook 'prog-mode-hook
 	  (lambda ()
 	      (define-key prog-mode-map "\"" 'electric-pair)
 	      (define-key prog-mode-map "(" 'electric-pair)
 	      (define-key prog-mode-map "[" 'electric-pair)
 	      (define-key prog-mode-map "{" 'electric-pair)))
+(electric-pair-mode)
 
 (use-package lyrics-fetcher
   :after (emms)
@@ -240,7 +255,8 @@ Otherwise, just insert the typed character."
 
 (use-package eglot 
   :config
-  (add-hook 'prog-mode-hook 'eglot-ensure))
+  (add-hook 'prog-mode-hook 'eglot-ensure)
+  (add-hook 'prog-mode-hook 'lsp))
 
 (use-package projectile
   :init
@@ -302,19 +318,14 @@ Otherwise, just insert the typed character."
   (erc-tls :server "nullring.xyz"
 	   :port   "6697"))
 
+(defun liberachat ()
+  (interactive)
+  (erc-tls :server "irc.libera.chat"
+	   :port   "6697"))
+
 (defun matrix-org ()
   (interactive)
   (ement-connect :uri-prefix "http://localhost:8009"))
-
-(use-package gptel
- :init
- (setq gptel-default-mode 'org-mode)
- (setq-default
- gptel-model "zephyr:latest"
- gptel-backend (gptel-make-ollama "Ollama"
-		 :host "localhost:11434"
-		 :stream t
-		 :models '("zephyr:latest"))))
 
 (use-package general
   :config
@@ -358,7 +369,8 @@ Otherwise, just insert the typed character."
     "o p" '(treemacs :wk "Project Drawer")
     "o P" '(treemacs-projectile :wk "Import Projectile project to treemacs")
     "f f" '(eglot-format :wk "Format code buffer")
-    "i c" '(prestonpan :wk "Connect to my IRC server")
+    "i p c" '(prestonpan :wk "Connect to my IRC server")
+    "i l c" '(liberachat :wk "Connect to libera chat server")
     "h m" '(woman :wk "Manual")
     "h i" '(info :wk "Info")
     "s m" '(proced :wk "System Manager")
@@ -368,6 +380,15 @@ Otherwise, just insert the typed character."
     "u w" '((lambda () (interactive) (shell-command "rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/")) :wk "rsync website update")
     "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
     ))
+
+(use-package ellama
+  :init
+  (setopt ellama-sessions-directory "/home/preston/org/ellama/")
+  (require 'llm-ollama)
+  (with-eval-after-load 'llm-ollama)
+  (setopt ellama-provider (make-llm-ollama
+	   :host "localhost"
+	   :chat-model "gemma:7b")))
 
 (use-package elfeed
   :init

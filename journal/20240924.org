@@ -1,0 +1,13 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Tuesday, 24 September 2024
+** 00:14 
+I've just talked to Kai Stevenson and Chatgpt for a long time. I'm currently trying to journal again, and hopefully,
+I will be able to journal on paper some. I never am able to commit to a written journal, but a digital journal is
+fine.

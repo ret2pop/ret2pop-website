@@ -91,5 +91,5 @@ bc1qjxec4e08hzv09h0ss8q80ey0kc7356p6c8fg8h
 Note that all of the above cryptocurrencies I believe are either potentially useful for some niche, or have
 value because of their de-facto link to other currencies that are useful for some niche.
 ** Do I advocate for using these as currencies?
-Only Monero and some forms of ETH tokens for privacy reasons, and maybe they can become better than fiat,
-but that algorithm that keeps them stable does not really exist yet.
+Only Monero; maybe they can become better than fiat, but that algorithm that keeps them stable does
+not really exist yet. Ethereum has some interesting usecases such as with DeFi.
