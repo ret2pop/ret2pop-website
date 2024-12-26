@@ -256,7 +256,10 @@ Otherwise, just insert the typed character."
 (use-package eglot 
   :config
   (add-hook 'prog-mode-hook 'eglot-ensure)
-  (add-hook 'prog-mode-hook 'lsp))
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
+  (add-hook 'prog-mode-hook 'lsp)
+  :hook
+  (nix-mode . eglot-ensure))
 
 (use-package projectile
   :init

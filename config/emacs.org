@@ -321,7 +321,10 @@ We set up eglot, the LSP manager for emacs, now built in:
   (use-package eglot 
     :config
     (add-hook 'prog-mode-hook 'eglot-ensure)
-    (add-hook 'prog-mode-hook 'lsp))
+    (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
+    (add-hook 'prog-mode-hook 'lsp)
+    :hook
+    (nix-mode . eglot-ensure))
 #+end_src
 ** Projectile
 Manages projects and shit.
