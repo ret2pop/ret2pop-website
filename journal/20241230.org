@@ -1,0 +1,17 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Monday, 30 December 2024
+** 19:41 
+Today I decided to journal again, which is always a rare sight. Right now I'm with Howard at the VPL
+main branch, and I'm looking at org-roam-ui while trying to figure out if I can realistically
+publish it on my webpage. Additionally, I'm trying to make it more effortless for me to publish my
+website, despite how easy it currently is, and I'm investigating if there's more I can publish
+automatically with org-mode. I can convert markdown files to org files using pandoc, so I am
+actually never having to use markdown for anything, and I can ensure that articles I write in
+markdown can be published to my website in org mode.

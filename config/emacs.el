@@ -162,7 +162,10 @@ Otherwise, just insert the typed character."
 	(lambda () (yas-minor-mode)
 	    (yas-activate-extra-mode 'latex-mode)))
 
-(eval-after-load "company" '(add-to-list 'company-backends '(company-ispell company-capf company-yasnippet company-files))) (add-hook 'after-init-hook 'global-company-mode)
+(eval-after-load "company" '(add-to-list 'company-backends
+					 '(company-ispell company-capf company-irony
+							  company-yasnippet company-files)))
+(add-hook 'after-init-hook 'global-company-mode)
 (use-package ispell
   :init
   (setq ispell-program-name "aspell")
@@ -253,13 +256,36 @@ Otherwise, just insert the typed character."
   :config
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
-(use-package eglot 
+(use-package eglot
   :config
-  (add-hook 'prog-mode-hook 'eglot-ensure)
   (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
-  (add-hook 'prog-mode-hook 'lsp)
+  (add-hook 'prog-mode-hook 'eglot-ensure)
   :hook
   (nix-mode . eglot-ensure))
+(use-package lsp
+  :hook
+  (prog-mode . lsp))
+(use-package platformio-mode
+  :hook (prog-mode . platformio-conditionally-enable))
+
+(use-package irony-mode
+  :config
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+(use-package irony-eldoc
+  :config (add-hook 'irony-mode-hook #'irony-eldoc))
+
+(use-package solidity-mode)
+(use-package company-solidity)
+(use-package solidity-flycheck
+  :init
+  (setq solidity-flycheck-solc-checker-active t))
+
+(use-package flycheck
+  :init (global-flycheck-mode))
 
 (use-package projectile
   :init
@@ -326,6 +352,12 @@ Otherwise, just insert the typed character."
   (erc-tls :server "irc.libera.chat"
 	   :port   "6697"))
 
+
+(defun efnet ()
+  (interactive)
+  (erc-tls :server "irc.prison.net"
+	   :port   "6697"))
+
 (defun matrix-org ()
   (interactive)
   (ement-connect :uri-prefix "http://localhost:8009"))
@@ -374,6 +406,7 @@ Otherwise, just insert the typed character."
     "f f" '(eglot-format :wk "Format code buffer")
     "i p c" '(prestonpan :wk "Connect to my IRC server")
     "i l c" '(liberachat :wk "Connect to libera chat server")
+    "i e c" '(efnet :wk "Connect to efnet chat server")
     "h m" '(woman :wk "Manual")
     "h i" '(info :wk "Info")
     "s m" '(proced :wk "System Manager")

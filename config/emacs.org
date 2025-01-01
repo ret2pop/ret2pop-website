@@ -204,13 +204,16 @@ what electric-pair does based on the mode.
 * Completion
 Company-mode! We need this to do autocomplete stuff.
 #+begin_src emacs-lisp
-    (eval-after-load "company" '(add-to-list 'company-backends '(company-ispell company-capf company-yasnippet company-files))) (add-hook 'after-init-hook 'global-company-mode)
-    (use-package ispell
-      :init
-      (setq ispell-program-name "aspell")
-      (setq ispell-silently-savep t)
-      (setq ispell-dictionary "en")
-      (setq ispell-alternate-dictionary "/home/preston/.local/share/my.dict"))
+  (eval-after-load "company" '(add-to-list 'company-backends
+					   '(company-ispell company-capf company-irony
+							    company-yasnippet company-files)))
+  (add-hook 'after-init-hook 'global-company-mode)
+  (use-package ispell
+    :init
+    (setq ispell-program-name "aspell")
+    (setq ispell-silently-savep t)
+    (setq ispell-dictionary "en")
+    (setq ispell-alternate-dictionary "/home/preston/.local/share/my.dict"))
 #+end_src
 * Spelling
 #+begin_src emacs-lisp
@@ -318,14 +321,43 @@ Org superstar adds those nice looking utf-8 bullets:
 ** LSP
 We set up eglot, the LSP manager for emacs, now built in:
 #+begin_src emacs-lisp
-  (use-package eglot 
+  (use-package eglot
     :config
-    (add-hook 'prog-mode-hook 'eglot-ensure)
     (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
-    (add-hook 'prog-mode-hook 'lsp)
+    (add-hook 'prog-mode-hook 'eglot-ensure)
     :hook
     (nix-mode . eglot-ensure))
+  (use-package lsp
+    :hook
+    (prog-mode . lsp))
+  (use-package platformio-mode
+    :hook (prog-mode . platformio-conditionally-enable))
 #+end_src
+*** C/C++
+#+begin_src emacs-lisp
+    (use-package irony-mode
+      :config
+      (add-hook 'c++-mode-hook 'irony-mode)
+      (add-hook 'c-mode-hook 'irony-mode)
+      (add-hook 'objc-mode-hook 'irony-mode)
+      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+    (use-package irony-eldoc
+      :config (add-hook 'irony-mode-hook #'irony-eldoc))
+#+end_src
+*** Solidity
+For writing solidity:
+#+begin_src emacs-lisp
+  (use-package solidity-mode)
+  (use-package company-solidity)
+  (use-package solidity-flycheck
+    :init
+    (setq solidity-flycheck-solc-checker-active t))
+
+  (use-package flycheck
+    :init (global-flycheck-mode))
+#+end_src
+
 ** Projectile
 Manages projects and shit.
 #+begin_src emacs-lisp
@@ -403,6 +435,12 @@ Ivy is a pretty cool general program for displaying stuff:
     (interactive)
     (erc-tls :server "irc.libera.chat"
 	     :port   "6697"))
+
+
+  (defun efnet ()
+    (interactive)
+    (erc-tls :server "irc.prison.net"
+	     :port   "6697"))
 #+end_src
 ** Matrix
 #+begin_src emacs-lisp
@@ -456,6 +494,7 @@ Ivy is a pretty cool general program for displaying stuff:
       "f f" '(eglot-format :wk "Format code buffer")
       "i p c" '(prestonpan :wk "Connect to my IRC server")
       "i l c" '(liberachat :wk "Connect to libera chat server")
+      "i e c" '(efnet :wk "Connect to efnet chat server")
       "h m" '(woman :wk "Manual")
       "h i" '(info :wk "Info")
       "s m" '(proced :wk "System Manager")
