@@ -62,8 +62,9 @@ Who is the man behind ret2pop? How do you contact him? So many mysteries awaitâ€
 I wrote this website in org mode. For more information, see the [[file:README.org][README]]. Here is how I upload my
 website:
 #+begin_src shell :exports code :results silent
-git add .
-rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/
+  git add .
+  rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/
+  echo "asdf"
 #+end_src
 Then I run magit after.
 * Donate

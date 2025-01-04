@@ -1,4 +1,3 @@
-# -*- org-publish-use-timestamps-flag: nil; -*-
 #+title: Journal
 #+author: Preston Pan
 #+description: My journal entries
