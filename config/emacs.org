@@ -1,4 +1,4 @@
-#+TITLE: Emacs Configuration
+#+title: Emacs Configuration
 #+AUTHOR: Preston Pan
 #+DESCRIPTION: my personal emacs configuration for nixOS
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
@@ -12,6 +12,7 @@ emacs-lisp language only to configure variables for said packages, for the most 
 This section contains important UI elements and starting customization variables to make
 emacs work in a semi-sane way and make it not look ugly:
 #+begin_src emacs-lisp
+  (require 'tex-site)
   (pixel-scroll-precision-mode 1)
   (setq scroll-conservatively 101)
   (display-battery-mode 1)
@@ -35,9 +36,22 @@ emacs work in a semi-sane way and make it not look ugly:
   (add-hook 'text-mode-hook 'visual-line-mode)
   (and window-system (server-start))
   (setq debug-ignored-errors
-	(cons 'remote-file-error debug-ignored-errors))
+        (cons 'remote-file-error debug-ignored-errors))
   (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
+  (setq preview-default-option-list '("displaymath" "textmath" "graphics"))
+  (setq preview-image-type 'png)
+  (setq org-latex-pdf-process
+        '("xelatex -interaction=nonstopmode -output-directory=%o %f"))
+  (setq org-latex-preview-image-directory "/home/preston/.cache/ltximg/")
   (setq org-preview-latex-image-directory "/home/preston/.cache/ltximg/")
+  (setq-default line-spacing 2)
+  (setq org-startup-with-latex-preview t)
+  (setq-default org-startup-indented t
+  	      org-pretty-entities t
+  	      org-use-sub-superscripts "{}"
+  	      org-hide-emphasis-markers t
+  	      org-startup-with-inline-images t
+  	      org-image-actual-width '(300))
 
   (setq-default fill-column 100)
   (add-hook 'text-mode-hook #'auto-fill-mode)
@@ -47,57 +61,58 @@ emacs work in a semi-sane way and make it not look ugly:
   (setopt display-fill-column-indicator-column 100)
   (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
   (add-hook 'org-mode-hook #'display-fill-column-indicator-mode)
+  (setq TeX-engine 'xetex)
 
   (add-hook 'prog-mode-hook
-	    (lambda ()
-	      (setq prettify-symbols-alist
-		    '(("lambda" . ?λ)
-		      ("->"     . ?→)
-		      ("map"    . ?↦)
-		      ("/="     . ?≠)
-		      ("!="     . ?≠)
-		      ("=="     . ?≡)
-		      ("<="     . ?≤)
-		      (">="     . ?≥)
-		      ("&&"     . ?∧)
-		      ("||"     . ?∨)
-		      ("sqrt"   . ?√)
-		      ("..."    . ?…)))
-	      (prettify-symbols-mode)))
+    	  (lambda ()
+    	    (setq prettify-symbols-alist
+    		  '(("lambda" . ?λ)
+    		    ("->"     . ?→)
+    		    ("map"    . ?↦)
+    		    ("/="     . ?≠)
+    		    ("!="     . ?≠)
+    		    ("=="     . ?≡)
+    		    ("<="     . ?≤)
+    		    (">="     . ?≥)
+    		    ("&&"     . ?∧)
+    		    ("||"     . ?∨)
+    		    ("sqrt"   . ?√)
+    		    ("..."    . ?…)))
+    	    (prettify-symbols-mode)))
 
   (add-hook 'org-mode-hook (lambda ()
-			     (setq prettify-symbols-alist
-				   '(("#+begin_src" . ?)
-				     ("#+BEGIN_SRC" . ?)
-				     ("#+end_src" . ?)
-				     ("#+END_SRC" . ?)
-				     ("#+begin_example" . ?)
-				     ("#+BEGIN_EXAMPLE" . ?)
-				     ("#+end_example" . ?)
-				     ("#+END_EXAMPLE" . ?)
-				     ("#+header:" . ?)
-				     ("#+HEADER:" . ?)
-				     ("#+name:" . ?﮸)
-				     ("#+NAME:" . ?﮸)
-				     ("#+results:" . ?)
-				     ("#+RESULTS:" . ?)
-				     ("#+call:" . ?)
-				     ("#+CALL:" . ?)
-				     (":PROPERTIES:" . ?)
-				     (":properties:" . ?)
-				     ("lambda" . ?λ)
-				     ("->"     . ?→)
-				     ("map"    . ?↦)
-				     ("/="     . ?≠)
-				     ("!="     . ?≠)
-				     ("=="     . ?≡)
-				     ("<="     . ?≤)
-				     (">="     . ?≥)
-				     ("&&"     . ?∧)
-				     ("||"     . ?∨)
-				     ("sqrt"   . ?√)
-				     ("..."    . ?…))))
-	    (prettify-symbols-mode))
+    			   (setq prettify-symbols-alist
+    				 '(("#+begin_src" . ?)
+    				   ("#+BEGIN_SRC" . ?)
+    				   ("#+end_src" . ?)
+    				   ("#+END_SRC" . ?)
+    				   ("#+begin_example" . ?)
+    				   ("#+BEGIN_EXAMPLE" . ?)
+    				   ("#+end_example" . ?)
+    				   ("#+END_EXAMPLE" . ?)
+    				   ("#+header:" . ?)
+    				   ("#+HEADER:" . ?)
+    				   ("#+name:" . ?﮸)
+    				   ("#+NAME:" . ?﮸)
+    				   ("#+results:" . ?)
+    				   ("#+RESULTS:" . ?)
+    				   ("#+call:" . ?)
+    				   ("#+CALL:" . ?)
+    				   (":PROPERTIES:" . ?)
+    				   (":properties:" . ?)
+    				   ("lambda" . ?λ)
+    				   ("->"     . ?→)
+    				   ("map"    . ?↦)
+    				   ("/="     . ?≠)
+    				   ("!="     . ?≠)
+    				   ("=="     . ?≡)
+    				   ("<="     . ?≤)
+    				   (">="     . ?≥)
+    				   ("&&"     . ?∧)
+    				   ("||"     . ?∨)
+    				   ("sqrt"   . ?√)
+    				   ("..."    . ?…))))
+    	  (prettify-symbols-mode))
   (global-prettify-symbols-mode 1)
 #+end_src
 * Unicode
@@ -145,7 +160,7 @@ This is the configuration required to publish my website:
 	   :html-preamble-format (("en" "<p class=\"preamble\"><a href=\"/index.html\">home</a> | <a href=\"./index.html\">section main page</a></p><hr>")))
 	  ("website-static"
 	   :base-directory "~/org/website"
-	   :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|ico"
+	   :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|ico\\|asc\\|pub\\|webmanifest\\|xml"
 	   :publishing-directory "~/website_html/"
 	   :recursive t
 	   :publishing-function org-publish-attachment)
@@ -555,8 +570,8 @@ to Chromium if I have to:
 
 (setq search-engine-default "google")
 (setq eww-search-prefix "https://google.com/search?q=")
-(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "chromium")
-(setq browse-url-browser-function 'eww-browse-url)
+(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "firefox")
+;; (setq browse-url-browser-function "firefox")
 (add-hook 'eww-mode-hook
           (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
 #+end_src
@@ -628,7 +643,7 @@ Email in emacs can be done with Mu4e.
       (setq message-kill-buffer-on-exit t)
       (setq mu4e-compose-dont-reply-to-self t)
       (setq mu4e-change-filenames-when-moving t)
-      (setq mu4e-get-mail-command "mbsync prestonpan")
+      (setq mu4e-get-mail-command "mbsync ret2pop")
       (setq mu4e-compose-reply-ignore-address '("no-?reply" "ret2pop@gmail.com"))
       (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
 	    mu4e-update-interval 300                  ; seconds between each mail retrieval

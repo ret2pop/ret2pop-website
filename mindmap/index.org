@@ -8,7 +8,8 @@
 * Introducing: the Mindmap
 Do you want to know everything like me and be a smart person instead of dumb?
 Well, you've come to the right place! 👍
-
+* [[file:../graph_view/index.html][Graph View]]
+Everyone should experience the graph view of the wonderful *mindmap!!!!!*
 ** What is this?
 It's a place that hopes to explain *EVERYTHING!!*
 ** Isn't that unrealistic?
@@ -37,67 +38,75 @@ you to make a web of notes, something close to a wiki.
 No you don't. That being said, if you really want the list of all articles, here you go:
 @@html: <div class="links-page">@@
 #+begin_src shell :results output raw :exports both
-set -f
-IFS='
-'
-for f in $(ls | sort -r);
-do
-    if [[ "$f" == "index.org" || "$f" == "README.org" ]]; then
-        continue
-    fi
-    printf -- "- [[file:$f][$f]]\n"
-done
-unset IFS
-set +f
+  for f in *;
+  do
+      if [[ "$f" == "index.org" || "$f" == "README.org" || "$f" == *.png || "$f" == *.log ]]; then
+          continue
+      fi
+
+      if [ -d "$f" ]; then
+  	continue
+      fi
+
+      name="$(grep '^#+title:' "$f" | sed 's/^#+title:[[:space:]]*//')"
+      printf -- "- [[file:$f][$name]]\n"
+  done
 #+end_src
 
 #+RESULTS:
-- [[file:stack.org][stack.org]]
-- [[file:special relativity.org][special relativity.org]]
-- [[file:self-assembly.org][self-assembly.org]]
-- [[file:recursion.org][recursion.org]]
-- [[file:python.org][python.org]]
-- [[file:physics.org][physics.org]]
-- [[file:philosophy.org][philosophy.org]]
-- [[file:partial derivative.org][partial derivative.org]]
-- [[file:Newtonian mechanics.org][Newtonian mechanics.org]]
-- [[file:natural number.org][natural number.org]]
-- [[file:Maxwell's Equations.org][Maxwell's Equations.org]]
-- [[file:mathematics.org][mathematics.org]]
-- [[file:mass-spring system.org][mass-spring system.org]]
-- [[file:magnetostatics.org][magnetostatics.org]]
-- [[file:ltximg][ltximg]]
-- [[file:lrc_circuit_source.png][lrc_circuit_source.png]]
-- [[file:lrc_circuit.png][lrc_circuit.png]]
-- [[file:LRC circuit.org][LRC circuit.org]]
-- [[file:#LRC circuit.org#][#LRC circuit.org#]]
-- [[file:Lorentz Force.org][Lorentz Force.org]]
-- [[file:logic.org][logic.org]]
-- [[file:limit.org][limit.org]]
-- [[file:Legendre Transformation.org][Legendre Transformation.org]]
-- [[file:Lagrangian mechanics.org][Lagrangian mechanics.org]]
-- [[file:Kirchhoff's Laws.org][Kirchhoff's Laws.org]]
-- [[file:inverse square.org][inverse square.org]]
-- [[file:inheritance.org][inheritance.org]]
-- [[file:infinity.org][infinity.org]]
-- [[file:induction.org][induction.org]]
-- [[file:group.org][group.org]]
-- [[file:function.org][function.org]]
-- [[file:framework.org][framework.org]]
-- [[file:Fourier Transform.org][Fourier Transform.org]]
-- [[file:factorial.org][factorial.org]]
-- [[file:everything.org][everything.org]]
-- [[file:emergence.org][emergence.org]]
-- [[file:electrostatics.org][electrostatics.org]]
-- [[file:egoism.org][egoism.org]]
-- [[file:duality.org][duality.org]]
-- [[file:divergence theorem.org][divergence theorem.org]]
-- [[file:dirac delta.org][dirac delta.org]]
-- [[file:differential equation.org][differential equation.org]]
-- [[file:derivative.org][derivative.org]]
-- [[file:del operator.org][del operator.org]]
-- [[file:continuity equation.org][continuity equation.org]]
-- [[file:conservative force.org][conservative force.org]]
-- [[file:circuit_diagram.png][circuit_diagram.png]]
-- [[file:central force.org][central force.org]]
+- [[file:central force.org][central force]]
+- [[file:circuit analysis.org][circuit analysis]]
+- [[file:consequentialism.org][consequentialism]]
+- [[file:conservative force.org][conservative force]]
+- [[file:continuity equation.org][continuity equation]]
+- [[file:del operator.org][del operator]]
+- [[file:derivative.org][derivative]]
+- [[file:differential equation.org][differential equation]]
+- [[file:dirac delta.org][dirac delta]]
+- [[file:divergence theorem.org][divergence theorem]]
+- [[file:duality.org][duality]]
+- [[file:egoism.org][egoism]]
+- [[file:electrostatics.org][electrostatics]]
+- [[file:emergence.org][emergence]]
+- [[file:everything.org][everything]]
+- [[file:factorial.org][factorial]]
+- [[file:Fourier Transform.org][Fourier Transform]]
+- [[file:framework.org][framework]]
+- [[file:function.org][function]]
+- [[file:group.org][group]]
+- [[file:Heaviside Step Function.org][Heaviside Step Function]]
+- [[file:Hilbert Space.org][Hilbert Space]]
+- [[file:IAK.org][IAK]]
+- [[file:IEEDI.org][IEEDI]]
+- [[file:induction.org][induction]]
+- [[file:infinity.org][infinity]]
+- [[file:inheritance.org][inheritance]]
+- [[file:inner product space.org][inner product space]]
+- [[file:inverse square.org][inverse square]]
+- [[file:Kirchhoff's Laws.org][Kirchhoff's Laws]]
+- [[file:L_{2} space.org][L_{2} space]]
+- [[file:Lagrangian mechanics.org][Lagrangian mechanics]]
+- [[file:Laplace Transform.org][Laplace Transform]]
+- [[file:Legendre Transformation.org][Legendre Transformation]]
+- [[file:limit.org][limit]]
+- [[file:logic.org][logic]]
+- [[file:Lorentz Force.org][Lorentz Force]]
+- [[file:LRC circuit.org][LRC circuit]]
+- [[file:magnetostatics.org][magnetostatics]]
+- [[file:mathematics.org][mathematics]]
+- [[file:Maxwell's Equations.org][Maxwell's Equations]]
+- [[file:metric space.org][metric space]]
+- [[file:natural number.org][natural number]]
+- [[file:Newtonian mechanics.org][Newtonian mechanics]]
+- [[file:normed vector space.org][normed vector space]]
+- [[file:Ohm's Law.org][Ohm's Law]]
+- [[file:partial derivative.org][partial derivative]]
+- [[file:philosophy.org][philosophy]]
+- [[file:physics.org][physics]]
+- [[file:quantum mechanics.org][quantum mechanics]]
+- [[file:recursion.org][recursion]]
+- [[file:self-assembly.org][self-assembly]]
+- [[file:special relativity.org][special relativity]]
+- [[file:stack.org][stack]]
+- [[file:vector space.org][vector space]]
 @@html: </div>@@

@@ -2,21 +2,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
 
 body {
-  margin: 40px auto;
-  width: 700px;
-  max-width: 100%;
-  line-height: 1.6;
-  font-size: 16px;
-  background: #fffff4;
-  color: #3a1616;
-  padding: 0 10px;
-  font-size: 18px;
-  line-height: 28px;
-  font-family: "Lora";
-  font-weight: 500;
-  /* Smooth the font a little bit, it's a
+    margin: 40px auto;
+    width: 700px;
+    max-width: 100%;
+    line-height: 1.6;
+    font-size: 16px;
+    background: #fffff4;
+    color: #3a1616;
+    padding: 0 10px;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: "Lora";
+    font-weight: 500;
+    /* Smooth the font a little bit, it's a
          bit too bold on retina screens */
-  -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* --------------------------------------------------- */
@@ -24,43 +24,43 @@ body {
  animations*/
 /* --------------------------------------------------- */
 input {
-  padding: 10px 16px;
-  margin: 2px 0;
-  box-sizing: border-box;
-  border: 2px solid #dabebe;
-  border-radius: 6px;
-  background: #fffff4;
-  color: #3a1616;
-  font-size: 16px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  outline: none;
+    padding: 10px 16px;
+    margin: 2px 0;
+    box-sizing: border-box;
+    border: 2px solid #dabebe;
+    border-radius: 6px;
+    background: #fffff4;
+    color: #3a1616;
+    font-size: 16px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
 }
 input:focus {
-  border: 2px solid #3a1616;
+    border: 2px solid #3a1616;
 }
 
 /* --------------------------------------- */
 /* The button is very similar to the input */
 /* --------------------------------------- */
 .button {
-  background-color: #fffff4;
-  border: none;
-  color: black;
-  padding: 6px 14px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border: 2px solid #3a1616;
-  border-radius: 6px;
+    background-color: #fffff4;
+    border: none;
+    color: black;
+    padding: 6px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid #3a1616;
+    border-radius: 6px;
 }
 .button:hover {
-  background-color: #3a1616;
-  color: white;
+    background-color: #3a1616;
+    color: white;
 }
 
 /* ----------------------------------------------- */
@@ -70,207 +70,231 @@ input:focus {
 .isa_success,
 .isa_warning,
 .isa_error {
-  width: 90%;
-  margin: 10px 0px;
-  padding: 12px;
+    width: 90%;
+    margin: 10px 0px;
+    padding: 12px;
 }
 .isa_info {
-  color: #00529b;
-  background-color: #bde5f8;
+    color: #00529b;
+    background-color: #bde5f8;
 }
 .isa_success {
-  color: #4f8a10;
-  background-color: #dff2bf;
+    color: #4f8a10;
+    background-color: #dff2bf;
 }
 .isa_warning {
-  color: #9f6000;
-  background-color: #feefb3;
+    color: #9f6000;
+    background-color: #feefb3;
 }
 .isa_error {
-  color: #d8000c;
-  background-color: #ffd2d2;
+    color: #d8000c;
+    background-color: #ffd2d2;
 }
 h1,
 h2,
 h3 {
-  line-height: 1.2;
-  font-family: "Lora";
+    line-height: 1.2;
+    font-family: "Lora";
 }
 
 img {
-  max-width: 100%;
-  border-radius: 10px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 50%;
+    max-width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 50%;
 }
 
 /* --------------------------------------------- */
 /* Bold hover animations on links and clickables */
 /* --------------------------------------------- */
 a {
-  cursor: pointer;
-  color: #217ab7;
-  line-height: inherit;
-  transition: 0.14s;
+    cursor: pointer;
+    color: #217ab7;
+    line-height: inherit;
+    transition: 0.14s;
 }
 a:hover {
-  color: white;
-  background-color: #3297d3;
+    color: white;
+    background-color: #3297d3;
 }
 a:visited {
-  color: #43458b;
-  border-color: #43458b;
+    color: #43458b;
+    border-color: #43458b;
 }
 a:visited:hover {
-  color: white;
-  background-color: #9251ac;
+    color: white;
+    background-color: #9251ac;
 }
 
 pre {
-  font-family: "Inconsolata", monospace;
+    font-family: "Inconsolata", monospace;
 }
 
 ::selection {
-  color: white;
-  background: #ff4081;
+    color: white;
+    background: #ff4081;
 }
 
 #table-of-contents {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 250px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  font-size: 0px;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
-  border-right: 1px;
-  background: #133201;
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 250px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    font-size: 0px;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    border-right: 1px;
+    background: #133201;
 }
 
 #table-of-contents ul a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  display: block;
-  font-size: 15px;
-  color: black;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    font-size: 15px;
+    color: black;
 }
 
 #table-of-contents ul a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  display: block;
-  font-size: 15px;
-  color: white;
-  background-color: #133201;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    font-size: 15px;
+    color: white;
+    background-color: #133201;
 }
 
 
 #table-of-contents ul a:hover {
-  color: white;
-  background-color: #133201;
+    color: white;
+    background-color: #133201;
 }
 
 #table-of-contents ul a:visited {
-  color: white;
-  border-color: #133201;
+    color: white;
+    border-color: #133201;
 }
 
 #table-of-contents ul a:visited:hover {
-  color: white;
-  background-color: #133201;
+    color: white;
+    background-color: #133201;
 }
 
 #table-of-contents ul {
-  list-style-type: none;
-  padding-left: 0;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .content {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
 }
 
 .src,
 .example {
-  color: #cdd6f4;
-  background-color: #1e1e2e;
-  box-shadow:
-    rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    color: #cdd6f4;
+    background-color: #1e1e2e;
+    box-shadow:
+	rgba(0, 0, 0, 0.3) 0px 19px 38px,
+	rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 #postamble {
-  text-align: center;
+    text-align: center;
 }
 
 pre.src-stem:before {
-  content: "Stem";
+    content: "Stem";
 }
 
 .links-page > ul {
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 }
 .theorem {
-display:block;
-margin-left:10px;
-margin-bottom:20px;
-font-style:normal;
+    display:block;
+    margin-left:10px;
+    margin-bottom:20px;
+    font-style:normal;
 }
 .theorem:before{
-content:"Theorem.\00a0\00a0";
-float:left;
-font-weight:bold;
+    content:"Theorem.\00a0\00a0";
+    float:left;
+    font-weight:bold;
 }
 .proof{
-display:block;
-margin-left:10px;
-margin-bottom:30px;
-font-style:normal;
+    display:block;
+    margin-left:10px;
+    margin-bottom:30px;
+    font-style:normal;
 }
 .proof:before{
-content:'Proof.\00a0\00a0';
-float:left;
-font-weight:bold;
+    content:'Proof.\00a0\00a0';
+    float:left;
+    font-weight:bold;
 }
 .proof:after{
-content:"\25FC";
-float:right;
+    content:"\25FC";
+    float:right;
+}
+blockquote {
+    width:60%;
+    margin:50px auto;
+    font-style:italic;
+    color: #555555;
+    padding:1.2em 30px 1.2em 75px;
+    border-left:8px solid #78C0A8 ;
+    line-height:1.6;
+    position: relative;
+    background:#EDEDED;
+}
+blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color:#78C0A8;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+blockquote::after{
+  content: '';
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
+    .sidenav {
+	padding-top: 15px;
+    }
+    .sidenav a {
+	font-size: 18px;
+    }
 }
 
 @media (max-width: 1250px) {
-  body {
-    margin: 20px auto;
-    font-size: 20px;
-  }
-  h1 {
-      font-size: 20px;
-  }
-  h2 {
-      font-size: 18px;
-  }
-  #table-of-contents {
-    display: none;
-  }
-  #table-of-contents ul a {
-    padding: 0px 0px 0px 0px;
-    text-decoration: none;
-  }
+    body {
+	margin: 20px auto;
+	font-size: 20px;
+    }
+    h1 {
+	font-size: 20px;
+    }
+    h2 {
+	font-size: 18px;
+    }
+    #table-of-contents {
+	display: none;
+    }
+    #table-of-contents ul a {
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+    }
 }

@@ -41,14 +41,17 @@ contact me on matrix at ~ret2pop:social.nullring.xyz~.
 My callsign is ~VE7PPN~.
 *** Linkedin
 You can see my [[https://ca.linkedin.com/in/preston-pan-4aa635296][personal linkedin profile]].
+*** How Old am I?
+born in 12/23/2005, but does it really matter?
 ** Keys
 This is for all my public keys that are important. Note: for cryptocurrency public keys, see
 [[file:index.org][the index]] page with all my addresses. Use either your own self hosted scanner, or another
 public scanner to get my public keys.
 - This is [[file:public-key.asc][my gpg public key for ret2pop]].
 - This is [[file:id_ed25519.pub][my ssh key]].
+* Feeds
+RSS (and Atom feeds) are ways of keeping up-to-date in a minimal and universal way.
+- [[https://git.nullring.xyz/ret2pop-website.git/?format=atom][Website Cgit repo atom feed]]
+
 * Professional
 Here you can find [[file:./resume2.pdf][my resume]], which contains it all. I am always open for new job opportunities!
-
-* How Old am I?
-born in 12/23/2005, but does it really matter?

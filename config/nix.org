@@ -1,4 +1,4 @@
-#+TITLE: NixOS Configuration
+#+title: NixOS Configuration
 #+AUTHOR: Preston Pan
 #+Description: My NixOS configuration in full
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />

@@ -1,3 +1,4 @@
+(require 'tex-site)
 (pixel-scroll-precision-mode 1)
 (setq scroll-conservatively 101)
 (display-battery-mode 1)
@@ -23,7 +24,20 @@
 (setq debug-ignored-errors
       (cons 'remote-file-error debug-ignored-errors))
 (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 140)
+(setq preview-default-option-list '("displaymath" "textmath" "graphics"))
+(setq preview-image-type 'png)
+(setq org-latex-pdf-process
+      '("xelatex -interaction=nonstopmode -output-directory=%o %f"))
+(setq org-latex-preview-image-directory "/home/preston/.cache/ltximg/")
 (setq org-preview-latex-image-directory "/home/preston/.cache/ltximg/")
+(setq-default line-spacing 2)
+(setq org-startup-with-latex-preview t)
+(setq-default org-startup-indented t
+	      org-pretty-entities t
+	      org-use-sub-superscripts "{}"
+	      org-hide-emphasis-markers t
+	      org-startup-with-inline-images t
+	      org-image-actual-width '(300))
 
 (setq-default fill-column 100)
 (add-hook 'text-mode-hook #'auto-fill-mode)
@@ -33,57 +47,58 @@
 (setopt display-fill-column-indicator-column 100)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'org-mode-hook #'display-fill-column-indicator-mode)
+(setq TeX-engine 'xetex)
 
 (add-hook 'prog-mode-hook
-	  (lambda ()
-	    (setq prettify-symbols-alist
-		  '(("lambda" . ?λ)
-		    ("->"     . ?→)
-		    ("map"    . ?↦)
-		    ("/="     . ?≠)
-		    ("!="     . ?≠)
-		    ("=="     . ?≡)
-		    ("<="     . ?≤)
-		    (">="     . ?≥)
-		    ("&&"     . ?∧)
-		    ("||"     . ?∨)
-		    ("sqrt"   . ?√)
-		    ("..."    . ?…)))
-	    (prettify-symbols-mode)))
+  	  (lambda ()
+  	    (setq prettify-symbols-alist
+  		  '(("lambda" . ?λ)
+  		    ("->"     . ?→)
+  		    ("map"    . ?↦)
+  		    ("/="     . ?≠)
+  		    ("!="     . ?≠)
+  		    ("=="     . ?≡)
+  		    ("<="     . ?≤)
+  		    (">="     . ?≥)
+  		    ("&&"     . ?∧)
+  		    ("||"     . ?∨)
+  		    ("sqrt"   . ?√)
+  		    ("..."    . ?…)))
+  	    (prettify-symbols-mode)))
 
 (add-hook 'org-mode-hook (lambda ()
-			   (setq prettify-symbols-alist
-				 '(("#+begin_src" . ?)
-				   ("#+BEGIN_SRC" . ?)
-				   ("#+end_src" . ?)
-				   ("#+END_SRC" . ?)
-				   ("#+begin_example" . ?)
-				   ("#+BEGIN_EXAMPLE" . ?)
-				   ("#+end_example" . ?)
-				   ("#+END_EXAMPLE" . ?)
-				   ("#+header:" . ?)
-				   ("#+HEADER:" . ?)
-				   ("#+name:" . ?﮸)
-				   ("#+NAME:" . ?﮸)
-				   ("#+results:" . ?)
-				   ("#+RESULTS:" . ?)
-				   ("#+call:" . ?)
-				   ("#+CALL:" . ?)
-				   (":PROPERTIES:" . ?)
-				   (":properties:" . ?)
-				   ("lambda" . ?λ)
-				   ("->"     . ?→)
-				   ("map"    . ?↦)
-				   ("/="     . ?≠)
-				   ("!="     . ?≠)
-				   ("=="     . ?≡)
-				   ("<="     . ?≤)
-				   (">="     . ?≥)
-				   ("&&"     . ?∧)
-				   ("||"     . ?∨)
-				   ("sqrt"   . ?√)
-				   ("..."    . ?…))))
-	  (prettify-symbols-mode))
+  			   (setq prettify-symbols-alist
+  				 '(("#+begin_src" . ?)
+  				   ("#+BEGIN_SRC" . ?)
+  				   ("#+end_src" . ?)
+  				   ("#+END_SRC" . ?)
+  				   ("#+begin_example" . ?)
+  				   ("#+BEGIN_EXAMPLE" . ?)
+  				   ("#+end_example" . ?)
+  				   ("#+END_EXAMPLE" . ?)
+  				   ("#+header:" . ?)
+  				   ("#+HEADER:" . ?)
+  				   ("#+name:" . ?﮸)
+  				   ("#+NAME:" . ?﮸)
+  				   ("#+results:" . ?)
+  				   ("#+RESULTS:" . ?)
+  				   ("#+call:" . ?)
+  				   ("#+CALL:" . ?)
+  				   (":PROPERTIES:" . ?)
+  				   (":properties:" . ?)
+  				   ("lambda" . ?λ)
+  				   ("->"     . ?→)
+  				   ("map"    . ?↦)
+  				   ("/="     . ?≠)
+  				   ("!="     . ?≠)
+  				   ("=="     . ?≡)
+  				   ("<="     . ?≤)
+  				   (">="     . ?≥)
+  				   ("&&"     . ?∧)
+  				   ("||"     . ?∨)
+  				   ("sqrt"   . ?√)
+  				   ("..."    . ?…))))
+  	  (prettify-symbols-mode))
 (global-prettify-symbols-mode 1)
 
 (use-package unicode-fonts
@@ -99,28 +114,28 @@
 
 (require 'org-habit)
 (setq org-agenda-files (list "~/org/agenda.org"
-			     "~/org/notes.org"))
+			       "~/org/notes.org"))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-habit-preceding-days 1)
 
 (require 'ox-publish)
 (setq org-publish-project-alist
-      '(("website-org"
-	 :base-directory "~/org/website"
-	 :base-extension "org"
-	 :publishing-directory "~/website_html"
-	 :recursive t
-	 :publishing-function org-html-publish-to-html
-	 :headline-levels 4
-	 :html-preamble t
-	 :html-preamble-format (("en" "<p class=\"preamble\"><a href=\"/index.html\">home</a> | <a href=\"./index.html\">section main page</a></p><hr>")))
-	("website-static"
-	 :base-directory "~/org/website"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|ico"
-	 :publishing-directory "~/website_html/"
-	 :recursive t
-	 :publishing-function org-publish-attachment)
-	("website" :auto-sitemap t :components ("website-org" "website-static"))))
+	'(("website-org"
+	   :base-directory "~/org/website"
+	   :base-extension "org"
+	   :publishing-directory "~/website_html"
+	   :recursive t
+	   :publishing-function org-html-publish-to-html
+	   :headline-levels 4
+	   :html-preamble t
+	   :html-preamble-format (("en" "<p class=\"preamble\"><a href=\"/index.html\">home</a> | <a href=\"./index.html\">section main page</a></p><hr>")))
+	  ("website-static"
+	   :base-directory "~/org/website"
+	   :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|ico\\|asc\\|pub\\|webmanifest\\|xml"
+	   :publishing-directory "~/website_html/"
+	   :recursive t
+	   :publishing-function org-publish-attachment)
+	  ("website" :auto-sitemap t :components ("website-org" "website-static"))))
 ;; (setq org-export-html-postamble-format '(("en" "<p class=\"preamble\"><a href=\"../index.html\">previous page</a> | <a href=\"/index.html\">home</a></p>")))
 (setq org-html-postamble "Copyright © 2024 Preston Pan")
 
@@ -131,18 +146,18 @@ Otherwise, just insert the typed character."
   (if (eolp) (let (parens-require-spaces) (insert-pair)) (self-insert-command 1)))
 
 (add-hook 'org-mode-hook
-	    (lambda ()
-	      (define-key org-mode-map "\"" 'electric-pair)
-	      (define-key org-mode-map "(" 'electric-pair)
-	      (define-key org-mode-map "[" 'electric-pair)
-	      (define-key org-mode-map "{" 'electric-pair)))
+	      (lambda ()
+		(define-key org-mode-map "\"" 'electric-pair)
+		(define-key org-mode-map "(" 'electric-pair)
+		(define-key org-mode-map "[" 'electric-pair)
+		(define-key org-mode-map "{" 'electric-pair)))
 
 (add-hook 'prog-mode-hook
-	  (lambda ()
-	      (define-key prog-mode-map "\"" 'electric-pair)
-	      (define-key prog-mode-map "(" 'electric-pair)
-	      (define-key prog-mode-map "[" 'electric-pair)
-	      (define-key prog-mode-map "{" 'electric-pair)))
+	    (lambda ()
+		(define-key prog-mode-map "\"" 'electric-pair)
+		(define-key prog-mode-map "(" 'electric-pair)
+		(define-key prog-mode-map "[" 'electric-pair)
+		(define-key prog-mode-map "{" 'electric-pair)))
 (electric-pair-mode)
 
 (use-package lyrics-fetcher
@@ -159,12 +174,12 @@ Otherwise, just insert the typed character."
   (add-to-list 'yas-snippet-dirs "~/org/website/yasnippet/")
   (yas-global-mode 1))
 (add-hook 'org-mode-hook
-	(lambda () (yas-minor-mode)
-	    (yas-activate-extra-mode 'latex-mode)))
+	  (lambda () (yas-minor-mode)
+	      (yas-activate-extra-mode 'latex-mode)))
 
 (eval-after-load "company" '(add-to-list 'company-backends
-					 '(company-ispell company-capf company-irony
-							  company-yasnippet company-files)))
+					   '(company-ispell company-capf company-irony
+							    company-yasnippet company-files)))
 (add-hook 'after-init-hook 'global-company-mode)
 (use-package ispell
   :init
@@ -178,9 +193,9 @@ Otherwise, just insert the typed character."
 
 (org-babel-do-load-languages 'org-babel-load-languages
     '(
-	(shell . t)
-	(python . t)
-	(latex . t)
+	  (shell . t)
+	  (python . t)
+	  (latex . t)
     )
 )
 
@@ -231,11 +246,11 @@ Otherwise, just insert the typed character."
     (defun org-journal-file-header-func (time)
     "Custom function to create journal header."
     (concat
-      (pcase org-journal-file-type
-	(`daily "#+TITLE: Daily Journal\n#+STARTUP: showeverything\n#+DESCRIPTION: My daily journal entry\n#+AUTHOR: Preston Pan\n#+HTML_HEAD: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
-	(`weekly "#+TITLE: Weekly Journal\n#+STARTUP: folded")
-	(`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
-	(`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
+	(pcase org-journal-file-type
+	  (`daily "#+TITLE: Daily Journal\n#+STARTUP: showeverything\n#+DESCRIPTION: My daily journal entry\n#+AUTHOR: Preston Pan\n#+HTML_HEAD: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
+	  (`weekly "#+TITLE: Weekly Journal\n#+STARTUP: folded")
+	  (`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
+	  (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
 
   (setq org-journal-file-header 'org-journal-file-header-func)
   (setq org-journal-file-format "%Y%m%d.org")
@@ -302,10 +317,10 @@ Otherwise, just insert the typed character."
   (setq dashboard-set-init-info t)
   (setq dashboard-week-agenda t)
   (setq dashboard-items '((recents   . 5)
-		      (bookmarks . 5)
-		      (projects  . 5)
-		      (agenda    . 5)
-		      (registers . 5)))
+			(bookmarks . 5)
+			(projects  . 5)
+			(agenda    . 5)
+			(registers . 5)))
   :config
   (dashboard-setup-startup-hook))
 
@@ -345,18 +360,18 @@ Otherwise, just insert the typed character."
 (defun prestonpan ()
   (interactive)
   (erc-tls :server "nullring.xyz"
-	   :port   "6697"))
+	     :port   "6697"))
 
 (defun liberachat ()
   (interactive)
   (erc-tls :server "irc.libera.chat"
-	   :port   "6697"))
+	     :port   "6697"))
 
 
 (defun efnet ()
   (interactive)
   (erc-tls :server "irc.prison.net"
-	   :port   "6697"))
+	     :port   "6697"))
 
 (defun matrix-org ()
   (interactive)
@@ -423,8 +438,8 @@ Otherwise, just insert the typed character."
   (require 'llm-ollama)
   (with-eval-after-load 'llm-ollama)
   (setopt ellama-provider (make-llm-ollama
-	   :host "localhost"
-	   :chat-model "gemma:7b")))
+	     :host "localhost"
+	     :chat-model "gemma:7b")))
 
 (use-package elfeed
   :init
@@ -453,8 +468,8 @@ Otherwise, just insert the typed character."
 
 (setq search-engine-default "google")
 (setq eww-search-prefix "https://google.com/search?q=")
-(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "chromium")
-(setq browse-url-browser-function 'eww-browse-url)
+(setq browse-url-secondary-browser-function 'browse-url-generic browse-url-generic-program "firefox")
+;; (setq browse-url-browser-function "firefox")
 (add-hook 'eww-mode-hook
           (lambda () (local-set-key (kbd "y Y") #'eww-copy-page-url)))
 
@@ -465,8 +480,8 @@ Otherwise, just insert the typed character."
     (setq org-roam-directory (file-truename "~/org/website/mindmap"))
     (setq org-roam-capture-templates '(("d" "default" plain "%?"
     :target (file+head "${title}.org"
-	 "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
-      :unnarrowed t)))
+	   "#+title: ${title}\n#+author: Preston Pan\n#+html_head: <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\" />\n#+html_head: <script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n#+html_head: <script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>\n#+options: broken-links:t")
+	:unnarrowed t)))
     :config
     (org-roam-db-autosync-mode))
 
@@ -475,9 +490,9 @@ Otherwise, just insert the typed character."
     :hook (after-init . org-roam-ui-mode)
     :config
     (setq org-roam-ui-sync-theme t
-	  org-roam-ui-follow t
-	  org-roam-ui-update-on-save t
-	  org-roam-ui-open-on-start t))
+	    org-roam-ui-follow t
+	    org-roam-ui-update-on-save t
+	    org-roam-ui-open-on-start t))
 
 (use-package pinentry
   :init (setq epa-pinentry-mode `loopback)
@@ -494,10 +509,10 @@ Otherwise, just insert the typed character."
 (setq user-mail-address "preston@nullring.xyz")
 (setq user-full-name "Preston Pan")
 (setq sendmail-program "msmtp"
-    send-mail-function 'smtpmail-send-it
-    message-sendmail-f-is-evil t
-    message-sendmail-extra-arguments '("--read-envelope-from")
-    message-send-mail-function 'message-send-mail-with-sendmail)
+	send-mail-function 'smtpmail-send-it
+	message-sendmail-f-is-evil t
+	message-sendmail-extra-arguments '("--read-envelope-from")
+	message-send-mail-function 'message-send-mail-with-sendmail)
 
 (require 'smtpmail)
 (use-package mu4e
@@ -513,14 +528,14 @@ Otherwise, just insert the typed character."
   (setq message-kill-buffer-on-exit t)
   (setq mu4e-compose-dont-reply-to-self t)
   (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-get-mail-command "mbsync prestonpan")
+  (setq mu4e-get-mail-command "mbsync ret2pop")
   (setq mu4e-compose-reply-ignore-address '("no-?reply" "ret2pop@gmail.com"))
   (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
-	mu4e-update-interval 300                  ; seconds between each mail retrieval
-	mu4e-headers-auto-update t                ; avoid to type `g' to update
-	mu4e-view-show-images t                   ; show images in the view buffer
-	mu4e-compose-signature-auto-include nil   ; I don't want a message signature
-	mu4e-use-fancy-chars t))
+	    mu4e-update-interval 300                  ; seconds between each mail retrieval
+	    mu4e-headers-auto-update t                ; avoid to type `g' to update
+	    mu4e-view-show-images t                   ; show images in the view buffer
+	    mu4e-compose-signature-auto-include nil   ; I don't want a message signature
+	    mu4e-use-fancy-chars t))
 
 (use-package ivy-pass)
 

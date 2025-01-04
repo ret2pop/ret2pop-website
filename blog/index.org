@@ -21,23 +21,30 @@ Blog Articles:
 #+begin_src shell :results output raw :exports both
   for f in *;
   do
-      if [[ "$f" == "index.org" || "$f" == "img" ]]; then
-	  continue
+      if [[ "$f" == "index.org" || "$f" == "README.org" || "$f" == "emacs.el" ]]; then
+          continue
       fi
-      printf -- "- [[file:$f][$f]]\n"
+
+      if [ -d "$f" ]; then
+  	continue
+      fi
+
+      name="$(grep '^#+title:' "$f" | sed 's/^#+title:[[:space:]]*//')"
+      printf -- "- [[file:$f][$name]]\n"
   done
 #+end_src
 
 #+RESULTS:
-- [[file:automation.org][automation.org]]
-- [[file:cognition.org][cognition.org]]
-- [[file:crypto.org][crypto.org]]
-- [[file:machine_learning.org][machine_learning.org]]
-- [[file:nixos.org][nixos.org]]
-- [[file:private_keys.org][private_keys.org]]
-- [[file:stem.org][stem.org]]
-- [[file:tech-bros.org][tech-bros.org]]
-- [[file:voting.org][voting.org]]
-- [[file:you_dont_matter.org][you_dont_matter.org]]
+- [[file:automation.org][Automation, Hypocrisy, and Capitalism]]
+- [[file:cognition.org][Cognition]]
+- [[file:crypto.org][A Review of Cryptocurrency]]
+- [[file:horses.org][Stop Asking for Better Horses]]
+- [[file:machine_learning.org][Machine Learning is Here]]
+- [[file:nixos.org][You should use NixOS]]
+- [[file:private_keys.org][Passwords Are Obselete]]
+- [[file:stem.org][Stem]]
+- [[file:tech-bros.org][Tech Bros]]
+- [[file:voting.org][Representative Voting]]
+- [[file:you_dont_matter.org][You Don't Matter]]
 
 @@html: </div>@@

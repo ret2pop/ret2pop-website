@@ -44,14 +44,14 @@ Click the hyperlink to find out! In case you didn't see:
 * [[file:config/index.org][Configurations]]
 Most of my configurations/dotfiles for various programs are literate configurations, and I
 can therefore publish them. So I did! Configurations include:
-- doom emacs
-- QTile
-- QuteBrowser
+- EMacs
 - Elfeed
+- Qutebrowser
 â€¦and many more!
 * [[https://github.com/ret2pop][Projects]]
 My programming projects can be found on my github; other projects that do not directly pertain
 to my projects on github or need a more in-depth explanation are explained further in my blog.
+I also have a [[https://git.nullring.xyz][personal git server]] for those interested.
 * [[https://youtube.com/@ret2pop][Music and Media]]
 Most of the music that I have recorded can be found on my Youtube channel. Note that it will also
 contain other things that I filmed.
@@ -62,9 +62,8 @@ Who is the man behind ret2pop? How do you contact him? So many mysteries awaitâ€
 I wrote this website in org mode. For more information, see the [[file:README.org][README]]. Here is how I upload my
 website:
 #+begin_src shell :exports code :results silent
-  git add .
-  rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/
-  echo "asdf"
+git add .
+rsync -azvP --chmod="Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r" ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/
 #+end_src
 Then I run magit after.
 * Donate
@@ -73,12 +72,14 @@ it be used as a means of exchange? Probably not, but it's cool and free for me t
 ** XMR
 An anonymous form of ecash, the only one out of these that is actually being used for the purpose
 of currency (on the dark web):
+[[./img/monero.png]]
 #+begin_example
 88DQVgiowjJLwsHfTaNjNgJ9Wu4Pw9msie89M2fMrTVJeDEnzqwYMQjX9nAnEDegWrU9LsJdNYp5EKkzxT73DuD6EGa9eWf
 #+end_example
 ** ETH (And associated tokens)
 Utility in the form of smart contracts (which are perhaps useful for something important in the future),
 with first mover advantage in this regard:
+[[./img/eth.png]]
 #+begin_example
 0x135Ed80afB7Cd06E494e5Bb737Da8D4B23153480
 #+end_example
@@ -86,6 +87,7 @@ Note that this includes subprojects such as LINK which I find to have some value
 ** BTC
 The standard, and probably will continue to be used as a prediction market/speculative asset for the
 efficacy of other cryptocurrencies:
+[[./img/bitcoin.png]]
 #+begin_example
 bc1qaymk2ky8unwq7jdydjw6y9a5xr9z60mkds9ttq
 #+end_example

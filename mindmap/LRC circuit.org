@@ -115,7 +115,7 @@ Here is the circuit diagram for the LRC circuit with a voltage source:
 #+end_export
 
 #+CAPTION: LRC Circuit
-[[./lrc_circuit_source.png]]
+[[./img/lrc_circuit_source.png]]
 This new [[id:4be41e2e-52b9-4cd1-ac4c-7ecb57106692][differential equation]] looks like this:
 \begin{align*}
 [LD^{2} + RD + \frac{1}{C}]i(t) = V_{0}sin(\phi + 2\pi\omega t)

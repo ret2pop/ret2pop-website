@@ -1,0 +1,110 @@
+#+title: Stop Asking for Better Horses
+#+author: Preston Pan
+#+description: It doesn't happen instantly.
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+#+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
+#+language: en
+#+OPTIONS: broken-links:t
+
+* Times Never Change
+#+name: Henry Ford (allegedly)
+#+begin_quote
+If I had asked people what they wanted, they would have asked for better horses -- Henry Ford (Allegedly)
+#+end_quote
+Before his time, cars were nothing but a novelty item for people that could afford them.
+It's a simple idea, but it's what runs our world today. However, the democratization of information
+that the internet has blessed upon us has some side-effects that distort truth signals created
+by the market. Let's take a deep dive into the strange difference between what people /say is true/
+(i.e. "people want better horses!") versus what people /actually want/ (i.e. real demand or real
+risk taking).
+* You're Not Vested
+You (probably) are not an investor. You have no skin in the game, and you do not lose anything
+if your guess is wrong on the internet. Nobody will ultimately point out your mistake, because
+you're likely not important enough that your mistakes will be talked about. And, even for people
+that are, nobody will call them out on how wrong they are; people are too busy making their
+own opinions! So if you're not investor, it does no good to you if you think something is a bubble.
+In fact, if you /are/ an investor and have enough capital for what I'm suggesting, you should know
+about:
+** Information and Markets
+In a market, any relevant information that's not reflected in the price is an arbitrage opportunity.
+If you believe that some technology's fundamental value is zero (or low), you have a couple of
+options: shorting and puts (or some put spread). Of course, the common counterargument is that
+the market is irrational, so you'll just end up losing all your money if you buy puts. Well, you
+always have a choice of parameters. For instance, you can buy less puts and you can increase your
+amount OTM. If you have a couple million dollars, you could make a profit by buying one-week put
+options every week, while adjusting your parameters OTM. During a bubble, there are only two
+possibilities: either put options are not priced in, so as long as you continue to have capital
+there's always some risk exposure (isolating your thesis) that could allow you to make money, or
+the put options are priced in, in which case the fact that it's a bubble should be obvious from the
+EMH. Therefore, there's always a way to make money off of your twitter prediction! Will you? I
+believe that should be our measure of how much we should continue to believe in people on the
+internet.
+** Economists as Market Participants
+When economists predict a recession or predict a Ponzi scheme or bubble, why don't they participate
+in the market place? The government has essentially infinite capital; they could roll put options
+on their own economy if they wanted to. If the government is correct about a possible recession,
+then great: their bet in the market pays off, and it can use that bet to employ people and put
+them back to work. If the government is incorrect, more money flows into the private sector,
+strengthening the correct market actors and crippling the inefficient market actor. When economists
+make predictions, remember: they don't take risks like this, the government doesn't take risks like
+this in the same way market participants do. Therefore, this is my rule of thumb: /never/ trust
+/anyone/ that isn't vested in the market to tell you what's happening in the market, even
+/expert economists/. Economists can advise the government to short or to buy puts, basically
+participating in the market in the same way that regular market actors do. In this way, there is
+an inherent accountability/feedback mechanism.
+* The Internet is the Better Fax Machine
+People forget that the general sentiment at the time of the dot com bubble: while there were many
+people who were fanatics about the new technology, there were many skeptics, which all said the same
+thing: why do we need the internet when we already have [[https://www.laphamsquarterly.org/revolutions/miscellany/paul-krugmans-poor-prediction][fax machines]]? Often, they forget that
+they're /not/ market participants, and there's probably some underlying /reason/ why people are
+investing money at such a large volume. Of course, real bubbles exist, but it's no use in trying
+to distinguish fake bubbles from real bubbles if you're /not vested/. And, often, real bubbles
+are in part propped up by the government. In fact, if the government simply bought puts in the way
+outlined above, and they were correct, there would /be no bubbles/. Why do we need the internet?
+It's not for the economists to comment on, let alone the /average Joe/.
+* Blockchain is the Better (or Worse) Bank
+The same sentiment is currently being expressed by the public consciousness for blockchain
+technology. First, probably 80% of these people have never heard about smart contracts or how
+they work. I'm currently vested in blockchain, and I used to work in the industry. I can tell
+you a couple things about blockchain, but most of what I'll tell you is that most of the public
+is just /wrong/, like horribly wrong, most of the time. It's probably a common theme in most
+industries, but for blockchain, where on one hand there is a huge craze, and on the other there
+are people saying the technology is worth $0, it is even more so.
+
+Blockchain technology gives people incentives to agree on the state of some data so long as the
+native token is valuable, with possibly some state machine that manipulates this database of data.
+That's literally it. A lot of research into blockchain technology boils down to this, and its
+uses range from supply chain tracking to finance (which I think is the most realistic use-case).
+This isn't a debunk of common talking points, but what I can tell you is that for many use cases,
+if you didn't have the concept of blockchain, you'd almost have to reinvent it, but worse. That
+in and of itself makes the industry valuable, and given my "insider experience" (I didn't do that
+much but I was very much surrounded by world class experts), I can tell you that it's not all
+vaporware. And yet, despite all of these peoples' hard work, all their long hours and vision and
+clever insight, people have the audacity to say that the technology is equivalent to "a worse bank".
+* AI is the Better Autocomplete
+Now the new kid on the block is AI. Of course, people are already saying that this technology should
+be worth close to $0, or that this technology might be a net negative on society, when we haven't
+even seen 3 years worth of LLMs existing. People refuse to believe that these LLMs are developing
+emergent abilities, despite the [[https://cset.georgetown.edu/article/emergent-abilities-in-large-language-models-an-explainer/][clear evidence]] from LLM researchers suggesting so. People are out
+here still talking about next token prediction, meanwhile chain-of-thought reasoning and
+[[https://ai.meta.com/research/publications/large-concept-models-language-modeling-in-a-sentence-representation-space/][Large Concept Models]] are under way. The reason why we saw an explosion of narrative that
+"AI is just a better autocomplete" is specifically because people are resistant to change despite
+it being ultimately more demanded and better for them, in the same way people wanted
+/better horses/. When will the public learn to stop tracing the same loop?
+* Conclusion: Stop Asking for Better Horses
+Silicon Valley often reinvents the wheel in the early stages of large technology. However,
+clearly we see that investments into technology that on the surface are just "theoretically better
+horses" end up being completely different, and often more demanded and better products than the
+original. Of course there are real fuck-ups as well. See Enron and Theranos. But investors don't
+want to lose money; the government, on the other hand, won't leave people alone about regulations
+on the finance industry without showing us that it actually has better knowledge. And, it'd really
+be nice if the general public would stop expecting better horses, and then getting disappointed
+when they don't get them.
+

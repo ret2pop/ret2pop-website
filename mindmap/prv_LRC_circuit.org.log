@@ -1,0 +1,35 @@
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/nixos.org) (preloaded format=xelatex 1980.1.1)  3 JAN 2025 14:31
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**&xelatex prv_LRC_circuit.org.ini \nonstopmode\nofiles\PassOptionsToPackage{active,tightpage,auctex}{preview}\AtBeginDocument{\ifx\ifPreview\undefined\RequirePackage[displaymath,textmath,graphics]{preview}[2004/11/05]\fi} \input \detokenize{ "LRC circuit.org.tex" }
+(./prv_LRC_circuit.org.ini
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/tex/latex/mylatex/mylatex.ltx)) (/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/tex/latex/tools/.tex File ignored)
+No auxiliary output files.
+
+! I can't find file `"LRC circuit.org.tex"'.
+<inserted text>  "LRC circuit.org.tex" 
+                                       
+<*> ...\input \detokenize{ "LRC circuit.org.tex" }
+                                                  
+(Press Enter to retry, or Control-D to exit)
+Please type another input file name
+! Emergency stop.
+<inserted text>  "LRC circuit.org.tex" 
+                                       
+<*> ...\input \detokenize{ "LRC circuit.org.tex" }
+                                                  
+*** (job aborted, file error in nonstop mode)
+
+ 
+Here is how much of TeX's memory you used:
+ 39 strings out of 474773
+ 1168 string characters out of 5739028
+ 1917839 words of memory out of 5000000
+ 22285 multiletter control sequences out of 15000+600000
+ 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 13i,0n,22p,396b,12s stack positions out of 10000i,1000n,20000p,200000b,200000s
+No pages of output.

@@ -22,6 +22,7 @@ but I mostly just want to inform myself about technology subjects.
 *** [[https://www.wired.com/feed/tag/ai/latest/rss][Wired AI News]]
 Wired isn't too bad at covering science and technology.
 *** [[https://www.wired.com/feed/category/science/latest/rss][Wired Science]]
+Look above.
 *** [[https://feeds.washingtonpost.com/rss/politics?itid=lk_inline_manual_2][Washington Post Politics]]
 Politics is almost useless, but it helps with understanding what people are saying around me.
 *** [[https://news.ycombinator.com/rss][Hacker News]]
@@ -30,6 +31,7 @@ Hacker News!
 Credibility: misreported on ER EPR correspondence
 ** Podcasts :podcast:
 *** [[https://notrelated.xyz/rss][Not Related]] :lukesmith:
+This is a podcast by Luke Smith that talks about anything that he wants to.
 ** Forums :forum:
 ** Science Journals :journal:
 I like to get new information about recent studies related to technology.
@@ -47,4 +49,4 @@ UnHerd is one of the best, most interesting political podcasts, period, in my op
 about politics is kind of pointless.
 ** Misc.
 This is a section dedicated to everything that does not fit the above categories
-or is newly added from Qutebrowser with the xr keybinding.
+or is newly added from [[file:qutebrowser.org][Qutebrowser]] with the xr keybinding.
