@@ -48,10 +48,10 @@ can therefore publish them. So I did! Configurations include:
 - Elfeed
 - Qutebrowser
 …and many more!
-* [[https://github.com/ret2pop][Projects]]
-My programming projects can be found on my github; other projects that do not directly pertain
-to my projects on github or need a more in-depth explanation are explained further in my blog.
-I also have a [[https://git.nullring.xyz][personal git server]] for those interested.
+* [[https://git.nullring.xyz][Projects]]
+My programming projects can be found on my git server; other projects that do not directly pertain
+to my projects on git or need a more in-depth explanation are explained further in my blog.
+I also have a [[https://github.com/ret2pop][github]] for those interested.
 * [[https://youtube.com/@ret2pop][Music and Media]]
 Most of the music that I have recorded can be found on my Youtube channel. Note that it will also
 contain other things that I filmed.

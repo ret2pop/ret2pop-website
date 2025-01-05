@@ -28,8 +28,8 @@
 (setq preview-image-type 'png)
 (setq org-latex-pdf-process
       '("xelatex -interaction=nonstopmode -output-directory=%o %f"))
-(setq org-latex-preview-image-directory "/home/preston/.cache/ltximg/")
-(setq org-preview-latex-image-directory "/home/preston/.cache/ltximg/")
+(setq org-latex-preview-image-directory (expand-file-name "~/.cache/ltximg/"))
+(setq org-preview-latex-image-directory (expand-file-name "~/.cache/ltximg/"))
 (setq-default line-spacing 2)
 (setq org-startup-with-latex-preview t)
 (setq-default org-startup-indented t
@@ -136,7 +136,6 @@
 	   :recursive t
 	   :publishing-function org-publish-attachment)
 	  ("website" :auto-sitemap t :components ("website-org" "website-static"))))
-;; (setq org-export-html-postamble-format '(("en" "<p class=\"preamble\"><a href=\"../index.html\">previous page</a> | <a href=\"/index.html\">home</a></p>")))
 (setq org-html-postamble "Copyright © 2024 Preston Pan")
 
 (defun electric-pair ()
@@ -186,7 +185,7 @@ Otherwise, just insert the typed character."
   (setq ispell-program-name "aspell")
   (setq ispell-silently-savep t)
   (setq ispell-dictionary "en")
-  (setq ispell-alternate-dictionary "/home/preston/.local/share/my.dict"))
+  (setq ispell-alternate-dictionary "~/.local/share/dict"))
 
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
@@ -427,6 +426,7 @@ Otherwise, just insert the typed character."
     "s m" '(proced :wk "System Manager")
     "l p" '(list-processes :wk "List Emacs Processes")
     "m I" '(org-id-get-create :wk "Make org id")
+    "w r" '(writeroom-mode :wk "focus mode for writing")
     "y n s" '(yas-new-snippet :wk "Create new snippet")
     "u w" '((lambda () (interactive) (shell-command "rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/")) :wk "rsync website update")
     "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
@@ -434,7 +434,7 @@ Otherwise, just insert the typed character."
 
 (use-package ellama
   :init
-  (setopt ellama-sessions-directory "/home/preston/org/ellama/")
+  (setopt ellama-sessions-directory "~/org/ellama/")
   (require 'llm-ollama)
   (with-eval-after-load 'llm-ollama)
   (setopt ellama-provider (make-llm-ollama
@@ -506,7 +506,7 @@ Otherwise, just insert the typed character."
 ;;   (latex-preview-pane-enable))
 
 ;; SMTP settings:
-(setq user-mail-address "preston@nullring.xyz")
+(setq user-mail-address "ret2pop@gmail.com")
 (setq user-full-name "Preston Pan")
 (setq sendmail-program "msmtp"
 	send-mail-function 'smtpmail-send-it
@@ -551,8 +551,5 @@ Otherwise, just insert the typed character."
   (add-to-list 'emms-player-list 'emms-player-mpd)
 :config
   (emms-player-mpd-connect))
-
-(use-package stem-mode)
-(add-to-list 'auto-mode-alist '("\\.stem\\'" . stem-mode))
 
 (server-start)

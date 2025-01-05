@@ -42,8 +42,8 @@ emacs work in a semi-sane way and make it not look ugly:
   (setq preview-image-type 'png)
   (setq org-latex-pdf-process
         '("xelatex -interaction=nonstopmode -output-directory=%o %f"))
-  (setq org-latex-preview-image-directory "/home/preston/.cache/ltximg/")
-  (setq org-preview-latex-image-directory "/home/preston/.cache/ltximg/")
+  (setq org-latex-preview-image-directory (expand-file-name "~/.cache/ltximg/"))
+  (setq org-preview-latex-image-directory (expand-file-name "~/.cache/ltximg/"))
   (setq-default line-spacing 2)
   (setq org-startup-with-latex-preview t)
   (setq-default org-startup-indented t
@@ -165,7 +165,6 @@ This is the configuration required to publish my website:
 	   :recursive t
 	   :publishing-function org-publish-attachment)
 	  ("website" :auto-sitemap t :components ("website-org" "website-static"))))
-  ;; (setq org-export-html-postamble-format '(("en" "<p class=\"preamble\"><a href=\"../index.html\">previous page</a> | <a href=\"/index.html\">home</a></p>")))
   (setq org-html-postamble "Copyright © 2024 Preston Pan")
 #+end_src
 * Autopair
@@ -228,7 +227,7 @@ Company-mode! We need this to do autocomplete stuff.
     (setq ispell-program-name "aspell")
     (setq ispell-silently-savep t)
     (setq ispell-dictionary "en")
-    (setq ispell-alternate-dictionary "/home/preston/.local/share/my.dict"))
+    (setq ispell-alternate-dictionary "~/.local/share/dict"))
 #+end_src
 * Spelling
 #+begin_src emacs-lisp
@@ -515,6 +514,7 @@ Ivy is a pretty cool general program for displaying stuff:
       "s m" '(proced :wk "System Manager")
       "l p" '(list-processes :wk "List Emacs Processes")
       "m I" '(org-id-get-create :wk "Make org id")
+      "w r" '(writeroom-mode :wk "focus mode for writing")
       "y n s" '(yas-new-snippet :wk "Create new snippet")
       "u w" '((lambda () (interactive) (shell-command "rsync -azvP ~/website_html/ root@nullring.xyz:/usr/share/nginx/ret2pop/")) :wk "rsync website update")
       "h r r" '(lambda () (interactive) (org-babel-load-file (expand-file-name "~/org/website/config/emacs.org")))
@@ -526,7 +526,7 @@ competitive LLM that doesn't cost money.
 #+begin_src emacs-lisp
   (use-package ellama
     :init
-    (setopt ellama-sessions-directory "/home/preston/org/ellama/")
+    (setopt ellama-sessions-directory "~/org/ellama/")
     (require 'llm-ollama)
     (with-eval-after-load 'llm-ollama)
     (setopt ellama-provider (make-llm-ollama
@@ -620,37 +620,37 @@ Make LaTeX a litle better:
 ** Email
 Email in emacs can be done with Mu4e.
 #+begin_src emacs-lisp
-      ;; SMTP settings:
-    (setq user-mail-address "preston@nullring.xyz")
-    (setq user-full-name "Preston Pan")
-    (setq sendmail-program "msmtp"
-	send-mail-function 'smtpmail-send-it
-	message-sendmail-f-is-evil t
-	message-sendmail-extra-arguments '("--read-envelope-from")
-	message-send-mail-function 'message-send-mail-with-sendmail)
+  ;; SMTP settings:
+  (setq user-mail-address "ret2pop@gmail.com")
+  (setq user-full-name "Preston Pan")
+  (setq sendmail-program "msmtp"
+  	send-mail-function 'smtpmail-send-it
+  	message-sendmail-f-is-evil t
+  	message-sendmail-extra-arguments '("--read-envelope-from")
+  	message-send-mail-function 'message-send-mail-with-sendmail)
 
-    (require 'smtpmail)
-    (use-package mu4e
-      :init
-      (setq mu4e-drafts-folder "/Drafts")
-      (setq mu4e-sent-folder   "/Sent")
-      (setq mu4e-trash-folder  "/Trash")
-      (setq mu4e-attachment-dir  "~/Downloads")
-      (setq mu4e-view-show-addresses 't)
-      (setq mu4e-confirm-quit nil)
+  (require 'smtpmail)
+  (use-package mu4e
+    :init
+    (setq mu4e-drafts-folder "/Drafts")
+    (setq mu4e-sent-folder   "/Sent")
+    (setq mu4e-trash-folder  "/Trash")
+    (setq mu4e-attachment-dir  "~/Downloads")
+    (setq mu4e-view-show-addresses 't)
+    (setq mu4e-confirm-quit nil)
 
 
-      (setq message-kill-buffer-on-exit t)
-      (setq mu4e-compose-dont-reply-to-self t)
-      (setq mu4e-change-filenames-when-moving t)
-      (setq mu4e-get-mail-command "mbsync ret2pop")
-      (setq mu4e-compose-reply-ignore-address '("no-?reply" "ret2pop@gmail.com"))
-      (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
-	    mu4e-update-interval 300                  ; seconds between each mail retrieval
-	    mu4e-headers-auto-update t                ; avoid to type `g' to update
-	    mu4e-view-show-images t                   ; show images in the view buffer
-	    mu4e-compose-signature-auto-include nil   ; I don't want a message signature
-	    mu4e-use-fancy-chars t))
+    (setq message-kill-buffer-on-exit t)
+    (setq mu4e-compose-dont-reply-to-self t)
+    (setq mu4e-change-filenames-when-moving t)
+    (setq mu4e-get-mail-command "mbsync ret2pop")
+    (setq mu4e-compose-reply-ignore-address '("no-?reply" "ret2pop@gmail.com"))
+    (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
+  	    mu4e-update-interval 300                  ; seconds between each mail retrieval
+  	    mu4e-headers-auto-update t                ; avoid to type `g' to update
+  	    mu4e-view-show-images t                   ; show images in the view buffer
+  	    mu4e-compose-signature-auto-include nil   ; I don't want a message signature
+  	    mu4e-use-fancy-chars t))
 #+end_src
 ** Password Manager
 I use ~pass~ in order to manage my passwords on linux, and this is an ivy frontend for it:
@@ -672,12 +672,6 @@ Set up emms in order to play music from my music directory:
     (add-to-list 'emms-player-list 'emms-player-mpd)
   :config
     (emms-player-mpd-connect))
-#+end_src
-** Stem
-My own programming language.
-#+begin_src emacs-lisp
-  (use-package stem-mode)
-  (add-to-list 'auto-mode-alist '("\\.stem\\'" . stem-mode))
 #+end_src
 ** Server
 So that emacsclient can connect.
