@@ -46,6 +46,39 @@ the put options are priced in, in which case the fact that it's a bubble should 
 EMH. Therefore, there's always a way to make money off of your twitter prediction! Will you? I
 believe that should be our measure of how much we should continue to believe in people on the
 internet.
+** Napkin Math
+Suppose we have a stock that's worth $100 and the intrinsic value is $1 (in the case of a couple
+of current assets said to be bubbles, for example bitcoin, this 100x difference is /nothing/, as
+people would like to believe that bitcoin is worth $0 -- just like Lehman brothers was in 2009).
+The market thinks there is a 1% chance that this asset will go to $1 in the next 10 years,
+whereas you, an intelligent investor, believe the real probability is 40% -- significantly higher
+than the market wisdom suggests. Because we (and the market) regularly believe in the EMH,
+we say that the market pricing for puts reflects the expected value of a put (in other words,
+market participants cannot gain money on average by trading puts under their own assumption
+that there is a 1% chance that in the next 10 years, there will be a $99 price drop).
+The average amount of time that you would need to wait in order for one of the contracts to take
+effect, given you're in the universe where the contract /does/ take effect would be 5 years, given
+that the probability that you wait $n$ years is uniform.
+
+$5 \cdot 52 = 260$ weeks, so in total, this operation would cost $260x$ on average, where $x$ is the
+price of the put share, given that the contract actually falls through. Your net revenue
+in this situation would be $99 - 260x$ per contact. If your share doesn't fall through,
+you will be paying $520x$ on average. Now to set up the expected value equation
+(which, using our simplified model, our expected value should be 0):
+\begin{align}
+\frac{99 - 260x}{100} - \frac{99 \cdot 520x}{100} = 0 \\
+\frac{99}{100} - 2.6x - \frac{514.8x} = 0 \\
+2.6x + 514.8x = .99 \\
+517.4x = .99 \\
+x = \frac{.99}{517.4} \\
+x = 0.0019
+\end{align}
+given these assumptions, put options should be priced around .2 cents per week. The rest
+is left up to an exercise to the reader, but needless to say, this is a huge positive EV. Even
+if it were 10 or 20 cents per week, you'd still have a huge positive EV. So even for "regular"
+multimillionaires, this plan is totally feasible. If you have an idea to make money, it is
+likely that at least one multimillionaire would listen to you, or is already doing exactly
+this (buying puts).
 ** Economists as Market Participants
 When economists predict a recession or predict a Ponzi scheme or bubble, why don't they participate
 in the market place? The government has essentially infinite capital; they could roll put options

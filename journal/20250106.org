@@ -1,0 +1,20 @@
+#+TITLE: Daily Journal
+#+STARTUP: showeverything
+#+DESCRIPTION: My daily journal entry
+#+AUTHOR: Preston Pan
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+html_head: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+html_head: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+#+options: broken-links:t
+* Monday, 06 January 2025
+** 20:54 
+Today, I'm very tired. I have a couple things that I wanted to do (i.e. update the nullring
+webpage), but I'm slow at doing this, and I think I'm going to have to automate it with
+Javascript. I'm not having the best day intellectually, but that's okay.
+
+I need to start doing other things soon. Either I will start actually programming, or I will
+focus on making more music and media. Either way, I'm sure it will come, and I don't need to
+think so much during bad days. My day otherwise wasn't actually that bad. I didn't feel
+super terrible, but it's a struggle to be consistent. That being said, I don't think consistency
+is the ultimate goal even if I want to be moreso. I just want to make sure I'm working towards
+my goals at the end of the day.
