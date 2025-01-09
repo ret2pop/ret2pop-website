@@ -14,10 +14,9 @@
 #+html_head: <meta name="theme-color" content="#ffffff">
 #+html_head: <meta name="viewport" content="width=1000; user-scalable=0;" />
 * Introduction
-This is my journal. It's basically my everyday life from
-a technology perspective (not many personal details although
-there will be some). I will also be posting some TODOs that I have
-throughout time.
+This is my journal. It's basically my everyday life, or at least the part that I can make public
+(not many personal details although there will be some). I will also be posting some TODOs that
+I have throughout time.
 
 ** Entries
 @@html: <div class="links-page">@@

@@ -1,0 +1,42 @@
+#+title: Agenda
+#+author: Preston Pan
+#+description: My public agenda for the next while.
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css" />
+#+language: en
+#+OPTIONS: broken-links:t
+#+date: <2025-01-09 Thu>
+#+html_head: <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+#+html_head: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+#+html_head: <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+#+html_head: <link rel="manifest" href="/site.webmanifest">
+#+html_head: <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+#+html_head: <meta name="msapplication-TileColor" content="#da532c">
+#+html_head: <meta name="theme-color" content="#ffffff">
+* Tasks
+These are general life tasks that I need to do, not following a schedule.
+** TODO Resume
+I need to update my resume with my work experience. Additionally, I want to re-write my resume
+in org mode.
+** NixOS Configuration
+*** TODO Gammastep
+Fix gammastep in my config so that it actually works on my dell machine.
+*** TODO VPS
+My VPS needs to be a NixOS configuration.
+** TODO Umami
+My client server protocol needs to continue to be written. I also need to make a git repository
+for it.
+** Music and Media
+*** TODO Write Another Song
+I want to write another song.
+** TODO Analogue Computer
+I want to make an analogue computer.
+* Friends
+These are tasks related to seeing my friends.
+** TODO Travis and Friends Meetup
+Eating dinner with them.
+SCHEDULED: <2025-01-12 Sun>
+* Groceries
+There will be a TODO when I need to get groceries.
+
+* TODO Dishes
+There will be a TODO when I need to do the dishes.

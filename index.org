@@ -55,6 +55,13 @@ I also have a [[https://github.com/ret2pop][github]] for those interested.
 * [[https://youtube.com/@ret2pop][Music and Media]]
 Most of the music that I have recorded can be found on my Youtube channel. Note that it will also
 contain other things that I filmed.
+* [[file:agenda.org][Agenda]]
+Here, you can view my public agenda. It contains scheduled meetings with friends, my groceries,
+current projects that are in progress, and my groceries. I also keep track of a private agenda,
+but of course that won't be kept in a public repository.
+
+I think that it's cool to automatically and transparently let people know what I'm up to, so you
+don't have to ask. Also, it gives me some motivation to do things if a part of my agenda is public.
 * [[file:about.org][About]]
 Who is the man behind ret2pop? How do you contact him? So many mysteries await…
 

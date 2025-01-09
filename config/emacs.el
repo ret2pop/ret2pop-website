@@ -118,7 +118,8 @@
 
 (require 'org-habit)
 (setq org-agenda-files (list "~/org/agenda.org"
-			       "~/org/notes.org"))
+			     "~/org/notes.org"
+			     "~/org/website/agenda.org"))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-habit-preceding-days 1)
 
