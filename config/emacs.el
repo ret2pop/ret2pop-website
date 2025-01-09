@@ -1,3 +1,7 @@
+(setq system-email "ret2pop@gmail.com")
+(setq system-username "prestonpan")
+(setq system-fullname "Preston Pan")
+
 (require 'tex-site)
 (pixel-scroll-precision-mode 1)
 (setq scroll-conservatively 101)
@@ -353,8 +357,8 @@ Otherwise, just insert the typed character."
 (use-package magit)
 
 (setq
- erc-nick "prestonpan"
- erc-user-full-name "Preston Pan")
+ erc-nick system-username
+ erc-user-full-name system-fullname)
 
 (defun prestonpan ()
   (interactive)
@@ -451,6 +455,29 @@ Otherwise, just insert the typed character."
   :config
   (elfeed-org))
 
+(use-package elfeed-tube
+  :after elfeed
+  :demand t
+  :config
+  ;; (setq elfeed-tube-auto-save-p nil) ; default value
+  ;; (setq elfeed-tube-auto-fetch-p t)  ; default value
+  (elfeed-tube-setup)
+
+  :bind (:map elfeed-show-mode-map
+         ("F" . elfeed-tube-fetch)
+         ([remap save-buffer] . elfeed-tube-save)
+         :map elfeed-search-mode-map
+         ("F" . elfeed-tube-fetch)
+         ([remap save-buffer] . elfeed-tube-save)))
+
+(use-package elfeed-tube-mpv
+  :bind (:map elfeed-show-mode-map
+              ("C-c C-f" . elfeed-tube-mpv-follow-mode)
+              ("C-c C-c" . elfeed-tube-mpv)
+              ("C-c C-w" . elfeed-tube-mpv-where)
+         :map elfeed-search-mode-map
+	        ("M" . elfeed-tube-mpv)))
+
 (use-package treemacs)
 (use-package treemacs-evil
   :after (treemacs evil))
@@ -506,8 +533,8 @@ Otherwise, just insert the typed character."
 ;;   (latex-preview-pane-enable))
 
 ;; SMTP settings:
-(setq user-mail-address "ret2pop@gmail.com")
-(setq user-full-name "Preston Pan")
+(setq user-mail-address system-email)
+(setq user-full-name system-fullname)
 (setq sendmail-program "msmtp"
 	send-mail-function 'smtpmail-send-it
 	message-sendmail-f-is-evil t
@@ -529,7 +556,7 @@ Otherwise, just insert the typed character."
   (setq mu4e-compose-dont-reply-to-self t)
   (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-get-mail-command "mbsync ret2pop")
-  (setq mu4e-compose-reply-ignore-address '("no-?reply" "ret2pop@gmail.com"))
+  (setq mu4e-compose-reply-ignore-address (list "no-?reply" system-email))
   (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
 	    mu4e-update-interval 300                  ; seconds between each mail retrieval
 	    mu4e-headers-auto-update t                ; avoid to type `g' to update

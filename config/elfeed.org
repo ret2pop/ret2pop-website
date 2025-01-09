@@ -38,7 +38,9 @@ I like to get new information about recent studies related to technology.
 *** [[http://www.nature.com/nmat/current_issue/rss/][Nature]]
 Nature is a prestigious journal with a good bit of good content.
 ** YouTube :youtube:
-These are YouTube channels that I find interesting enough to keep up with:
+These are YouTube channels that I find interesting enough to keep up with. Note that I keep
+up with a variety of thinkers that I may or may not disagree with, but they are nonetheless
+the most intellectual version of what their general cohort say:
 *** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC7_gcs09iThXybpVgjHZ_7g][PBS Space Time]]
 PBS space time is a channel that discusses various (sometimes cutting edge) topics in Physics in an expert manner.
 I find that they are highly accurate, and the host is highly educated in Physics.
@@ -47,6 +49,28 @@ ScienceClic is another YouTube channel that does an especially good job at cover
 *** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCMxiv15iK_MFayY_3fU9loQ][UnHerd]] :podcast:
 UnHerd is one of the best, most interesting political podcasts, period, in my opinion. Though, do note that learning
 about politics is kind of pointless.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC8oZG4c6FzOX4pbdpZBeCPw][Huey Li]]
+He's a comedian and kind of a China hater.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC554eY5jNUfDq3yDOJYirOQ][Destiny]]
+He debates people on various issues.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw][3blue1brown]]
+Makes really good educational videos. I hope to make videos like this one day.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCGSGPehp0RWfca-kENgBJ9Q][Jreg]]
+Makes good videos about basically anything.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA][Luke Smith]]
+Makes good videos about Linux and life stuff.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCSNBahoyPlMUz-3U2e_Czcw][Bridges]] :podcast:
+This podcast is run by Destiny, and it features good guests.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCdBXOyqr8cDshsp7kcKDAkg][Big A]]
+Marketing Monday features good economics content.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCTpmmkp1E4nmZqWPS-dl5bg][Quanta Magazine]]
+See above.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC5PPbhNfajmhPq7RvkMgVmw][Ceadda of Mercia]]
+Videos about NRx.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA][Mental Outlaw]]
+Linux videos.
+*** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCU1oodg2ptN51N5rwevwnng][Unlearning Economics]]
+Videos about economics from a Marxist perspective.
 ** Misc.
 This is a section dedicated to everything that does not fit the above categories
 or is newly added from [[file:qutebrowser.org][Qutebrowser]] with the xr keybinding.
